@@ -1,0 +1,40 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+}
+
+.dots {
+    padding: 0.5rem 0.6rem;
+    color: #666;
+    user-select: none;
+}
+
+.page-btn {
+    padding: 0.5rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+    background: white;
+    transition: all 0.2s ease;
+    min-width: 36px;
+    text-align: center;
+}
+
+.page-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.page-btn.active {
+     background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.page-btn.first,
+.page-btn.last {
+    font-weight: bold;
+}
