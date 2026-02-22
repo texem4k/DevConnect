@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+#profile-header {
+    width: 100%;
+    height: 80px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+#banner {
+    background-color: rgb(0, 0, 0);
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2%;
+    margin-top: -2%;
+}
+
+#profile-picture {
+    /*background-image: url("https://www.pngall.com/wp-content/uploads/5/Profile-PNG-High-Quality-Image.png");*/
+    /*background-size: cover;*/
+    background-color: wheat;
+    background-position: center;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.profile-name {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2em;
+}
+
+.profile-bio {
+    text-align: center;
+    font-size: 1.5em;
+    color: #666;
+}
