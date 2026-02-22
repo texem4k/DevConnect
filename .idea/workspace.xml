@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7f316b4-f9b4-4640-8805-644ea4dbc970" name="Changes" comment="Inicializar Proyecto" />
+    <list default="true" id="f7f316b4-f9b4-4640-8805-644ea4dbc970" name="Changes" comment="Template Footer y Banner Perfil Usuario añadido" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,23 +18,28 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "texem4k"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;texem4k&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/texem4k/DevConnect",
-    "accountId": "d1b65c3d-17a5-4f5a-826a-1c9f8988f7a3"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/texem4k/DevConnect&quot;,
+    &quot;accountId&quot;: &quot;d1b65c3d-17a5-4f5a-826a-1c9f8988f7a3&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="39wXyGwA6JzOBhUaYz7YGQX3NB1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -45,8 +53,9 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "disable.download.node.interpreter.editor.notification": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "sprint1",
     "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "G:/Mi unidad/Uni/3º Curso/PWM/DevConnect/src/templates/CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,6 +64,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Mi unidad\Uni\3º Curso\PWM\DevConnect\src\templates\CSS" />
+      <recent name="G:\Mi unidad\Uni\3º Curso\PWM\DevConnect\src\templates\HTML" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Mi unidad\Uni\3º Curso\PWM\DevConnect\src\templates\HTML" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -69,7 +87,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771608360838</updated>
-      <workItem from="1771608361853" duration="354000" />
+      <workItem from="1771608361853" duration="1490000" />
+      <workItem from="1771760471348" duration="1934000" />
     </task>
     <task id="LOCAL-00001" summary="Inicializar Proyecto">
       <option name="closed" value="true" />
@@ -79,14 +98,43 @@
       <option name="project" value="LOCAL" />
       <updated>1771608503459</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Estructuración del Repositorio">
+      <option name="closed" value="true" />
+      <created>1771608931213</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771608931213</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Template Footer y Banner Perfil Usuario añadido">
+      <option name="closed" value="true" />
+      <created>1771762370300</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1771762370300</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inicializar Proyecto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicializar Proyecto" />
+    <MESSAGE value="Estructuración del Repositorio" />
+    <MESSAGE value="Template Footer y Banner Perfil Usuario añadido" />
+    <option name="LAST_COMMIT_MESSAGE" value="Template Footer y Banner Perfil Usuario añadido" />
   </component>
 </project>
