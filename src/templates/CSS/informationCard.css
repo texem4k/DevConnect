@@ -1,0 +1,56 @@
+.cardLayout {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.informationCard {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 500px;
+}
+
+.cardImage img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cardContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cardContent h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.cardContent > p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.topicBox {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: #f8f9fa;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    display: inline-flex;
+}
+
+.topicBox p {
+    margin: 1px;
+}
