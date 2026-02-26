@@ -110,6 +110,7 @@ Justo debajo, estan los encargados del proyecto.
 
 A la derecha están todos los requisitos para participar en el proyecto,  
 así cómo un botón abajo para poder participar.  
+[🖼️ Ver Mockup](/mockups/Perfil_de_Proyecto.png)
 
 
 ### 2.8 Página de resultado de búsqueda
@@ -129,3 +130,5 @@ El cuerpo de la página es el resultado de la búsqueda de proyectos.
 Representan la creación de tickets por si surje algún problema y la presentación de la página web.  
 
 Son accesibles desde el footer.
+
+[🖼️ Ver Mockup](/mockups/Resultado_de_Busqueda.png)
