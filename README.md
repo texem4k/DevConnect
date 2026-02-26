@@ -69,7 +69,7 @@ Página dedicada al inicio de sesión. El cliente tendrá la posibilidad
 de crear una cuenta o de iniciar sesión.
 
 
-### 2.4 Página del perfil de usuario/gestión de perfil
+### 2.4 Página del [perfil de usuario](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Perfil%20de%20usuario.png)/[gestión de perfil](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestionar%20perfil.png)
 
 Página dedicada al perfil del usuario cómo a la gestión del mismo.  
 Se han incluido como uno ya que son distintas páginas pero con la misma organización.  
@@ -97,7 +97,7 @@ Además de mostrar los proyectos que aparecian en el perfil, aparecen todos los
 proyectos que tiene el usuario. Así cómo modificar información o eliminar algún proyecto.  
 
 
-### 2.7 Página del perfil de proyecto
+### 2.7 Página del [perfil de proyecto](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Perfil%20de%20Proyecto.png)
 
 Página dedicada al proyecto seleccioando, mostrando toda la información necesaria.  
 
@@ -109,11 +109,12 @@ y una breve descripción acerca del mismo.
 Justo debajo, estan los encargados del proyecto.  
 
 A la derecha están todos los requisitos para participar en el proyecto,  
-así cómo un botón abajo para poder participar.  
-[🖼️ Ver Mockup](/mockups/Perfil_de_Proyecto.png)
+así cómo un botón abajo para poder participar. 
 
 
-### 2.8 Página de resultado de búsqueda
+
+
+### 2.8 Página de [resultado de búsqueda](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Resultado%20de%20Busqueda.png)
 
 Página dedicada al resultado de búsqueda, sea usando la  
 barra de búsqueda o los filtros predeterminados.  
@@ -131,4 +132,3 @@ Representan la creación de tickets por si surje algún problema y la presentaci
 
 Son accesibles desde el footer.
 
-[🖼️ Ver Mockup](/mockups/Resultado_de_Busqueda.png)
