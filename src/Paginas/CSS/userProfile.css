@@ -1,0 +1,30 @@
+.profileInformationButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:4rem;
+    height: 4rem;
+    margin-bottom: 5rem;
+
+}
+
+.profileInformationButtons button{
+}
+
+.profileInformation{
+    width: 30%;
+    padding-right: 10rem;
+    border-right: 2px solid #ccc; /* línea a la izquierda */
+}
+
+.profileInformationDiv{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.divider{
+    height: 2rem;
+    width: 3px;
+    background: darkgrey;
+}
+

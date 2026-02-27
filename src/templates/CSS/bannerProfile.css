@@ -1,21 +1,13 @@
-*{
-    margin: 0;
-}
-
-#banner-profile {
-    background-color: rgb(0, 0, 0);
-    height: 300px;
+.profileContainer .bannerProfile {
+    background-color: gray;
+    min-height: 300px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2%;
-    margin-top: -2%;
 }
 
-#profile-picture {
-    /*background-image: url("https://www.pngall.com/wp-content/uploads/5/Profile-PNG-High-Quality-Image.png");*/
-    /*background-size: cover;*/
+.profileContainer .profilePicture {
     background-color: wheat;
     background-position: center;
     width: 170px;
@@ -24,10 +16,10 @@
     border: 2px solid rgb(255, 255, 255);
 }
 
-.profile-name {
+.profileContainer .profileName {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     font-family: Arial, sans-serif;
     color: #333;
 }
