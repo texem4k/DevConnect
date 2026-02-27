@@ -26,7 +26,7 @@ puntuado por los empleadores, así como un historial de proyectos en los que ha 
 
 ## 2. Mockups 
 
-### 2.1 Home
+### 2.1 Página de [Home](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Home.png)
 
 Es uno de los mockups más importantes en el sitio web. Se ha optado por un  
 diseño bastante genérico pero completo de información donde el usuario puede ir  
@@ -52,7 +52,7 @@ página de incidencias, e información sobre RR.SS.
 
 
 
-### 2.2 Página de registro
+### 2.2 Página de [registro de usuario](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Registrar%20Usuario.png)
 
 Es una página dedicada al registro del usuario en caso de que no tenga  
 cuenta. Es un formulario típico en el que debe escribir una serie de  
@@ -63,7 +63,7 @@ Sólo se puede acceder a esta página cuando el usuario no tenga cuenta.
 
 
 
-### 2.3 Página de Inicio de Sesión
+### 2.3 Página de [Inicio de Sesión](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Inicio%20Sesión.png)
 
 Página dedicada al inicio de sesión. El cliente tendrá la posibilidad  
 de crear una cuenta o de iniciar sesión.
@@ -82,14 +82,14 @@ en los que ha participado.
 
 
 
-### 2.5 Página de creación de proyectos
+### 2.5 Página de [creación de proyectos](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Creación%20de%20Proyecto.png)
 
 Página dedicada a la creación de un proyecto, accesible desde un botón en el header.  
 
 En esencia, es un formulario donde pide información fundamental acerca del proyecto.  
 Desde el nombre, descripción, requisitos, banner...
 
-### 2.6 Página de gestión de proyectos
+### 2.6 Página de [gestión de proyectos](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestión%20Proyectos.png)
 
 Página dedicada a la gestión de los proyectos del usuario, accesible desde el perfil de usuario.  
 
@@ -126,7 +126,7 @@ Cuenta con una barra lateral izquierda.
 El cuerpo de la página es el resultado de la búsqueda de proyectos.  
 
   
-### 2.9 Página del incidencias y presentación del sitio web
+### 2.9 Página de [gestión de incidencias](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestion%20de%20incidencias.png) y [presentación del sitio web](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Presentacion%20del%20web%20service.png)
 
 Representan la creación de tickets por si surje algún problema y la presentación de la página web.  
 
