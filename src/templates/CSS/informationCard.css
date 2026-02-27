@@ -1,7 +1,7 @@
 .cardLayout {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 0.75rem;
 }
 
 .informationCard {
@@ -13,6 +13,10 @@
     background: #fff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     max-width: 500px;
+}
+
+.informationCard:hover {
+    background: #ddd;
 }
 
 .cardImage img {
