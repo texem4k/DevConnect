@@ -9,6 +9,7 @@ header {
     align-items: center;
     padding: 1%;
     gap: 1rem;
+    width: 100%;
 }
 
 .header-left {
@@ -28,7 +29,7 @@ header {
 
 .dropdown {
     position: relative;
-    padding: 0 0px 0 10px;
+    padding: 0 0 0 10px;
 }
 
 .dropdown:hover {
@@ -63,7 +64,7 @@ header {
 .dropdown-content button {
     width: 100%;
     border-radius: 5px;
-    border-width: 0px;
+    border-width: 0;
     background-color: white;
 
 }
@@ -94,7 +95,6 @@ header {
 .search-wrapper input {
     width: 100%;
 
-    padding-right: 40px;
     height: 2.25rem;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -115,7 +115,7 @@ header {
 
 .header-home {
     height: 3rem;
-    padding: 0 50px 0 0px;
+    padding: 0 50px 0 0;
     align-content: center;
 }
 
