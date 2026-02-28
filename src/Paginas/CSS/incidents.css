@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.page {
+    max-width: 960px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* Título principal */
+.title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Formulario */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Campo genérico */
+.field {
+    width: 70%;               /* ancho parecido al mockup */
+    text-align: left;
+}
+
+.field-label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+/* Input */
+.field input {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: #d9d9d9;
+    border-radius: 0;
+}
+
+/* Textarea grande */
+.field-large textarea {
+    width: 100%;
+    height: 260px;            /* alto grande como en la imagen */
+    border: none;
+    background: #d9d9d9;
+    resize: none;
+    padding: 10px 12px;
+}
+
+/* Botón centrado */
+.submit-btn {
+    margin-top: 16px;
+    padding: 6px 22px;
+    border-radius: 16px;
+    border: none;
+    background: #d9d9d9;
+    cursor: pointer;
+    font-size: 12px;
+}
