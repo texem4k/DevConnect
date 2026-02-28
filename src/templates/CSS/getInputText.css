@@ -1,12 +1,12 @@
 #input label {
     display: block;
-    font-size: 12px;
-    margin-bottom: 6px;
+    font-size: 1rem;
+    margin-bottom: 0;
 }
 #input input {
     padding: 10px 12px 12px;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem ;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
     border: 1px solid #b0b0b0;
     border-radius: 8px;
     background: white;
