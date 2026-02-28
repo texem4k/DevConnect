@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <script src="../../xlu-include-file.js"></script>
+    <link rel="stylesheet" href="../CSS/userRegistration.css">
+    <link rel="stylesheet" href="../../templates/CSS/getInputText.css">
+    <link rel="stylesheet" href="../../templates/CSS/footer.css">
+</head>
+<body>
+    <header>
+        <button class="backButton">←</button>
+        <h1 class="title">Lorem Ipsum</h1>
+    </header>
+    <hr>
+    <form class="form">
+        <h2>Lorem Ipsum</h2>
+        <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+        <p class="description">Lorem Ipsum</p>
+
+        <section >
+            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+        </section>
+        <p class="description">Lorem Ipsum</p>
+
+        <h2>Lorem Ipsum</h2>
+        <section>
+            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+        </section>
+
+        <h2>Lorem Ipsum</h2>
+        <label>
+            <input type="radio" name="opción" value="1">
+            <span class="radio-circle"></span>
+            <span>Lorem ipsum dolor sit amet consectetur</span>
+        </label>
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium atque, dignissimos quisquam reiciendis vitae voluptatum! A accusamus aliquam delectus dolorem enim et eum eveniet ex exercitationem mollitia nam natus non obcaecati quasi rem repellat repellendus sit temporibus unde, vitae voluptatibus.</p>
+        <label class="radio-option">
+            <input type="radio" name="opción" value="2">
+            <span class="radio-circle"></span>
+            <span>Lorem ipsum dolor sit amet consectetur</span>
+        </label>
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores delectus ducimus id illum impedit incidunt ipsam libero, praesentium quae quia quis tempore unde vel! Adipisci autem cum dolore dolores eaque eligendi, et expedita in nemo officiis quisquam repellat reprehenderit ullam.</p>
+        <br>
+        <div class="search-container">
+            <label>
+                <input type="text" class="search-input" placeholder="Busca y selecciona...">
+            </label>
+            <div class="search-results">
+                <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>
+                <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>
+            </div>
+        </div>
+        <label for="fileInput" class="drop-area">
+            <p>Lorem ipsum.</p>
+            <input type="file" id="fileInput" accept="image/*" placeholder="Lorem Ipsum">
+        </label>
+
+        <div class="preview">
+            <img id="imagenPreview" src="" alt="">
+        </div>
+    </form>
+
+    <button class="endButton">Lorem Ipsum</button>
+
+    <footer xlu-include-file="../../templates/HTML/footer.html"></footer>
+
+</body>
+
+
+<script>
+
+    xLuIncludeFile()
+
+</script>
+</html>
