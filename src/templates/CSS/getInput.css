@@ -1,0 +1,13 @@
+#input label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+#input input {
+    padding: 10px 12px 12px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem ;
+    border: 1px solid #b0b0b0;
+    border-radius: 8px;
+    background: white;
+}
