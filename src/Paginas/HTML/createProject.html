@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creacion de proyecto</title>
+    <script src="../../xlu-include-file.js"></script>
+    <link rel="stylesheet" href="../CSS/createProject.css">
+    <link rel="stylesheet" href="../../templates/CSS/getInputText.css">
+    <link rel="stylesheet" href="../../templates/CSS/footer.css">
+</head>
+<body>
+<header>
+    <button class="backButton">←</button>
+    <h1 class="title">Lorem Ipsum</h1>
+</header>
+<main>
+    <form class="form">
+
+        <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+
+        <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+
+        <section class="dual-inputs">
+            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+        </section>
+
+        <section class="dual-inputs">
+            <div class="dateInputContainer">
+                <label class="dateInputWrapper">
+                    <p class="input-label">Lorem Ipsum</p>
+                    <input type="date" class="dateInput" placeholder=" ">
+                    <button type="button" class="calendar-btn">📅</button>
+                </label>
+            </div>
+            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+        </section>
+
+        <div class="tag-input-container">
+            <h2>Lorem Ipsum</h2>
+            <div class="tag-input-group">
+                <input type="text" class="tag-input" placeholder="Lorem Ipsum">
+                <button type="button" class="add-tag-btn">+</button>
+            </div>
+            <div class="tags-container"></div>
+        </div>
+
+        <div class="tag-input-container">
+            <h2>Lorem Ipsum</h2>
+            <div class="tag-input-group">
+                <input type="text" class="tag-input" placeholder="Lorem Ipsum">
+                <button type="button" class="add-tag-btn">+</button>
+            </div>
+            <div class="tags-container"></div>
+        </div>
+
+        <div class="image-upload-container">
+            <label class="small-upload-btn">
+                <input type="file" accept="image/*" class="file-input">
+            </label>
+            <div class="image-preview"></div>
+        </div>
+
+        <button class="btn-secondary">Lorem</button>
+
+    </form>
+</main>
+<footer xlu-include-file="../../templates/HTML/footer.html"></footer>
+</body>
+<script>
+    xLuIncludeFile()
+</script>
+</html>

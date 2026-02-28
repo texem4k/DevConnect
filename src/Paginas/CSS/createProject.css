@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+main{
+    padding-bottom: 4rem;
+}
+body {
+    background: #f4f4f4;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+footer{
+    padding: 0;
+}
+header {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.backButton:hover {
+    background: #ddd;
+}
+
+.form {
+    max-width: 50rem;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form > label,
+.dual-inputs label {
+    display: block;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+.search-input {
+    width: 100%;
+    height: 44px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: none;
+    background: #ddd;
+    font-size: 13px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus,
+.search-input:focus {
+    background: white;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.dual-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.dateInputWrapper {
+    position: relative;
+}
+
+.dateInput {
+    appearance: none;
+    padding-right: 40px;
+    cursor: pointer;
+    background-color: white;
+    color: #333;
+}
+.dateInput::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.calendar-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    padding-top: 0.3rem;
+    background: none;
+    cursor: pointer;
+    font-size: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.tag-input-container {
+    margin-bottom: 1rem;
+}
+
+.tag-input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tag-input-container h2 {
+    font-size: 1.17rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0.67em;
+    color: #333;
+}
+.tag-input-group input {
+    flex: 1;
+    height: 44px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: none;
+    background: #ddd;
+    font-size: 13px;
+    outline: none;
+}
+
+.tag-input-group input:focus {
+    background: white;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.tag-input-group button {
+    width: 44px;
+    border: none;
+    border-radius: 6px;
+    background: #ddd;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.tag-input-group button:hover {
+    background: #ccc;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 0.8rem;
+}
+
+.tag {
+    background: #e0e0e0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tag button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+.image-upload-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 16px;
+    margin-top: 1rem;
+}
+
+.small-upload-btn {
+    width: 40px;
+    height: 40px;
+    background: #ddd;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background 0.2s;
+}
+
+.small-upload-btn:hover {
+    background: #ccc;
+}
+
+.small-upload-btn input[type="file"] {
+    display: none;
+}
+
+.image-preview {
+    width: 18.75rem;
+    height: 9.375rem;
+    background: #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-secondary {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 1rem;
+    border: none;
+    background: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #f0f0f0;
+}
