@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     margin-top: 0.75rem;
+    height: 12rem;
+    width: 23rem;
 }
 
 .informationCard {
@@ -12,7 +14,7 @@
     border-radius: 12px;
     background: #fff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    max-width: 500px;
+    max-width: 400px;
 }
 
 .informationCard:hover {
@@ -20,8 +22,8 @@
 }
 
 .cardImage img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -34,13 +36,13 @@
 }
 
 .cardContent h1 {
-    font-size: 1.2rem;
+    font-size: 0.6rem;
     font-weight: 600;
     margin: 0;
 }
 
 .cardContent > p {
-    font-size: 0.95rem;
+    font-size: 0.7rem;
     line-height: 1.6;
     margin: 0;
 }

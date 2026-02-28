@@ -1,8 +1,7 @@
 .cardGrid {
-    background: #f5f5f5;
-    min-height: 100vh;
+    background: white;
+    min-height: 75vh;
     align-items: center;
-    padding: 2rem 1rem;
 }
 
 .cardGrid h1 {

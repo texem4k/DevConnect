@@ -1,20 +1,22 @@
 .profileInformationField{
     width: 100%;
-    height: 1.5rem;
+    height: 2rem;
     display: flex;
     background-color: lightgray;
     align-items: center;
+    border-radius: 15px;
 }
 
 .profileInformationTag {
     display: flex;
-    margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
 .profileInformationContainer {
-    width: 100%;
+    width: 80%;
     flex-direction: column;
-    margin-left: 3rem;
+}
 
+.profileInformationContainer p{
+    margin-left: 0.3rem;
 }
