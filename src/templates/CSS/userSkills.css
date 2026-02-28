@@ -7,12 +7,9 @@
     gap: 1rem;
 }
 
-.profileSkillField{
-    height: 2rem;
-    width: 8rem;
-    background: lightgrey;
+.skillButton {
     border-radius: 15px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    height: 2rem;
+    width: 6rem;
 }
+
