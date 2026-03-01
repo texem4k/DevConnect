@@ -33,7 +33,7 @@ puntuado por los empleadores, así como un historial de proyectos en los que ha 
 
 **2. Requisitos Funcionales**
 
-- **RF01 - Registro/Login:** El sistema permitirá a los usuarios registrarse mediante correo electrónico o cuenta de Google. Habiendo usuarios contratistas y usuarios devs que ofrecen servicios.
+- **RF01 - Registro/Login:** El sistema permitirá a los usuarios registrarse mediante correo electrónico y contraseña. Habiendo usuarios contratistas y usuarios devs que ofrecen servicios.
 - **RF02 - Creación de perfil de entidad** : Un usuario promedio o una empresa crea un perfil con su información
 - **RF03 - Catálogo:** Los empleadores podrán filtrar los desarrolladores disponibles por lenguajes y valoración.
 - **RF04 - Búsqueda:** El sitio incluirá un buscador predictivo en la barra superior.
