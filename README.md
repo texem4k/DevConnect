@@ -23,10 +23,28 @@ facilitando la búsqueda de profesionales y puestos de trabajo disponibles.
 Cada usuario (sea empresa o trabajador) tiene cierto rating en su perfil con el grado de satisfacción  
 puntuado por los empleadores, así como un historial de proyectos en los que ha participado.  
 
+## 2. Características base del sitio web
 
-## 2. Mockups 
+**1. Requisitos de Negocio**
 
-### 2.1 Página de [Home](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Home.png)
+- **Objetivo principal:** Lanzar un sitio web que permita a clientes contratar profesionales del desarrollo de código y mejorar la empleabilidad en el sector de manera remota.
+- **Alcance:** Catálogo de profesionales, profesionales favoritos.
+- **Público objetivo:** particulares del sector tecnológico, pequeñas y grandes empresas.
+
+**2. Requisitos Funcionales**
+
+- **RF01 - Registro/Login:** El sistema permitirá a los usuarios registrarse mediante correo electrónico o cuenta de Google. Habiendo usuarios contratistas y usuarios devs que ofrecen servicios.
+- **RF02 - Creación de perfil de entidad** : Un usuario promedio o una empresa crea un perfil con su información
+- **RF03 - Catálogo:** Los empleadores podrán filtrar los desarrolladores disponibles por lenguajes y valoración.
+- **RF04 - Búsqueda:** El sitio incluirá un buscador predictivo en la barra superior.
+- **RF05 - Creación de perfiles de un proyecto:** El contratista podrá crear “anuncios” con la información necesaria y los requisitos mínimos para un determinado proyecto.
+- **RF06 - Inscripción a proyectos:** Aquellos usuarios que quieran participar en el proyecto podrán inscribirse en los mismos a través de un botón si cumplen los requisitos mínimos.
+- **RF07 - Gestión de incidencias:** Aquellos usuarios que tengan algún problema o quieran comunicarse con nosotros, podrán hacerlo a través de una página dedicada indicando la razón de comunicación y una breve descripción de lo que desean.
+
+
+## 3. Mockups 
+
+### 3.1 Página de [Home](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Home.png)
 
 Es uno de los mockups más importantes en el sitio web. Se ha optado por un  
 diseño bastante genérico, pero completo de información donde el usuario puede ir  
@@ -55,7 +73,7 @@ página de incidencias, e información sobre RR.SS.
 
 
 
-### 2.2 Página de [registro de usuario](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Registrar%20Usuario.png)
+### 3.2 Página de [registro de usuario](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Registrar%20Usuario.png)
 
 Es una página dedicada al registro del usuario en caso de que no tenga  
 cuenta. Es un formulario típico en el que debe escribir una serie de  
@@ -67,7 +85,7 @@ Sólo se puede acceder a esta página cuando el usuario no tenga cuenta.
 - [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/CSS/userRegistration.css)
 
 
-### 2.3 Página de [Inicio de Sesión](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Inicio%20Sesión.png)
+### 3.3 Página de [Inicio de Sesión](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Inicio%20Sesión.png)
 
 Página dedicada al inicio de sesión. El cliente tendrá la posibilidad  
 de crear una cuenta o de iniciar sesión.
@@ -76,7 +94,7 @@ de crear una cuenta o de iniciar sesión.
 - [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/CSS/login.css)
 
 
-### 2.4 Página del [perfil de usuario](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Perfil%20de%20usuario.png)/[gestión de perfil](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestionar%20perfil.png)
+### 3.4 Página del [perfil de usuario](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Perfil%20de%20usuario.png)/[gestión de perfil](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestionar%20perfil.png)
 
 Página dedicada al perfil del usuario cómo a la gestión del mismo.  
 Se han incluido como uno, ya que son distintas páginas pero con la misma organización.  
@@ -95,7 +113,7 @@ en los que ha participado.
 - [Código CSS Gestión de Perfil](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/CSS/manageProfile.css)
 
 
-### 2.5 Página de [creación de proyectos](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Creación%20de%20Proyecto.png)
+### 3.5 Página de [creación de proyectos](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Creación%20de%20Proyecto.png)
 
 Página dedicada a la creación de un proyecto, accesible desde un botón en el header.  
 
@@ -105,7 +123,7 @@ Desde el nombre, descripción, requisitos, banner...
 - [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/HTML/createProject.html)
 - [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/CSS/createProject.css)
 
-### 2.6 Página de [gestión de proyectos](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestión%20Proyectos.png)
+### 3.6 Página de [gestión de proyectos](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestión%20Proyectos.png)
 
 Página dedicada a la gestión de los proyectos del usuario, accesible desde el perfil de usuario.  
 
@@ -115,7 +133,7 @@ proyectos que tiene el usuario. Así cómo modificar información o eliminar alg
 - [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/HTML/manageProject.html)
 - [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/CSS/manageProject.css)
 
-### 2.7 Página del [perfil de proyecto](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Perfil%20de%20Proyecto.png)
+### 3.7 Página del [perfil de proyecto](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Perfil%20de%20Proyecto.png)
 
 Página dedicada al proyecto seleccionado, mostrando toda la información necesaria.  
 
@@ -133,7 +151,7 @@ así cómo un botón abajo para poder participar.
 - [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/CSS/projectProfile.css)
 
 
-### 2.8 Página de [resultado de búsqueda](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Resultado%20de%20Busqueda.png)
+### 3.8 Página de [resultado de búsqueda](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Resultado%20de%20Busqueda.png)
 
 Página dedicada al resultado de búsqueda, sea usando la  
 barra de búsqueda o los filtros predeterminados.  
@@ -147,7 +165,7 @@ El cuerpo de la página es el resultado de la búsqueda de proyectos.
 - [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/HTML/searchResult.html)
 - [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint1/src/Paginas/CSS/searchResult.css)
   
-### 2.9 Página de [gestión de incidencias](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestion%20de%20incidencias.png) y [presentación del sitio web](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Presentacion%20del%20web%20service.png)
+### 3.9 Página de [gestión de incidencias](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestion%20de%20incidencias.png) y [presentación del sitio web](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Presentacion%20del%20web%20service.png)
 
 Representan la creación de tickets por si surge algún problema y la presentación de la página web.  
 
