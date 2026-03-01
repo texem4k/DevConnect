@@ -45,17 +45,8 @@ aside {
 }
 
 aside h3 {
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-bottom: 0.5rem;
-}
-
-.topics-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 3rem;
 }
 
 #inscription-button {
@@ -119,24 +110,6 @@ aside h3 {
     margin: 0;
 }
 
-.topicBox {
-    padding: 0.25rem 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    background: #f8f9fa;
-    font-size: 0.75rem;
-    white-space: nowrap;
-    display: inline-flex;
-}
-
-.topicBox p {
-    margin: 1px;
-}
-
 .cardGrid {
     margin-top: 5rem;
-}
-
-.topics-grid .topicBox:hover {
-    background-color: lightgray;
 }
