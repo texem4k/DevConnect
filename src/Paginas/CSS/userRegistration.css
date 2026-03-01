@@ -174,10 +174,10 @@ input[type="radio"]:checked + .radio-circle::after {
 
 .search-input {
     width: 100%;
-    padding: 10px 12px;          /* ← Igual que tus otros inputs */
+    padding: 10px 12px;
     border: none;
     border-radius: 6px;
-    background: #ddd;            /* ← Mismo gris que tus inputs */
+    background: #ddd;
     font-size: 13px;
     outline: none;
     transition: box-shadow 0.2s;
@@ -190,7 +190,7 @@ input[type="radio"]:checked + .radio-circle::after {
 
 .search-results {
     position: absolute;
-    top: calc(100% + 2px);       /* ← Justo debajo del input */
+    top: calc(100% + 2px);
     left: 0;
     right: 0;
     background: white;
@@ -209,7 +209,7 @@ input[type="radio"]:checked + .radio-circle::after {
 }
 
 .result-item {
-    padding: 10px 12px;          /* ← Compacto */
+    padding: 10px 12px;
     cursor: pointer;
     border-bottom: 1px solid #eee;
     transition: background 0.2s;
