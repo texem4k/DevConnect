@@ -23,7 +23,7 @@ facilitando la búsqueda de profesionales y puestos de trabajo disponibles.
 Cada usuario (sea empresa o trabajador) tiene cierto rating en su perfil con el grado de satisfacción  
 puntuado por los empleadores, así como un historial de proyectos en los que ha participado.  
 
-## 2. Características base del sitio web
+## 2. Definición de requisitos
 
 **1. Requisitos de Negocio**
 
