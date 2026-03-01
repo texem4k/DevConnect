@@ -90,3 +90,6 @@ main{
 .profileInformationDivDownload{
     display: inline-flex;
 }
+.userSkillsButton {
+    margin-bottom: 1rem;
+}

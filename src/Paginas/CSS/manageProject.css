@@ -28,3 +28,7 @@
 .button-container button:hover {
     background-color: lightgray;
 }
+
+.userSkillsButton {
+    margin-bottom: 1rem;
+}
