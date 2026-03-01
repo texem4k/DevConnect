@@ -42,6 +42,37 @@ header {
 .backButton:hover {
     background: #ddd;
 }
+.field {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.field-large textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: none;
+    background: #ddd;
+    font-size: 13px;
+    outline: none;
+    resize: vertical;
+    transition: all 0.2s ease;
+}
+
+.field-large textarea:focus {
+    background: white;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.field-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+}
 
 .form {
     max-width: 50rem;
