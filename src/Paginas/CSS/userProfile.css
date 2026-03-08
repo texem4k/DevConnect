@@ -37,7 +37,7 @@ main{
     position: relative;
     width: 35%;
     height: 85%;
-    padding-right: 10rem;
+    /*padding-right: 5rem;*/
     margin-right: 5rem;
     border-right: 3px solid #ccc;
     margin-left:5rem;
@@ -90,6 +90,7 @@ main{
 
 .profileInformationDivDownload{
     display: inline-flex;
+    margin-bottom: 1rem;
 }
 .userSkillsButton {
     margin-bottom: 1rem;

@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="../../templates/CSS/paginationComponent.css">
     <link rel="stylesheet" href="../../templates/CSS/footer.css">
     <link rel="stylesheet" href="../CSS/manageProject.css">
-    <script src="../../xlu-include-file.js"></script>
+    <script src="../JS/loadTemplate.js"></script>
 </head>
 <body>
-    <header xlu-include-file="../../templates/HTML/header.html"></header>
+    <header class="headerTemplate"></header>
     <div class="project-container">
-        <div class="projects" xlu-include-file="../../templates/HTML/mediaList.html"></div>
+        <div id="projects" class="mediaListTemplate"></div>
         <div class="button-container">
             <button>Lorem</button>
             <button>Lorem</button>
@@ -28,11 +28,7 @@
         </div>
     </div>
 
-    <nav xlu-include-file="../../templates/HTML/paginationComponent.html"></nav>
-    <footer xlu-include-file="../../templates/HTML/footer.html"></footer>
-
-    <script>
-        xLuIncludeFile();
-    </script>
+    <nav class="paginationComponentTemplate"></nav>
+    <footer class="footerTemplate"></footer>
 </body>
 </html>

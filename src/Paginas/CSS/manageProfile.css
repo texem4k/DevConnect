@@ -1,6 +1,8 @@
 .userDescription{
     justify-self: center;
     align-content: center;
+    padding-right: 5rem;
+
 }
 
 .userDescription textarea{
@@ -13,7 +15,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    margin-right: 5rem;
+    padding-right: 5rem;
 }
 .profileInformationDiv button{
     background: white;
@@ -24,7 +26,7 @@
 .profileInformationDiv input{
     height: 2rem;
     width: 80%;
-    padding: 10px 12px;
+    padding: 10px;
     border: 2px solid #b0b0b0;
     border-radius: 15px;
     background: white;

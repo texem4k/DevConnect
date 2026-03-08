@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devconnect | Conecta con los mejores del sector</title>
-
-    <script src="../../xlu-include-file.js"></script>
+        <script src="../JS/loadTemplate.js"></script>
     <link rel="stylesheet" href="../../templates/CSS/header.css">
     <link rel="stylesheet" href="../../templates/CSS/footer.css">
     <link rel="stylesheet" href="../../templates/CSS/bannerProfile.css">
@@ -18,9 +17,8 @@
 
     </head>
     <body>
-        <header xlu-include-file="../../templates/HTML/header.html">
-        </header>
-        <div xlu-include-file="../../templates/HTML/bannerProfile.html"></div>
+        <header class="headerTemplate"></header>
+        <div class="bannerProfileTemplate"></div>
         <section class="profileInformationButtons">
             <button class="profileInformationButtonManageProfile" type="button">Lorem Ipsum</button>
             <button class="profileButton" type="button">Lorem Ipsum</button>
@@ -38,12 +36,12 @@
 
 
             <section class="profileInformation">
-                <div class="profileInformationDiv" xlu-include-file="../../templates/HTML/userDataField.html"></div>
-                <div class="profileInformationDiv" xlu-include-file="../../templates/HTML/userDataField.html"></div>
-                <div class="profileInformationDiv" xlu-include-file="../../templates/HTML/userDataField.html"></div>
-                <div class="profileInformationDiv" xlu-include-file="../../templates/HTML/userDataField.html"></div>
-                <div class="userSkillsButton" xlu-include-file="../../templates/HTML/userSkills.html"></div>
-                <div class="userSkillsButton" xlu-include-file="../../templates/HTML/userSkills.html"></div>
+                <div class="profileInformationDiv userDataFieldTemplate"></div>
+                <div class="profileInformationDiv userDataFieldTemplate"></div>
+                <div class="profileInformationDiv userDataFieldTemplate"></div>
+                <div class="profileInformationDiv userDataFieldTemplate"></div>
+                <div class="userSkillsButton userSkillsTemplate"></div>
+                <div class="userSkillsButton userSkillsTemplate"></div>
                 <div class="profileInformationDivDownload">
                     <a href="" download style="font-size: 18px;">
                         Lorem Ipsum⬇️
@@ -51,16 +49,10 @@
                 </div>
 
             </section>
-            <section class="profileProjects" xlu-include-file="../../templates/HTML/cardsGrid.html"></section>
+            <section class="profileProjects cardsGridTemplate"></section>
 
 
         </main>
-        <footer xlu-include-file="../../templates/HTML/footer.html"></footer>
-
-        <script>
-
-        xLuIncludeFile();
-
-        </script>
+        <footer class="footerTemplate"></footer>
     </body>
 </html>

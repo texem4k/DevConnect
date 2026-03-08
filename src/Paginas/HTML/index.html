@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devconnect | Conecta con los mejores del sector</title>
 
-    <script src="../../xlu-include-file.js"></script>
+    <script src="../JS/loadTemplate.js"></script>
     <link rel="stylesheet" href="../../templates/CSS/header.css">
     <link rel="stylesheet" href="../../templates/CSS/footer.css">
     <link rel="stylesheet" href="../../templates/CSS/banner.css">
@@ -15,17 +15,16 @@
 
 </head>
 <body>
-<header xlu-include-file="../../templates/HTML/header.html">
-</header>
+<header class="headerTemplate"></header>
 <main>
-    <div class="banner" xlu-include-file="../../templates/HTML/banner.html"></div>
+    <div class="bannerTemplate"></div>
 
     <h2 class="introduction">Lorem ipsum dolor sit amet</h2>
 
     <section class="trendingUsers">
-        <div xlu-include-file="../../templates/HTML/informationCard.html"></div>
-        <div xlu-include-file="../../templates/HTML/informationCard.html"></div>
-        <div xlu-include-file="../../templates/HTML/informationCard.html"></div>
+        <div class="informationCardTemplate"></div>
+        <div class="informationCardTemplate"></div>
+        <div class="informationCardTemplate"></div>
     </section>
     <div class="discoverButton">
         <button type="button">Lorem Ipsum</button>
@@ -33,7 +32,7 @@
 
     <br><hr><br>
 
-    <div xlu-include-file="../../templates/HTML/mediaList.html"></div>
+    <div class="mediaListTemplate"></div>
 
     <div class="discoverButton">
         <button type="button">Lorem Ipsum</button>
@@ -41,12 +40,6 @@
 
 
 </main>
-<footer xlu-include-file="../../templates/HTML/footer.html"></footer>
-
+<footer class="footerTemplate"></footer>
 </body>
-<script>
-
-    xLuIncludeFile();
-
-</script>
 </html>

@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Creacion de proyecto</title>
-    <script src="../../xlu-include-file.js"></script>
+
+    <script src="../JS/loadTemplate.js"></script>
     <link rel="stylesheet" href="../CSS/createProject.css">
     <link rel="stylesheet" href="../../templates/CSS/getInputText.css">
     <link rel="stylesheet" href="../../templates/CSS/footer.css">
+
 </head>
 <body>
 <header>
@@ -16,7 +18,7 @@
 <main>
     <form class="form">
 
-        <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+        <label class="getInputTextTemplate"></label>
 
         <label class="field field-large">
             <span class="field-label">Lorem Ipsum</span>
@@ -24,8 +26,8 @@
         </label>
 
         <section class="dual-inputs">
-            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
-            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+            <label class="getInputTextTemplate"></label>
+            <label class="getInputTextTemplate"></label>
         </section>
 
         <section class="dual-inputs">
@@ -36,13 +38,13 @@
                     <button type="button" class="calendar-btn">📅</button>
                 </label>
             </div>
-            <label xlu-include-file="../../templates/HTML/getInputText.html"></label>
+            <label class="getInputTextTemplate"></label>
         </section>
 
         <div class="tag-input-container">
             <h2>Lorem Ipsum</h2>
             <div class="tag-input-group">
-                <input type="text" class="tag-input" placeholder="Lorem Ipsum">
+                <input type="text" class="tag-input" placeholder="Lorem Ipsum"></input>
                 <button type="button" class="add-tag-btn">+</button>
             </div>
             <div class="tags-container"></div>
@@ -51,7 +53,7 @@
         <div class="tag-input-container">
             <h2>Lorem Ipsum</h2>
             <div class="tag-input-group">
-                <input type="text" class="tag-input" placeholder="Lorem Ipsum">
+                <input type="text" class="tag-input" placeholder="Lorem Ipsum"></input>
                 <button type="button" class="add-tag-btn">+</button>
             </div>
             <div class="tags-container"></div>
@@ -68,9 +70,6 @@
 
     </form>
 </main>
-<footer xlu-include-file="../../templates/HTML/footer.html"></footer>
+<footer class="footerTemplate"></footer>
 </body>
-<script>
-    xLuIncludeFile()
-</script>
 </html>

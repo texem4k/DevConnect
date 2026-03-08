@@ -9,41 +9,37 @@
     <link rel="stylesheet" href="../CSS/projectProfile.css">
     <link rel="stylesheet" href="../../templates/CSS/topicsGrid.css">
     <link rel="stylesheet" href="../../templates/CSS/topicBoxBtn.css">
-    <script src="../../xlu-include-file.js"></script>
+    <script src="../JS/loadTemplate.js"></script>
 </head>
 <body>
-    <header xlu-include-file="../../templates/HTML/header.html"></header>
+<header class="headerTemplate"></header>
 
-    <img id="project-image" src="https://picsum.photos/1200/320?random=1" alt="Imagen Lorem Ipsum">
+<img id="project-image" src="https://picsum.photos/1200/320?random=1" alt="Imagen Lorem Ipsum">
 
-    <div class="overlay-text">
-        <h1>Lorem ipsum.</h1>
-        <a href="">Lorem ipsum</a>
-    </div>
+<div class="overlay-text">
+    <h1>Lorem ipsum.</h1>
+    <a href="">Lorem ipsum</a>
+</div>
 
-    <div class="page-layout">
+<div class="page-layout">
 
-        <main class="main-content">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur dolorem harum ipsum labore mollitia necessitatibus nihil. A ab accusantium dicta doloribus ducimus eum ex explicabo, fuga fugiat harum illo illum maiores minus necessitatibus perferendis placeat, provident quasi quia quis quos sed tenetur ullam veritatis. Dolore laboriosam possimus qui? Cumque ea illo natus possimus, ratione repudiandae voluptatem? Accusamus aut beatae consequuntur culpa, distinctio dolorum error eum facilis impedit incidunt iure iusto maiores officiis pariatur quasi repellat voluptate. Adipisci deserunt incidunt ipsa labore officiis quos rem repellendus temporibus voluptas. Deserunt esse ex impedit magnam odit praesentium quasi quod suscipit voluptates voluptatum?
-            </p>
+    <main class="main-content">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur dolorem harum ipsum labore mollitia necessitatibus nihil. A ab accusantium dicta doloribus ducimus eum ex explicabo, fuga fugiat harum illo illum maiores minus necessitatibus perferendis placeat, provident quasi quia quis quos sed tenetur ullam veritatis. Dolore laboriosam possimus qui? Cumque ea illo natus possimus, ratione repudiandae voluptatem? Accusamus aut beatae consequuntur culpa, distinctio dolorum error eum facilis impedit incidunt iure iusto maiores officiis pariatur quasi repellat voluptate. Adipisci deserunt incidunt ipsa labore officiis quos rem repellendus temporibus voluptas. Deserunt esse ex impedit magnam odit praesentium quasi quod suscipit voluptates voluptatum?
+        </p>
 
-            <div xlu-include-file="../../templates/HTML/cardsGrid.html"></div>
-        </main>
+        <div class="cardsGridTemplate"></div>
+    </main>
 
-        <aside>
-            <div xlu-include-file="../../templates/HTML/topicsGrid.html"></div>
-            <div xlu-include-file="../../templates/HTML/topicsGrid.html"></div>
+    <aside>
+        <div class="topicsGridTemplate"></div>
+        <div class="topicsGridTemplate"></div>
 
-            <h3>Lorem ipsum.</h3>
-            <button id="inscription-button">Lorem</button>
-        </aside>
+        <h3>Lorem ipsum.</h3>
+        <button id="inscription-button">Lorem</button>
+    </aside>
 
-    </div>
-    <footer xlu-include-file="../../templates/HTML/footer.html"></footer>
-
-    <script>
-        xLuIncludeFile();
-    </script>
+</div>
+<footer class="footerTemplate"></footer>
 </body>
 </html>

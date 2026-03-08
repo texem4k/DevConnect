@@ -67,6 +67,7 @@ button:hover {
 label {
     position: relative;
     margin-bottom: 32px;
+    cursor:text;
 }
 
 label p {

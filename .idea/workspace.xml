@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7f316b4-f9b4-4640-8805-644ea4dbc970" name="Changes" comment="Template Footer y Banner Perfil Usuario añadido" />
+    <list default="true" id="f7f316b4-f9b4-4640-8805-644ea4dbc970" name="Changes" comment="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/JS/loadTemplate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/aboutUs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/aboutUs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/manageProfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/userProfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userRegistration.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/userRegistration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/aboutUs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/aboutUs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/createProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/createProject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/incidents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/incidents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/manageProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/manageProject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/projectProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/projectProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/searchResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/searchResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/userProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userRegistration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/userRegistration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/cardsGrid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/cardsGrid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/informationCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/informationCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/mediaList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/mediaList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/topicsGrid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/topicsGrid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/userSkills.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/userSkills.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +60,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/texem4k/DevConnect&quot;,
+    &quot;url&quot;: &quot;https://github.com/texem4k/DevConnect.git&quot;,
     &quot;accountId&quot;: &quot;d1b65c3d-17a5-4f5a-826a-1c9f8988f7a3&quot;
   }
 }</component>
@@ -53,9 +80,10 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "disable.download.node.interpreter.editor.notification": "true",
-    "git-widget-placeholder": "sprint1",
+    "git-widget-placeholder": "sprint2",
+    "ignore.virus.scanning.warn.message": "true",
     "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "G:/Mi unidad/Uni/3º Curso/PWM/DevConnect/src/templates/CSS",
+    "last_opened_file_path": "G:/Mi unidad/Uni/3º Curso/PWM/Sprint 2/DevConnect",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,6 +98,7 @@
       <recent name="G:\Mi unidad\Uni\3º Curso\PWM\DevConnect\src\templates\HTML" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Mi unidad\Uni\3º Curso\PWM\Sprint 2\DevConnect\src\Paginas\JS" />
       <recent name="G:\Mi unidad\Uni\3º Curso\PWM\DevConnect\src\templates\HTML" />
     </key>
   </component>
@@ -89,6 +118,10 @@
       <updated>1771608360838</updated>
       <workItem from="1771608361853" duration="1490000" />
       <workItem from="1771760471348" duration="1934000" />
+      <workItem from="1772625076399" duration="3006000" />
+      <workItem from="1772816463795" duration="6221000" />
+      <workItem from="1772907862584" duration="9342000" />
+      <workItem from="1772966483149" duration="4400000" />
     </task>
     <task id="LOCAL-00001" summary="Inicializar Proyecto">
       <option name="closed" value="true" />
@@ -135,6 +168,7 @@
     <MESSAGE value="Inicializar Proyecto" />
     <MESSAGE value="Estructuración del Repositorio" />
     <MESSAGE value="Template Footer y Banner Perfil Usuario añadido" />
-    <option name="LAST_COMMIT_MESSAGE" value="Template Footer y Banner Perfil Usuario añadido" />
+    <MESSAGE value="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario" />
   </component>
 </project>

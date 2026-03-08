@@ -2,11 +2,11 @@
     box-sizing: border-box;
 }
 
-h1 {
+main h1 {
     text-align: center;
     margin: 1rem;
 }
 
-p {
+main p {
    margin: 0.5rem 15rem 2rem 15rem;
 }

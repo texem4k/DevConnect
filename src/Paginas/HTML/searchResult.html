@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="../../templates/CSS/mediaList.css">
     <link rel="stylesheet" href="../../templates/CSS/paginationComponent.css">
     <link rel="stylesheet" href="../../templates/CSS/footer.css">
-    <script src="../../xlu-include-file.js"></script>
+    <script src="../JS/loadTemplate.js"></script>
 </head>
 <body>
-    <header xlu-include-file="../../templates/HTML/header.html"></header>
+    <header class="headerTemplate"></header>
     <div id="main-layout">
         <aside>
             <h3>Lorem ipsum.</h3>
@@ -72,13 +72,10 @@
             </form>
         </aside>
         <div id="results">
-            <div xlu-include-file="../../templates/HTML/mediaList.html"></div>
-            <nav xlu-include-file="../../templates/HTML/paginationComponent.html"></nav>
+            <div class="mediaListTemplate"></div>
+            <nav class="paginationComponentTemplate"></nav>
         </div>
     </div>
-    <footer xlu-include-file="../../templates/HTML/footer.html"></footer>
-    <script>
-        xLuIncludeFile();
-    </script>
+    <footer class="footerTemplate"></footer>
 </body>
 </html>

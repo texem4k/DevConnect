@@ -9,9 +9,14 @@ hr {
     background: #ddd;
 }
 
-body {
+main {
     background: #f4f4f4;
-    margin: 0;
+    /*margin: 0;*/
+    margin-left:2rem;
+}
+
+main h2{
+    margin-bottom: 1rem;
 }
 
 
