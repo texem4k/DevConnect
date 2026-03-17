@@ -5,32 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7f316b4-f9b4-4640-8805-644ea4dbc970" name="Changes" comment="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario">
+      <change afterPath="$PROJECT_DIR$/src/Paginas/JS/footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Paginas/JS/header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Paginas/JS/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Paginas/JS/validations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/footer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/JS/loadTemplate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/aboutUs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/aboutUs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/manageProfile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/userProfile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userRegistration.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/userRegistration.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/aboutUs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/aboutUs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/createProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/createProject.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/incidents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/incidents.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/manageProfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/manageProject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/projectProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/projectProfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/searchResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/searchResult.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/userProfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userRegistration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/userRegistration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/cardsGrid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/cardsGrid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/HTML/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/informationCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/informationCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/mediaList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/mediaList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/topicsGrid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/topicsGrid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/userSkills.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/userSkills.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="tsconfig.json" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -72,26 +60,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "disable.download.node.interpreter.editor.notification": "true",
-    "git-widget-placeholder": "sprint2",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "G:/Mi unidad/Uni/3º Curso/PWM/Sprint 2/DevConnect",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;disable.download.node.interpreter.editor.notification&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Mi unidad/Uni/3º Curso/PWM/Sprint 2/DevConnect&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Mi unidad\Uni\3º Curso\PWM\DevConnect\src\templates\CSS" />
@@ -121,7 +109,16 @@
       <workItem from="1772625076399" duration="3006000" />
       <workItem from="1772816463795" duration="6221000" />
       <workItem from="1772907862584" duration="9342000" />
-      <workItem from="1772966483149" duration="4400000" />
+      <workItem from="1772966483149" duration="4550000" />
+      <workItem from="1773162562506" duration="5972000" />
+      <workItem from="1773263309473" duration="6715000" />
+      <workItem from="1773326963408" duration="7051000" />
+      <workItem from="1773421679441" duration="4693000" />
+      <workItem from="1773496628868" duration="7820000" />
+      <workItem from="1773591388786" duration="2416000" />
+      <workItem from="1773665403753" duration="4385000" />
+      <workItem from="1773767196928" duration="52000" />
+      <workItem from="1773767289422" duration="2076000" />
     </task>
     <task id="LOCAL-00001" summary="Inicializar Proyecto">
       <option name="closed" value="true" />
@@ -147,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771762370300</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario">
+      <option name="closed" value="true" />
+      <created>1772983404493</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1772983404493</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
