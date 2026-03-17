@@ -15,6 +15,8 @@
 
     </div>
 
+    <label id="ham-btn" class="hamburger">☰</label>
+
     <form class="search-form" role="search">
         <div class="search-wrapper">
             <input type="search" id="q" placeholder="Buscar…"></input>
@@ -27,3 +29,53 @@
         <button id="login-btn"></button>
     </nav>
 </header>
+
+<div class="sidebar-overlay" id="overlay"></div>
+
+<!-- Sidebar lateral -->
+<aside class="sidebar" id="sidebar" aria-label="Menú de navegación">
+
+    <button class="sidebar-close" id="close-btn" aria-label="Cerrar menú">✕</button>
+
+    <!-- Buscador duplicado para móvil -->
+    <div class="sidebar-search">
+        <input type="search" placeholder="Buscar…">
+    </div>
+
+    <!-- Dropdowns convertidos en acordeón -->
+    <nav class="sidebar-nav">
+        <details class="sidebar-accordion">
+            <summary>Menú 1</summary>
+            <div class="sidebar-accordion-content">
+                <button>Opción A</button>
+                <button>Opción B</button>
+            </div>
+        </details>
+        <details class="sidebar-accordion">
+            <summary>Menú 2</summary>
+            <div class="sidebar-accordion-content">
+                <button>Opción C</button>
+                <button>Opción D</button>
+            </div>
+        </details>
+        <details class="sidebar-accordion">
+            <summary>Menú 3</summary>
+            <div class="sidebar-accordion-content">
+                <button>Opción E</button>
+            </div>
+        </details>
+        <details class="sidebar-accordion">
+            <summary>Menú 4</summary>
+            <div class="sidebar-accordion-content">
+                <button>Opción F</button>
+            </div>
+        </details>
+    </nav>
+
+    <!-- Botones de header-right al fondo del sidebar -->
+    <div class="sidebar-actions">
+        <button id="sb-upload">Lorem ipsum.</button>
+        <button id="sb-login"></button>
+    </div>
+
+</aside>
