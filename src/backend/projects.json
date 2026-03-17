@@ -1,0 +1,72 @@
+{
+  "projects": [
+    {
+      "title": "ArrowTrack - app de seguimiento deportivo",
+      "creator": "Oliver Queen",
+      "isCompanyProject": true,
+      "image": "https://placehold.co/200x150",
+      "description": "Aplicación web y móvil para registrar entrenamientos, analizar rendimiento deportivo y compartir progresos con otros usuarios.",
+      "requirements": {
+        "technologies": ["React", "React Native", "Flutter", "Node.js", "MongoDB"],
+        "knowledgeAreas": [
+          "Conocimientos de desarrollo móvil (Flutter o React Native)",
+          "Experiencia con APIs REST",
+          "Interés en aplicaciones deportivas"
+        ],
+        "level": "Junior"
+      },
+      "maintainers": ["carlos_fitdev", "laura_backend"]
+    },
+    {
+      "title": "DarkTrace - plataforma de análisis de amenazas",
+      "creator": "Bruce Wayne",
+      "isCompanyProject": true,
+      "image": "https://placehold.co/200x150",
+      "description": "Plataforma orientada a analizar posibles amenazas de ciberseguridad mediante recopilación y análisis de datos de red.",
+      "requirements": {
+        "technologies": ["Go", "Python", "Wireshark", "PostgresSQL", "React"],
+        "knowledgeAreas": [
+          "Conocimientos de ciberseguridad",
+          "Experiencia con Python o Go",
+          "Conocimientos de análisis de datos"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": ["andres_security", "maria_threatintel", "pedro_backend"]
+    },
+    {
+      "title": "PhotoCloud - plataforma para subir y gestionar fotografías",
+      "creator": "Peter Parker",
+      "isCompanyProject": false,
+      "image": "https://placehold.co/200x150",
+      "description": "Aplicación web que permite subir, organizar y compartir fotografías en la nube con opciones de etiquetado y galerías públicas.",
+      "requirements": {
+        "technologies": ["Frontend","JavaScript", "React", "HTML", "CSS", "AWS S3", "Firebase Storage", "Node.js"],
+        "knowledgeAreas": [
+          "Conocimientos de JavaScript",
+          "Experiencia con almacenamiento en la nube",
+          "Interés en desarrollo frontend"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": []
+    },
+    {
+      "title": "JARVIS - asistente de inteligencia artificial",
+      "creator": "Tony Stark",
+      "isCompanyProject": true,
+      "image": "https://placehold.co/200x150",
+      "description": "Asistente virtual basado en inteligencia artificial capaz de responder preguntas, automatizar tareas y conectarse con distintos servicios.",
+      "requirements": {
+        "technologies": ["Python", "TensorFlow", "PyTorch", "NLTK", "spaCy", "OpenAI API", "Hugging Face Transformers", "FastAPI"],
+        "knowledgeAreas": [
+          "Experiencia con Python",
+          "Conocimientos de procesamiento de lenguaje natural",
+          "Experiencia con APIs de IA"
+        ],
+        "level": "Junior"
+      },
+      "maintainers": ["sofia_ai", "daniel_ml"]
+    }
+  ]
+}
