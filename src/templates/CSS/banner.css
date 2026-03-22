@@ -1,5 +1,6 @@
 #home-banner {
-    height: 60vh;
+    height: 35vh;
+    object-fit: cover;
     background-image: url(https://picsum.photos/900/500?random=1);
     background-position: center;
     background-repeat: no-repeat;
@@ -10,4 +11,10 @@
     text-align: center;
     color: white;
     padding: 0 2rem;
+}
+
+#home-banner h1 {
+    padding: 0 1rem 0 1rem;
+    background-color: black;
+    font-size: 4rem;
 }

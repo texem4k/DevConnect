@@ -13,6 +13,7 @@ async function loadDataUserProfile(){
     ]);
     const params = new URLSearchParams(window.location.search);
     let profileId = Number(params.get('id'));
+
     const loggedUserId = Number(sessionStorage.getItem("loggedUserId"));
     if (profileId === 0) {profileId = Math.floor(Math.random() * usersData.Users.length);} //Esto es apriori mientras no se gestione el usuario que visualiza la pagina
     const user = usersData.Users.find(p => p.Id === profileId);
@@ -26,7 +27,7 @@ async function presentacion(user, loggedUserId){
     document.querySelector(".profileName").textContent = user.Fullname;
     document.querySelector(".profileDescription p").textContent = user.Description;
     const buttons = document.querySelectorAll(".profileInformationButtons button");
-    if (user.id === loggedUserId) {
+    if (user.Id === loggedUserId) {
         buttons[0].style.display = "block";
         buttons[0].textContent = "Editar Perfil";
         buttons[0].addEventListener("click", () => {
