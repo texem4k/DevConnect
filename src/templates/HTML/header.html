@@ -2,30 +2,24 @@
     <div class="header-left">
         <nav class="header-home">
             <button id="home-btn"><a href=""></a></button>
-
         </nav>
-
-<!--        <nav xlu-include-file="../../templates/HTML/dropDown.html"></nav>-->
-<!--        <nav xlu-include-file="../../templates/HTML/dropDown.html"></nav>-->
-<!--        <nav xlu-include-file="../../templates/HTML/dropDown.html"></nav>-->
-<!--        <nav xlu-include-file="../../templates/HTML/dropDown.html"></nav>-->
         <nav class="dropDownTemplate"></nav>
         <nav class="dropDownTemplate"></nav>
         <nav class="dropDownTemplate"></nav>
         <nav class="dropDownTemplate"></nav>
-
     </div>
 
     <label id="ham-btn" class="hamburger">☰</label>
 
     <form class="search-form" role="search">
         <div class="search-wrapper">
-            <input type="search" id="q" placeholder="Buscar…"></input>
+            <input type="search" id="q" placeholder="Buscar…">
             <button type="submit" aria-label="Buscar">🔍</button>
         </div>
     </form>
 
     <nav class="header-right">
+        <button id="create-btn"><a href=""></a></button>
         <button id="upload-btn"><a href=""></a></button>
         <button id="login-btn"></button>
     </nav>
@@ -33,49 +27,36 @@
 
 <div class="sidebar-overlay" id="overlay"></div>
 
-<!-- Sidebar lateral -->
 <aside class="sidebar" id="sidebar" aria-label="Menú de navegación">
 
     <button class="sidebar-close" id="close-btn" aria-label="Cerrar menú">✕</button>
 
-    <!-- Buscador duplicado para móvil -->
     <div class="sidebar-search">
         <input type="search" placeholder="Buscar…">
     </div>
 
-    <!-- Dropdowns convertidos en acordeón -->
     <nav class="sidebar-nav">
         <details class="sidebar-accordion">
             <summary>Menú 1</summary>
-            <div class="sidebar-accordion-content">
-                <button>Opción A</button>
-                <button>Opción B</button>
-            </div>
+            <div class="sidebar-accordion-content"></div>
         </details>
         <details class="sidebar-accordion">
             <summary>Menú 2</summary>
-            <div class="sidebar-accordion-content">
-                <button>Opción C</button>
-                <button>Opción D</button>
-            </div>
+            <div class="sidebar-accordion-content"></div>
         </details>
         <details class="sidebar-accordion">
             <summary>Menú 3</summary>
-            <div class="sidebar-accordion-content">
-                <button>Opción E</button>
-            </div>
+            <div class="sidebar-accordion-content"></div>
         </details>
         <details class="sidebar-accordion">
             <summary>Menú 4</summary>
-            <div class="sidebar-accordion-content">
-                <button>Opción F</button>
-            </div>
+            <div class="sidebar-accordion-content"></div>
         </details>
     </nav>
 
-    <!-- Botones de header-right al fondo del sidebar -->
     <div class="sidebar-actions">
-        <button id="sb-upload">Lorem ipsum.</button>
+        <button id="sb-create"></button>
+        <button id="sb-upload"></button>
         <button id="sb-login"></button>
     </div>
 

@@ -7,6 +7,11 @@ header {
     width: 100%;
 }
 
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .header-left {
     display: flex;
     flex-wrap: nowrap;
@@ -35,7 +40,6 @@ header {
     padding: 0 1rem;
     height: 2rem;
     font-size: 1rem;
-
     background-color: transparent;
     border: none;
     color: white;
@@ -45,10 +49,8 @@ header {
     position: absolute;
     top: 100%;
     left: 0;
-
-    min_width: 100%;
+    min-width: 100%;
     border-radius: 5%;
-
     display: none;
     background: white;
     border: 1px solid #ccc;
@@ -61,7 +63,6 @@ header {
     border-radius: 5px;
     border-width: 0;
     background-color: white;
-
 }
 
 .dropdown-content button:hover {
@@ -78,7 +79,6 @@ header {
     max-width: 600px;
 }
 
-
 .search-form {
     flex: 1;
     display: flex;
@@ -86,17 +86,14 @@ header {
     min-width: 150px;
 }
 
-
 .search-wrapper input {
     width: 100%;
-
     height: 2.25rem;
     border-radius: 5px;
     border: 1px solid #ccc;
     padding: 0 50px 0 10px;
     outline: none;
 }
-
 
 .search-wrapper button {
     position: absolute;
@@ -111,7 +108,15 @@ header {
 .header-home {
     height: 3rem;
     padding: 0 50px 0 0;
-    align-content: center;
+    display: flex;
+    align-items: center;
+}
+.header-home a {
+    height: auto;
+    width: auto;
+    padding: 0.4rem 0.75rem;
+    display: flex;
+    align-items: center;
 }
 
 #home-btn {
@@ -119,31 +124,34 @@ header {
     width: 80%;
 }
 
-#upload-btn{
-    width: 1.8rem;
+#upload-btn {
+    width: auto;
     height: 1.8rem;
-    aspect-ratio: 1;
+    padding: 0 0.75rem;
+    white-space: nowrap;
 }
 
-#login-btn{
-    width: 3rem;
+#login-btn {
+    width: auto;
     height: 3rem;
-    aspect-ratio: 1;
-    padding: 0;
+    min-width: 3rem;
+    padding: 0 0.75rem;
     border: none;
-    border-radius: 50%;
+    border-radius: 50px;
 }
 
-.hamburger{
-    display:none;
-    font-size:2rem;
-    cursor:pointer;
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 .sidebar {
     position: fixed;
-    top: 0; left: 0;
-    width: 280px; height: 100%;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
     background: gray;
     z-index: 2001;
     transform: translateX(-100%);
@@ -154,12 +162,10 @@ header {
     overflow-y: auto;
 }
 
-/* Solo se muestra al añadir la clase .open */
 .sidebar.open {
     transform: translateX(0);
 }
 
-/* El overlay también oculto por defecto */
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -173,64 +179,37 @@ header {
     display: block;
 }
 
-@media (max-width: 768px){
 
-    header{
-        display:flex;
+@media (max-width: 768px) {
+
+    header {
+        display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
         padding: 0.5rem 1rem;
     }
 
-    /* ocultamos los menús grandes */
     .header-left,
-    .header-right{
-        display:none;
+    .header-right {
+        display: none;
     }
 
-    /* mostramos hamburguesa */
-    .hamburger{
+    .hamburger {
         color: white;
-        display:block;
-        font-size:2rem;
-        background:none;
-        border:none;
-        cursor:pointer;
+        display: block;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
         margin-right: 2rem;
     }
 
-    /* buscador más pequeño */
-    .search-form{
+    .search-form {
         flex-grow: 1;
         max-width: 30rem;
         margin-right: 1.5rem;
     }
-
-    /* ——— SIDEBAR ——— */
-    .sidebar-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.45);
-        z-index: 2000;
-    }
-    .sidebar-overlay.open { display: block; }
-
-    .sidebar {
-        position: fixed;
-        top: 0; left: 0;
-        width: 280px; height: 100%;
-        background: gray;
-        z-index: 2001;
-        transform: translateX(-100%);
-        transition: transform 0.28s ease;
-        display: flex;
-        flex-direction: column;
-        padding: 1rem 0;
-        overflow-y: auto;
-    }
-    .sidebar.open { transform: translateX(0); }
 
     .sidebar-close {
         align-self: flex-end;
@@ -243,11 +222,11 @@ header {
         margin-bottom: 0.5rem;
     }
 
-    /* Buscador dentro del sidebar */
     .sidebar-search {
         padding: 0 1rem 1rem;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
+
     .sidebar-search input {
         width: 100%;
         height: 2.25rem;
@@ -257,12 +236,14 @@ header {
         font-size: 14px;
     }
 
-    /* Dropdowns convertidos en acordeón */
-    .sidebar-nav { flex: 1; }
+    .sidebar-nav {
+        flex: 1;
+    }
 
     .sidebar-accordion {
-        border-bottom: 1px solid rgba(255,255,255,0.15);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
+
     .sidebar-accordion summary {
         list-style: none;
         color: white;
@@ -274,16 +255,29 @@ header {
         align-items: center;
         user-select: none;
     }
-    .sidebar-accordion summary::-webkit-details-marker { display: none; }
+
+    .sidebar-accordion summary::-webkit-details-marker {
+        display: none;
+    }
+
     .sidebar-accordion summary::after {
         content: '›';
         font-size: 1.2rem;
         transition: transform 0.2s;
     }
-    .sidebar-accordion[open] summary::after { transform: rotate(90deg); }
-    .sidebar-accordion summary:hover { background: rgba(255,255,255,0.1); }
 
-    .sidebar-accordion-content { background: rgba(0,0,0,0.2); }
+    .sidebar-accordion[open] summary::after {
+        transform: rotate(90deg);
+    }
+
+    .sidebar-accordion summary:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-accordion-content {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
     .sidebar-accordion-content button {
         display: block;
         width: 100%;
@@ -295,20 +289,29 @@ header {
         text-align: left;
         cursor: pointer;
     }
+
     .sidebar-accordion-content button:hover {
-        background: rgba(255,255,255,0.1);
+        background: rgba(255, 255, 255, 0.1);
         color: white;
     }
 
-    /* Acciones (upload + login) al fondo */
     .sidebar-actions {
         padding: 1rem 1.25rem;
         display: flex;
-        align-items: center;
-        gap: 1rem;
-        border-top: 1px solid rgba(255,255,255,0.2);
+        flex-direction: column;
+        gap: 0.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sidebar-actions button {
+        width: 100%;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        color: white;
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        text-align: left;
     }
 }
-
-
-

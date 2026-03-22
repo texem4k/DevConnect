@@ -1,160 +1,173 @@
-[
-  {
-    "id": 1,
-    "fullname": "Tony Stark",
-    "gmail": "gmail_user",
-    "description": "Soy ingeniero de software especializado en sistemas embebidos e inteligencia artificial. Me gusta diseñar soluciones tecnológicas complejas que integren hardware y software para crear sistemas automatizados eficientes.",
-    "topic": {
-      "Specialty": [
-        "Ingeniero de software",
-        "Sistemas embebidos",
-        "Arquitecto de IA"
+{
+  "Users": [
+    {
+      "Id": 1,
+      "Fullname": "Tony Stark",
+      "Gmail": "gmail_user",
+      "Description": "Soy ingeniero de software especializado en sistemas embebidos e inteligencia artificial. Me gusta diseñar soluciones tecnológicas complejas que integren hardware y software para crear sistemas automatizados eficientes.",
+      "Topic": {
+        "Specialty": [
+          "Ingeniero de software",
+          "Sistemas embebidos",
+          "Arquitecto de IA"
+        ],
+        "Language": [
+          "C++",
+          "Python",
+          "Rust"
+        ]
+      },
+      "Projects": [
+        {
+          "Name": "JARVIS - asistente de inteligencia artificial"
+        }
       ],
-      "Language": [
-        "C++",
-        "Python",
-        "Rust"
-      ]
+      "Avatar": "https://picsum.photos/200/220?random=1",
+      "Social": {
+        "Github": {
+          "Name": "github_username",
+          "Link": "https://github.com/"
+        },
+        "Twitter": {
+          "Name": "twitter_username",
+          "Link": "https://twitter.com/"
+        },
+        "Instagram": {
+          "Name": "instagram_username",
+          "Link": "https://www.instagram.com/"
+        },
+        "Linkedin": {
+          "Name": "linkedin_username",
+          "Link": "https://www.linkedin.com/"
+        }
+      },
+      "CV": "CV.pdf"
     },
-    "projects": [
-      "JARVIS - asistente de inteligencia artificial"
-    ],
-    "avatar": "https://picsum.photos/200/220?random=1",
-    "social": {
-      "Github": {
-        "name": "github_username",
-        "link": "https://github.com/"
+    {
+      "Id": 2,
+      "Fullname": "Peter Parker",
+      "Gmail": "gmail_user",
+      "Description": "Soy desarrollador full stack y trabajo principalmente con tecnologías JavaScript. Me interesa crear aplicaciones web escalables y bien estructuradas, cuidando tanto el rendimiento como la experiencia de usuario.",
+      "Topic": {
+        "Specialty": [
+          "Desarrollador Full Stack",
+          "Aplicaciones web escalables"
+        ],
+        "Language": [
+          "JavaScript",
+          "TypeScript",
+          "Node.js"
+        ]
       },
-      "Twitter": {
-        "name": "twitter_username",
-        "link": "https://twitter.com/"
-      },
-      "Instagram": {
-        "name": "instagram_username",
-        "link": "https://www.instagram.com/"
-      },
-      "Linkedin": {
-        "name": "linkedin_username",
-        "link": "https://www.linkedin.com/"
-      }
-    },
-    "CV": "CV.pdf"
-  },
-  {
-    "id": 2,
-    "fullname": "Peter Parker",
-    "gmail": "gmail_user",
-    "description": "Soy desarrollador full stack y trabajo principalmente con tecnologías JavaScript. Me interesa crear aplicaciones web escalables y bien estructuradas, cuidando tanto el rendimiento como la experiencia de usuario.",
-    "topic": {
-      "Specialty": [
-        "Desarrollador Full Stack",
-        "Aplicaciones web escalables"
+      "Projects": [
+        {
+          "Name": "PhotoCloud - plataforma para subir y gestionar fotografías"
+        }
       ],
-      "Language": [
-        "JavaScript",
-        "TypeScript",
-        "Node.js"
-      ]
+      "Avatar": "https://picsum.photos/200/220?random=2",
+      "Social": {
+        "Github": {
+          "Name": "github_username",
+          "Link": "https://github.com/"
+        },
+        "Twitter": {
+          "Name": "twitter_username",
+          "Link": "https://twitter.com/"
+        },
+        "Instagram": {
+          "Name": "instagram_username",
+          "Link": "https://www.instagram.com/"
+        },
+        "Linkedin": {
+          "Name": "linkedin_username",
+          "Link": "https://www.linkedin.com/"
+        }
+      },
+      "CV": "CV.pdf"
     },
-    "projects": [
-      "PhotoCloud - plataforma para subir y gestionar fotografías"
-    ],
-    "avatar": "https://picsum.photos/200/220?random=2",
-    "social": {
-      "Github": {
-        "name": "github_username",
-        "link": "github_user_link"
+    {
+      "Id": 3,
+      "Fullname": "Bruce Wayne",
+      "Gmail": "gmail_user",
+      "Description": "Soy ingeniero de software especializado en ciberseguridad y desarrollo de sistemas críticos. Me centro en analizar vulnerabilidades y desarrollar herramientas que ayuden a proteger infraestructuras digitales.",
+      "Topic": {
+        "Specialty": [
+          "Ciberseguridad",
+          "Ingeniería de software"
+        ],
+        "Language": [
+          "Python",
+          "Go",
+          "C"
+        ]
       },
-      "Twitter": {
-        "name": "twitter_username",
-        "link": "twitter_user_link"
+      "Projects": [
+        {
+          "Name": "DarkTrace - plataforma de análisis de amenazas"
+        }
+      ],
+      "Avatar": "https://picsum.photos/200/220?random=3",
+      "Social": {
+        "Github": {
+          "Name": "github_username",
+          "Link": "https://github.com/"
+        },
+        "Twitter": {
+          "Name": "twitter_username",
+          "Link": "https://twitter.com/"
+        },
+        "Instagram": {
+          "Name": "instagram_username",
+          "Link": "https://www.instagram.com/"
+        },
+        "Linkedin": {
+          "Name": "linkedin_username",
+          "Link": "https://www.linkedin.com/"
+        }
       },
-      "Instagram": {
-        "name": "instagram_username",
-        "link": "instagram_user_link"
+      "CV": "CV.pdf"
+    },
+    {
+      "Id": 4,
+      "Fullname": "Oliver Queen",
+      "Gmail": "gmail_user",
+      "Description": "Soy desarrollador de aplicaciones móviles con experiencia en Android e iOS. Me especializo en optimizar el rendimiento de las aplicaciones y en crear interfaces intuitivas que mejoren la experiencia del usuario.",
+      "Topic": {
+        "Specialty": [
+          "Desarrollo de aplicaciones móviles",
+          "Optimización de rendimiento"
+        ],
+        "Language": [
+          "Kotlin",
+          "Swift",
+          "Dart"
+        ]
       },
-      "Linkedin": {
-        "name": "linkedin_username",
-        "link": "linkedin_user_link"
-      }
+      "Projects": [
+        {
+          "Name": "ArrowTrack - app de seguimiento deportivo"
+        }
+      ],
+      "Avatar": "https://picsum.photos/200/220?random=4",
+      "Social": {
+        "Github": {
+          "Name": "github_username",
+          "Link": "https://github.com/"
+        },
+        "Twitter": {
+          "Name": "twitter_username",
+          "Link": "https://twitter.com/"
+        },
+        "Instagram": {
+          "Name": "instagram_username",
+          "Link": "https://www.instagram.com/"
+        },
+        "Linkedin": {
+          "Name": "linkedin_username",
+          "Link": "https://www.linkedin.com/"
+        }
+      },
+      "CV": "CV.pdf"
     }
-  },
-  {
-    "id": 3,
-    "fullname": "Bruce Wayne",
-    "gmail": "gmail_user",
-    "description": "Soy ingeniero de software especializado en ciberseguridad y desarrollo de sistemas críticos. Me centro en analizar vulnerabilidades y desarrollar herramientas que ayuden a proteger infraestructuras digitales.",
-    "topic": {
-      "Specialty": [
-        "Ciberseguridad",
-        "Ingeniería de software"
-      ],
-      "Language": [
-        "Python",
-        "Go",
-        "C"
-      ]
-    },
-    "projects": [
-      "DarkTrace - plataforma de análisis de amenazas"
-    ],
-    "avatar": "https://picsum.photos/200/220?random=3",
-    "social": {
-      "Github": {
-        "name": "github_username",
-        "link": "github_user_link"
-      },
-      "Twitter": {
-        "name": "twitter_username",
-        "link": "twitter_user_link"
-      },
-      "Instagram": {
-        "name": "instagram_username",
-        "link": "instagram_user_link"
-      },
-      "Linkedin": {
-        "name": "linkedin_username",
-        "link": "linkedin_user_link"
-      }
-    }
-  },
-  {
-    "id": 4,
-    "fullname": "Oliver Queen",
-    "gmail": "gmail_user",
-    "description": "Soy desarrollador de aplicaciones móviles con experiencia en Android e iOS. Me especializo en optimizar el rendimiento de las aplicaciones y en crear interfaces intuitivas que mejoren la experiencia del usuario.",
-    "topic": {
-      "Specialty": [
-        "Desarrollo de aplicaciones móviles",
-        "Optimización de rendimiento"
-      ],
-      "Language": [
-        "Kotlin",
-        "Swift",
-        "Dart"
-      ]
-    },
-    "projects": [
-      "ArrowTrack - app de seguimiento deportivo"
-    ],
-    "avatar": "\"https://picsum.photos/200/220?random=4\"",
-    "social": {
-      "Github": {
-        "name": "github_username",
-        "link": "github_user_link"
-      },
-      "Twitter": {
-        "name": "twitter_username",
-        "link": "twitter_user_link"
-      },
-      "Instagram": {
-        "name": "instagram_username",
-        "link": "instagram_user_link"
-      },
-      "Linkedin": {
-        "name": "linkedin_username",
-        "link": "linkedin_user_link"
-      }
-    }
-  }
-]
+  ]
+}
