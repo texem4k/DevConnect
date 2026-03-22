@@ -29,7 +29,7 @@ header a {
 
 .dropdown {
     position: relative;
-    padding: 0 0 0 10px;
+    margin: 0 0 0 10px;
 }
 
 .dropdown:hover {
