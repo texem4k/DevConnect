@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Registro</title>
     <script src="../../templates/JS/loadTemplate.js"></script>
-<!--    <script src="../../xlu-include-file.js"></script>-->
     <link rel="stylesheet" href="../CSS/userRegistration.css">
     <link rel="stylesheet" href="../../templates/CSS/getInputText.css">
     <link rel="stylesheet" href="../../templates/CSS/footer.css">
+    <link rel="stylesheet" href="../../templates/CSS/searchTopics.css">
 </head>
 <body>
     <header>
@@ -18,12 +18,12 @@
         <form class="form">
             <h2>Lorem Ipsum</h2>
             <label class="getInputTextTemplate"></label>
-            <p class="description">Lorem Ipsum</p>
+            <p class="description"></p>
 
             <label class="getInputTextTemplate"></label>
 
             <label class="getInputTextTemplate"></label>
-            <p class="description">Lorem Ipsum</p>
+            <p class="description"></p>
 
             <h2>Lorem Ipsum</h2>
             <section>
@@ -31,56 +31,78 @@
                 <label class="getInputTextTemplate"></label>
                 <label class="getInputTextTemplate"></label>
                 <label class="getInputTextTemplate"></label>
+                <p class="description"></p>
+                <p class="description"></p>
 
-<!--                <label xlu-include-file="../../templates/HTML/getInputText.html"></label>-->
-<!--                <label xlu-include-file="../../templates/HTML/getInputText.html"></label>-->
-<!--                <label xlu-include-file="../../templates/HTML/getInputText.html"></label>-->
-<!--                <label xlu-include-file="../../templates/HTML/getInputText.html"></label>-->
             </section>
 
             <h2>Lorem Ipsum</h2>
             <label>
                 <input type="radio" name="opción" value="1">
                 <span class="radio-circle"></span>
-                <span>Lorem ipsum dolor sit amet consectetur</span>
+                <span class="typeUser">Lorem ipsum dolor sit amet consectetur</span>
             </label>
             <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium atque, dignissimos quisquam reiciendis vitae voluptatum! A accusamus aliquam delectus dolorem enim et eum eveniet ex exercitationem mollitia nam natus non obcaecati quasi rem repellat repellendus sit temporibus unde, vitae voluptatibus.</p>
             <label class="radio-option">
                 <input type="radio" name="opción" value="2">
                 <span class="radio-circle"></span>
-                <span>Lorem ipsum dolor sit amet consectetur</span>
+                <span class="typeUser">Lorem ipsum dolor sit amet consectetur</span>
             </label>
             <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores delectus ducimus id illum impedit incidunt ipsam libero, praesentium quae quia quis tempore unde vel! Adipisci autem cum dolore dolores eaque eligendi, et expedita in nemo officiis quisquam repellat reprehenderit ullam.</p>
             <br>
             <div class="search-container">
-                <label>
-                    <input type="text" class="search-input" placeholder="Busca y selecciona...">
-                </label>
-                <div class="search-results">
-                    <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>
-                    <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>
+                <h2></h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Escribe para filtrar opciones..." autocomplete="off"/>
+                    <span class="search-icon">⌕</span>
                 </div>
-            </div>
-            <label for="fileInput" class="drop-area">
-                <p>Lorem ipsum.</p>
-                <input type="file" id="fileInput" accept="image/*" placeholder="Lorem Ipsum">
-            </label>
 
+                <div class="dropdown" id="dropdown">
+                    <div id="optionsList"></div>
+                </div>
+
+                <div class="selected-section" id="selectedSection">
+                    <div class="section-header">
+                        <span class="section-label">Seleccionados</span>
+                        <div style="display:flex;gap:8px;align-items:center;">
+                            <span class="count-badge" id="countBadge">0</span>
+                            <button class="clear-btn" id="clearBtn" onclick="clearAll()" style="display:none;">limpiar todo</button>
+                        </div>
+                    </div>
+                    <div class="tags-area" id="tagsArea">
+                        <span class="empty-hint" id="emptyHint">ninguna opción seleccionada aún</span>
+                    </div>
+                </div>
+
+<!--                <label>-->
+<!--                    <input type="text" class="search-input" placeholder="Busca y selecciona...">-->
+<!--                    <ul class="topicList"></ul>-->
+<!--                    <di id="selectionTopics"></di>-->
+<!--                </label>-->
+
+
+<!--                <div class="search-results">-->
+<!--                    <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>-->
+<!--                    <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>-->
+<!--                </div>-->
+                <label for="fileInput" class="drop-area">
+                    <p>Añade alguna imagen para tu foto de perfil.</p>
+                    <input type="file" id="fileInput" accept="image/*" placeholder="Lorem Ipsum">
+                </label>
+            </div>
+
+            <p class="photoUser">Tu imagen se ve así:</p>
             <div class="preview">
                 <img id="imagenPreview" src="" alt="">
             </div>
         </form>
-        <button class="endButton">Lorem Ipsum</button>
+
+        <button class="endButton">Registrarse</button>
     </main>
 <!--    <footer xlu-include-file="../../templates/HTML/footer.html"></footer>-->
     <footer class="footerTemplate"></footer>
 
 </body>
-
-
-<!--<script>-->
-
-<!--    xLuIncludeFile()-->
-
-<!--</script>-->
+<script type="module" src="../JS/userRegistration.js"></script>
+<script src="../JS/searchTopics.js"></script>
 </html>

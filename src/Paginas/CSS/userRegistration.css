@@ -123,17 +123,31 @@ input[type="radio"]:checked + .radio-circle::after {
 }
 
 .drop-area {
-    margin-top: 25px;
+    height: 1.5rem;
+    margin-top: 0.5rem;
     display: block;
     padding: 15px;
     background: #ddd;
     border-radius: 6px;
     text-align: left;
     cursor: pointer;
+    border: solid 1px black;
+}
+
+.drop-area p{
+    align-items: center;
+    text-align: center;
 }
 
 .drop-area input[type="file"] {
     display: none;
+}
+
+.photoUser{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .preview {
@@ -166,7 +180,6 @@ input[type="radio"]:checked + .radio-circle::after {
     position: relative;
     width: 100%;
     max-width: 400px;
-    margin-bottom: 1rem;
     display: block;
 }
 

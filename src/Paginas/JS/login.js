@@ -1,31 +1,69 @@
 document.addEventListener("DOMContentLoaded", f);
 
-function f (){
+import {validateFormatPassword, validateFormatEmail, validateEmail,
+    setPassword, setEmail}from "./validators.js";
+
+async function f (){
     setTimeout(()=>{
         document.querySelector("h1").textContent ="Inicia Sesión";
         let x = document.querySelectorAll("#input p");
-        x[0].textContent = "Correo electrónico/Usuario";
+        x[0].textContent = "Correo electrónico";
         x[1].textContent = "Contraseña";
         let y = document.querySelectorAll("#input input");
-        y[0].placeholder = "example@gmail.com";
-        y[0].setAttribute("required","");
-        y[0].setAttribute("type","email");
-        y[0].setAttribute("pattern","^[a-zA-Z0-9.+]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
-        y[1].placeholder = "Contraseña";
-        y[1].setAttribute("maxlength","32");
-        y[1].setAttribute("type","password");
-        y[1].setAttribute("minlength","8");
-        y[1].setAttribute("pattern","^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,32}$");
-        y[1].setAttribute("required","");
-        y[1].setAttribute("title","ejemploooooo");
+        const emailErr = document.querySelector("#emailError");
+        const passwordErr = document.querySelector("#passwordError");
+        const email = y[0];
+        const passwd = y[1];
+
+        setPassword(y[1]);
+        setEmail(y[0]);
 
         let buttons = document.querySelectorAll("main button");
         buttons[1].textContent="Iniciar sesión";
         buttons[2].textContent="Crear cuenta";
+        buttons[2].addEventListener("click", ()=>{
+            window.location.href="../HTML/userRegistration.html";
+        })
         buttons[3].textContent="Incidencias";
-        buttons[3].href="./incidents.html";
+        buttons[3].addEventListener("click", ()=>{
+            window.location.href="../HTML/incidents.html";
+        })
         document.querySelector(".helpText").textContent ="Si surgió algún problema, ¡No dudes en avisarnos!";
 
+        validateLogInPassword(passwd, passwordErr);
+        validateEmail(email, emailErr);
+
+
+        buttons[1].addEventListener("click", async ()=>{
+            if(validateFormatEmail(email, emailErr) && validateFormatPassword(passwd, passwordErr)){
+                //Realizar busqueda del correo en la BD y verificar si hay algún usuario
+                //Vinculado a ese correo
+                const data = await fetch("../../backend/users.json").then(res => res.json());
+
+                const user = data.find(user => user.Password === passwd && user.gmail === email);
+                localStorage.setItem("loggedUserId", user.Id);
+                history.back();
+            }
+        })
+
+        buttons[0].addEventListener("click", ()=>{
+            history.back();
+        })
 
     },100)
+}
+
+function validateLogInPassword(passwd, passwordErr) {
+    passwd.addEventListener("blur", () => {
+        if (validateFormatPassword(passwd.value)) {
+            passwd.style.border = "2px solid green";
+            passwordErr.textContent = "";
+        } else {
+            passwd.style.border = "2px solid red";
+            passwordErr.style.color = "red";
+            passwordErr.style.marginBottom= "0.8rem"
+            passwordErr.textContent = "La contraseña debe contener al menos 8 carácteres, \n una mayuscula, un dígito y un carácter especial (.\\-_...)";
+        }
+    });
+
 }
