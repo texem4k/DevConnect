@@ -28,24 +28,8 @@ aside {
     flex: 1;
 }
 
-.media-list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 .media-button {
     width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: white;
-    cursor: pointer;
-    text-align: left;
 }
 
 /* FILTROS */
