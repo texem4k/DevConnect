@@ -11,7 +11,7 @@ body {
 }
 
 aside {
-    flex: 0 0 10rem;
+    flex: 0 0 18rem;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
@@ -23,11 +23,29 @@ aside {
 }
 
 #results {
-    justify-content: center;
+    width: 100%;
+    padding: 1rem 2rem 1rem 0.5rem;
+    flex: 1;
+}
+
+.media-list {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    flex-direction: column;
+}
+
+.media-button {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    text-align: left;
 }
 
 /* FILTROS */

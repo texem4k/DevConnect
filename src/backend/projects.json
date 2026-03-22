@@ -7,7 +7,13 @@
       "image": "https://placehold.co/200x150",
       "description": "Aplicación web y móvil para registrar entrenamientos, analizar rendimiento deportivo y compartir progresos con otros usuarios.",
       "requirements": {
-        "technologies": ["React", "React Native", "Flutter", "Node.js", "MongoDB"],
+        "technologies": [
+          "React",
+          "React Native",
+          "Flutter",
+          "Node.js",
+          "MongoDB"
+        ],
         "knowledgeAreas": [
           "Conocimientos de desarrollo móvil (Flutter o React Native)",
           "Experiencia con APIs REST",
@@ -15,7 +21,11 @@
         ],
         "level": "Junior"
       },
-      "maintainers": ["carlos_fitdev", "laura_backend"]
+      "maintainers": [
+        "Tony Stark",
+        "Peter Parker",
+        "Bruce Wayne"
+      ]
     },
     {
       "title": "DarkTrace - plataforma de análisis de amenazas",
@@ -24,7 +34,13 @@
       "image": "https://placehold.co/200x150",
       "description": "Plataforma orientada a analizar posibles amenazas de ciberseguridad mediante recopilación y análisis de datos de red.",
       "requirements": {
-        "technologies": ["Go", "Python", "Wireshark", "PostgresSQL", "React"],
+        "technologies": [
+          "Go",
+          "Python",
+          "Wireshark",
+          "PostgresSQL",
+          "React"
+        ],
         "knowledgeAreas": [
           "Conocimientos de ciberseguridad",
           "Experiencia con Python o Go",
@@ -32,7 +48,11 @@
         ],
         "level": "Senior"
       },
-      "maintainers": ["andres_security", "maria_threatintel", "pedro_backend"]
+      "maintainers": [
+        "Tony Stark",
+        "Peter Parker",
+        "Oliver Queen"
+      ]
     },
     {
       "title": "PhotoCloud - plataforma para subir y gestionar fotografías",
@@ -41,7 +61,16 @@
       "image": "https://placehold.co/200x150",
       "description": "Aplicación web que permite subir, organizar y compartir fotografías en la nube con opciones de etiquetado y galerías públicas.",
       "requirements": {
-        "technologies": ["Frontend","JavaScript", "React", "HTML", "CSS", "AWS S3", "Firebase Storage", "Node.js"],
+        "technologies": [
+          "Frontend",
+          "JavaScript",
+          "React",
+          "HTML",
+          "CSS",
+          "AWS S3",
+          "Firebase Storage",
+          "Node.js"
+        ],
         "knowledgeAreas": [
           "Conocimientos de JavaScript",
           "Experiencia con almacenamiento en la nube",
@@ -49,7 +78,11 @@
         ],
         "level": "Senior"
       },
-      "maintainers": []
+      "maintainers": [
+        "Tony Stark",
+        "Oliver Queen",
+        "Bruce Wayne"
+      ]
     },
     {
       "title": "JARVIS - asistente de inteligencia artificial",
@@ -58,7 +91,16 @@
       "image": "https://placehold.co/200x150",
       "description": "Asistente virtual basado en inteligencia artificial capaz de responder preguntas, automatizar tareas y conectarse con distintos servicios.",
       "requirements": {
-        "technologies": ["Python", "TensorFlow", "PyTorch", "NLTK", "spaCy", "OpenAI API", "Hugging Face Transformers", "FastAPI"],
+        "technologies": [
+          "Python",
+          "TensorFlow",
+          "PyTorch",
+          "NLTK",
+          "spaCy",
+          "OpenAI API",
+          "Hugging Face Transformers",
+          "FastAPI"
+        ],
         "knowledgeAreas": [
           "Experiencia con Python",
           "Conocimientos de procesamiento de lenguaje natural",
@@ -66,7 +108,11 @@
         ],
         "level": "Junior"
       },
-      "maintainers": ["sofia_ai", "daniel_ml"]
+      "maintainers": [
+        "Oliver Queen",
+        "Peter Parker",
+        "Bruce Wayne"
+      ]
     }
   ]
 }

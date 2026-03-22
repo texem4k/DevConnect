@@ -1,17 +1,18 @@
 .topicBox {
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.75rem;
     border: 1px solid #ddd;
     border-radius: 25px;
     background: #f8f9fa;
     font-size: 0.75rem;
     white-space: nowrap;
     display: inline-flex;
-}
-
-.topicBox p {
-    margin: 1px;
+    width: fit-content;
 }
 
 .topicBox:hover {
     background-color: lightgray;
+}
+
+.topicBox p {
+    font-size: 0.9rem;
 }
