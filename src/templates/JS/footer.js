@@ -1,5 +1,5 @@
-async function loadfooter () {
-    loadDatafooter()
+async function loadFooter () {
+    await loadDatafooter()
 }
 
 async function loadDatafooter() {

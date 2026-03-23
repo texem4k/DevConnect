@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded",   async () => {
     await init()
-    loadDataUserProfile()
-    loadHeader()
-    loadfooter()
+    await Promise.all([
+        loadDataUserProfile(),
+        loadHeader(),
+        loadFooter()
+    ]);
 });
 
 
@@ -12,9 +14,8 @@ async function loadDataUserProfile(){
         fetch("../../backend/projects.json").then(res => res.json())
     ]);
     const params = new URLSearchParams(window.location.search);
+    const loggedUserId = Number(localStorage.getItem("loggedUserId"));
     let profileId = Number(params.get('id'));
-
-    const loggedUserId = Number(sessionStorage.getItem("loggedUserId"));
     if (profileId === 0) {profileId = Math.floor(Math.random() * usersData.Users.length);} //Esto es apriori mientras no se gestione el usuario que visualiza la pagina
     const user = usersData.Users.find(p => p.Id === profileId);
     const userProjects = projectsData.projects.filter(p => user.Projects.some(up => up.Name === p.title));
@@ -31,7 +32,7 @@ async function presentacion(user, loggedUserId){
         buttons[0].style.display = "block";
         buttons[0].textContent = "Editar Perfil";
         buttons[0].addEventListener("click", () => {
-            ºº
+            window.location.href = "../HTML/manageProfile.html";
         });
         buttons[1].style.display = "block";
         buttons[1].textContent = "Gestion de proyectos";
