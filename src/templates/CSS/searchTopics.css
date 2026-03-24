@@ -3,7 +3,7 @@
     --background: #ffffff;
     --border: #2e2e36;
     --accent: #8aa148;
-    --accent-dim: rgba(200,241,53,0.12);
+    --accent-dim: rgb(236, 236, 236);
     --text: #000000;
     --muted: #6b6b7a;
     --tag-bg: #f5f5f6;
@@ -275,6 +275,8 @@
 .cat-data   { --c: var(--accent); }
 .cat-cloud  { --c: #b57ef7; }
 .cat-mobile { --c: #f77eb5; }
+.cat-web { --c: #ff5f5f }
+.cat-Idioma { --c: #252850 }
 
 .badge  { background: color-mix(in srgb, var(--c) 18%, transparent); color: var(--c); }
 .tag-dot { background: var(--c); }

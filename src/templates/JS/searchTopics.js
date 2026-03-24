@@ -1,27 +1,14 @@
-const OPTIONS = [
-    { id:1,  name:'JavaScript',     category:'tech',   cat:'Lenguaje' },
-    { id:2,  name:'TypeScript',     category:'tech',   cat:'Lenguaje' },
-    { id:3,  name:'Python',         category:'tech',   cat:'Lenguaje' },
-    { id:4,  name:'Rust',           category:'tech',   cat:'Lenguaje' },
-    { id:5,  name:'Figma',          category:'design', cat:'Diseño' },
-    { id:6,  name:'Adobe XD',       category:'design', cat:'Diseño' },
-    { id:7,  name:'Tailwind CSS',   category:'design', cat:'Estilos' },
-    { id:8,  name:'PostgreSQL',     category:'data',   cat:'Base de datos' },
-    { id:9,  name:'MongoDB',        category:'data',   cat:'Base de datos' },
-    { id:10, name:'Redis',          category:'data',   cat:'Cache' },
-    { id:11, name:'AWS',            category:'cloud',  cat:'Cloud' },
-    { id:12, name:'Google Cloud',   category:'cloud',  cat:'Cloud' },
-    { id:13, name:'Docker',         category:'cloud',  cat:'DevOps' },
-    { id:14, name:'Kubernetes',     category:'cloud',  cat:'DevOps' },
-    { id:15, name:'React Native',   category:'mobile', cat:'Mobile' },
-    { id:16, name:'Flutter',        category:'mobile', cat:'Mobile' },
-    { id:17, name:'Swift',          category:'mobile', cat:'Mobile' },
-];
 
-let selected = new Set();
+
+async function getTopics(){
+    let res = await fetch("../../backend/topics.json");
+    return await res.json();
+}
+let OPTIONS= [];
+let selected = new Set();   //Tiene todos los elementos seleccionados, por IDs
 let isOpen = false;
 
-const input      = document.getElementById('searchInput');
+const input      = document.querySelector('.search-box input');
 const dropdown   = document.getElementById('dropdown');
 const optsList   = document.getElementById('optionsList');
 const tagsArea   = document.getElementById('tagsArea');
@@ -159,5 +146,10 @@ clearBtn.addEventListener('click', e => {
 });
 
 // init
-renderOptions();
-renderTags();
+async function initTopics(){
+    OPTIONS=await getTopics();
+    renderOptions();
+    renderTags();
+}
+initTopics();
+

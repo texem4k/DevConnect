@@ -86,10 +86,13 @@ header {
 .form > label,
 .dual-inputs label {
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.1rem;
     position: relative;
 }
 
+.fieldFeedBack{
+    margin-bottom: 1rem;
+}
 input[type="text"],
 input[type="date"],
 input[type="email"],
@@ -149,6 +152,7 @@ input:focus,
     height: 2.5rem;
 }
 
+/*
 .tag-input-container {
     margin-bottom: 1rem;
 }
@@ -156,15 +160,16 @@ input:focus,
 .tag-input-group {
     display: flex;
     gap: 0.5rem;
-}
+}*/
 
-.tag-input-container h2 {
+form h2 {
     font-size: 1.17rem;
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0.67em;
     color: #333;
 }
+
 .tag-input-group input {
     flex: 1;
     height: 44px;
@@ -247,22 +252,26 @@ input:focus,
     display: none;
 }
 
-.image-preview {
-    width: 18.75rem;
-    height: 9.375rem;
-    background: #ccc;
-    border-radius: 12px;
-    overflow: hidden;
+.preview {
+    margin-top: 25px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.image-preview img {
-    width: 100%;
-    height: 100%;
+.preview img {
+    width: 30rem;
+    height: 10rem;
+    border-radius: 14px;
     object-fit: cover;
+    background: #ccc;
 }
+
+/*#imagenPreview img {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    object-fit: cover;*/
+/*}*/
+
 
 .btn-secondary {
     margin-top: 1.5rem;

@@ -35,7 +35,10 @@ async function f (){
     document.querySelector(".helpText").textContent ="Si surgió algún problema, ¡No dudes en avisarnos!";
 
     validateLogInPassword(passwd, passwordErr);
-    validateEmail(email, emailErr);
+
+    email.addEventListener("blur", () => {
+        console.log(validateEmail(email, emailErr));
+    });
 
     buttons[1].addEventListener("click", async () => {
         if (validateFormatEmail(email.value) && validateFormatPassword(passwd.value)) {

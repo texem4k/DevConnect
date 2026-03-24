@@ -3,7 +3,9 @@
     {
       "Id": 1,
       "Fullname": "Tony Stark",
-      "Gmail": "gmail_user",
+      "Nickname": "tony_peperoni1",
+      "Gmail": "gmailuserTS@gmail.com",
+      "Password": "Ts-12345678",
       "Description": "Soy ingeniero de software especializado en sistemas embebidos e inteligencia artificial. Me gusta diseñar soluciones tecnológicas complejas que integren hardware y software para crear sistemas automatizados eficientes.",
       "Topic": {
         "Specialty": [
@@ -46,6 +48,7 @@
     {
       "Id": 2,
       "Fullname": "Peter Parker",
+      "Nickname": "Pete_web_designer",
       "Gmail": "gmail_user",
       "Description": "Soy desarrollador full stack y trabajo principalmente con tecnologías JavaScript. Me interesa crear aplicaciones web escalables y bien estructuradas, cuidando tanto el rendimiento como la experiencia de usuario.",
       "Topic": {
@@ -88,6 +91,7 @@
     {
       "Id": 3,
       "Fullname": "Bruce Wayne",
+      "Nickname": "ciberWayne",
       "Gmail": "gmail_user",
       "Description": "Soy ingeniero de software especializado en ciberseguridad y desarrollo de sistemas críticos. Me centro en analizar vulnerabilidades y desarrollar herramientas que ayuden a proteger infraestructuras digitales.",
       "Topic": {
@@ -98,7 +102,7 @@
         "Language": [
           "Python",
           "Go",
-          "C"
+          "C++"
         ]
       },
       "Projects": [
@@ -130,6 +134,7 @@
     {
       "Id": 4,
       "Fullname": "Oliver Queen",
+      "Nickname": "queen_mobile",
       "Gmail": "gmail_user",
       "Description": "Soy desarrollador de aplicaciones móviles con experiencia en Android e iOS. Me especializo en optimizar el rendimiento de las aplicaciones y en crear interfaces intuitivas que mejoren la experiencia del usuario.",
       "Topic": {

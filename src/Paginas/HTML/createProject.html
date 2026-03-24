@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../CSS/createProject.css">
     <link rel="stylesheet" href="../../templates/CSS/getInputText.css">
     <link rel="stylesheet" href="../../templates/CSS/footer.css">
+    <link rel="stylesheet" href="../../templates/CSS/searchTopics.css">
 
 </head>
 <body>
@@ -19,9 +20,10 @@
     <form class="form">
 
         <label class="getInputTextTemplate"></label>
+        <p class="fieldFeedBack"></p>
 
         <label class="field field-large">
-            <span class="field-label">Lorem Ipsum</span>
+            <p></p>
             <textarea></textarea>
         </label>
 
@@ -41,29 +43,63 @@
             <label class="getInputTextTemplate"></label>
         </section>
 
-        <div class="tag-input-container">
-            <h2>Lorem Ipsum</h2>
-            <div class="tag-input-group">
-                <input type="text" class="tag-input" placeholder="Lorem Ipsum"></input>
-                <button type="button" class="add-tag-btn">+</button>
-            </div>
-            <div class="tags-container"></div>
-        </div>
+<!--        <div class="tag-input-container">-->
+<!--            <h2>Lorem Ipsum</h2>-->
+<!--            <div class="tag-input-group">-->
+<!--                <input type="text" class="tag-input" placeholder="Lorem Ipsum"></input>-->
+<!--                <button type="button" class="add-tag-btn">+</button>-->
+<!--            </div>-->
+<!--            <div class="tags-container"></div>-->
+<!--            <p class="fieldFeedBack"></p>-->
+<!--        </div>-->
 
-        <div class="tag-input-container">
-            <h2>Lorem Ipsum</h2>
-            <div class="tag-input-group">
-                <input type="text" class="tag-input" placeholder="Lorem Ipsum"></input>
-                <button type="button" class="add-tag-btn">+</button>
-            </div>
-            <div class="tags-container"></div>
-        </div>
 
+<!--        <div class="tag-input-container">-->
+<!--            <h2>Lorem Ipsum</h2>-->
+<!--            -->
+<!--            <div class="tag-input-group">-->
+<!--                <input type="text" class="tag-input" placeholder="Lorem Ipsum">-->
+<!--                <button type="button" class="add-tag-btn">+</button>-->
+<!--            </div>-->
+<!--            <div class="tags-container"></div>-->
+<!--            <p class="fieldFeedBack"></p>-->
+<!--        </div>-->
+        <h2></h2>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Escribe para filtrar opciones..." autocomplete="off"/>
+                <span class="search-icon">⌕</span>
+            </div>
+
+            <div class="dropdown" id="dropdown">
+                <div id="optionsList"></div>
+            </div>
+
+            <div class="selected-section" id="selectedSection">
+                <div class="section-header">
+                    <span class="section-label">Seleccionados</span>
+                    <div style="display:flex;gap:8px;align-items:center;">
+                        <span class="count-badge" id="countBadge">0</span>
+                        <button class="clear-btn" id="clearBtn" onclick="clearAll()" style="display:none;">limpiar todo</button>
+                    </div>
+                </div>
+                <div class="tags-area" id="tagsArea">
+                    <span class="empty-hint" id="emptyHint">ninguna opción seleccionada aún</span>
+                </div>
+            </div>
+        </div>
+        <p class="fieldFeedBack"></p>
+
+        <h2></h2>
         <div class="image-upload-container">
-            <label class="small-upload-btn">
-                <input type="file" accept="image/*" class="file-input">
+            <label for="fileInput" class="small-upload-btn">
+                <input type="file" accept="image/*" id="fileInput">⬆️
             </label>
-            <div class="image-preview"></div>
+
+
+            <div class="preview">
+                <img id="imagenPreview">
+            </div>
         </div>
 
         <button class="btn-secondary">Lorem</button>
@@ -72,4 +108,6 @@
 </main>
 <footer class="footerTemplate"></footer>
 </body>
+<script src="../../templates/JS/searchTopics.js"></script>
+<script type="module" src="../JS/createProject.js"></script>
 </html>
