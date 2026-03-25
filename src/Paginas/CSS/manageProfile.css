@@ -32,14 +32,24 @@
     background: white;
 }
 
-.profileInformationDiv p{
+.profileInformation p{
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.8rem;
 }
 
 
+.search-box{
+    width: 80%;
+}
 
+.selected-section{
+    width: 80%;
+}
+
+#dropdown{
+    width: 80%;
+}
 .profileInformationUpload {
     margin-top: 5rem;
     max-width: 400px;
@@ -85,4 +95,10 @@
 
 input[type="file"] {
     display: none;
+}
+
+.uploadContent{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10rem;
 }

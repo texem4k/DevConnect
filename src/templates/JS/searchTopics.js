@@ -146,6 +146,7 @@ clearBtn.addEventListener('click', e => {
 });
 
 // init
+/*
 async function initTopics(){
     OPTIONS=await getTopics();
     renderOptions();
@@ -153,3 +154,16 @@ async function initTopics(){
 }
 initTopics();
 
+ */
+
+async function initTopics(preselectedIds = []) {
+    OPTIONS = await getTopics();
+    if (preselectedIds.length) {
+        selected = new Set(preselectedIds);
+    }
+    renderOptions();
+    renderTags();
+}
+
+// Ejemplo de uso desde el perfil:
+initTopics();
