@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", async ()=>{
     await init();
-    await Promise.all([f()]);
+    await Promise.all([f(),loadFooter()]);
 });
 
 
