@@ -3,10 +3,20 @@
     margin: 0;
     padding: 0;
 }
-
 body {
     background: #ffffff;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0 60px;
+    width: 100%;
 }
 
 .page {
@@ -23,17 +33,16 @@ body {
     text-align: center;
 }
 
-/* Formulario */
 .form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    width: 70%;        /* mueve el ancho al form en lugar del field */
 }
 
-/* Campo genérico */
 .field {
-    width: 70%;               /* ancho parecido al mockup */
+    width: 100%;       /* ocupa el ancho del form */
     text-align: left;
 }
 
