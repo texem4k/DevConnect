@@ -10,3 +10,38 @@ main h1 {
 main p {
    margin: 0.5rem 15rem 2rem 15rem;
 }
+#home-banner {
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 2rem;
+}
+
+.banner-slide {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.banner-slide.active {
+    opacity: 1;
+}
+
+#home-banner h1 {
+    position: relative;
+    z-index: 1;
+}
+@media (max-width: 600px) {
+    main p {
+        margin: 0.5rem 1rem 2rem 1rem;
+    }
+}
