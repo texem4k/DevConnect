@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async ()=>{
     await init();
-    await Promise.all([f()]);
+    await Promise.all([f(),loadFooter()]);
 });
 import {setEmail, setLabel, validateSelectedTopics} from "./validators.js";
 import {previewUserImage} from "./utils.js";
@@ -39,7 +39,7 @@ async function f (){
         fields[4].setAttribute("required", "");
         fields[4].setAttribute("type", "number");
         fields[4].setAttribute("min", "1");
-        fields[4].setAttribute("max", "10");
+        fields[4].setAttribute("max", "20");
         fields[4].setAttribute("value", "1");
 
         fields[0].placeholder="Nombre del proyecto";
