@@ -2,17 +2,19 @@
     box-sizing: border-box;
 }
 
-.project-container {
+main {
     display: flex;
-    gap: 1rem;
+    gap: 0;
     margin: 0.5rem 1rem 0.5rem 1rem;
 }
 
-#projects {
-    flex: 1;
+.project-container {
+    display: block;
+    flex: 2;
 }
 
 .button-container {
+    margin-right: 10rem;
     align-items: center;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

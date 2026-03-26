@@ -1,7 +1,7 @@
 init().then( async function() {
 
     await loadHeader();
-    await loadfooter();
+    await loadFooter();
 
     const ITEMS_PER_PAGE = 2;
     let currentPage = 1;
