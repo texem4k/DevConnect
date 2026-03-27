@@ -64,6 +64,9 @@ function setTopicGrid(topics, gridIndex, title, topicTemplate) {
         temp.innerHTML = topicTemplate;
         const btn = temp.querySelector('.topicBox');
         btn.querySelector('p').textContent = topic;
+        btn.addEventListener("click", (e) => {
+            window.location.href = `../HTML/searchResult.html?topic=${encodeURIComponent(topics)}`;
+        });
         fragment.appendChild(btn);
     });
 

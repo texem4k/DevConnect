@@ -1,4 +1,3 @@
-
 export function previewUserImage(){
     const input = document.getElementById('fileInput');
     const preview = document.getElementById('imagenPreview');

@@ -1,11 +1,32 @@
+import {buildPageLink} from "../../utils/PageLink.js"
+
 document.addEventListener("DOMContentLoaded", async () => {
     await init();
     await Promise.all([loadHeader(), loadFooter(), loadPage()]);
 });
 
-function mediaLoad({ img, title, description, linkedPage }, mediaComponent) {
+async function loadPage() {
+    const ITEMS_PER_PAGE = 5;
+    let currentPage = 1;
+
+    const currentUserId = Number(localStorage.getItem("loggedUserId"));
+    const { projectData, userData, mediaTemplate } = await fetchPageData();
+    const userProjects = filterUserProjects(projectData, userData, currentUserId);
+    const totalPages = Math.ceil(userProjects.length / ITEMS_PER_PAGE);
+
+    function goToPage(page) {
+        currentPage = page;
+        const pageProjects = getProjectsPage(userProjects, currentPage, ITEMS_PER_PAGE);
+        renderProjects(pageProjects, mediaTemplate);
+        renderPagination(currentPage, totalPages, goToPage);
+    }
+
+    goToPage(currentPage);
+}
+
+function buildProjectCard({ img, title, description, linkedPage }, mediaTemplate) {
     const temp = document.createElement('div');
-    temp.innerHTML = mediaComponent;
+    temp.innerHTML = mediaTemplate;
 
     const card = temp.querySelector('.media-button');
     card.querySelector('img').src = img;
@@ -13,135 +34,114 @@ function mediaLoad({ img, title, description, linkedPage }, mediaComponent) {
     card.querySelector('h3').textContent = title;
     card.querySelector('p').textContent = description;
 
-    card.addEventListener('click', function() {
+    card.addEventListener('click', () => {
         window.location.href = `../HTML/${linkedPage}.html?title=${encodeURIComponent(title)}`;
     });
 
     return card;
 }
 
-async function loadPage() {
-    const ITEMS_PER_PAGE = 5;
-    let currentPage = 1;
-    let ownedProjects = [];
+function buildProjectActions(project) {
+    const editBtn = document.createElement('button');
+    editBtn.textContent = '✏️';
+    editBtn.classList.add('editBtn');
+    editBtn.addEventListener('click', () => {
+        window.location.href = `../HTML/createProject.html?title=${encodeURIComponent(project.title)}`;
+    });
 
-    const currentUser = Number(localStorage.getItem("loggedUserId"));
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = '🗑️';
+    deleteBtn.classList.add('deleteBtn');
+    deleteBtn.addEventListener('click', () => {
+        console.log('eliminar:', project.title);
+    });
 
+    return { editBtn, deleteBtn };
+}
+
+async function fetchPageData() {
     const [projectData, userData, mediaTemplate] = await Promise.all([
         fetch('../../backend/projects.json').then(r => r.json()),
         fetch('../../backend/users.json').then(r => r.json()),
         loadTemplate('mediaComponent')
     ]);
+    return { projectData, userData, mediaTemplate };
+}
 
-    ownedProjects = projectData.projects.filter(project => {
+function filterUserProjects(projectData, userData, currentUserId) {
+    return projectData.projects.filter(project => {
         const creator = userData.Users.find(u => u.Fullname === project.creator);
-        return creator?.Id === currentUser;
+        return creator?.Id === currentUserId;
+    });
+}
+
+function renderProjects(projects, mediaTemplate) {
+    const projectsContainer = document.querySelector('.project-container');
+    const buttonsContainer  = document.querySelector('.button-container');
+
+    const projectFragment = document.createDocumentFragment();
+    const buttonFragment  = document.createDocumentFragment();
+
+    projectsContainer.innerHTML = '';
+    buttonsContainer.innerHTML  = '';
+
+    projects.forEach(project => {
+        projectFragment.appendChild(buildProjectCard({
+            img: project.image,
+            title: project.title,
+            description: project.description,
+            linkedPage: 'projectProfile'
+        }, mediaTemplate));
+
+        const { editBtn, deleteBtn } = buildProjectActions(project);
+        buttonFragment.appendChild(editBtn);
+        buttonFragment.appendChild(deleteBtn);
     });
 
-    renderPage(currentPage);
-    renderPagination();
+    projectsContainer.appendChild(projectFragment);
+    buttonsContainer.appendChild(buttonFragment);
+}
 
-    function renderPage(page) {
-        const projectsContainer = document.querySelector('.project-container');
-        const buttonsContainer  = document.querySelector('.button-container');
+function getProjectsPage(allProjects, page, itemsPerPage) {
+    const start = (page - 1) * itemsPerPage;
+    return allProjects.slice(start, start + itemsPerPage);
+}
 
-        const projectFragment = document.createDocumentFragment();
-        const buttonFragment  = document.createDocumentFragment();
+function getVisiblePages(currentPage, totalPages) {
+    return [...new Set([1, totalPages, currentPage, currentPage - 1, currentPage + 1])]
+        .filter(p => p >= 1 && p <= totalPages)
+        .sort((a, b) => a - b);
+}
 
-        const start = (page - 1) * ITEMS_PER_PAGE;
-        const end   = start + ITEMS_PER_PAGE;
-        const pageProjects = ownedProjects.slice(start, end);
+function renderPagination(currentPage, totalPages, onPageChange) {
+    const pagination = document.querySelector('.pagination');
+    pagination.innerHTML = '';
 
-        projectsContainer.innerHTML = '';
-        buttonsContainer.innerHTML  = '';
+    const first = buildPageLink('«', 1, 'first', onPageChange);
+    first.classList.toggle('disabled', currentPage === 1);
+    pagination.appendChild(first);
 
-        pageProjects.forEach(project => {
-            projectFragment.appendChild(mediaLoad({
-                img: project.image,
-                title: project.title,
-                description: project.description,
-                linkedPage: 'projectProfile'
-            }, mediaTemplate));
+    const prev = buildPageLink('‹', Math.max(1, currentPage - 1), 'prev', onPageChange);
+    prev.classList.toggle('disabled', currentPage === 1);
+    pagination.appendChild(prev);
 
-            const editBtn = document.createElement('button');
-            editBtn.classList.add('editBtn');
-            editBtn.textContent = 'Editar';
-            editBtn.addEventListener('click', function(e) {
-                window.location.href = `../HTML/createProject.html?title=${encodeURIComponent(project.title)}`;
-            });
+    let lastRendered = 0;
+    getVisiblePages(currentPage, totalPages).forEach(p => {
+        if (p - lastRendered > 1) {
+            const dots = document.createElement('span');
+            dots.className = 'dots';
+            dots.textContent = '...';
+            pagination.appendChild(dots);
+        }
+        pagination.appendChild(buildPageLink(p, p, p === currentPage ? 'active' : '', onPageChange));
+        lastRendered = p;
+    });
 
-            const deleteBtn = document.createElement('button');
-            deleteBtn.classList.add('deleteBtn');
-            deleteBtn.textContent = 'Eliminar';
-            deleteBtn.addEventListener('click', function(e) {
-                console.log('eliminar:', project.title);
-            });
+    const next = buildPageLink('›', Math.min(totalPages, currentPage + 1), 'next', onPageChange);
+    next.classList.toggle('disabled', currentPage === totalPages);
+    pagination.appendChild(next);
 
-            buttonFragment.appendChild(editBtn);
-            buttonFragment.appendChild(deleteBtn);
-        });
-
-        projectsContainer.appendChild(projectFragment);
-        buttonsContainer.appendChild(buttonFragment);
-    }
-
-    function createLink(label, page, classes) {
-        const a = document.createElement('a');
-        a.href = `?page=${page}`;
-        a.textContent = label;
-        a.className = 'page-btn ' + classes;
-
-        a.addEventListener('click', function(e) {
-            e.preventDefault();
-            currentPage = page;
-            renderPage(currentPage);
-            renderPagination();
-        });
-
-        return a;
-    }
-
-    function renderPagination() {
-        const pagination = document.querySelector('.pagination');
-        const totalPages = Math.ceil(ownedProjects.length / ITEMS_PER_PAGE);
-
-        pagination.innerHTML = '';
-
-        const first = createLink('«', 1, 'first');
-        first.classList.toggle('disabled', currentPage === 1);
-        pagination.appendChild(first);
-
-        const prev = createLink('‹', Math.max(1, currentPage - 1), 'prev');
-        prev.classList.toggle('disabled', currentPage === 1);
-        pagination.appendChild(prev);
-
-        const pagesToShow = new Set([
-            1, totalPages, currentPage, currentPage - 1, currentPage + 1
-        ]);
-
-        let lastRendered = 0;
-
-        [...pagesToShow]
-            .filter(p => p >= 1 && p <= totalPages)
-            .sort((a, b) => a - b)
-            .forEach(p => {
-                if (p - lastRendered > 1) {
-                    const dots = document.createElement('span');
-                    dots.className = 'dots';
-                    dots.textContent = '...';
-                    pagination.appendChild(dots);
-                }
-                const a = createLink(p, p, p === currentPage ? 'active' : '');
-                pagination.appendChild(a);
-                lastRendered = p;
-            });
-
-        const next = createLink('›', Math.min(totalPages, currentPage + 1), 'next');
-        next.classList.toggle('disabled', currentPage === totalPages);
-        pagination.appendChild(next);
-
-        const last = createLink('»', totalPages, 'last');
-        last.classList.toggle('disabled', currentPage === totalPages);
-        pagination.appendChild(last);
-    }
+    const last = buildPageLink('»', totalPages, 'last', onPageChange);
+    last.classList.toggle('disabled', currentPage === totalPages);
+    pagination.appendChild(last);
 }

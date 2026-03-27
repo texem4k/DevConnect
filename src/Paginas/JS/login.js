@@ -1,5 +1,5 @@
 import { validateFormatPassword, validateFormatEmail, validateEmail,
-    setPassword, setEmail } from "./validators.js";
+    setPassword, setEmail } from "../../utils/validators.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await init();

@@ -5,7 +5,7 @@ async function getTopics(){
     return await res.json();
 }
 let OPTIONS= [];
-let selected = new Set();   //Tiene todos los elementos seleccionados, por IDs
+let selected = new Set();
 let isOpen = false;
 
 const input      = document.querySelector('.search-box input');
@@ -145,17 +145,6 @@ clearBtn.addEventListener('click', e => {
     clearAll();
 });
 
-// init
-/*
-async function initTopics(){
-    OPTIONS=await getTopics();
-    renderOptions();
-    renderTags();
-}
-initTopics();
-
- */
-
 async function initTopics(preselectedIds = []) {
     OPTIONS = await getTopics();
     if (preselectedIds.length) {
@@ -165,5 +154,4 @@ async function initTopics(preselectedIds = []) {
     renderTags();
 }
 
-// Ejemplo de uso desde el perfil:
 initTopics();
