@@ -6,7 +6,7 @@ async function typeWriter(element, text, speed = 150) {
     }
 }
 
-async function cardLoad({ img, title, description, topicParams, linkedPage, id}, fragment, cardTemplate, topicTemplate) {
+function cardLoad({ img, title, description, topicParams, linkedPage, id}, cardTemplate, topicTemplate) {
         const temp = document.createElement('div');
         temp.innerHTML = cardTemplate;
 
@@ -31,10 +31,10 @@ async function cardLoad({ img, title, description, topicParams, linkedPage, id},
             window.location.href = `../HTML/${linkedPage}.html?id=${id}`;
         });
 
-        fragment.appendChild(card);
+        return card;
 }
 
-async function mediaLoad({ img, title, description, linkedPage}, fragment, mediaComponent) {
+function mediaLoad({ img, title, description, linkedPage}, mediaComponent) {
         const temp = document.createElement('div');
         temp.innerHTML = mediaComponent;
 
@@ -48,14 +48,14 @@ async function mediaLoad({ img, title, description, linkedPage}, fragment, media
             window.location.href = `../HTML/${linkedPage}.html?title=${encodeURIComponent(title)}`;
         });
 
-        fragment.appendChild(card);
+        return card;
 }
 
 init().then(async function() {
     await loadHeader();
-    await loadfooter();
+    await loadFooter();
 
-    document.querySelector(".introduction").textContent = "Trending Users"
+    document.querySelector(".introduction").textContent = "Trending Users";
 
     const h1 = document.querySelector("#home-banner h1");
     typeWriter(h1, "DevConnect");
@@ -65,29 +65,29 @@ init().then(async function() {
         fetch('../../backend/projects.json').then(r => r.json()),
         loadTemplate('informationCard'),
         loadTemplate('topicBoxBtn'),
-        loadTemplate('mediaComponent'),
+        loadTemplate('mediaComponent')
     ]);
     
     const userFragment = document.createDocumentFragment();
     userData.Users.slice(0,3).forEach(user => {
-        cardLoad({
+        userFragment.appendChild(cardLoad({
             img: user.Avatar,
             title: user.Fullname,
             description: user.Description,
             topicParams: user.Topic.Specialty,
             linkedPage: "userProfile",
             id: user.Id 
-        }, userFragment, cardTemplate, topicTemplate);
+        }, cardTemplate, topicTemplate));
     });
 
     const projectFragment = document.createDocumentFragment();
     projectData.projects.slice(0,4).forEach(project => {
-        mediaLoad({
+        projectFragment.appendChild(mediaLoad({
             img: project.image,
             title: project.title,
             description: project.description,
             linkedPage: "projectProfile",
-        }, projectFragment, mediaTemplate);
+        }, mediaTemplate));
     });
 
     document.querySelector('.trendingUsers').innerHTML = '';
@@ -98,6 +98,9 @@ init().then(async function() {
 
     document.querySelectorAll(".discoverButton button").forEach(btn => {
         btn.textContent = "Ver más"
+        btn.addEventListener('click', (e) => {
+            window.location.href = `../HTML/searchResult.html?`;
+        })
     });
     
 });
