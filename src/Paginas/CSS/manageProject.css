@@ -31,6 +31,16 @@ main {
     background-color: lightgray;
 }
 
-.userSkillsButton {
-    margin-bottom: 1rem;
+@media (max-width: 768px) {
+
+    .button-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-right: 3rem;
+    }
+
+    .button-container button {
+        height: 7.5rem;
+    }
+
 }

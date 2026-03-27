@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7f316b4-f9b4-4640-8805-644ea4dbc970" name="Changes" comment="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario">
-      <change afterPath="$PROJECT_DIR$/src/Paginas/JS/footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Paginas/JS/header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Paginas/JS/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Paginas/JS/validations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/footer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/aboutUs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/aboutUs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/incidents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/incidents.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/HTML/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/searchResult.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/searchResult.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/manageProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/JS/manageProject.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

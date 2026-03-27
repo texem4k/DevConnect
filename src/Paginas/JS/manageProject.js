@@ -64,12 +64,14 @@ async function loadPage() {
             }, mediaTemplate));
 
             const editBtn = document.createElement('button');
+            editBtn.classList.add('editBtn');
             editBtn.textContent = 'Editar';
             editBtn.addEventListener('click', function(e) {
                 window.location.href = `../HTML/createProject.html?title=${encodeURIComponent(project.title)}`;
             });
 
             const deleteBtn = document.createElement('button');
+            deleteBtn.classList.add('deleteBtn');
             deleteBtn.textContent = 'Eliminar';
             deleteBtn.addEventListener('click', function(e) {
                 console.log('eliminar:', project.title);
