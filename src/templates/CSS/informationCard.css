@@ -5,25 +5,27 @@
 }
 
 .informationCard {
+    position: relative;
     display: flex;
     gap: 1.25rem;
     padding: 1.25rem;
-    border: 0.5px solid #e0ddd6;
+    border: 1px solid #e0ddd6;
     border-radius: 12px;
-    background: #fff;
     width: 23rem;
     text-align: left;
     cursor: pointer;
-    transition: border-color 0.15s, background 0.15s;
+    transition: background 0.15s, border-color 0.15s;
+    background: #fff;
 }
 
 .informationCard:hover {
+    background: #e8e8e8;
     border-color: #c8c5be;
-    background: #f9f8f6;
 }
 
-.informationCard:hover .topicBox{
-    background: #f9f8f6;
+.informationCard:has(.topicBox:hover) {
+    background: #fff;
+    border-color: #e0ddd6;
 }
 
 .cardImage img {
@@ -72,14 +74,17 @@
 
 .topicBox {
     padding: 0.2rem 0.6rem;
-    border: 0.5px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 99px;
-    background: #f5f4f1;
+    background: #fff;
     font-size: 0.7rem;
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: background 0.15s, border-color 0.15s;
 }
 
 .topicBox p {
@@ -91,10 +96,20 @@
     text-decoration: none;
 }
 
+.topicBox:hover {
+    background: #d0d0d0;
+    border-color: #999;
+}
+
+.topicBox:hover a {
+    color: #1a1a1a;
+}
+
 @media (max-width: 1024px) {
     .cardLayout {
         margin-top: 0.5rem;
     }
+
     .informationCard {
         width: 20rem;
         padding: 1rem;

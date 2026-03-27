@@ -7,12 +7,16 @@
     white-space: nowrap;
     display: inline-flex;
     width: fit-content;
+    position: relative;
+    z-index: 1;
+    pointer-events: all;
 }
 
 .topicBox:hover {
-    background-color: lightgray;
+    border-color: #999;
+    cursor: pointer;
 }
 
-.topicBox p {
-    font-size: 0.9rem;
+.topicBox:hover a {
+    color: #1a1a1a;
 }
