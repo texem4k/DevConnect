@@ -1,161 +1,153 @@
-init().then( async function() {
+import {buildPageLink} from "../../utils/PageLink.js";
+document.addEventListener("DOMContentLoaded", async () => {
+    await init();
+    await Promise.all([loadHeader(), loadFooter(), loadPage()]);
+});
 
-    await loadHeader();
-    await loadFooter();
-
+async function loadPage() {
     const ITEMS_PER_PAGE = 2;
     let currentPage = 1;
     let allProjects = [];
     let filteredProjects = [];
 
-    const templateHTML = await loadTemplate('mediaComponent');
+    const mediaTemplate = await loadTemplate('mediaComponent');
+    const projectData = await fetchProjectsData();
 
-    fetch('../../backend/projects.json')
-        .then(response => response.json())
-        .then(data => {
-            allProjects = data.projects;
-            filteredProjects = allProjects;
-            renderPage(currentPage);
-            renderPagination();
-        })
+    allProjects = projectData.projects;
+    filteredProjects = allProjects;
+
+    function goToPage(page) {
+        currentPage = page;
+        renderProjects(filteredProjects, currentPage, ITEMS_PER_PAGE, mediaTemplate);
+        renderPagination(currentPage, filteredProjects.length, ITEMS_PER_PAGE, goToPage);
+    }
+
+    goToPage(currentPage);
+    initFilters(allProjects, () => goToPage(1), (result) => { filteredProjects = result; });
+}
+
+async function fetchProjectsData() {
+    return fetch('../../backend/projects.json')
+        .then(r => r.json())
         .catch(error => console.error('Error cargando el JSON:', error));
+}
 
+function initFilters(allProjects, onSearch, onResult) {
     const form = document.querySelector('.filters-form');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
+        const filtered = applyFilters(allProjects, readFilterValues());
+        onResult(filtered);
+        onSearch();
+    });
+}
 
-        const categoriesChecked = [...document.querySelectorAll('input[name="category"]:checked')]
-            .map(input => input.value);
+function readFilterValues() {
+    return {
+        categories: [...document.querySelectorAll('input[name="category"]:checked')]
+            .map(input => input.value),
+        level: document.querySelector('input[name="level"]:checked')?.value,
+        sort: document.querySelector('select[name="sort"]').value
+    };
+}
 
-        const levelSelected = document.querySelector('input[name="level"]:checked')?.value;
+function applyFilters(projects, { categories, level, sort }) {
+    let result = projects;
 
-        const sortSelected = document.querySelector('select[name="sort"]').value;
-
-        filteredProjects = allProjects;
-
-        if (categoriesChecked.length > 0) {
-            filteredProjects = filteredProjects.filter(project =>
-                categoriesChecked.some(cat =>
-                    project.requirements.technologies.some(tech =>
-                        tech.toLowerCase().includes(cat)
-                    )
+    if (categories.length > 0) {
+        result = result.filter(project =>
+            categories.some(cat =>
+                project.requirements.technologies.some(tech =>
+                    tech.toLowerCase().includes(cat)
                 )
-            );
-        }
+            )
+        );
+    }
 
-        if (levelSelected) {
-            filteredProjects = filteredProjects.filter(project =>
-                project.requirements.level.toLowerCase() === levelSelected
-            );
-        }
+    if (level) {
+        result = result.filter(project =>
+            project.requirements.level.toLowerCase() === level
+        );
+    }
 
-        if (sortSelected === 'popular') {
-            filteredProjects = [...filteredProjects]
-                .sort((a, b) => b.maintainers.length - a.maintainers.length);
-        }
+    if (sort === 'popular') {
+        result = [...result].sort((a, b) => b.maintainers.length - a.maintainers.length);
+    }
 
-        currentPage = 1;
-        renderPage(currentPage);
-        renderPagination();
+    return result;
+}
+
+function renderProjects(projects, currentPage, itemsPerPage, mediaTemplate) {
+    const container = document.querySelector('.media-list');
+    const fragment = document.createDocumentFragment();
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const pageProjects = projects.slice(start, start + itemsPerPage);
+
+    container.innerHTML = '';
+
+    pageProjects.forEach(project => {
+        fragment.appendChild(buildProjectCard(project, mediaTemplate));
     });
 
+    container.appendChild(fragment);
+}
 
-    function renderPage(page) {
-        const container = document.querySelector('.media-list');
-        const fragment = document.createDocumentFragment();
+function buildProjectCard(project, mediaTemplate) {
+    const temp = document.createElement('div');
+    temp.innerHTML = mediaTemplate;
 
-        const start = (page - 1) * ITEMS_PER_PAGE;
-        const end = start + ITEMS_PER_PAGE;
-        const pageProjects = filteredProjects.slice(start, end);
+    const card = temp.querySelector('.media-button');
+    card.querySelector('img').src = project.image;
+    card.querySelector('img').alt = `Imagen de ${project.title}`;
+    card.querySelector('h3').textContent = project.title;
+    card.querySelector('p').textContent = project.description;
 
-        container.innerHTML = '';
+    card.addEventListener('click', () => {
+        window.location.href = `../HTML/projectProfile.html?title=${encodeURIComponent(project.title)}`;
+    });
 
-        pageProjects.forEach(project => {
-            const temp = document.createElement('div');
-            temp.innerHTML = templateHTML;
+    return card;
+}
 
-            const button = temp.querySelector('.media-button');
-            button.querySelector('img').src = project.image;
-            button.querySelector('img').alt = `Imagen de ${project.title}`;
-            button.querySelector('h3').textContent = project.title;
-            button.querySelector('p').textContent = project.description;
+function renderPagination(currentPage, totalItems, itemsPerPage, onPageChange) {
+    const pagination = document.querySelector('.pagination');
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-            button.addEventListener('click', function() {
-                window.location.href = `../HTML/projectProfile.html?title=${encodeURIComponent(project.title)}`;
-            });
+    pagination.innerHTML = '';
 
-            fragment.appendChild(button);
-        });
+    const first = buildPageLink('«', 1, 'first', onPageChange);
+    first.classList.toggle('disabled', currentPage === 1);
+    pagination.appendChild(first);
 
-        container.appendChild(fragment);
-    }
+    const prev = buildPageLink('‹', Math.max(1, currentPage - 1), 'prev', onPageChange);
+    prev.classList.toggle('disabled', currentPage === 1);
+    pagination.appendChild(prev);
 
+    let lastRendered = 0;
+    getVisiblePages(currentPage, totalPages).forEach(p => {
+        if (p - lastRendered > 1) {
+            const dots = document.createElement('span');
+            dots.className = 'dots';
+            dots.textContent = '...';
+            pagination.appendChild(dots);
+        }
+        pagination.appendChild(buildPageLink(p, p, p === currentPage ? 'active' : '', onPageChange));
+        lastRendered = p;
+    });
 
-    function createLink(label, page, classes) {
-        const a = document.createElement('a');
-        a.href = `?page=${page}`;
-        a.textContent = label;
-        a.className = 'page-btn ' + classes;
+    const next = buildPageLink('›', Math.min(totalPages, currentPage + 1), 'next', onPageChange);
+    next.classList.toggle('disabled', currentPage === totalPages);
+    pagination.appendChild(next);
 
-        a.addEventListener('click', function(e) {
-            e.preventDefault();
-            currentPage = page;
-            renderPage(currentPage);
-            renderPagination();
-        });
+    const last = buildPageLink('»', totalPages, 'last', onPageChange);
+    last.classList.toggle('disabled', currentPage === totalPages);
+    pagination.appendChild(last);
+}
 
-        return a;
-    }
-
-
-    function renderPagination() {
-        const pagination = document.querySelector('.pagination');
-        const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
-
-        pagination.innerHTML = '';
-
-        const first = createLink('«', 1, 'first');
-        first.classList.toggle('disabled', currentPage === 1);
-        pagination.appendChild(first);
-
-        const prev = createLink('‹', Math.max(1, currentPage - 1), 'prev');
-        prev.classList.toggle('disabled', currentPage === 1);
-        pagination.appendChild(prev);
-
-        const pagesToShow = new Set([
-            1,
-            totalPages,
-            currentPage,
-            currentPage - 1,
-            currentPage + 1
-        ]);
-
-        let lastRendered = 0;
-
-        [...pagesToShow]
-            .filter(p => p >= 1 && p <= totalPages)
-            .sort((a, b) => a - b)
-            .forEach(p => {
-                if (p - lastRendered > 1) {
-                    const dots = document.createElement('span');
-                    dots.className = 'dots';
-                    dots.textContent = '...';
-                    pagination.appendChild(dots);
-                }
-
-                const a = createLink(p, p, p === currentPage ? 'active' : '');
-                pagination.appendChild(a);
-                lastRendered = p;
-            });
-
-        const next = createLink('›', Math.min(totalPages, currentPage + 1), 'next');
-        next.classList.toggle('disabled', currentPage === totalPages);
-        pagination.appendChild(next);
-
-        const last = createLink('»', totalPages, 'last');
-        last.classList.toggle('disabled', currentPage === totalPages);
-        pagination.appendChild(last);
-    }
-
-});
+function getVisiblePages(currentPage, totalPages) {
+    return [...new Set([1, totalPages, currentPage, currentPage - 1, currentPage + 1])]
+        .filter(p => p >= 1 && p <= totalPages)
+        .sort((a, b) => a - b);
+}

@@ -1,5 +1,5 @@
-import { setEmail, setLabel, validateSelectedTopics, validateProjectName, validateMemberNumber, validateDate } from "./validators.js";
-import { previewUserImage } from "./previewUserImage.js";
+import { setEmail, setLabel, validateSelectedTopics, validateProjectName, validateMemberNumber, validateDate } from "../../utils/validators.js";
+import { previewUserImage } from "../../utils/previewUserImage.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await init();
@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function loadCreateProject() {
     const data = await fetch("../../backend/topics.json").then(res => res.json());
-    setupForm(data);
+    setupForm();
     setupButtons(data);
 }
 
-function setupForm(data) {
+function setupForm() {
     const fields      = document.querySelectorAll("input");
     const fieldDesc   = document.querySelectorAll(".form p");
     const description = document.querySelector("textarea");
