@@ -36,3 +36,8 @@
         text-align: center;
     }
 }
+@media (max-width: 1024px) {
+    .media-button {
+        width: 88%;
+    }
+}

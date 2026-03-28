@@ -234,7 +234,34 @@ header a {
 .sidebar-overlay.open {
     display: block;
 }
+@media (max-width: 1024px) {
 
+    header {
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .header-right {
+        gap: 1rem;
+    }
+
+    .dropdown-btn {
+        padding: 0 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .search-wrapper {
+        max-width: 260px;
+    }
+
+    #upload-btn {
+        display: none;
+    }
+
+    .header-home {
+        padding: 0 20px 0 0;
+    }
+}
 @media (max-width: 768px) {
 
     header {

@@ -1,5 +1,3 @@
-
-
 .profileSkillContainerFields {
     display: flex;
     flex-direction: row;
@@ -19,3 +17,24 @@
     margin-bottom: 0.8rem;
 }
 
+
+@media (max-width: 1024px) {
+    .skillButton {
+        width: 5.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .profileSkillContainerFields {
+        gap: 0.6rem;
+    }
+
+    .skillButton {
+        width: 5rem;
+        font-size: 0.8rem;
+    }
+
+    .profileInformationTag {
+        font-size: 1rem;
+    }
+}

@@ -10,9 +10,6 @@
     --tag-hover: #83efe1;
     --radius: 10px;
 }
-
-
-/* SEARCH BOX */
 .search-box {
     position: relative;
     margin-bottom: 6px;
@@ -48,7 +45,6 @@
     font-size: 1rem;
 }
 
-/* DROPDOWN */
 .dropdownTopics {
     background: var(--background);
     border: 1.5px solid var(--border);
@@ -269,7 +265,6 @@
 
 .clear-btn:hover { color: #ff5f5f; border-color: #ff5f5f; }
 
-/* Category colors */
 .cat-tech   { --c: #7ed4f7; }
 .cat-design { --c: #f7a07e; }
 .cat-data   { --c: var(--accent); }
@@ -280,3 +275,37 @@
 
 .badge  { background: color-mix(in srgb, var(--c) 18%, transparent); color: var(--c); }
 .tag-dot { background: var(--c); }
+@media (max-width: 1024px) {
+    .selected-section {
+        padding: 16px;
+    }
+
+    .dropdownTopics.open {
+        max-height: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-box input {
+        padding: 11px 42px 11px 14px;
+        font-size: 0.85rem;
+    }
+
+    .selected-section {
+        padding: 12px;
+        margin-bottom: 1.25rem;
+    }
+
+    .tags-area {
+        gap: 6px;
+    }
+
+    .tag {
+        font-size: 0.72rem;
+        padding: 5px 8px;
+    }
+
+    .dropdownTopics.open {
+        max-height: 220px;
+    }
+}

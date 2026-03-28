@@ -11,3 +11,11 @@
     border-radius: 8px;
     background: white;
 }
+
+@media (max-width: 768px) {
+    #input input {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 0.95rem;
+    }
+}

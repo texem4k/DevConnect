@@ -29,7 +29,7 @@
 }
 
 .page-btn.active {
-     background-color: black;
+    background-color: black;
     color: white;
     border-color: black;
 }
@@ -37,4 +37,23 @@
 .page-btn.first,
 .page-btn.last {
     font-weight: bold;
+}
+@media (max-width: 1024px) {
+    .pagination {
+        gap: 0.35rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pagination {
+        flex-wrap: wrap;
+        margin: 1.25rem 0;
+        gap: 0.3rem;
+    }
+
+    .page-btn {
+        min-width: 32px;
+        padding: 0.4rem 0.4rem;
+        font-size: 0.85rem;
+    }
 }

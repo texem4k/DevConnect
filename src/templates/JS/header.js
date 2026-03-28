@@ -151,4 +151,19 @@ async function setHeaderLinks() {
         loginBtn.classList.add("login-text");
         loginBtn.addEventListener('click', () => { window.location.href = "../HTML/login.html"; });
     }
+    const searchBtn = document.querySelector('.search-form button[type="submit"]');
+    const searchInput = document.getElementById('q');
+
+    searchBtn?.addEventListener('click', function(e) {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        window.location.href = `../HTML/searchResult.html?topic=${encodeURIComponent(query)}`;
+    });
+    searchInput?.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const query = searchInput.value.trim();
+            window.location.href = `../HTML/searchResult.html?topic=${encodeURIComponent(query)}`;
+        }
+    });
 }

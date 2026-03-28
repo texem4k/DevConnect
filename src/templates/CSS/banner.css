@@ -18,3 +18,19 @@
     background-color: black;
     font-size: 4rem;
 }
+@media (max-width: 1024px) {
+    #home-banner h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #home-banner {
+        height: 25vh;
+        padding: 0 1rem;
+    }
+
+    #home-banner h1 {
+        font-size: 2rem;
+    }
+}

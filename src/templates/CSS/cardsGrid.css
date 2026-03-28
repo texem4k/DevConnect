@@ -31,3 +31,13 @@
 
     }
 }
+@media (max-width: 1024px) {
+    .cardsSection {
+        grid-template-columns: repeat(2, minmax(18rem, 1fr));
+        max-width: 800px;
+    }
+
+    .cardGrid h1 {
+        font-size: 1.6rem;
+    }
+}
