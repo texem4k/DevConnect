@@ -38,8 +38,9 @@ async function loadDataUserProfile() {
 
 function presentacion(user, loggedUserId) {
     document.querySelector(".profilePicture").src = user.Avatar;
-    document.querySelector(".profileName").textContent = user.Fullname;
+    document.querySelector(".profileName").textContent = user.Nickname;
     document.querySelector(".profileDescription p").textContent = user.Description;
+    document.querySelector(".bannerProfile").style.backgroundImage = `url(${user.Banner})`;
 
     const buttons = document.querySelectorAll(".profileInformationButtons button");
     if (user.Id === loggedUserId) {

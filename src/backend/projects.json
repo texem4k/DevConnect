@@ -4,7 +4,7 @@
       "title": "ArrowTrack - app de seguimiento deportivo",
       "creator": "Oliver Queen",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=1",
+      "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?fm=jpg&w=1200&h=400&fit=crop",
       "description": "Aplicación web y móvil para registrar entrenamientos, analizar rendimiento deportivo y compartir progresos con otros usuarios.",
       "requirements": {
         "technologies": [
@@ -31,7 +31,7 @@
       "title": "DarkTrace - plataforma de análisis de amenazas",
       "creator": "Bruce Wayne",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=2",
+      "image": "https://www.ciset.es/images/noticias/amenazas_ciberseguridad.jpeg",
       "description": "Plataforma orientada a analizar posibles amenazas de ciberseguridad mediante recopilación y análisis de datos de red.",
       "requirements": {
         "technologies": [
@@ -58,7 +58,7 @@
       "title": "PhotoCloud - plataforma para subir y gestionar fotografías",
       "creator": "Peter Parker",
       "isCompanyProject": false,
-      "image": "https://picsum.photos/200/150?random=3",
+      "image": "https://icorp.com.mx/wp-content/uploads/2015/05/Tipos-de-nube-informatica-scaled.webp",
       "description": "Aplicación web que permite subir, organizar y compartir fotografías en la nube con opciones de etiquetado y galerías públicas.",
       "requirements": {
         "technologies": [
@@ -88,7 +88,7 @@
       "title": "JARVIS - asistente de inteligencia artificial",
       "creator": "Tony Stark",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=4",
+      "image": "https://www.thecoreschool.com/wp-content/uploads/2024/06/digital-transformation-consultant-implementing-automation-software-across-departments-reducing-manual-work-scaled.jpg",
       "description": "Asistente virtual basado en inteligencia artificial capaz de responder preguntas, automatizar tareas y conectarse con distintos servicios.",
       "requirements": {
         "technologies": [
@@ -118,7 +118,7 @@
       "title": "HUD Vision - sistema de detección visual para trajes inteligentes",
       "creator": "Tony Stark",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=5",
+      "image": "https://www.imnovation-hub.com/content/dam/imnovationhub/media/24152707/portada-tejidos-inteligentes.jpg",
       "description": "Sistema de visualización y detección en tiempo real integrado en cascos y trajes inteligentes para resaltar objetivos, rutas y alertas de seguridad.",
       "requirements": {
         "technologies": [
@@ -145,7 +145,7 @@
       "title": "NanoBotNet - red de control para microdrones",
       "creator": "Tony Stark",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=6",
+      "image": "https://d3fkdmlbzjtjd3.cloudfront.net/articulos/articulos-51523.jpg",
       "description": "Plataforma distribuida para coordinar y monitorizar enjambres de microdrones, permitiendo asignar tareas, definir rutas y recopilar datos en tiempo real.",
       "requirements": {
         "technologies": [
@@ -172,7 +172,7 @@
       "title": "WebSpider - rastreador y analizador web",
       "creator": "Peter Parker",
       "isCompanyProject": false,
-      "image": "https://picsum.photos/200/150?random=7",
+      "image": "https://kinsta.com/es/wp-content/uploads/sites/8/2022/07/que-es-web-scraping.jpeg",
       "description": "Herramienta para rastrear sitios web, indexar contenido y extraer metadatos para análisis SEO y monitorización de cambios.",
       "requirements": {
         "technologies": [
@@ -199,7 +199,7 @@
       "title": "GuardianNet - monitor de seguridad de red",
       "creator": "Bruce Wayne",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=8",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwxvdNsPWTQA2lxL2uAsgmArQE2rtamK8ReQ&sv",
       "description": "Sistema de monitorización de red en tiempo real que detecta patrones anómalos, genera alertas y produce informes de seguridad periódicos.",
       "requirements": {
         "technologies": [
@@ -226,7 +226,7 @@
       "title": "WayneShield - sistema de detección de intrusos",
       "creator": "Bruce Wayne",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=9",
+      "image": "https://www.seguritecnia.es/wp-content/uploads/2023/06/ids.png",
       "description": "Plataforma de detección de intrusiones que correlaciona eventos de múltiples fuentes para identificar ataques dirigidos y accesos no autorizados.",
       "requirements": {
         "technologies": [
@@ -253,7 +253,7 @@
       "title": "GreenMap - aplicación de rutas ecológicas",
       "creator": "Oliver Queen",
       "isCompanyProject": false,
-      "image": "https://picsum.photos/200/150?random=10",
+      "image": "https://www.desnivel.com/images/2024/07/planificador-de-rutas-wikiloc.jpg",
       "description": "Aplicación móvil para planificar rutas a pie o en bicicleta priorizando zonas verdes, puntos de interés ecológico y minimizando la huella de carbono.",
       "requirements": {
         "technologies": [
@@ -280,7 +280,7 @@
       "title": "DataHive - sistema de análisis de datos distribuidos",
       "creator": "Natasha Romanoff",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=11",
+      "image": "https://bookdown.org/paranedagarcia/database/images/db-componente.jpg",
       "description": "Plataforma para la ingesta, procesamiento y visualización de grandes volúmenes de datos en tiempo real usando arquitecturas distribuidas.",
       "requirements": {
         "technologies": [
@@ -307,7 +307,7 @@
       "title": "RedNet - API REST para monitoreo de tráfico",
       "creator": "Natasha Romanoff",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=12",
+      "image":  "https://network-king.net/wp-content/uploads/2022/09/monitoringtools-1200x675.jpg",
       "description": "API centralizada para recolectar métricas de diferentes dispositivos de red y exponerlas a paneles de monitorización y herramientas de alerta.",
       "requirements": {
         "technologies": [
@@ -334,7 +334,7 @@
       "title": "CipherView - visualización de datos de seguridad",
       "creator": "Natasha Romanoff",
       "isCompanyProject": false,
-      "image": "https://picsum.photos/200/150?random=13",
+      "image": "https://www.prosegur.es/dam/jcr:dfb6b801-eb57-4244-9a95-a451daf77ab1/4.png",
       "description": "Herramienta de dashboards interactivos orientada a mostrar métricas de seguridad, intentos de ataque y evolución temporal de incidentes.",
       "requirements": {
         "technologies": [
@@ -361,7 +361,7 @@
       "title": "MirrorWorld - entorno de visualización 3D",
       "creator": "Stephen Strange",
       "isCompanyProject": false,
-      "image": "https://picsum.photos/200/150?random=14",
+      "image": "https://3detail.es/wp-content/uploads/2024/06/arch_viz07-1024x1024.jpg",
       "description": "Motor de visualización 3D en tiempo real para crear escenas interactivas y simulaciones físicas personalizadas.",
       "requirements": {
         "technologies": [
@@ -387,7 +387,7 @@
       "title": "ARSpell - motor de realidad aumentada",
       "creator": "Stephen Strange",
       "isCompanyProject": true,
-      "image": "https://picsum.photos/200/150?random=15",
+      "image": "https://www.tworeality.com/wp-content/uploads/2019/05/realidad-aumentada-virtual-formacion-industria.jpg",
       "description": "SDK de realidad aumentada para integrar efectos visuales avanzados y reconocimiento de superficies en aplicaciones móviles.",
       "requirements": {
         "technologies": [

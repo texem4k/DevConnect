@@ -3,7 +3,7 @@
     {
       "Id": 1,
       "Fullname": "Tony Stark",
-      "Nickname": "tony_peperoni1",
+      "Nickname": "IronTony",
       "Gmail": "gmailuserTS@gmail.com",
       "Password": "Ts-12345678",
       "Description": "Soy ingeniero de software especializado en sistemas embebidos e inteligencia artificial. Me gusta diseñar soluciones tecnológicas complejas que integren hardware y software para crear sistemas automatizados eficientes.",
@@ -16,12 +16,13 @@
         { "Name": "HUD Vision - sistema de detección visual para trajes inteligentes" },
         { "Name": "NanoBotNet - red de control para microdrones" }
       ],
-      "Avatar": "https://picsum.photos/200/220?random=1",
+      "Avatar": "https://source.roboflow.com/7INiiKrmrNez57qlHqscsI1B4H92/CNEvHfDaigk2gz93qlOv/original.jpg",
+      "Banner": "https://elordenmundial.com/wp-content/uploads/2023/04/que-es-inteligencia-artificial.jpg",
       "Social": {
-        "Github": { "Name": "tonystark-github", "Link": "https://github.com/tonystark" },
-        "Twitter": { "Name": "@tony_stark", "Link": "https://twitter.com/tony_stark" },
-        "Instagram": { "Name": "tonystark_official", "Link": "https://www.instagram.com/tonystark_official" },
-        "Linkedin": { "Name": "Tony Stark", "Link": "https://www.linkedin.com/in/tonystark" }
+        "Github": { "Name": "tonystark-github", "Link": "https://github.com" },
+        "Twitter": { "Name": "@tony_stark", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "tonystark_official", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Tony Stark", "Link": "https://www.linkedin.com" }
       },
       "CV": "CV_TonyStark.pdf"
     },
@@ -40,12 +41,13 @@
         { "Name": "PhotoCloud - plataforma para subir y gestionar fotografías" },
         { "Name": "WebSpider - rastreador y analizador web" }
       ],
-      "Avatar": "https://picsum.photos/200/220?random=2",
+      "Avatar": "https://i.pinimg.com/originals/e8/3d/06/e83d06dcf6903df44368edbc695001c2.jpg",
+      "Banner": "https://acerkate.com/storage/2021/05/diseno-web-scaled.jpg",
       "Social": {
-        "Github": { "Name": "peterparker-dev", "Link": "https://github.com/peterparker-dev" },
-        "Twitter": { "Name": "@pete_the_dev", "Link": "https://twitter.com/pete_the_dev" },
-        "Instagram": { "Name": "spidey.codes", "Link": "https://www.instagram.com/spidey.codes" },
-        "Linkedin": { "Name": "Peter Parker", "Link": "https://www.linkedin.com/in/peterparker" }
+        "Github": { "Name": "peterparker-dev", "Link": "https://github.com" },
+        "Twitter": { "Name": "@pete_the_dev", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "spidey.codes", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Peter Parker", "Link": "https://www.linkedin.com" }
       },
       "CV": "CV_PeterParker.pdf"
     },
@@ -65,12 +67,13 @@
         { "Name": "GuardianNet - monitor de seguridad de red" },
         { "Name": "WayneShield - sistema de detección de intrusos" }
       ],
-      "Avatar": "https://picsum.photos/200/220?random=3",
+      "Avatar": "https://i.pinimg.com/736x/5f/93/91/5f9391c5aede246e099afb4d67ab5073.jpg",
+      "Banner": "https://img.itmastersmag.com/wp-content/uploads/2025/04/23132522/ciberseguridad.jpg",
       "Social": {
-        "Github": { "Name": "wayne-sec", "Link": "https://github.com/wayne-sec" },
-        "Twitter": { "Name": "@bruce_wayne", "Link": "https://twitter.com/bruce_wayne" },
-        "Instagram": { "Name": "batcoder", "Link": "https://www.instagram.com/batcoder" },
-        "Linkedin": { "Name": "Bruce Wayne", "Link": "https://www.linkedin.com/in/brucewayne" }
+        "Github": { "Name": "wayne-sec", "Link": "https://github.com" },
+        "Twitter": { "Name": "@bruce_wayne", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "batcoder", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Bruce Wayne", "Link": "https://www.linkedin.com" }
       },
       "CV": "CV_BruceWayne.pdf"
     },
@@ -89,12 +92,13 @@
         { "Name": "ArrowTrack - app de seguimiento deportivo" },
         { "Name": "GreenMap - aplicación de rutas ecológicas" }
       ],
-      "Avatar": "https://picsum.photos/200/220?random=4",
+      "Avatar": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Stephen_Amell_%287960712676%29.jpg",
+      "Banner": "https://capgo.app/cross-platform-app-dev-2024.webp",
       "Social": {
-        "Github": { "Name": "oliverqueen-dev", "Link": "https://github.com/oliverqueen-dev" },
-        "Twitter": { "Name": "@oq_mobile", "Link": "https://twitter.com/oq_mobile" },
-        "Instagram": { "Name": "queenapps", "Link": "https://www.instagram.com/queenapps" },
-        "Linkedin": { "Name": "Oliver Queen", "Link": "https://www.linkedin.com/in/oliverqueen" }
+        "Github": { "Name": "oliverqueen-dev", "Link": "https://github.com" },
+        "Twitter": { "Name": "@oq_mobile", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "queenapps", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Oliver Queen", "Link": "https://www.linkedin.com" }
       },
       "CV": "CV_OliverQueen.pdf"
     },
@@ -114,12 +118,13 @@
         { "Name": "RedNet - API REST para monitoreo de tráfico" },
         { "Name": "CipherView - visualización de datos de seguridad" }
       ],
-      "Avatar": "https://picsum.photos/200/220?random=5",
+      "Avatar": "https://imagenes.elpais.com/resizer/v2/GIO3F6W7WTL4SMKGZO4IE4O6FA.jpg?auth=fc81cde81637661fd182b568c5a9e8d47c0f00c6f82eeead60ae57bc306bb3f9&width=414",
+      "Banner": "https://www.computing.es/wp-content/uploads/2022/11/13628_20.jpg",
       "Social": {
-        "Github": { "Name": "natasha-data", "Link": "https://github.com/natasha-data" },
-        "Twitter": { "Name": "@blackcoder", "Link": "https://twitter.com/blackcoder" },
-        "Instagram": { "Name": "nromanoff.codes", "Link": "https://www.instagram.com/nromanoff.codes" },
-        "Linkedin": { "Name": "Natasha Romanoff", "Link": "https://www.linkedin.com/in/natasharomanoff" }
+        "Github": { "Name": "natasha-data", "Link": "https://github.com" },
+        "Twitter": { "Name": "@blackcoder", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "nromanoff.codes", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Natasha Romanoff", "Link": "https://www.linkedin.com" }
       },
       "CV": "CV_NatashaRomanoff.pdf"
     },
@@ -138,12 +143,13 @@
         { "Name": "MirrorWorld - entorno de visualización 3D" },
         { "Name": "ARSpell - motor de realidad aumentada" }
       ],
-      "Avatar": "https://picsum.photos/200/220?random=6",
+      "Avatar": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Benedict_Cumberbatch_on_the_set_of_Doctor_Strange_2_%28cropped%29.jpg",
+      "Banner": "https://www.onirix.com/wp-content/uploads/2023/03/cabecera-scaled.jpg",
       "Social": {
-        "Github": { "Name": "strange-labs", "Link": "https://github.com/strange-labs" },
-        "Twitter": { "Name": "@dr_strange_dev", "Link": "https://twitter.com/dr_strange_dev" },
-        "Instagram": { "Name": "strange.codes", "Link": "https://www.instagram.com/strange.codes" },
-        "Linkedin": { "Name": "Stephen Strange", "Link": "https://www.linkedin.com/in/stephenstrange" }
+        "Github": { "Name": "strange-labs", "Link": "https://github.com" },
+        "Twitter": { "Name": "@dr_strange_dev", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "strange.codes", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Stephen Strange", "Link": "https://www.linkedin.com" }
       },
       "CV": "CV_StephenStrange.pdf"
     }
