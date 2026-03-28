@@ -89,9 +89,24 @@ aside h3 {
     background: lightgray;
 }
 
+@media (max-width: 1024px) {
+    aside {
+        flex: 0 0 20%;
+        padding: 14px;
+    }
+
+    aside h3 {
+        font-size: 1.5rem;
+    }
+
+    .filter-group {
+        font-size: 1.2rem;
+    }
+}
+
 @media (max-width: 768px) {
     aside {
-        flex: 0 0 25%;
+        flex: 0 0 20%;
     }
 
     aside h3 {
@@ -106,18 +121,4 @@ aside h3 {
         font-size: 1rem;
     }
 
-}
-@media (max-width: 1024px) {
-    aside {
-        flex: 0 0 14rem;
-        padding: 14px;
-    }
-
-    aside h3 {
-        font-size: 1.5rem;
-    }
-
-    .filter-group {
-        font-size: 1.2rem;
-    }
 }

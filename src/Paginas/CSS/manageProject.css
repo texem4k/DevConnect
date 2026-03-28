@@ -31,6 +31,12 @@ main {
     background-color: lightgray;
 }
 
+@media (max-width: 1024px) {
+    .button-container {
+        margin-right: 4rem;
+    }
+}
+
 @media (max-width: 768px) {
 
     .button-container {
@@ -43,9 +49,4 @@ main {
         height: 7.5rem;
     }
 
-}
-@media (max-width: 1024px) {
-    .button-container {
-        margin-right: 4rem;
-    }
 }

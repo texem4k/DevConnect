@@ -4,13 +4,20 @@
     padding: 0;
 }
 
+body {
+    background: #f4f4f4;
+}
+
+.footer {
+    background-color: gray;
+}
+
 hr {
     height: 10rem;
     background: #ddd;
 }
 
 main {
-    background: #f4f4f4;
     /*margin: 0;*/
     margin-left:2rem;
 }
@@ -33,7 +40,6 @@ header {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: #f4f4f4;
 }
 
 .title {

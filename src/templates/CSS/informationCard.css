@@ -9,13 +9,15 @@
     display: flex;
     gap: 1.25rem;
     padding: 1.25rem;
-    border: 1px solid #e0ddd6;
+    border: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     border-radius: 12px;
     width: 23rem;
     text-align: left;
     cursor: pointer;
     transition: background 0.15s, border-color 0.15s;
     background: #fff;
+    margin: 0 0.5rem;
 }
 
 .informationCard:hover {

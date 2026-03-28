@@ -101,20 +101,6 @@ aside h3 {
     margin-top: 5rem;
 }
 
-@media (max-width: 768px) {
-    .page-layout {
-        display: flex;
-        flex-direction: column;
-    }
-
-    aside {
-        margin-top: 0.5rem;
-    }
-
-    .main-content {
-        margin-bottom: 0.5rem;
-    }
-}
 @media (max-width: 1024px) {
     .page-layout {
         padding: 1rem 2rem;
@@ -128,5 +114,20 @@ aside h3 {
     .cardImage img {
         width: 90px;
         height: 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside {
+        margin-top: 0.5rem;
+    }
+
+    .main-content {
+        margin-bottom: 0.5rem;
     }
 }
