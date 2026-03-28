@@ -18,6 +18,11 @@
     transform: translateY(-2px);
 }
 
+.media-button img {
+    height: 150px;
+    object-fit: cover;
+}
+
 @media (max-width: 768px) {
     .media-button {
         flex-direction: column;
