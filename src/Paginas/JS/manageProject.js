@@ -70,7 +70,7 @@ async function fetchPageData() {
 
 function filterUserProjects(projectData, userData, currentUserId) {
     return projectData.projects.filter(project => {
-        const creator = userData.Users.find(u => u.Fullname === project.creator);
+        const creator = userData.Users.find(u => u.Nickname === project.creator);
         return creator?.Id === currentUserId;
     });
 }
