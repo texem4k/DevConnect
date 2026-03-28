@@ -102,3 +102,38 @@ input[type="file"] {
     grid-template-columns: 1fr 1fr;
     gap: 10rem;
 }
+
+@media (max-width: 1024px) {
+    .uploadContent {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .userDescription,
+    .profileInformationButtons {
+        padding-right: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .userDescription,
+    .profileInformationButtons {
+        padding-right: 1rem;
+    }
+
+    .search-box,
+    .selected-section,
+    #dropdown {
+        width: 100%;
+    }
+
+    .profileInformationUpload {
+        max-width: 100%;
+        margin-top: 2rem;
+    }
+
+    .uploadContent {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

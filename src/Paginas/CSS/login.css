@@ -102,3 +102,15 @@ label p {
     background: none !important;
 }
 
+
+@media (max-width: 768px) {
+    .sectionLayout {
+        width: 95vw;
+        padding: 1.25rem;
+        border-radius: 1.5rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}

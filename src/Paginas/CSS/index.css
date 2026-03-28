@@ -38,8 +38,29 @@ main{
 .discoverButton button:hover{
     background-color: lightgray;
 }
+@media (max-width: 1024px) {
+    .introduction {
+        margin-top: 3rem;
+    }
 
+    .trendingUsers {
+        gap: 1rem;
+    }
+}
 @media (max-width: 768px) {
+    .introduction {
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+
+    .trendingUsers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .discoverButton {
+        height: 7rem;
+    }
     .trendingUsers div {
         margin: 0.5rem 2rem 0.5rem 2rem;
     }

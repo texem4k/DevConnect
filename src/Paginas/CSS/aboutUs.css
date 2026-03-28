@@ -8,7 +8,7 @@ main h1 {
 }
 
 main p {
-   margin: 0.5rem 15rem 2rem 15rem;
+    margin: 0.5rem 15rem 2rem 15rem;
 }
 #home-banner {
     height: 60vh;
@@ -40,8 +40,18 @@ main p {
     position: relative;
     z-index: 1;
 }
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     main p {
-        margin: 0.5rem 1rem 2rem 1rem;
+        margin: 0.5rem 6rem 2rem 6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    main p {
+        margin: 0.5rem 2rem 2rem 2rem;
+    }
+
+    #home-banner {
+        height: 40vh;
     }
 }

@@ -107,3 +107,17 @@ aside h3 {
     }
 
 }
+@media (max-width: 1024px) {
+    aside {
+        flex: 0 0 14rem;
+        padding: 14px;
+    }
+
+    aside h3 {
+        font-size: 1.5rem;
+    }
+
+    .filter-group {
+        font-size: 1.2rem;
+    }
+}

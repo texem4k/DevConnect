@@ -25,7 +25,6 @@ main {
     text-align: center;
 }
 
-/* Título principal */
 .title {
     font-size: 48px;
     font-weight: 800;
@@ -38,11 +37,11 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 24px;
-    width: 70%;        /* mueve el ancho al form en lugar del field */
+    width: 70%;
 }
 
 .field {
-    width: 100%;       /* ocupa el ancho del form */
+    width: 100%;
     text-align: left;
 }
 
@@ -51,8 +50,6 @@ main {
     font-size: 12px;
     margin-bottom: 6px;
 }
-
-/* Input */
 .field input {
     width: 100%;
     padding: 10px 12px;
@@ -60,11 +57,9 @@ main {
     background: #d9d9d9;
     border-radius: 0;
 }
-
-/* Textarea grande */
 .field-large textarea {
     width: 100%;
-    height: 260px;            /* alto grande como en la imagen */
+    height: 260px;
     border: none;
     background: #d9d9d9;
     resize: none;
@@ -80,4 +75,29 @@ main {
     background: #d9d9d9;
     cursor: pointer;
     font-size: 12px;
+}
+
+@media (max-width: 1024px) {
+    .form {
+        width: 85%;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        width: 95%;
+    }
+
+    .title {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .field-large textarea {
+        height: 180px;
+    }
 }
