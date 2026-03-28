@@ -41,6 +41,12 @@ function initFilters(allProjects, onSearch, onResult) {
         onResult(filtered);
         onSearch();
     });
+
+    form.addEventListener('reset', (e) => {
+        form.reset();
+        onResult(allProjects);
+        onSearch();
+    });
 }
 
 function readFilterValues() {

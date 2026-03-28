@@ -71,6 +71,24 @@ aside h3 {
     cursor: pointer;
 }
 
+.clean-btn {
+    border: 0.1rem solid black;
+    font-size: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+.apply-btn:hover {
+    background: grey;
+}
+
+.clean-btn:hover {
+    background: lightgray;
+}
+
 @media (max-width: 768px) {
     aside {
         flex: 0 0 25%;
