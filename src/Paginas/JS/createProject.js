@@ -1,4 +1,6 @@
-import { setEmail, setLabel, validateSelectedTopics, validateProjectName, validateMemberNumber, validateDate } from "../../utils/validators.js";
+import {
+    setEmail, setLabel, validateSelectedTopics, validateProjectName, validateMemberNumber, validateDate
+} from "../../utils/validators.js";
 import { previewUserImage } from "../../utils/previewUserImage.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -7,29 +9,48 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function loadCreateProject() {
-    const data = await fetch("../../backend/topics.json").then(res => res.json());
-    setupForm();
-    setupButtons(data);
+    const topics = await fetch("../../backend/topics.json").then(res => res.json());
+    const projects = await fetch("../../backend/projects.json").then(res => res.json());
+
+    const fields = document.querySelectorAll("input");
+    const errors = document.querySelectorAll(".fieldFeedBack");
+    const state=setupFormState();
+    setupForm(topics, projects, fields, errors, state);
+    setupButtons();
+    setupSubmit(topics, projects, state,fields,errors);
 }
 
-function setupForm() {
-    const fields      = document.querySelectorAll("input");
+function setupForm(topics, projects, fields, errors, state) {
     const fieldDesc   = document.querySelectorAll(".form p");
     const description = document.querySelector("textarea");
-    const errors      = document.querySelectorAll(".fieldFeedBack");
     const maxUsers    = 20;
 
     document.querySelector("h1").textContent = "Creación de proyecto";
     description.style.resize = "none";
+
+
+
+    document.querySelector('.search-container input').addEventListener("blur", async () => {
+        state.topicValid = validateSelectedTopics(errors[2], topics);
+    });
+
+
+    fields[0].addEventListener("blur", async () => {
+        state.nameProjectValid = validateProjectName(fields[0], errors[0], projects);
+    });
+
+    fields[3].addEventListener("change", async () => {
+        state.dateValid = validateDate(fields[3], errors[1]);
+    });
+
+
 
     setFieldDescriptors(fieldDesc);
     setFieldAttributes(fields, maxUsers);
     setPlaceholders(fields, description);
     setH2Labels();
     setupCalendarBtn(fields);
-    validateProjectName(fields[0], errors[0]);
     validateMemberNumber(fields[4], maxUsers);
-    validateDate(fields[3]);
     previewUserImage();
 }
 
@@ -39,7 +60,7 @@ function setFieldDescriptors(fieldDesc) {
     fieldDesc[3].textContent = "Correo de contacto";
     fieldDesc[4].textContent = "Teléfono de contacto";
     fieldDesc[5].textContent = "Fecha máxima de inscripción";
-    fieldDesc[6].textContent = "* Número de participantes (Máx 20)";
+    fieldDesc[7].textContent = "* Número de participantes (Máx 20)";
 }
 
 function setFieldAttributes(fields, maxUsers) {
@@ -75,19 +96,37 @@ function setupCalendarBtn(fields) {
         dateField.showPicker();
     });
 }
-function setupButtons(data) {
+function setupButtons() {
     const buttons = document.querySelectorAll("button");
-    const fields  = document.querySelectorAll("input");
-    const errors  = document.querySelectorAll(".fieldFeedBack");
-
     buttons[0].addEventListener("click", () => history.back());
-
     buttons[3].textContent = "Crear proyecto";
-    buttons[3].addEventListener("click", async (e) => {
-        e.preventDefault();
-        if (!validateSelectedTopics(errors[1], data)) return;
-        if (fields[4].value === "") fields[4].value = 1;
-        console.log("Proyecto creado");
-        history.back();
+}
+
+
+
+
+function setupSubmit(topics, projects, state, fields, errors) {
+    const buttons = document.querySelectorAll("button");
+
+    buttons[3].addEventListener("click", async () => {
+        state.topicValid = validateSelectedTopics(errors[2], topics);
+        state.dateValid = validateDate(fields[3], errors[1]);
+        state.nameProjectValid = validateProjectName(fields[0], errors[0], projects);
+        if (state.nameProjectValid && state.topicValid && state.dateValid) {
+            console.log("Proyecto creado!");
+            window.location.href = "../HTML/manageProject.html";
+        }
+        else{
+            alert("Falta información por añadir");
+        }
     });
+}
+
+
+function setupFormState() {
+    return {
+        nameProjectValid:  false,
+        topicValid:  false,
+        dateValid:  false
+    };
 }

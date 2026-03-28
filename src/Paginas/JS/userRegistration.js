@@ -1,7 +1,11 @@
-import { validateFormatPassword, validateEmail, setPassword, setEmail, setLabel,
+import {validateEmail, setPassword, setEmail, setLabel,
     validateSelectedTopics, validateNickname, validatePassword,
-    validateNumber, validateFullname } from "./validators.js";
-import { previewUserImage } from "./previewUserImage.js";
+    validateNumber, validateFullname, validateOption } from "../../utils/validators.js";
+import { previewUserImage } from "../../utils/previewUserImage.js";
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     await init();
@@ -13,14 +17,21 @@ async function loadRegistration() {
         fetch("../../backend/users.json").then(res => res.json()),
         fetch("../../backend/topics.json").then(res => res.json())
     ]);
+    const fields = document.querySelectorAll("#input input");
+    const errors = document.querySelectorAll(".fieldFeedBack");
 
-    setPageContent();
-    setInputAttributes();
+
+    setPageContent(fields, errors);
+    setInputAttributes(fields);
     const state = setupFormState();
-    setupValidations(usersData, state);
-    setupSubmit(topicsData, state);
+    setupValidations(usersData, state, fields, errors, topicsData);
+    setupSubmit(topicsData, state, fields, errors, usersData);
     previewUserImage();
 }
+
+
+
+
 
 function setPageContent() {
     document.querySelector(".title").textContent = "Registro en Devconnect";
@@ -41,8 +52,8 @@ function setPageContent() {
     labels[6].textContent = "* Correo electrónico";
 
     const descriptions = document.querySelectorAll(".description");
-    descriptions[4].textContent = "Como particular tienes todas las opciones que dispone Devconnect para conectar, crear y unirte diversos proyectos, ya sean creados por empresas u gente cómo tú.";
-    descriptions[5].textContent = "Como empresa tienes todas las opciones que dispone un usuario particular, pero con otras opciones más enfocadas al entorno laboral, cómo poder contactar con los usuarios que cumplan ciertos criterios que establezcas, hacer rondas de contratación y entre otros.";
+    descriptions[0].textContent = "Como particular tienes todas las opciones que dispone Devconnect para conectar, crear y unirte diversos proyectos, ya sean creados por empresas u gente cómo tú.";
+    descriptions[1].textContent = "Como empresa tienes todas las opciones que dispone un usuario particular, pero con otras opciones más enfocadas al entorno laboral, cómo poder contactar con los usuarios que cumplan ciertos criterios que establezcas, hacer rondas de contratación y entre otros.";
 
     document.querySelectorAll(".typeUser")[0].textContent = "Crear cuenta cómo particular";
     document.querySelectorAll(".typeUser")[1].textContent = "Crear cuenta cómo empresa";
@@ -50,9 +61,7 @@ function setPageContent() {
     document.querySelectorAll("button")[0].addEventListener("click", () => history.back());
 }
 
-function setInputAttributes() {
-    const fields = document.querySelectorAll("#input input");
-
+function setInputAttributes(fields) {
     setLabel(fields[0]);
     setPassword(fields[1]);
     setPassword(fields[2]);
@@ -74,27 +83,31 @@ function setupFormState() {
         emailValid:     false,
         fullnameValid:  false,
         numberValid:    false,
-        radioSelected:  null
+        radioSelected:  null,
+        topicValid:  false,
     };
 }
 
-function setupValidations(usersData, state) {
-    const fields = document.querySelectorAll("#input input");
-    const errors = document.querySelectorAll(".description");
+function setupValidations(usersData, state, fields, errors, topicsData) {
 
     document.querySelectorAll('input[type="radio"]').forEach(radio => {
         radio.addEventListener("change", () => {
-            state.radioSelected = document.querySelector("input:checked")?.value ?? null;
+            state.radioSelected = validateOption();
         });
     });
 
+    document.querySelector('.search-container input').addEventListener("blur", () => {
+        state.topicValid = validateSelectedTopics(errors[5], topicsData);
+    });
+
+
     fields[0].addEventListener("blur", async () => {
-        state.nicknameValid = await validateNickname(fields[0], errors[0], usersData);
+        state.nicknameValid = validateNickname(fields[0], errors[0], usersData);
     });
 
     [fields[1], fields[2]].forEach(f => {
         f.addEventListener("blur", async () => {
-            state.passwordValid = await validatePassword(fields[1], fields[2], errors[1]);
+            state.passwordValid = validatePassword(fields[1], fields[2], errors[1]);
         });
     });
 
@@ -104,12 +117,14 @@ function setupValidations(usersData, state) {
         });
     });
 
-    fields[4].addEventListener("blur", async () => {
-        state.fullnameValid = await validateFullname(fields[3], fields[4]);
+    [fields[3],fields[4]].forEach(f =>{
+        f.addEventListener("blur", async () => {
+            state.fullnameValid = validateFullname(fields[3], fields[4]);
+        });
     });
 
     fields[5].addEventListener("blur", async () => {
-        state.numberValid = await validateNumber(fields[5], errors[3]);
+        state.numberValid = validateNumber(fields[5], errors[3]);
     });
     fields[5].addEventListener("input", () => {
         fields[5].value = fields[5].value.replace(/\D/g, "");
@@ -120,20 +135,22 @@ function setupValidations(usersData, state) {
     });
 }
 
-function setupSubmit(topicsData, state) {
+function setupSubmit(topicsData, state, fields, errors, usersData) {
     document.querySelector(".endButton").addEventListener("click", async () => {
-        const topicsValid = validateSelectedTopics(undefined, topicsData);
+        state.nicknameValid = validateNickname(fields[0], errors[0], usersData);
+        state.passwordValid = validatePassword(fields[1], fields[2], errors[1]);
+        state.fullnameValid = validateFullname(fields[3], fields[4]);
+        state.numberValid = validateNumber(fields[5], errors[2]);
+        state.emailValid = validateEmail(fields[6], errors[3]);
+        state.topicValid = validateSelectedTopics(errors[5], topicsData);
+        state.radioSelected = validateOption();
 
-        if (!state.radioSelected) {
-            alert("Debes seleccionar una opción");
-            return;
-        }
-        if (!topicsValid) {
-            alert("Debes seleccionar al menos un idioma y un lenguaje como especialidades");
-            return;
-        }
-        if (state.passwordValid && state.emailValid && state.nicknameValid && state.numberValid && state.fullnameValid) {
+
+        if (state.passwordValid && state.emailValid && state.nicknameValid && state.numberValid && state.fullnameValid && state.topicValid) {
             console.log("Registrado!");
+        }
+        else{
+            alert("Falta información por añadir");
         }
     });
 }

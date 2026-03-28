@@ -10,97 +10,104 @@
     <link rel="stylesheet" href="../../templates/CSS/searchTopics.css">
 </head>
 <body>
-    <header>
-        <button class="backButton">←</button>
-        <h1 class="title">Lorem Ipsum</h1>
-    </header>
-    <main>
-        <form class="form">
-            <h2>Lorem Ipsum</h2>
+<header>
+    <button class="backButton">←</button>
+    <h1 class="title">Lorem Ipsum</h1>
+</header>
+<main>
+    <form class="form">
+        <h2>Lorem Ipsum</h2>
+        <label class="getInputTextTemplate"></label>
+        <p class="fieldFeedBack"></p>
+
+        <label class="getInputTextTemplate"></label>
+
+        <label class="getInputTextTemplate"></label>
+        <p class="fieldFeedBack"></p>
+
+        <h2>Lorem Ipsum</h2>
+        <section>
             <label class="getInputTextTemplate"></label>
-            <p class="description"></p>
-
             <label class="getInputTextTemplate"></label>
-
             <label class="getInputTextTemplate"></label>
-            <p class="description"></p>
+            <label class="getInputTextTemplate"></label>
+            <p class="fieldFeedBack"></p>
+            <p class="fieldFeedBack"></p>
 
-            <h2>Lorem Ipsum</h2>
-            <section>
-                <label class="getInputTextTemplate"></label>
-                <label class="getInputTextTemplate"></label>
-                <label class="getInputTextTemplate"></label>
-                <label class="getInputTextTemplate"></label>
-                <p class="description"></p>
-                <p class="description"></p>
+        </section>
 
-            </section>
-
-            <h2>Lorem Ipsum</h2>
+        <h2>Lorem Ipsum</h2>
+        <div class="particularOption">
             <label>
                 <input type="radio" name="opción" value="1">
                 <span class="radio-circle"></span>
                 <span class="typeUser">Lorem ipsum dolor sit amet consectetur</span>
             </label>
             <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium atque, dignissimos quisquam reiciendis vitae voluptatum! A accusamus aliquam delectus dolorem enim et eum eveniet ex exercitationem mollitia nam natus non obcaecati quasi rem repellat repellendus sit temporibus unde, vitae voluptatibus.</p>
+        </div>
+
+        <div class="companyOption">
             <label class="radio-option">
                 <input type="radio" name="opción" value="2">
                 <span class="radio-circle"></span>
                 <span class="typeUser">Lorem ipsum dolor sit amet consectetur</span>
             </label>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores delectus ducimus id illum impedit incidunt ipsam libero, praesentium quae quia quis tempore unde vel! Adipisci autem cum dolore dolores eaque eligendi, et expedita in nemo officiis quisquam repellat reprehenderit ullam.</p>
-            <br>
-            <div class="search-container">
-                <h2></h2>
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Escribe para filtrar opciones..." autocomplete="off"/>
-                    <span class="search-icon">⌕</span>
-                </div>
-
-                <div class="dropdownTopics" id="dropdown">
-                    <div id="optionsList"></div>
-                </div>
-
-                <div class="selected-section" id="selectedSection">
-                    <div class="section-header">
-                        <span class="section-label">Seleccionados</span>
-                        <div style="display:flex;gap:8px;align-items:center;">
-                            <span class="count-badge" id="countBadge">0</span>
-                            <button class="clear-btn" id="clearBtn" onclick="clearAll()" style="display:none;">limpiar todo</button>
-                        </div>
-                    </div>
-                    <div class="tags-area" id="tagsArea">
-                        <span class="empty-hint" id="emptyHint">ninguna opción seleccionada aún</span>
-                    </div>
-                </div>
-
-<!--                <label>-->
-<!--                    <input type="text" class="search-input" placeholder="Busca y selecciona...">-->
-<!--                    <ul class="topicList"></ul>-->
-<!--                    <di id="selectionTopics"></di>-->
-<!--                </label>-->
-
-
-<!--                <div class="search-results">-->
-<!--                    <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>-->
-<!--                    <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>-->
-<!--                </div>-->
-                <label for="fileInput" class="drop-area">
-                    <p>Añade alguna imagen para tu foto de perfil.</p>
-                    <input type="file" id="fileInput" accept="image/*" placeholder="Lorem Ipsum">
-                </label>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores delectus ducimus id illum impedit incidunt ipsam libero, praesentium quae quia quis tempore unde vel! Adipisci autem cum dolore dolores eaque eligendi, et expedita in nemo officiis quisquam repellat reprehenderit ullam.</p>            </div>
+        </div>
+        <br>
+        <p class="fieldFeedBack"></p>
+        <div class="search-container">
+            <h2></h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Escribe para filtrar opciones..." autocomplete="off"/>
+                <span class="search-icon">⌕</span>
             </div>
 
-            <p class="photoUser">Tu imagen se ve así:</p>
-            <div class="preview">
-                <img id="imagenPreview" src="" alt="">
+            <div class="dropdownTopics" id="dropdown">
+                <div id="optionsList"></div>
             </div>
-        </form>
 
-        <button class="endButton">Registrarse</button>
-    </main>
+            <div class="selected-section" id="selectedSection">
+                <div class="section-header">
+                    <span class="section-label">Seleccionados</span>
+                    <div style="display:flex;gap:8px;align-items:center;">
+                        <span class="count-badge" id="countBadge">0</span>
+                        <button class="clear-btn" id="clearBtn" onclick="clearAll()" style="display:none;">limpiar todo</button>
+                    </div>
+                </div>
+                <div class="tags-area" id="tagsArea">
+                    <span class="empty-hint" id="emptyHint">ninguna opción seleccionada aún</span>
+                </div>
+            </div>
+            <p class="fieldFeedBack"></p>
+
+            <!--                <label>-->
+            <!--                    <input type="text" class="search-input" placeholder="Busca y selecciona...">-->
+            <!--                    <ul class="topicList"></ul>-->
+            <!--                    <di id="selectionTopics"></di>-->
+            <!--                </label>-->
+
+
+            <!--                <div class="search-results">-->
+            <!--                    <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>-->
+            <!--                    <div class="result-item" data-value="Lorem Ipsum"> Manzana</div>-->
+            <!--                </div>-->
+            <label for="fileInput" class="drop-area">
+                <p>Añade alguna imagen para tu foto de perfil.</p>
+                <input type="file" id="fileInput" accept="image/*" placeholder="Lorem Ipsum">
+            </label>
+        </div>
+
+        <p class="photoUser">Tu imagen se ve así:</p>
+        <div class="preview">
+            <img id="imagenPreview" src="" alt="">
+        </div>
+    </form>
+
+    <button class="endButton">Registrarse</button>
+</main>
 <!--    <footer xlu-include-file="../../templates/HTML/footer.html"></footer>-->
-    <footer class="footerTemplate"></footer>
+<footer class="footerTemplate"></footer>
 
 </body>
 <script type="module" src="../JS/userRegistration.js"></script>

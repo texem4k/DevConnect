@@ -1,5 +1,3 @@
-
-
 export function validateFormatPassword(value) {
     return /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,32}$/.test(value);
 }
@@ -8,25 +6,6 @@ export function validateFormatEmail(value) {
     return /^[a-zA-Z0-9.+]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
 }
 
-
-export function validateEmail(email, emailErr){
-    if (validateFormatEmail(email.value)) {
-        email.style.border = "2px solid green";
-        emailErr.textContent = "";
-        return true;
-    } else if (email.value === "") {
-        emailErr.textContent = "";
-        email.style.border = "";
-        return true;
-    } else {
-        email.style.border = "2px solid red";
-        emailErr.style.color = "red";
-        emailErr.style.marginBottom = "0.8rem";
-        emailErr.style.gridColumn = "2";
-        emailErr.textContent = "Correo inválido, por favor, introuduzca uno válido.";
-        return false;
-    }
-}
 
 
 export function setPassword(password){
@@ -71,6 +50,8 @@ export function validateSelectedTopics(fieldErr=null, data) {
             return true;
         }
         fieldErr.textContent = "";
+        document.querySelector(".search-box input").style.border="";
+        document.querySelector(".selected-section").style.border="";
         return true;
     } else {
         if(fieldErr===null){
@@ -78,41 +59,33 @@ export function validateSelectedTopics(fieldErr=null, data) {
         }
         fieldErr.textContent = "Debes seleccionar al menos un idioma y un lenguaje";
         fieldErr.style.color = "red";
+        fieldErr.style.marginBottom="1rem";
+        document.querySelector(".search-box input").style.border="2px solid red";
+        document.querySelector(".selected-section").style.border="2px solid red";
         return false;
     }
 }
-export function validateProjectName(field, fieldErr){
-    field.addEventListener("blur", async ()=>{
-        try {
-            const res = await fetch("../../backend/projects.json");
-            const data = await res.json();
+export function validateProjectName(field, fieldErr, projects){
+    if (field.value.trim() === "") {
+        fieldErr.textContent = "Nombre del proyecto no puede estar vacío.";
+        fieldErr.style.color = "red";
+        field.style.border = "solid 2px red";
+        return false;
+    }
 
-            if (field.value.trim() === "") {
-                fieldErr.textContent = "Nombre del proyecto no puede estar vacío.";
-                fieldErr.style.color = "red";
-                field.style.border = "solid 2px red";
-                return;
-            }
+    const exists = projects.projects.some(project => project.title === field.value.trim());
 
-            const exists = data.projects.some(project => project.title === field.value.trim());
+    if (exists) {
+        fieldErr.textContent = "Nombre de proyecto ya existe, por favor, introduzca otro.";
+        fieldErr.style.color = "red";
+        field.style.border = "solid 2px red";
+        return false;
+    }
 
-            if (exists) {
-                fieldErr.textContent = "Nombre de proyecto ya existe, por favor, introduzca otro.";
-                fieldErr.style.color = "red";
-                field.style.border = "solid 2px red";
-                return;
-            }
-
-            fieldErr.style.color = "green";
-            fieldErr.textContent = "Nombre Disponible";
-            field.style.border = "solid 2px green";
-        }catch (error) {
-            fieldErr.textContent = "Error al validar el nombre de proyecto.";
-            fieldErr.style.color = "red";
-            field.style.border = "solid 2px red";
-            console.error(error);
-        }
-    });
+    fieldErr.style.color = "green";
+    fieldErr.textContent = "Nombre Disponible";
+    field.style.border = "solid 2px green";
+    return true;
 }
 
 
@@ -131,17 +104,24 @@ export function validateMemberNumber(field,maxUsers){
 
 
 
-export function validateDate(field){
+export function validateDate(field, fieldErr){
 
-    field.addEventListener("blur", () => {
-        const fecha = new Date(field.value);
-        const hoy = new Date();
+    const fecha = new Date(field.value);
+    const hoy = new Date();
 
-        if (fecha < hoy) {
-            alert("No puedes seleccionar una fecha anterior a la actual");
-            field.value = "";
-        }
-    });
+    if (fecha < hoy) {
+        fieldErr.textContent = "No puedes poner una fecha anterior a la actual";
+        fieldErr.style.color = "red";
+        field.value = "";
+        field.style.border = "solid 2px red";
+        return false;
+    }
+    else{
+        fieldErr.textContent = "";
+        return true;
+    }
+
+
 }
 
 export function validateNickname(nickname, nicknameErr, usersData) {
@@ -199,16 +179,62 @@ export function validateNumber(number, numberErr) {
         number.style.border = "";
         return true;
     }
+    numberErr.style.justifySelf = "center";
     number.style.border = "2px solid red";
     numberErr.textContent = "Por favor, introduzca tu número completo";
+    numberErr.style.gridColumn = "1";
     numberErr.style.color = "red";
     return false;
 }
 
 export function validateFullname(name, surname) {
     if (name.value.trim() === "" || surname.value.trim() === "") {
-        alert("Los campos Nombre y Apellidos no pueden estar vacíos");
+        document.querySelectorAll("input")[4].style.border = "2px red solid";
+        document.querySelectorAll("input")[3].style.border = "2px red solid";
         return false;
     }
+    document.querySelectorAll("input")[4].style.border = "";
+    document.querySelectorAll("input")[3].style.border = "";
     return true;
+}
+
+
+export function validateEmail(email, emailErr){
+    emailErr.style.gridColumn = "2";
+    emailErr.style.justifySelf = "center";
+
+    if (validateFormatEmail(email.value)) {
+        email.style.border = "2px solid green";
+        emailErr.textContent = "";
+        return true;
+    } else if (email.value === "") {
+        emailErr.textContent = "Debes agregar algún correo";
+        emailErr.style.color = "red";
+        email.style.border = "2px solid red";
+        return true;
+    } else {
+
+        email.style.border = "2px solid red";
+        emailErr.style.color = "red";
+        emailErr.style.gridColumn = "2";
+        emailErr.textContent = "Correo inválido, por favor, introuduzca uno válido.";
+        return false;
+    }
+}
+
+
+export function validateOption() {
+    const val = document.querySelector("input:checked")?.value ?? null;
+    if(val){
+        document.querySelector('.particularOption').style.border="";
+        document.querySelector('.companyOption').style.border="";
+        document.querySelectorAll(".fieldFeedBack")[4].textContent = "";
+        return val
+    }
+    document.querySelector('.particularOption').style.border="solid red 2px";
+    document.querySelector('.companyOption').style.border="solid red 2px";
+    document.querySelectorAll(".fieldFeedBack")[4].textContent = "Debes marcar una opción";
+    document.querySelectorAll(".fieldFeedBack")[4].style.color = "red";
+    document.querySelectorAll(".fieldFeedBack")[4].style.marginBottom="1rem";
+    return null;
 }

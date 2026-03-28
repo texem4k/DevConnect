@@ -1,87 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7f316b4-f9b4-4640-8805-644ea4dbc970" name="Changes" comment="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/searchResult.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/CSS/searchResult.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/manageProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/JS/manageProject.js" afterDir="false" />
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/createProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/createProject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userRegistration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/HTML/userRegistration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/createProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/JS/createProject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/userRegistration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paginas/JS/userRegistration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/validators.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="tsconfig.json" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;texem4k&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "texem4k"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/texem4k/DevConnect.git&quot;,
-    &quot;accountId&quot;: &quot;d1b65c3d-17a5-4f5a-826a-1c9f8988f7a3&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/texem4k/DevConnect.git",
+    "accountId": "fa597e7c-b891-4fd2-8a5b-6a437517eab4"
   }
-}</component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="39wXyGwA6JzOBhUaYz7YGQX3NB1" />
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="3BZbuuhMj2Hj5CxdHhJFBOw3EY2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;disable.download.node.interpreter.editor.notification&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint2&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Mi unidad/Uni/3º Curso/PWM/Sprint 2/DevConnect&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "disable.download.node.interpreter.editor.notification": "true",
+    "git-widget-placeholder": "sprint2",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\Mi unidad\Uni\3º Curso\PWM\DevConnect\src\templates\CSS" />
-      <recent name="G:\Mi unidad\Uni\3º Curso\PWM\DevConnect\src\templates\HTML" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\Mi unidad\Uni\3º Curso\PWM\Sprint 2\DevConnect\src\Paginas\JS" />
-      <recent name="G:\Mi unidad\Uni\3º Curso\PWM\DevConnect\src\templates\HTML" />
-    </key>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -91,60 +68,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f7f316b4-f9b4-4640-8805-644ea4dbc970" name="Changes" comment="" />
-      <created>1771608360838</created>
+      <changelist id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="" />
+      <created>1774699766155</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1771608360838</updated>
-      <workItem from="1771608361853" duration="1490000" />
-      <workItem from="1771760471348" duration="1934000" />
-      <workItem from="1772625076399" duration="3006000" />
-      <workItem from="1772816463795" duration="6221000" />
-      <workItem from="1772907862584" duration="9342000" />
-      <workItem from="1772966483149" duration="4550000" />
-      <workItem from="1773162562506" duration="5972000" />
-      <workItem from="1773263309473" duration="6715000" />
-      <workItem from="1773326963408" duration="7051000" />
-      <workItem from="1773421679441" duration="4693000" />
-      <workItem from="1773496628868" duration="7820000" />
-      <workItem from="1773591388786" duration="2416000" />
-      <workItem from="1773665403753" duration="4385000" />
-      <workItem from="1773767196928" duration="52000" />
-      <workItem from="1773767289422" duration="2076000" />
+      <updated>1774699766155</updated>
+      <workItem from="1774699767856" duration="329000" />
     </task>
-    <task id="LOCAL-00001" summary="Inicializar Proyecto">
-      <option name="closed" value="true" />
-      <created>1771608503459</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1771608503459</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Estructuración del Repositorio">
-      <option name="closed" value="true" />
-      <created>1771608931213</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1771608931213</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Template Footer y Banner Perfil Usuario añadido">
-      <option name="closed" value="true" />
-      <created>1771762370300</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1771762370300</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario">
-      <option name="closed" value="true" />
-      <created>1772983404493</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1772983404493</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,12 +90,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Inicializar Proyecto" />
-    <MESSAGE value="Estructuración del Repositorio" />
-    <MESSAGE value="Template Footer y Banner Perfil Usuario añadido" />
-    <MESSAGE value="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proyecto adaptado al script de JS, retoques realizados en Gestionar Perfil Usuario y Registrar Usuario" />
   </component>
 </project>
