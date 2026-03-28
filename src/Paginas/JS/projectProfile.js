@@ -32,19 +32,19 @@ function setProjectInfo(project, usersData) {
 
     const creatorLink = document.querySelector('.overlay-text a');
     creatorLink.textContent = project.creator;
-    const creator = usersData.Users.find(u => u.Fullname === project.creator);
+    const creator = usersData.Users.find(u => u.Nickname === project.creator);
     if (creator) creatorLink.href = `../HTML/userProfile.html?id=${creator.Id}`;
 }
 
 async function setCollaborators(project, usersData) {
     const collaborators = project.maintainers
-        .map(fullname => usersData.Users.find(u => u.Fullname === fullname))
+        .map(nickname => usersData.Users.find(u => u.Nickname === nickname))
         .filter(Boolean);
 
     await cardGrid(collaborators, 'Colaboradores', '.cardsSection', (u) => ({
         imgSrc:      u.Avatar,
-        imgAlt:      u.Fullname,
-        title:       u.Fullname,
+        imgAlt:      u.Nickname,
+        title:       u.Nickname,
         description: u.Description,
         topics:      (u.Topic?.Specialty || []).slice(0, 2),
         onClick:     () => { window.location.href = `../HTML/userProfile.html?id=${u.Id}`; }
@@ -64,7 +64,7 @@ function setTopicGrid(topics, gridIndex, title, topicTemplate) {
         temp.innerHTML = topicTemplate;
         const btn = temp.querySelector('.topicBox');
         btn.querySelector('p').textContent = topic;
-        btn.addEventListener("click", (e) => {
+        btn.addEventListener("click", () => {
             window.location.href = `../HTML/searchResult.html?topic=${encodeURIComponent(topics)}`;
         });
         fragment.appendChild(btn);

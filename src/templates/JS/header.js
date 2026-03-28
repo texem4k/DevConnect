@@ -43,9 +43,12 @@ function setSidebarMenu(data) {
 }
 
 function setSidebarActions() {
-    const ids = ['sb-create', 'sb-upload', 'sb-login', 'sb-logout'];
-    const [sbCreate, sbUpload, sbLogin, sbLogout] = ids.map(id => document.getElementById(id));
+    const ids = ['sb-create', 'sb-upload', 'sb-login', 'sb-logout', 'sb-home'];
+    const [sbCreate, sbUpload, sbLogin, sbLogout, sbHome] = ids.map(id => document.getElementById(id));
     const loggedUserId = localStorage.getItem("loggedUserId");
+
+    sbHome.textContent = "Home";
+    sbHome.addEventListener('click', () => { window.location.href = "../HTML/index.html"; });
 
     sbCreate.textContent = "Crear Proyecto";
     sbUpload.textContent = "Gestionar Proyecto";
@@ -114,7 +117,7 @@ async function setHeaderLinks() {
     const q = id => document.getElementById(id);
     const qs = sel => document.querySelector(sel);
 
-    qs("#home-btn a").textContent   = "Home";
+    qs("#home-btn a").textContent   = "🏠";
     qs("#home-btn a").href          = "../HTML/index.html";
     qs("#create-btn a").textContent = "Crear Proyecto";
     qs("#create-btn a").href        = "../HTML/createProject.html";

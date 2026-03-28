@@ -22,15 +22,6 @@
     width: 100%;
     padding: 0;
 }
-
-@media (max-width: 768px) {
-    .cardsSection {
-        display: grid;
-        grid-template-columns: repeat(1, minmax(20rem, 1fr));
-        gap: 0.25rem;
-
-    }
-}
 @media (max-width: 1024px) {
     .cardsSection {
         grid-template-columns: repeat(2, minmax(18rem, 1fr));
@@ -41,3 +32,12 @@
         font-size: 1.6rem;
     }
 }
+
+@media (max-width: 768px) {
+    .cardsSection {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(20rem, 1fr));
+        gap: 0.25rem;
+
+    }
+    }

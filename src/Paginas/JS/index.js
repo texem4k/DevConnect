@@ -35,7 +35,7 @@ function renderTrendingUsers(users, cardTemplate, topicTemplate) {
     users.slice(0, 3).forEach(user => {
         fragment.appendChild(buildUserCard({
             img: user.Avatar,
-            title: user.Fullname,
+            title: user.Nickname,
             description: user.Description,
             topicParams: user.Topic.Specialty,
             linkedPage: "userProfile",
