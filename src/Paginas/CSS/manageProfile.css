@@ -4,18 +4,34 @@
     padding: 0;
 }
 
-.userDescription{
+.userDescription {
     justify-self: center;
     align-content: center;
     padding-right: 5rem;
-
 }
 
-.userDescription textarea{
+.userDescription textarea {
     resize: none;
     margin-top: 1rem;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #2a2750;
+    color: #e8e8f0;
+    font-size: 0.9rem;
+    outline: none;
+    transition: background 0.2s, box-shadow 0.2s;
 }
 
+.userDescription textarea:focus {
+    background: #332f66;
+    box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
+}
+
+.userDescription textarea::placeholder {
+    color: #9b99b8;
+}
 
 .profileInformationButtons {
     display: flex;
@@ -23,60 +39,73 @@
     align-items: flex-start;
     padding-right: 5rem;
 }
-.profileInformationDiv button{
-    background: white;
-    border: 2px #b0b0b0 solid;
+
+.profileInformationDiv button {
+    background: #2a2750;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e8e8f0;
     cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s;
 }
 
-.profileInformationDiv input{
+.profileInformationDiv button:hover {
+    background: #402277;
+}
+
+.profileInformationDiv input {
     height: 2rem;
     width: 80%;
     padding: 10px;
-    border: 2px solid #b0b0b0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 15px;
-    background: white;
+    background: #2a2750;
+    color: #e8e8f0;
 }
 
-.profileInformation p{
+.profileInformation p {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.8rem;
+    color: #e8e8f0;
 }
 
-
-.search-box{
-    width: 80%;
+.profileName,
+h1, h2 {
+    color: #ffffff !important;
 }
 
-.selected-section{
-    width: 80%;
-}
+.search-box { width: 80%; }
+.selected-section { width: 80%; }
+#dropdown { width: 80%; }
 
-#dropdown{
-    width: 80%;
-}
-
+/* ── Upload boxes ── */
 .profileInformationUpload {
     margin-top: 5rem;
     max-width: 400px;
     font-family: sans-serif;
 }
 
+.uploadContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10rem;
+}
+
 .upload-box {
     display: block;
-    border: 2px dashed #ccc;
+    border: 2px dashed rgba(79, 110, 247, 0.35);
     border-radius: 12px;
     padding: 30px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: #fafafa;
+    background: #1a1740;
 }
 
 .upload-box:hover {
-    border-color: #666;
-    background: #f0f0f0;
+    border-color: rgba(79, 110, 247, 0.7);
+    background: #221e52;
 }
 
 .upload-box:active {
@@ -91,23 +120,18 @@
 .upload-content p {
     margin: 0;
     font-size: 16px;
+    color: #e8e8f0;
 }
 
 .upload-content span {
     display: block;
     margin-top: 8px;
     font-size: 12px;
-    color: #777;
+    color: #9b99b8;
 }
 
 input[type="file"] {
     display: none;
-}
-
-.uploadContent{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10rem;
 }
 
 @media (max-width: 1024px) {
@@ -136,7 +160,7 @@ input[type="file"] {
 @media (max-width: 768px) {
     .userDescription,
     .profileInformationButtons {
-        width: 80%;;
+        width: 80%;
     }
 
     .userDescription textarea {

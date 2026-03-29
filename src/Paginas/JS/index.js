@@ -1,3 +1,5 @@
+import { buildCard } from '../../templates/JS/cardGrid.js'
+
 document.addEventListener("DOMContentLoaded", async () => {
     await init();
     await Promise.all([loadHeader(), loadFooter(), loadPage()]);
@@ -30,22 +32,12 @@ function initHomeBanner() {
 }
 
 function renderTrendingUsers(users, cardTemplate, topicTemplate) {
-    const fragment = document.createDocumentFragment();
-
-    users.slice(0, 3).forEach(user => {
-        fragment.appendChild(buildUserCard({
-            img: user.Avatar,
-            title: user.Nickname,
-            description: user.Description,
-            topicParams: user.Topic.Specialty,
-            linkedPage: "userProfile",
-            id: user.Id
-        }, cardTemplate, topicTemplate));
-    });
-
     const container = document.querySelector('.trendingUsers');
     container.innerHTML = '';
-    container.appendChild(fragment);
+
+    users.slice(0, 3).forEach(user => {
+        container.appendChild(buildUserCard(user, cardTemplate, topicTemplate));
+    });
 }
 
 function renderTrendingProjects(projects, mediaTemplate) {
@@ -74,36 +66,17 @@ function initDiscoverButtons() {
     });
 }
 
-function buildUserCard({ img, title, description, topicParams, linkedPage, id }, cardTemplate, topicTemplate) {
-    const temp = document.createElement('div');
-    temp.innerHTML = cardTemplate;
-
-    const card = temp.querySelector('.cardLayout');
-    card.querySelector('img').src = img;
-    card.querySelector('img').alt = title;
-    card.querySelector('h2').textContent = title;
-    card.querySelector('p').textContent = description;
-
-    buildCardTopics(card, topicParams, topicTemplate);
-
-    card.querySelector('.informationCard').addEventListener('click', () => {
-        window.location.href = `../HTML/${linkedPage}.html?id=${id}`;
-    });
-
-    return card;
-}
-
-function buildCardTopics(card, topicParams, topicTemplate) {
-    const topicsContainer = card.querySelector('.cardContent div');
-    topicsContainer.querySelectorAll('.topicBoxBtnTemplate').forEach(t => t.remove());
-
-    (topicParams ?? []).slice(0, 2).forEach(param => {
-        const temp = document.createElement('div');
-        temp.innerHTML = topicTemplate;
-        const btn = temp.querySelector('.topicBox');
-        btn.querySelector('p').textContent = param;
-        topicsContainer.appendChild(btn);
-    });
+function buildUserCard(user, cardTemplate, topicTemplate) {
+    return buildCard(user, cardTemplate, topicTemplate, (u) => ({
+        imgSrc: u.Avatar,
+        imgAlt: u.Nickname,
+        title: u.Nickname,
+        description: u.Description,
+        topics: u.Topic.Specialty,
+        onClick: () => {
+            window.location.href = `../HTML/userProfile.html?id=${u.Id}`;
+        }
+    }));
 }
 
 function buildProjectCard({ img, title, description, linkedPage }, mediaTemplate) {

@@ -117,7 +117,6 @@ async function setHeaderLinks() {
     const q = id => document.getElementById(id);
     const qs = sel => document.querySelector(sel);
 
-    qs("#home-btn a").textContent   = "🏠";
     qs("#home-btn a").href          = "../HTML/index.html";
     qs("#create-btn a").textContent = "Crear Proyecto";
     qs("#create-btn a").href        = "../HTML/createProject.html";

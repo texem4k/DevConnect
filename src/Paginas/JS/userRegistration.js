@@ -58,7 +58,9 @@ function setPageContent() {
     document.querySelectorAll(".typeUser")[0].textContent = "Crear cuenta cómo particular";
     document.querySelectorAll(".typeUser")[1].textContent = "Crear cuenta cómo empresa";
 
-    document.querySelectorAll("button")[0].addEventListener("click", () => history.back());
+    document.querySelectorAll("button")[0].addEventListener("click", () => {
+        document.referrer ? history.back() : window.location.href = "../HTML/index.html";
+    });
 }
 
 function setInputAttributes(fields) {

@@ -3,17 +3,21 @@
     margin: 0;
     padding: 0;
 }
-main{
+
+main {
     padding-bottom: 4rem;
 }
+
 body {
-    background: #f4f4f4;
+    background: #0f0d1f;
     min-height: 100vh;
+    color: #e8e8f0;
 }
 
-footer{
+footer {
     padding: 0;
 }
+
 header {
     width: 100%;
     max-width: 50rem;
@@ -27,6 +31,7 @@ header {
 .title {
     font-size: 2rem;
     font-weight: 600;
+    color: #e8e8f0;
 }
 
 .backButton {
@@ -36,12 +41,14 @@ header {
     cursor: pointer;
     padding: 6px;
     border-radius: 6px;
+    color: #e8e8f0;
     transition: background 0.2s;
 }
 
 .backButton:hover {
-    background: #ddd;
+    background: #221e52;
 }
+
 .field {
     display: block;
     width: 100%;
@@ -53,8 +60,9 @@ header {
     min-height: 100px;
     padding: 10px 12px;
     border-radius: 6px;
-    border: none;
-    background: #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #2a2750;
+    color: #e8e8f0;
     font-size: 13px;
     outline: none;
     resize: vertical;
@@ -62,8 +70,8 @@ header {
 }
 
 .field-large textarea:focus {
-    background: white;
-    box-shadow: 0 0 0 2px #3b82f6;
+    background: #332f66;
+    box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
 }
 
 .field-label {
@@ -71,16 +79,17 @@ header {
     margin-bottom: 0.4rem;
     font-size: 13px;
     font-weight: 500;
-    color: #333;
+    color: #9b99b8;
 }
 
 .form {
     max-width: 50rem;
     margin: auto;
-    background: white;
+    background: #1a1740;
     padding: 2rem;
     border-radius: 1rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 .form > label,
@@ -88,11 +97,13 @@ header {
     display: block;
     margin-bottom: 0.1rem;
     position: relative;
+    color: #9b99b8;
 }
 
-.fieldFeedBack{
+.fieldFeedBack {
     margin-bottom: 1rem;
 }
+
 input[type="text"],
 input[type="date"],
 input[type="email"],
@@ -103,17 +114,32 @@ input[type="number"],
     height: 44px;
     padding: 10px 12px;
     border-radius: 6px;
-    border: none;
-    background: #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #2a2750 !important;
+    color: #e8e8f0 !important;
     font-size: 13px;
     outline: none;
     transition: all 0.2s ease;
+    -webkit-text-fill-color: #e8e8f0;
+}
+
+input::placeholder {
+    color: #9b99b8 !important;
+    -webkit-text-fill-color: #9b99b8;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #2a2750 inset !important;
+    -webkit-text-fill-color: #e8e8f0 !important;
+    caret-color: #e8e8f0;
 }
 
 input:focus,
 .search-input:focus {
-    background: white;
-    box-shadow: 0 0 0 2px #3b82f6;
+    background: #332f66 !important;
+    box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
 }
 
 .dual-inputs {
@@ -125,15 +151,19 @@ input:focus,
 
 .dateInputWrapper {
     position: relative;
+    padding-top: 0.1rem
 }
 
 .dateInput {
     appearance: none;
     padding-right: 40px;
     cursor: pointer;
-    background-color: white;
-    color: #333;
+    background: #2a2750 !important;
+    color: #e8e8f0 !important;
+    -webkit-text-fill-color: #e8e8f0;
+    color-scheme: dark;
 }
+
 .dateInput::-webkit-calendar-picker-indicator {
     display: none;
 }
@@ -142,14 +172,28 @@ input:focus,
     position: absolute;
     right: 10px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-20%);
     border: none;
-    padding-top: 0.3rem;
-    background: none;
+    padding: 0;
+    margin: 0;
+    background: none !important;
+    box-shadow: none !important;
     cursor: pointer;
-    font-size: 2rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    font-size: 1.4rem;
+    width: 2rem;
+    height: 2rem;
+    color: #9b99b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.calendar-btn:hover {
+    background: none !important;
+    color: #e8e8f0;
 }
 
 form h2 {
@@ -157,7 +201,7 @@ form h2 {
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0.67em;
-    color: #333;
+    color: #e8e8f0;
 }
 
 .tag-input-group input {
@@ -165,29 +209,31 @@ form h2 {
     height: 44px;
     padding: 10px 12px;
     border-radius: 6px;
-    border: none;
-    background: #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #2a2750;
+    color: #e8e8f0;
     font-size: 13px;
     outline: none;
 }
 
 .tag-input-group input:focus {
-    background: white;
-    box-shadow: 0 0 0 2px #3b82f6;
+    background: #332f66;
+    box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
 }
 
 .tag-input-group button {
     width: 44px;
     border: none;
     border-radius: 6px;
-    background: #ddd;
+    background: #2a2750;
+    color: #e8e8f0;
     cursor: pointer;
     font-size: 18px;
     transition: 0.2s;
 }
 
 .tag-input-group button:hover {
-    background: #ccc;
+    background: #332f66;
 }
 
 .tags-container {
@@ -198,7 +244,9 @@ form h2 {
 }
 
 .tag {
-    background: #e0e0e0;
+    background: rgba(79, 110, 247, 0.15);
+    border: 1px solid rgba(79, 110, 247, 0.35);
+    color: #a0b4ff;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 12px;
@@ -212,7 +260,9 @@ form h2 {
     border: none;
     cursor: pointer;
     font-size: 14px;
+    color: #a0b4ff;
 }
+
 .image-upload-container {
     display: flex;
     position: relative;
@@ -224,7 +274,7 @@ form h2 {
 .small-upload-btn {
     width: 40px;
     height: 40px;
-    background: #ddd;
+    background: #2a2750;
     border-radius: 6px;
     display: flex;
     justify-content: center;
@@ -235,7 +285,7 @@ form h2 {
 }
 
 .small-upload-btn:hover {
-    background: #ccc;
+    background: #332f66;
 }
 
 .small-upload-btn input[type="file"] {
@@ -253,7 +303,7 @@ form h2 {
     height: 10rem;
     border-radius: 14px;
     object-fit: cover;
-    background: #ccc;
+    background: #2a2750;
 }
 
 .btn-secondary {
@@ -261,16 +311,18 @@ form h2 {
     padding: 1rem;
     width: 100%;
     border-radius: 1rem;
-    border: none;
-    background: white;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #2a2750;
+    color: #e8e8f0;
     cursor: pointer;
     font-size: 0.9rem;
     transition: background 0.2s;
 }
 
 .btn-secondary:hover {
-    background: #f0f0f0;
+    background: #332f66;
 }
+
 @media (max-width: 1024px) {
     .form {
         max-width: 90%;

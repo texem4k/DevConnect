@@ -1,22 +1,37 @@
 .topicBox {
-    padding: 0.25rem 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    background: #f8f9fa;
-    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid #838383;
+    border-radius: 99px;
+    background: #838383;
+    font-size: 0.7rem;
     white-space: nowrap;
     display: inline-flex;
-    width: fit-content;
+    align-items: center;
+    cursor: pointer;
     position: relative;
     z-index: 1;
-    pointer-events: all;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.topicBox p {
+    margin: 0;
+    color: #1a1a1a;
 }
 
 .topicBox:hover {
+    background: #402277;
     border-color: #999;
-    cursor: pointer;
+}
+
+.topicBox:hover p {
+    color: #ffffff;
+}
+
+.topicBox a {
+    color: #a0b4ff;
+    text-decoration: none;
 }
 
 .topicBox:hover a {
-    color: #1a1a1a;
+    color: #ffffff;
 }

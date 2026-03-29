@@ -31,7 +31,7 @@ export function buildCard(item, cardTemplate, topicTemplate, config) {
         if (!topics[i]) { placeholder.remove(); return; }
         const topicWrapper = document.createElement("div");
         topicWrapper.innerHTML = topicTemplate;
-        const btn = topicWrapper.querySelector("button");
+        const btn = topicWrapper.querySelector(".topicBox");
         btn.querySelector("p").textContent = topics[i];
         btn.addEventListener("click", (e) => {
             e.stopPropagation();

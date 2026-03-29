@@ -51,6 +51,7 @@ function addPasswordToggle(passwd) {
     toggleBtn.type = "button";
     toggleBtn.classList.add("toggle-password");
     toggleBtn.textContent = "👁️";
+    toggleBtn.style.transform = "translateY(-60%)";
     wrapper.appendChild(toggleBtn);
 
     toggleBtn.addEventListener("click", () => {
@@ -79,7 +80,9 @@ function validateLoginPassword(passwd, passwordErr) {
 }
 
 function setupButtons(buttons, email, passwd, emailErr) {
-    buttons[0].addEventListener("click", () => history.back());
+    buttons[0].addEventListener("click", () => {
+        document.referrer ? history.back() : window.location.href = "../HTML/index.html";
+    });
 
     buttons[1].addEventListener("click", async () => {
         await handleLogin(email, passwd, emailErr);

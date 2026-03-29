@@ -17,17 +17,19 @@ main {
 }
 
 .profileInformationButtons button {
-    background: rgba(255, 255, 255, 0.1);
+    background: #1a1740;
     backdrop-filter: blur(10px);
-    color: #111;
+    color: #e8e8f0;
     padding: 10px 18px;
     border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(79, 110, 247, 0.35);
     cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
 }
 
 .profileInformationButtons button:hover {
-    background: wheat;
+    background: #221e52;
+    border-color: rgba(79, 110, 247, 0.7);
     transform: translateY(-1px);
 }
 
@@ -36,7 +38,7 @@ main {
     width: 35%;
     height: 85%;
     margin-right: 5rem;
-    border-right: 3px solid #ccc;
+    border-right: 3px solid rgba(255, 255, 255, 0.1);
     margin-left: 5rem;
 }
 
@@ -46,17 +48,24 @@ main {
     margin-bottom: 2rem;
 }
 
+.profileName,
+h1, h2 {
+    color: #ffffff !important;
+}
+
 .profileInformationDiv input {
     height: 2rem;
     width: 80%;
     padding: 10px 12px;
-    border: 2px solid #b0b0b0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    background: lightgray;
+    background: #2a2750;
+    color: #e8e8f0;
 }
 
 .profileInformationDiv button {
-    background: lightgrey;
+    background: #2a2750;
+    color: #9b99b8;
     cursor: default;
     border: none;
 }
@@ -103,7 +112,7 @@ main {
         width: 90%;
         margin: 0 auto 2rem;
         border-right: none;
-        border-bottom: 3px solid #ccc;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.1);
         padding-bottom: 2rem;
     }
 
@@ -160,7 +169,7 @@ main {
         margin: 0 0 1rem;
         padding: 0 1rem 1rem;
         border-right: none;
-        border-bottom: 2px solid #ccc;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         display: flex;
         flex-direction: column;
         align-items: center;
