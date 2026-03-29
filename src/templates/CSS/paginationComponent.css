@@ -8,7 +8,7 @@
 
 .dots {
     padding: 0.5rem 0.6rem;
-    color: #666;
+    color: white;
     user-select: none;
 }
 
@@ -17,7 +17,7 @@
     border: 1px solid #ccc;
     border-radius: 6px;
     text-decoration: none;
-    color: black;
+    color: black !important;
     background: white;
     transition: all 0.2s ease;
     min-width: 36px;
@@ -30,7 +30,7 @@
 
 .page-btn.active {
     background-color: black;
-    color: white;
+    color: white !important;
     border-color: black;
 }
 
