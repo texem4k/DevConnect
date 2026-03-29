@@ -70,9 +70,9 @@ function setFieldAttributes(fields, maxUsers) {
     fields[3].setAttribute("max", "2099-12-31");
     fields[4].setAttribute("required", "");
     fields[4].setAttribute("type", "number");
-    fields[4].setAttribute("min", "1");
+    fields[4].setAttribute("min", "3");
     fields[4].setAttribute("max", String(maxUsers));
-    fields[4].setAttribute("value", "1");
+    fields[4].setAttribute("value", "0");
 }
 
 function setPlaceholders(fields, description) {
