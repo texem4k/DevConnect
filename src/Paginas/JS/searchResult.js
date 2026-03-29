@@ -1,4 +1,5 @@
 import {buildPageLink} from "../../utils/PageLink.js";
+
 document.addEventListener("DOMContentLoaded", async () => {
     await init();
     await Promise.all([loadHeader(), loadFooter(), loadPage()]);

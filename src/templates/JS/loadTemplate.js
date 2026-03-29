@@ -1,4 +1,3 @@
-//document.addEventListener("DOMContentLoaded", init);
 const templateCache = {};
 const templatePath = "../../templates/HTML/";
 

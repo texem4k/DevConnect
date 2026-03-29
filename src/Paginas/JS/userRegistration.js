@@ -3,10 +3,6 @@ import {validateEmail, setPassword, setEmail, setLabel,
     validateNumber, validateFullname, validateOption } from "../../utils/validators.js";
 import { previewUserImage } from "../../utils/previewUserImage.js";
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", async () => {
     await init();
     await Promise.all([loadRegistration(), loadFooter()]);
@@ -28,10 +24,6 @@ async function loadRegistration() {
     setupSubmit(topicsData, state, fields, errors, usersData);
     previewUserImage();
 }
-
-
-
-
 
 function setPageContent() {
     document.querySelector(".title").textContent = "Registro en Devconnect";

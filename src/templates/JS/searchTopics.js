@@ -1,5 +1,3 @@
-
-
 async function getTopics(){
     let res = await fetch("../../backend/topics.json");
     return await res.json();
@@ -87,10 +85,7 @@ function renderTags() {
         return;
     }
 
-    // keep emptyHint out
     emptyHint.remove();
-
-    // sync tags: remove ones no longer selected
     document.querySelectorAll('.tag[data-id]').forEach(el => {
         if (!selected.has(+el.dataset.id)) el.remove();
     });
