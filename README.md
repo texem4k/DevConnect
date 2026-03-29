@@ -38,7 +38,7 @@ puntuado por los empleadores, así como un historial de proyectos en los que ha 
 
 ## 3. Listado de páginas
 
-### 3.1 Página de [Home](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Home.png)
+### 3.1 Página de Home [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Home.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Home.png)
 
 Es la página de inicio del sitio web, cualquier usuario tiene acceso a esta página.  
 Muestra los usuarios y proyectos trending. 
@@ -63,7 +63,7 @@ donde se le inyecta el contenido de texto y se modifican los templates implicado
 
 
 
-### 3.2 Página de [registro de usuario](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Registrar%20Usuario.png)
+### 3.2 Página de registro de usuario [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Registrar%20Usuario.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Registrar%20Usuario.png)
 
 Es una de las páginas que por supuesto no puede fallar, y que además es un formulario.  
 
@@ -89,7 +89,7 @@ Por ejemplo, Tony Stark tiene el nombre de usuario **IronTony**.
 - [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/userRegistration.js)
 
 
-### 3.3 Página de [Inicio de Sesión](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Inicio%20Sesión.png)
+### 3.3 Página de Inicio de Sesión [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Inicio%20Sesión.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Inicio%20Sesión.png)
 
 Página dedicada al inicio de sesión. El cliente tendrá la posibilidad de crear una cuenta o de iniciar sesión.  
 
@@ -111,7 +111,7 @@ usuarios el login, el JSON de usuarios dispone de varios usuarios con correo/con
 - [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/login.js)
 
 
-### 3.4 Página del [gestión de perfil](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestionar%20perfil.png)
+### 3.4 Página del gestión de perfil [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Gestionar%20perfil.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Gestionar%20perfil.png)
 
 Página dedicada al perfil del usuario cómo a la gestión del mismo. Solo accesible al tener sesión iniciada.
 
@@ -129,12 +129,12 @@ un idioma.
 
 
 
-- [Código](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/manageProfile.html)
-- [Código](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/manageProfile.css)
-- [Código](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/manageProfile.js)
+- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/manageProfile.html)
+- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/manageProfile.css)
+- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/manageProfile.js)
 
 
-### 3.5 Página del [perfil de usuario](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Perfil%20de%20usuario.png)
+### 3.5 Página del perfil de usuario [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Perfil%20de%20usuario.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Perfil%20de%20usuario.png)
 
 Página dedicada a la visualización del perfil del usuario.
 
@@ -152,7 +152,7 @@ A diferencia de la gestión del perfil de usuario, no hay cambios de informació
 
 
 
-### 3.6 Página de [creación de proyectos](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Creación%20de%20Proyecto.png)
+### 3.6 Página de creación de proyectos [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Creación%20de%20Proyecto.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Creación%20de%20Proyecto.png)
 
 Página dedicada a la creación de un proyecto, accesible desde un botón en el header.  
 
@@ -175,7 +175,7 @@ se elijan un idioma y un lenguaje, como mínimo.
 - [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/createProject.css)
 - [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/createProject.js)
 
-### 3.7 Página de [gestión de proyectos](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestión%20Proyectos.png)
+### 3.7 Página de gestión de proyectos [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Gestión%20Proyectos.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Gestión%20Proyectos.png)
 
 Página dedicada a la gestión de los proyectos del usuario, accesible desde el perfil de usuario.  
 
@@ -190,7 +190,7 @@ se usan varios tales cómo header/footer y paginationComponent (navegador numér
 - [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/manageProject.css)
 - [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/manageProject.js)
 
-### 3.8 Página del [perfil de proyecto](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Perfil%20de%20Proyecto.png)
+### 3.8 Página del perfil de proyecto [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Perfil%20de%20Proyecto.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Perfil%20de%20Proyecto.png)
 
 Página dedicada al proyecto seleccionado, mostrando toda la información necesaria.  
 
@@ -210,7 +210,7 @@ así cómo un botón abajo para poder participar.
 - [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/projectProfile.js)
 
 
-### 3.9 Página de [resultado de búsqueda](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Resultado%20de%20Busqueda.png)
+### 3.9 Página de resultado de búsqueda [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Resultado%20de%20Busqueda.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Resultado%20de%20Busqueda.png)
 
 Página dedicada al resultado de búsqueda, sea usando la barra de búsqueda o los filtros predeterminados.  
 
@@ -226,7 +226,7 @@ con el script de la página respectivo. Por otro lado, la carga de templates son
 - [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/searchResult.css)
 - [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/searchResult.js)
   
-### 3.10 Página de [gestión de incidencias](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Gestion%20de%20incidencias.png) y [presentación del sitio web](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Presentacion%20del%20web%20service.png)
+### 3.10 Página de gestión de incidencias [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Gestion%20de%20incidencias.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Gestion%20de%20incidencias.png)
 
 Representan la creación de tickets por si surge algún problema.
 
@@ -244,7 +244,7 @@ restricciones de longitud de mensaje.
 - [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/incidents.js)
 
 
-### 3.11 Página de [presentación del sitio web](https://github.com/texem4k/DevConnect/blob/sprint1/mockups/Presentacion%20del%20web%20service.png)
+### 3.11 Página de presentación del sitio web [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Presentacion%20del%20web%20service.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Presentacion%20del%20web%20service.png)
 
 Representan la creación de tickets por si surge algún problema y la presentación de la página web.
 
