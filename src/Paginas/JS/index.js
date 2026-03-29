@@ -29,6 +29,7 @@ async function fetchHomeData() {
 function initHomeBanner() {
     document.querySelector(".introduction").textContent = "Trending Users";
     typeWriter(document.querySelector("#home-banner h1"), "DevConnect");
+    document.querySelector("#home-banner").style.backgroundImage = `url(https://images.unsplash.com/photo-1555066931-4365d14bab8c?fm=jpg&w=1600&h=400&fit=crop)`;
 }
 
 function renderTrendingUsers(users, cardTemplate, topicTemplate) {
