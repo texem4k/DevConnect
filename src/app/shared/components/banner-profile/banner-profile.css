@@ -1,0 +1,66 @@
+.profileContainer .bannerProfile {
+  background-color: gray;
+  min-height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(https://picsum.photos/900/500?random=1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profileContainer .profilePicture {
+  background-color: wheat;
+  background-position: center;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.profileContainer .profileName {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+.profileContainer h1{
+  margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .profileContainer .bannerProfile {
+    min-height: 240px;
+  }
+
+  .profileContainer .profilePicture {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profileContainer .profileName {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profileContainer .bannerProfile {
+    min-height: 180px;
+  }
+
+  .profileContainer .profilePicture {
+    width: 110px;
+    height: 110px;
+  }
+
+  .profileContainer .profileName {
+    font-size: 1.8rem;
+  }
+
+  .profileContainer h1 {
+    margin-top: 1.25rem;
+  }
+}

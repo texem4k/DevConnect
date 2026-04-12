@@ -4,10 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="">
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Instalacion de angular en el repositorio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/banner.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/bannerProfile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/cardsGrid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/getInputText.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/informationCard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/mediaList.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/paginationComponent.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/searchTopics.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/topicBoxBtn.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/topicsGrid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/userDataField.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/CSS/userSkills.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/banner.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/bannerProfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/cardsGrid.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/dropDown.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/getInputText.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/informationCard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/mediaComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/mediaList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/paginationComponent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/skillField.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/topicBoxBtn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/topicsGrid.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/userDataField.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/HTML/userSkills.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +87,15 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\vidal\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vidal\WebstormProjects\DevConnect\src\app\shared\components" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -78,8 +112,21 @@
       <updated>1774699766155</updated>
       <workItem from="1774699767856" duration="329000" />
       <workItem from="1775580714944" duration="3467000" />
-      <workItem from="1775836718978" duration="407000" />
+      <workItem from="1775836718978" duration="721000" />
+      <workItem from="1775841148063" duration="296000" />
+      <workItem from="1775842442656" duration="877000" />
+      <workItem from="1775991723000" duration="2411000" />
+      <workItem from="1776000403379" duration="5359000" />
     </task>
+    <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
+      <option name="closed" value="true" />
+      <created>1775837217860</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775837217860</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,5 +142,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Instalacion de angular en el repositorio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Instalacion de angular en el repositorio" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.ts</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

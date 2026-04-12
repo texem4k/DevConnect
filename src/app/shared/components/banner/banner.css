@@ -1,0 +1,36 @@
+#home-banner {
+  height: 35vh;
+  object-fit: cover;
+  background-image: url(https://picsum.photos/900/500?random=1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 2rem;
+}
+
+#home-banner h1 {
+  padding: 0 1rem 0 1rem;
+  background-color: black;
+  font-size: 4rem;
+}
+@media (max-width: 1024px) {
+  #home-banner h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #home-banner {
+    height: 25vh;
+    padding: 0 1rem;
+  }
+
+  #home-banner h1 {
+    font-size: 2rem;
+  }
+}
