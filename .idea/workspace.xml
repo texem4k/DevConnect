@@ -5,37 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Instalacion de angular en el repositorio">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/banner.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/bannerProfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/cardsGrid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/footer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/getInputText.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/header.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/informationCard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/mediaList.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/paginationComponent.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/searchTopics.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/topicBoxBtn.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/topicsGrid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/userDataField.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/CSS/userSkills.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/banner.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/bannerProfile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/cardsGrid.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/dropDown.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/getInputText.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/informationCard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/mediaComponent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/mediaList.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/paginationComponent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/skillField.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/topicBoxBtn.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/topicsGrid.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/userDataField.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/HTML/userSkills.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/aboutUs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/createProject.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/incidents.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProfile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/paletaColor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/projectProfile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/searchResult.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userProfile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userRegistration.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/aboutUs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/createProject.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/incidents.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProject.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/projectProfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/searchResult.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userProfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userRegistration.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,27 +62,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;disable.download.node.interpreter.editor.notification&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint3&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\vidal\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "disable.download.node.interpreter.editor.notification": "true",
+    "git-widget-placeholder": "sprint3",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.language",
+    "ts.external.directory.path": "C:\\Users\\Usuario\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vidal\WebstormProjects\DevConnect\src\app\shared\components" />
@@ -152,7 +144,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.ts</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

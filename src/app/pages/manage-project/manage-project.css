@@ -1,0 +1,52 @@
+*{
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  gap: 0;
+  margin: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.project-container {
+  display: block;
+  flex: 2;
+}
+
+.button-container {
+  margin-right: 10rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1rem;
+}
+
+.button-container button {
+  border-radius: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+.button-container button:hover {
+  background-color: lightgray;
+}
+
+@media (max-width: 1024px) {
+  .button-container {
+    margin-right: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .button-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-right: 3rem;
+  }
+
+  .button-container button {
+    height: 7.5rem;
+  }
+
+}

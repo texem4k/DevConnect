@@ -1,0 +1,76 @@
+<body>
+<header class="headerTemplate"></header>
+<div class="bannerProfileTemplate"></div>
+
+<main>
+  <section class="profileInformation">
+    <div class="profileInformationDiv getInputTextTemplate"></div>
+    <div class="profileInformationDiv getInputTextTemplate"></div>
+    <div class="profileInformationDiv getInputTextTemplate"></div>
+    <div class="profileInformationDiv getInputTextTemplate"></div>
+    <p></p>
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Escribe para filtrar opciones..." autocomplete="off"/>
+        <span class="search-icon">⌕</span>
+      </div>
+
+      <div class="dropdownTopics" id="dropdown">
+        <div id="optionsList"></div>
+      </div>
+
+      <div class="selected-section" id="selectedSection">
+        <div class="section-header">
+          <span class="section-label">Seleccionados</span>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="count-badge" id="countBadge">0</span>
+            <button class="clear-btn" id="clearBtn" onclick="clearAll()" style="display:none;">limpiar todo</button>
+          </div>
+        </div>
+        <div class="tags-area" id="tagsArea">
+          <span class="empty-hint" id="emptyHint">ninguna opción seleccionada aún</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="userDescription">
+    <h3>Lorem ipsum</h3>
+    <textarea placeholder="Lorem Ipsum" wrap="soft" rows="5" cols="120"></textarea>
+
+    <section class="uploadContent">
+      <div class="profileInformationUpload">
+        <label for="file-upload" class="upload-box">
+          <div class="upload-content">
+            <div class="icon">⬆️</div>
+            <p><strong>Lorem ipsum dolor sit amet</strong></p>
+            <span>Lorem</span>
+          </div>
+          <input class="file-upload" type="file" accept="image/png, image/jpeg, image/jpg"/>
+        </label>
+      </div>
+
+      <div class="profileInformationUpload">
+        <label for="file-upload" class="upload-box">
+          <div class="upload-content">
+            <div class="icon">⬆️</div>
+            <p><strong>Lorem ipsum dolor sit amet</strong></p>
+            <span>Lorem</span>
+          </div>
+          <input class="file-upload" id="file-upload" type="file" accept="image/png, image/jpeg, image/jpg" />
+        </label>
+      </div>
+    </section>
+
+  </section>
+
+
+</main>
+<section class="profileInformationButtons">
+  <button class="profileInformationButtonManageProfile" type="button">Lorem Ipsum</button>
+  <button class="profileButton" type="button">Lorem Ipsum</button>
+</section>
+
+<footer class="footerTemplate"></footer>
+
+</body>
