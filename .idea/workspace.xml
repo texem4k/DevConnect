@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Adaptación de las paginas a árbol de directorios de angular">
-      <change afterPath="$PROJECT_DIR$/src/environment/environment.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/footer/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/footer/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/footer/footer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/footer/footer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/footer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environment/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +49,10 @@
     &quot;accountId&quot;: &quot;534a05d6-1f02-41cf-aa9e-bb8dd8560c34&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -123,7 +110,7 @@
       <workItem from="1776000403379" duration="5359000" />
       <workItem from="1776265948200" duration="753000" />
       <workItem from="1776271780680" duration="509000" />
-      <workItem from="1776441648449" duration="1489000" />
+      <workItem from="1776441648449" duration="2535000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
