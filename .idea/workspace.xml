@@ -4,35 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Instalacion de angular en el repositorio">
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/aboutUs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/createProject.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/incidents.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/paletaColor.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/projectProfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/searchResult.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userProfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userRegistration.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/aboutUs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/createProject.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/incidents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProfile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProject.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/projectProfile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/searchResult.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userProfile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userRegistration.html" beforeDir="false" />
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Adaptación de las paginas a árbol de directorios de angular">
+      <change afterPath="$PROJECT_DIR$/src/environment/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/footer/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/footer/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/footer/footer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/footer/footer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/footer.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -51,9 +59,13 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/texem4k/DevConnect.git&quot;,
-    &quot;accountId&quot;: &quot;5fcac481-15b9-4ab6-a048-5e36e6940cce&quot;
+    &quot;accountId&quot;: &quot;534a05d6-1f02-41cf-aa9e-bb8dd8560c34&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -62,27 +74,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "disable.download.node.interpreter.editor.notification": "true",
-    "git-widget-placeholder": "sprint3",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.preferred.runtime.type.id": "node",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.language",
-    "ts.external.directory.path": "C:\\Users\\Usuario\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;disable.download.node.interpreter.editor.notification&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint3&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Usuario\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vidal\WebstormProjects\DevConnect\src\app\shared\components" />
@@ -91,7 +103,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
       </set>
     </attachedChunks>
   </component>
@@ -109,6 +121,9 @@
       <workItem from="1775842442656" duration="877000" />
       <workItem from="1775991723000" duration="2411000" />
       <workItem from="1776000403379" duration="5359000" />
+      <workItem from="1776265948200" duration="753000" />
+      <workItem from="1776271780680" duration="509000" />
+      <workItem from="1776441648449" duration="1489000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -118,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775837217860</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adaptación de las paginas a árbol de directorios de angular">
+      <option name="closed" value="true" />
+      <created>1776184426138</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1776184426138</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,7 +160,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Instalacion de angular en el repositorio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Instalacion de angular en el repositorio" />
+    <MESSAGE value="Adaptación de las paginas a árbol de directorios de angular" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adaptación de las paginas a árbol de directorios de angular" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
