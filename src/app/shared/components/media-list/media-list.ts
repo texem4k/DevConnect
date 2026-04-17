@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MediaComponent} from '../media-component/media-component';
 
 @Component({
@@ -7,4 +7,10 @@ import {MediaComponent} from '../media-component/media-component';
   templateUrl: './media-list.html',
   styleUrl: './media-list.css',
 })
-export class MediaList {}
+export class MediaList {
+  @Input() items: any[] = []
+
+  get limitedItems() {
+    return this.items.slice(0,4)
+  }
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-user-data-field',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './user-data-field.html',
   styleUrl: './user-data-field.css',
 })
-export class UserDataField {}
+export class UserDataField {
+  @Input() socialNetwork: string = ''
+  @Input() title: string = ''
+  @Input() link: string = ''
+}

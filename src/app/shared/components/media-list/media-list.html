@@ -1,6 +1,9 @@
 <div class="projectList">
-  <app-media-component />
-  <app-media-component />
-  <app-media-component />
-  <app-media-component />
-</div>
+  @for (project of limitedItems; track project.title) {
+    <app-media-component
+      [imagen]="project.image"
+      [titulo]="project.title"
+      [descripcion]="project.description"
+    />
+  }
+  </div>

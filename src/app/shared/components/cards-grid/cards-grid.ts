@@ -1,9 +1,17 @@
 import {Component, Input} from '@angular/core';
+import {InformationCard} from '../information-card/information-card';
 
 @Component({
   selector: 'app-cards-grid',
-  imports: [],
+  imports: [InformationCard],
   templateUrl: './cards-grid.html',
   styleUrl: './cards-grid.css',
 })
-export class CardsGrid {}
+export class CardsGrid {
+  @Input() title: string = ''
+  @Input() items: any[] = []
+
+  get itemsLimitados() {
+    return this.items.slice(0, 4)
+  }
+}

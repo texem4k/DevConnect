@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-information-card',
@@ -8,7 +9,17 @@ import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
   styleUrl: './information-card.css',
 })
 export class InformationCard {
+  @Input() id: number = 0
   @Input() imagen: string = ''
   @Input() titulo: string = ''
   @Input() descripcion: string = ''
+  @Input() topics: string[] = []
+
+  constructor(private router: Router) {}
+
+  navegarAPerfil() {
+    this.router.navigate(['/UserProfile'], {
+      queryParams: { id: this.id }
+    })
+  }
 }

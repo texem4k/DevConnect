@@ -1,9 +1,14 @@
 <div class="cardGrid">
-  <h1>Lorem Ipsum</h1>
+  <h1>{{ title }}</h1>
   <section class="cardsSection">
-    <div class="informationCardTemplate"></div>
-    <div class="informationCardTemplate"></div>
-    <div class="informationCardTemplate"></div>
-    <div class="informationCardTemplate"></div>
+    @for (item of itemsLimitados; track item.Id) {
+      <app-information-card
+        [id]="item.Id"
+        [imagen]="item.Avatar"
+        [titulo]="item.Fullname"
+        [descripcion]="item.Description"
+        [topics]="item.Topic.Specialty"
+      />
+    }
   </section>
 </div>

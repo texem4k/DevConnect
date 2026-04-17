@@ -1,7 +1,7 @@
 <div class="profileContainer">
-  <div class="bannerProfile">
-    <img class="profilePicture" src="https://picsum.photos/200/220?random=1">
+  <div class="bannerProfile" [style.background-image]="'url(' + banner + ')'">
+    <img class="profilePicture" [src]="avatar" [alt]="titulo">
   </div>
 
-  <h1 class="profileName">Lorem Ipsum</h1>
+  <h1 class="profileName">{{ titulo }}</h1>
 </div>

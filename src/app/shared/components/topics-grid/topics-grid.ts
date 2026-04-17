@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
 
 @Component({
@@ -7,4 +7,13 @@ import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
   templateUrl: './topics-grid.html',
   styleUrl: './topics-grid.css',
 })
-export class TopicsGrid {}
+export class TopicsGrid {
+  @Input() title: string = ''
+  @Input() items: any[] = []
+
+  get topics() {
+    return this.items
+  }
+
+  protected readonly top = top;
+}

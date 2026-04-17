@@ -1,19 +1,21 @@
 <div class="cardLayout">
-  <button class="informationCard">
+  <button class="informationCard" (click)="navegarAPerfil()">
     <div class="cardImage">
-      <img src="https://picsum.photos/200/220?random=1" alt="Imagen Lorem Ipsum">
+      <img [src]="imagen" [alt]="titulo">
     </div>
     <div class="cardContent">
       <div>
-        <h2>Lorem ipsum</h2>
+        <h2>{{ titulo }}</h2>
         <div class="topicsRow">
-          <div class="topicBoxBtnTemplate"></div>
-          <div class="topicBoxBtnTemplate"></div>
+          @for (topic of topics; track topic) {
+            <app-topic-box-btn
+              [topic]="topic"
+            />
+          }
         </div>
       </div>
       <p>
-        dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        {{ descripcion }}
       </p>
     </div>
   </button>

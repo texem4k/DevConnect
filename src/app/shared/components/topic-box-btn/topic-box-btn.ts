@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-topic-box-btn',
@@ -8,4 +9,12 @@ import {Component, Input} from '@angular/core';
 })
 export class TopicBoxBtn {
   @Input() topic: string = ''
+
+  constructor(private router: Router) {}
+
+  navegarAResultados() {
+    this.router.navigate(['/SearchResult'], {
+      queryParams: { topic: this.topic }
+    })
+  }
 }
