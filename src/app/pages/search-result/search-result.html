@@ -1,0 +1,62 @@
+<body>
+<header class="headerTemplate"></header>
+<div id="main-layout">
+  <aside>
+    <h3>Filtros</h3>
+    <form class="filters-form">
+      <div class="filter-group">
+        <h4>Categoría</h4>
+
+        <label>
+          <input type="checkbox" name="category" value="frontend">
+          Frontend
+        </label>
+
+        <label>
+          <input type="checkbox" name="category" value="backend">
+          Backend
+        </label>
+
+        <label>
+          <input type="checkbox" name="category" value="devops">
+          DevOps
+        </label>
+      </div>
+      <div class="filter-group">
+        <h4>Nivel</h4>
+
+        <label>
+          <input type="radio" name="level" value="junior">
+          Junior
+        </label>
+
+        <label>
+          <input type="radio" name="level" value="senior">
+          Senior
+        </label>
+      </div>
+      <div class="filter-group">
+        <h4>Ordenar por:</h4>
+
+        <label>
+          <select name="sort">
+            <option value="recent">Más reciente</option>
+            <option value="popular">Más popular</option>
+          </select>
+        </label>
+      </div>
+      <button type="submit" class="apply-btn">
+        Aplicar filtros
+      </button>
+      <button type="reset" class="clean-btn">
+        Limpiar filtros
+      </button>
+    </form>
+  </aside>
+  <div id="results">
+    <div class="media-list"></div>
+    <nav class="paginationComponentTemplate"></nav>
+  </div>
+</div>
+<footer class="footerTemplate"></footer>
+</body>

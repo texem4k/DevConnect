@@ -4,25 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Adaptación de templates a árbol de directorios de angular">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/skill-field/skill-field.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/skill-field/skill-field.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topic-box-btn/topic-box-btn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topic-box-btn/topic-box-btn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topic-box-btn/topic-box-btn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topic-box-btn/topic-box-btn.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.ts" afterDir="false" />
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Instalacion de angular en el repositorio">
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/aboutUs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/createProject.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/incidents.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProfile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/manageProject.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/paletaColor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/projectProfile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/searchResult.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userProfile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/CSS/userRegistration.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/aboutUs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/createProject.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/incidents.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/manageProject.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/projectProfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/searchResult.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userProfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/HTML/userRegistration.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,27 +62,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;disable.download.node.interpreter.editor.notification&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint3&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\vidal\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "disable.download.node.interpreter.editor.notification": "true",
+    "git-widget-placeholder": "sprint3",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.language",
+    "ts.external.directory.path": "C:\\Users\\Usuario\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vidal\WebstormProjects\DevConnect\src\app\shared\components" />
@@ -103,9 +108,7 @@
       <workItem from="1775841148063" duration="296000" />
       <workItem from="1775842442656" duration="877000" />
       <workItem from="1775991723000" duration="2411000" />
-      <workItem from="1776000403379" duration="5691000" />
-      <workItem from="1776182190895" duration="6550000" />
-      <workItem from="1776441524923" duration="327000" />
+      <workItem from="1776000403379" duration="5359000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -115,15 +118,7 @@
       <option name="project" value="LOCAL" />
       <updated>1775837217860</updated>
     </task>
-    <task id="LOCAL-00002" summary="Adaptación de templates a árbol de directorios de angular">
-      <option name="closed" value="true" />
-      <created>1776012644727</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1776012644727</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,8 +137,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Instalacion de angular en el repositorio" />
-    <MESSAGE value="Adaptación de templates a árbol de directorios de angular" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adaptación de templates a árbol de directorios de angular" />
+    <option name="LAST_COMMIT_MESSAGE" value="Instalacion de angular en el repositorio" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
