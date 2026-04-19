@@ -1,28 +1,31 @@
-<body>
-<app-header></app-header>
-<main>
-  <div class="bannerTemplate"></div>
 
-  <h2 class="introduction">Lorem ipsum dolor sit amet</h2>
+<main>
+  <app-banner></app-banner>
+  <h2 class="introduction">Trending Users</h2>
 
   <section class="trendingUsers">
-    <div class="informationCardTemplate"></div>
-    <div class="informationCardTemplate"></div>
-    <div class="informationCardTemplate"></div>
+    @if (!isLoading) {
+      @for (user of trendingUsers; track user.Id) {
+        <app-information-card  [titulo]="user.Nickname" [descripcion]="user.Description"></app-information-card>
+      }
+    }
+
   </section>
   <div class="discoverButton">
-    <button type="button">Más información</button>
+    <button type="button" (click)="discoverUsers()">Más información</button>
   </div>
 
   <br><hr><br>
 
-  <div class="mediaListTemplate"></div>
+  <section class="trendingProjects"><app-media-list [items]="trendingProjects"></app-media-list></section>
+
+
+
 
   <div class="discoverButton">
-    <button type="button">Más información</button>
+    <button type="button" (click)="discoverProjects()">Más información</button>
   </div>
 
 
 </main>
 <app-footer></app-footer>
-</body>

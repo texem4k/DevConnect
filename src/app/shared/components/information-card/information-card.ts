@@ -10,9 +10,11 @@ import { Router } from '@angular/router'
 })
 export class InformationCard {
   @Input() id: number = 0
-  @Input() imagen: string = ''
-  @Input() titulo: string = ''
-  @Input() descripcion: string = ''
+
+  @Input() imagen: string | undefined;
+  @Input() titulo: string | undefined;
+  @Input() descripcion: string | undefined;
+
   @Input() topics: string[] = []
 
   constructor(private router: Router) {}

@@ -1,4 +1,4 @@
-.media-button {
+:host ::ng-deep app-media-component .media-button {
   display: flex;
   gap: 1rem;
   width: 75%;
@@ -14,50 +14,50 @@
   cursor: pointer;
 }
 
-.media-button:hover {
+:host ::ng-deep app-media-component .media-button:hover {
   background-color: #221e52;
   border-color: rgba(79, 110, 247, 0.4);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   transform: translateY(-2px);
 }
 
-.media-button img {
+:host ::ng-deep app-media-component .media-button img {
   height: 150px;
   width: 20%;
   object-fit: cover;
 }
 
-.media-text h2,
-.media-text h3,
-.media-text strong {
+:host ::ng-deep app-media-component .media-text h2,
+:host ::ng-deep app-media-component .media-text h3,
+:host ::ng-deep app-media-component .media-text strong {
   color: #e8e8f0;
 }
 
-.media-text p,
-.media-text span {
+:host ::ng-deep app-media-component .media-text p,
+:host ::ng-deep app-media-component .media-text span {
   color: #9b99b8;
 }
 
 @media (max-width: 1024px) {
-  .media-button {
+  :host ::ng-deep app-media-component .media-button {
     width: 88%;
   }
 }
 
 @media (max-width: 768px) {
-  .media-button {
+  :host ::ng-deep app-media-component .media-button {
     flex-direction: column;
     align-items: center;
   }
 
-  .media-button img {
+  :host ::ng-deep app-media-component .media-button img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 8px 8px 0 0;
   }
 
-  .media-text {
+  :host ::ng-deep app-media-component .media-text {
     width: 100%;
     text-align: center;
   }

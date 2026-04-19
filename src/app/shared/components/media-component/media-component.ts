@@ -8,9 +8,9 @@ import {Router} from '@angular/router';
   styleUrl: './media-component.css',
 })
 export class MediaComponent {
-  @Input() imagen: string = ''
-  @Input() titulo: string = ''
-  @Input() descripcion: string = ''
+  @Input() imagen: string | undefined;
+  @Input() titulo: string | undefined;
+  @Input() descripcion: string | undefined;
 
   constructor(private router: Router) {}
 
