@@ -1,9 +1,39 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {AbstractControl, FormControl, ReactiveFormsModule} from '@angular/forms';
+
 
 @Component({
   selector: 'app-get-input-text',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './get-input-text.html',
   styleUrl: './get-input-text.css',
+  changeDetection: ChangeDetectionStrategy.OnPush  // opcional pero recomendado
 })
-export class GetInputText {}
+export class GetInputText {
+
+  @Input() value: string | undefined;
+  @Input() label: string = '';
+  @Input() placeholder: string | undefined;
+  @Input() control!: AbstractControl;
+  @Input() errorMessages: Record<string, string> = {};
+  @Input() participantsField: boolean | undefined;
+  @Input() maxlength: String | undefined;
+
+  get formControl(): FormControl {
+    return this.control as FormControl;
+  }
+
+  getErrorMessage(control: AbstractControl | null): string | null {
+    if (!control || !control.errors) return null;
+
+    for (const errorKey of Object.keys(control.errors)) {
+      if (this.errorMessages[errorKey]) {
+        return this.errorMessages[errorKey];
+      }
+    }
+
+    return null;
+  }
+
+  protected readonly Number = Number;
+}

@@ -1,3 +1,5 @@
+@import "../../shared/components/search-topics/search-topics.css";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -93,7 +95,7 @@ header {
 }
 
 .form > label,
-.dual-inputs label {
+.dual-inputs label ::ng-deep app-get-input-text {
   display: block;
   margin-bottom: 0.1rem;
   position: relative;
@@ -109,7 +111,7 @@ input[type="date"],
 input[type="email"],
 input[type="password"],
 input[type="number"],
-.search-input {
+.search-input ::ng-deep app-get-input-text {
   width: 100%;
   height: 44px;
   padding: 10px 12px;
@@ -123,26 +125,26 @@ input[type="number"],
   -webkit-text-fill-color: #e8e8f0;
 }
 
-input::placeholder {
+input::placeholder ::ng-deep app-get-input-text {
   color: #9b99b8 !important;
   -webkit-text-fill-color: #9b99b8;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
+input:-webkit-autofill:focus ::ng-deep app-get-input-text  {
   -webkit-box-shadow: 0 0 0px 1000px #2a2750 inset !important;
   -webkit-text-fill-color: #e8e8f0 !important;
   caret-color: #e8e8f0;
 }
 
 input:focus,
-.search-input:focus {
+.search-input:focus ::ng-deep app-get-input-text {
   background: #332f66 !important;
   box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
 }
 
-.dual-inputs {
+.dual-inputs ::ng-deep app-get-input-text{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;

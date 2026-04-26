@@ -1,1 +1,97 @@
-<p>search-topics works!</p>
+<div class="search-wrapper">
+
+  <!-- ── Search box ─────────────────────────────────────────────────── -->
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Escribe para filtrar opciones..."
+      autocomplete="off"
+      [(ngModel)]="query"
+      (focus)="openDropdown()"
+      (click)="openDropdown()"
+      (input)="openDropdown()"
+      (blur)="sendSelectedOptions() ;sendTopics()"
+    />
+    <span class="search-icon">⌕</span>
+  </div>
+
+  <!-- ── Dropdown ───────────────────────────────────────────────────── -->
+  <div class="dropdownTopics" [class.open]="isOpen">
+    <div class="options-list">
+
+      <ng-container *ngIf="filteredOptions.length; else noResults">
+        <div
+          *ngFor="let option of filteredOptions"
+          class="dropdown-item"
+          [class.selected]="isSelected(Number(option.id))"
+          [ngClass]="'cat-' + option.category"
+          (click)="toggleOption($event, Number(option.id))"
+        >
+          <!-- Checkbox visual -->
+          <div class="checkbox">
+            <svg class="checkmark" viewBox="0 0 10 10">
+              <polyline
+                points="1.5,5 4,7.5 8.5,2"
+                stroke="#0e0e10"
+                stroke-width="1.8"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <!-- Nombre + categoría -->
+          <div class="item-meta">
+            <div class="item-name" [innerHTML]="highlight(option.name)"></div>
+            <div class="item-category">{{ option.cat }}</div>
+          </div>
+
+          <span class="badge">{{ option.category }}</span>
+        </div>
+      </ng-container>
+
+      <ng-template #noResults>
+        <div class="no-results">Sin resultados para "{{ query }}"</div>
+      </ng-template>
+
+    </div>
+  </div>
+
+  <!-- ── Selected section ───────────────────────────────────────────── -->
+  <div class="selected-section">
+    <div class="section-header">
+      <span class="section-label">Seleccionados</span>
+
+      <div class="header-actions">
+        <span class="count-badge" [class.visible]="selectedCount > 0">
+          {{ selectedCount }}
+        </span>
+        <button
+          *ngIf="selectedCount > 0"
+          class="clear-btn"
+          (click)="clearAll($event)"
+        >
+          limpiar todo
+        </button>
+      </div>
+    </div>
+
+    <div class="tags-area">
+      <span *ngIf="selectedCount === 0" class="empty-hint">
+        ninguna opción seleccionada aún
+      </span>
+
+      <div
+        *ngFor="let item of selectedItems"
+        class="tag"
+        [ngClass]="'cat-' + item.category"
+      >
+        <span class="tag-dot"></span>
+        {{ item.name }}
+        <button class="tag-remove" (click)="removeTag(Number(item.id))" title="Quitar">✕</button>
+      </div>
+    </div>
+  </div>
+
+</div>

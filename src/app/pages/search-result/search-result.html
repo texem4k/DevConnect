@@ -1,5 +1,4 @@
-<body>
-<header class="headerTemplate"></header>
+<app-header></app-header>
 <div id="main-layout">
   <aside>
     <h3>Filtros</h3>
@@ -54,9 +53,14 @@
     </form>
   </aside>
   <div id="results">
-    <div class="media-list"></div>
-    <nav class="paginationComponentTemplate"></nav>
-  </div>
+    @if(type=='projects'){
+      <app-media-list [projects]="projects"></app-media-list>
+    }
+
+    @else{
+    <app-media-list [users]="users"></app-media-list>
+    }
+
 </div>
-<footer class="footerTemplate"></footer>
-</body>
+</div>
+<app-footer></app-footer>

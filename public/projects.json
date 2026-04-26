@@ -1,0 +1,414 @@
+{
+  "projects": [
+    {
+      "title": "ArrowTrack - app de seguimiento deportivo",
+      "creator": "queen_mobile",
+      "isCompanyProject": true,
+      "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?fm=jpg&w=1200&h=400&fit=crop",
+      "description": "Aplicación web y móvil para registrar entrenamientos, analizar rendimiento deportivo y compartir progresos con otros usuarios.",
+      "requirements": {
+        "technologies": [
+          "React",
+          "React Native",
+          "Flutter",
+          "Node.js",
+          "MongoDB"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de desarrollo móvil (Flutter o React Native)",
+          "Experiencia con APIs REST",
+          "Interés en aplicaciones deportivas"
+        ],
+        "level": "Junior"
+      },
+      "maintainers": [
+        "IronTony",
+        "Pete_web_designer",
+        "ciberWayne"
+      ]
+    },
+    {
+      "title": "DarkTrace - plataforma de análisis de amenazas",
+      "creator": "ciberWayne",
+      "isCompanyProject": true,
+      "image": "https://www.ciset.es/images/noticias/amenazas_ciberseguridad.jpeg",
+      "description": "Plataforma orientada a analizar posibles amenazas de ciberseguridad mediante recopilación y análisis de datos de red.",
+      "requirements": {
+        "technologies": [
+          "Go",
+          "Python",
+          "Wireshark",
+          "PostgresSQL",
+          "React"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de ciberseguridad",
+          "Experiencia con Python o Go",
+          "Conocimientos de análisis de datos"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": [
+        "IronTony",
+        "Pete_web_designer",
+        "queen_mobile"
+      ]
+    },
+    {
+      "title": "PhotoCloud - plataforma para subir y gestionar fotografías",
+      "creator": "Pete_web_designer",
+      "isCompanyProject": false,
+      "image": "https://icorp.com.mx/wp-content/uploads/2015/05/Tipos-de-nube-informatica-scaled.webp",
+      "description": "Aplicación web que permite subir, organizar y compartir fotografías en la nube con opciones de etiquetado y galerías públicas.",
+      "requirements": {
+        "technologies": [
+          "Frontend",
+          "JavaScript",
+          "React",
+          "HTML",
+          "CSS",
+          "AWS S3",
+          "Firebase Storage",
+          "Node.js"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de JavaScript",
+          "Experiencia con almacenamiento en la nube",
+          "Interés en desarrollo frontend"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": [
+        "IronTony",
+        "queen_mobile",
+        "ciberWayne"
+      ]
+    },
+    {
+      "title": "JARVIS - asistente de inteligencia artificial",
+      "creator": "IronTony",
+      "isCompanyProject": true,
+      "image": "https://www.thecoreschool.com/wp-content/uploads/2024/06/digital-transformation-consultant-implementing-automation-software-across-departments-reducing-manual-work-scaled.jpg",
+      "description": "Asistente virtual basado en inteligencia artificial capaz de responder preguntas, automatizar tareas y conectarse con distintos servicios.",
+      "requirements": {
+        "technologies": [
+          "Python",
+          "TensorFlow",
+          "PyTorch",
+          "NLTK",
+          "spaCy",
+          "OpenAI API",
+          "Hugging Face Transformers",
+          "FastAPI"
+        ],
+        "knowledgeAreas": [
+          "Experiencia con Python",
+          "Conocimientos de procesamiento de lenguaje natural",
+          "Experiencia con APIs de IA"
+        ],
+        "level": "Junior"
+      },
+      "maintainers": [
+        "queen_mobile",
+        "Pete_web_designer",
+        "ciberWayne"
+      ]
+    },
+    {
+      "title": "HUD Vision - sistema de detección visual para trajes inteligentes",
+      "creator": "IronTony",
+      "isCompanyProject": true,
+      "image": "https://www.imnovation-hub.com/content/dam/imnovationhub/media/24152707/portada-tejidos-inteligentes.jpg",
+      "description": "Sistema de visualización y detección en tiempo real integrado en cascos y trajes inteligentes para resaltar objetivos, rutas y alertas de seguridad.",
+      "requirements": {
+        "technologies": [
+          "C++",
+          "Python",
+          "OpenCV",
+          "TensorFlow",
+          "React"
+        ],
+        "knowledgeAreas": [
+          "Procesamiento de imágenes",
+          "Conocimientos básicos de visión por computador",
+          "Interés en sistemas embebidos"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": [
+        "ciberWayne",
+        "Pete_web_designer",
+        "queen_mobile"
+      ]
+    },
+    {
+      "title": "NanoBotNet - red de control para microdrones",
+      "creator": "IronTony",
+      "isCompanyProject": true,
+      "image": "https://d3fkdmlbzjtjd3.cloudfront.net/articulos/articulos-51523.jpg",
+      "description": "Plataforma distribuida para coordinar y monitorizar enjambres de microdrones, permitiendo asignar tareas, definir rutas y recopilar datos en tiempo real.",
+      "requirements": {
+        "technologies": [
+          "Rust",
+          "Python",
+          "gRPC",
+          "Kubernetes",
+          "Prometheus"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de sistemas distribuidos",
+          "Experiencia con servicios backend",
+          "Interés en hardware y robótica"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": [
+        "IronTony",
+        "ciberWayne",
+        "Pete_web_designer"
+      ]
+    },
+    {
+      "title": "WebSpider - rastreador y analizador web",
+      "creator": "Pete_web_designer",
+      "isCompanyProject": false,
+      "image": "https://kinsta.com/es/wp-content/uploads/sites/8/2022/07/que-es-web-scraping.jpeg",
+      "description": "Herramienta para rastrear sitios web, indexar contenido y extraer metadatos para análisis SEO y monitorización de cambios.",
+      "requirements": {
+        "technologies": [
+          "Node.js",
+          "TypeScript",
+          "Puppeteer",
+          "MongoDB",
+          "Redis"
+        ],
+        "knowledgeAreas": [
+          "Experiencia con JavaScript o TypeScript",
+          "Conocimientos de scraping web",
+          "Interés en SEO y análisis de datos"
+        ],
+        "level": "Junior"
+      },
+      "maintainers": [
+        "Pete_web_designer",
+        "IronTony",
+        "queen_mobile"
+      ]
+    },
+    {
+      "title": "GuardianNet - monitor de seguridad de red",
+      "creator": "ciberWayne",
+      "isCompanyProject": true,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwxvdNsPWTQA2lxL2uAsgmArQE2rtamK8ReQ&sv",
+      "description": "Sistema de monitorización de red en tiempo real que detecta patrones anómalos, genera alertas y produce informes de seguridad periódicos.",
+      "requirements": {
+        "technologies": [
+          "Go",
+          "Python",
+          "Elasticsearch",
+          "Kibana",
+          "Docker"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de redes",
+          "Conocimientos de ciberseguridad",
+          "Experiencia con sistemas de logging"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": [
+        "ciberWayne",
+        "IronTony",
+        "queen_mobile"
+      ]
+    },
+    {
+      "title": "WayneShield - sistema de detección de intrusos",
+      "creator": "ciberWayne",
+      "isCompanyProject": true,
+      "image": "https://www.seguritecnia.es/wp-content/uploads/2023/06/ids.png",
+      "description": "Plataforma de detección de intrusiones que correlaciona eventos de múltiples fuentes para identificar ataques dirigidos y accesos no autorizados.",
+      "requirements": {
+        "technologies": [
+          "Python",
+          "Snort",
+          "Suricata",
+          "PostgreSQL",
+          "React"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de IDS/IPS",
+          "Experiencia con Python",
+          "Conocimientos de bases de datos"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": [
+        "ciberWayne",
+        "IronTony",
+        "Pete_web_designer"
+      ]
+    },
+    {
+      "title": "GreenMap - aplicación de rutas ecológicas",
+      "creator": "queen_mobile",
+      "isCompanyProject": false,
+      "image": "https://www.desnivel.com/images/2024/07/planificador-de-rutas-wikiloc.jpg",
+      "description": "Aplicación móvil para planificar rutas a pie o en bicicleta priorizando zonas verdes, puntos de interés ecológico y minimizando la huella de carbono.",
+      "requirements": {
+        "technologies": [
+          "Kotlin",
+          "Swift",
+          "Flutter",
+          "Mapbox",
+          "Firebase"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de desarrollo móvil",
+          "Experiencia con SDKs de mapas",
+          "Interés en sostenibilidad y medio ambiente"
+        ],
+        "level": "Junior"
+      },
+      "maintainers": [
+        "queen_mobile",
+        "Pete_web_designer",
+        "IronTony"
+      ]
+    },
+    {
+      "title": "DataHive - sistema de análisis de datos distribuidos",
+      "creator": "blackcode_nat",
+      "isCompanyProject": true,
+      "image": "https://bookdown.org/paranedagarcia/database/images/db-componente.jpg",
+      "description": "Plataforma para la ingesta, procesamiento y visualización de grandes volúmenes de datos en tiempo real usando arquitecturas distribuidas.",
+      "requirements": {
+        "technologies": [
+          "Python",
+          "Apache Kafka",
+          "Spark",
+          "PostgreSQL",
+          "Docker"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de procesamiento de datos",
+          "Experiencia con SQL",
+          "Interés en arquitecturas distribuidas"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": [
+        "blackcode_nat",
+        "IronTony",
+        "ciberWayne"
+      ]
+    },
+    {
+      "title": "RedNet - API REST para monitoreo de tráfico",
+      "creator": "blackcode_nat",
+      "isCompanyProject": true,
+      "image": "https://network-king.net/wp-content/uploads/2022/09/monitoringtools-1200x675.jpg",
+      "description": "API centralizada para recolectar métricas de diferentes dispositivos de red y exponerlas a paneles de monitorización y herramientas de alerta.",
+      "requirements": {
+        "technologies": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "Grafana",
+          "Prometheus"
+        ],
+        "knowledgeAreas": [
+          "Diseño de API REST",
+          "Conocimientos de redes",
+          "Experiencia con bases de datos"
+        ],
+        "level": "Junior"
+      },
+      "maintainers": [
+        "blackcode_nat",
+        "ciberWayne",
+        "queen_mobile"
+      ]
+    },
+    {
+      "title": "CipherView - visualización de datos de seguridad",
+      "creator": "blackcode_nat",
+      "isCompanyProject": false,
+      "image": "https://www.prosegur.es/dam/jcr:dfb6b801-eb57-4244-9a95-a451daf77ab1/4.png",
+      "description": "Herramienta de dashboards interactivos orientada a mostrar métricas de seguridad, intentos de ataque y evolución temporal de incidentes.",
+      "requirements": {
+        "technologies": [
+          "Python",
+          "Pandas",
+          "Plotly",
+          "React",
+          "Docker"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de análisis de datos",
+          "Interés en visualización de datos",
+          "Experiencia con Python"
+        ],
+        "level": "Junior"
+      },
+      "maintainers": [
+        "blackcode_nat",
+        "IronTony",
+        "Pete_web_designer"
+      ]
+    },
+    {
+      "title": "MirrorWorld - entorno de visualización 3D",
+      "creator": "strange_dev_master",
+      "isCompanyProject": false,
+      "image": "https://3detail.es/wp-content/uploads/2024/06/arch_viz07-1024x1024.jpg",
+      "description": "Motor de visualización 3D en tiempo real para crear escenas interactivas y simulaciones físicas personalizadas.",
+      "requirements": {
+        "technologies": [
+          "C#",
+          "Unity",
+          "ShaderLab",
+          "Blender"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de motores gráficos",
+          "Interés en simulaciones 3D",
+          "Experiencia básica con Unity"
+        ],
+        "level": "Junior"
+      },
+      "maintainers": [
+        "strange_dev_master",
+        "IronTony",
+        "Pete_web_designer"
+      ]
+    },
+    {
+      "title": "ARSpell - motor de realidad aumentada",
+      "creator": "strange_dev_master",
+      "isCompanyProject": true,
+      "image": "https://www.tworeality.com/wp-content/uploads/2019/05/realidad-aumentada-virtual-formacion-industria.jpg",
+      "description": "SDK de realidad aumentada para integrar efectos visuales avanzados y reconocimiento de superficies en aplicaciones móviles.",
+      "requirements": {
+        "technologies": [
+          "Unity",
+          "ARCore",
+          "ARKit",
+          "C#",
+          "REST APIs"
+        ],
+        "knowledgeAreas": [
+          "Conocimientos de desarrollo móvil o Unity",
+          "Interés en realidad aumentada",
+          "Experiencia con integración de SDKs"
+        ],
+        "level": "Senior"
+      },
+      "maintainers": [
+        "strange_dev_master",
+        "queen_mobile",
+        "IronTony"
+      ]
+    }
+  ]
+}

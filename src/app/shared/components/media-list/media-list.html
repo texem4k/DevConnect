@@ -1,9 +1,22 @@
 <div class="projectList">
-  @for (project of limitedItems; track project.title) {
-    <app-media-component
-      [imagen]="project.image"
-      [titulo]="project.title"
-      [descripcion]="project.description"
-    />
-  }
-  </div>
+    @if(type=="projects"){
+      @for(item of getProjects; track item){
+        <app-media-component
+          [imagen]="item.image"
+          [titulo]="item.title"
+          [descripcion]="item.description"
+        />
+      }
+    }
+
+    @else{
+      @for(item of getUsers; track item){
+        <app-media-component
+          [imagen]="item.Avatar"
+          [titulo]="item.Nickname"
+          [descripcion]="item.Description"
+        />
+      }
+    }
+
+</div>

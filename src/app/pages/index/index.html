@@ -1,12 +1,12 @@
 
 <main>
   <app-banner></app-banner>
-  <h2 class="introduction">Trending Users</h2>
+  <h2 class="introduction">Usuarios trending</h2>
 
   <section class="trendingUsers">
     @if (!isLoading) {
-      @for (user of trendingUsers; track user.Id) {
-        <app-information-card  [titulo]="user.Nickname" [descripcion]="user.Description"></app-information-card>
+      @for (user of userData.slice(0,3); track user.Id) {
+        <app-information-card  [imagen]="user.Avatar" [titulo]="user.Nickname" [descripcion]="user.Description"></app-information-card>
       }
     }
 
@@ -15,9 +15,10 @@
     <button type="button" (click)="discoverUsers()">Más información</button>
   </div>
 
-  <br><hr><br>
+  <br><br>
 
-  <section class="trendingProjects"><app-media-list [items]="trendingProjects"></app-media-list></section>
+  <h2 class="introduction">Proyectos trending</h2>
+  <section class="trendingProjects"><app-media-list [type]="'projects'" [projects]="this.projectData"></app-media-list></section>
 
 
 
