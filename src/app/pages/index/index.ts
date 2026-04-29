@@ -1,12 +1,15 @@
 // home.component.ts
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { HomeService, User, Project } from '../../shared/services/home-service';
 //import {Header} from '../../shared/components/header/header';
 import {Banner} from '../../shared/components/banner/banner';
 import {InformationCard} from '../../shared/components/information-card/information-card';
 import {MediaList} from '../../shared/components/media-list/media-list';
 import {Footer} from '../../shared/components/footer/footer';
+import firebase from 'firebase/compat/app';
+import {Project} from '../../shared/services/Project';
+import {DataLoader} from '../../shared/services/get-data-service';
+import {User} from '../../shared/services/User';
 
 
 @Component({
@@ -21,22 +24,24 @@ import {Footer} from '../../shared/components/footer/footer';
   styleUrl: './index.css',
 })
 export class Index implements OnInit {
-  trendingUsers: User[] = [];
-  trendingProjects: Project[] = [];
+  userData: User[] = [];
+  projectData: Project[] = [];
   isLoading = true;
 
   constructor(
-    private homeService: HomeService,
     private router: Router,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private loader: DataLoader
   ) {}
 
+
+  /*
   ngOnInit(): void {
 
-    this.homeService.fetchHomeData().subscribe({
+    this.loader.fetchData().subscribe({
       next: ({ userData, projectData }) => {
-        this.trendingUsers = userData.Users.slice(0, 3);
-        this.trendingProjects = projectData.projects.slice(0, 4);
+        this.userData = userData.Users;
+        this.projectData = projectData.projects;
         this.isLoading = false;
         this.cd.detectChanges();
         },
@@ -48,11 +53,25 @@ export class Index implements OnInit {
     });
   }
 
+   */
+
+
+  ngOnInit(): void {
+
+    this.loader.loadData(
+    {loadUsers: true, loadProjects: true},
+    (data)=>{
+      this.userData = data.userData ?? [];
+      this.projectData = data.projectData ?? [];
+      this.isLoading = false;
+      this.cd.detectChanges();
+    });
+  }
+
   // Equivalente a initDiscoverButtons → navegación con Router
   goToSearch(): void {
     this.router.navigate(['/search']);
   }
-
   // Equivalente a onClick del user card
   goToUserProfile(userId: number): void {
     this.router.navigate(['/user-profile', userId]);
@@ -65,10 +84,14 @@ export class Index implements OnInit {
 
   discoverProjects(): void {
     //Se puede añadir lógica aqui
-    this.router.navigate(['/SearchResult']);
+    this.router.navigate(['/SearchResult'],{
+      state: {type: 'projects',data: this.projectData}
+    });
   }
 
   discoverUsers(): void {
-    this.router.navigate(['/SearchResult']);
+    this.router.navigate(['/SearchResult'],{
+      state: {type: 'users', data: this.userData}
+    });
   }
 }

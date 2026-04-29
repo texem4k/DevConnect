@@ -1,10 +1,21 @@
-<label [for]="id" id="input">
-  <p>{{ titulo }} </p>
-  <input
-    [id]="id"
-    [type]="type"
-    class="text-field"
-    [placeholder]="placeholder"
-    [formControl]="control"
-  />
+<label id="input">
+  <p>{{label}}</p>
+
+  @if(participantsField) {
+    <input [formControl]="formControl"
+           (blur)="control.markAsTouched()"
+           type="number"
+           placeholder="{{ placeholder }}"
+           min="2" max="20"
+           value="{{Number(value)}}"/>
+  } @else {
+    <input [formControl]="formControl"
+           (blur)="control.markAsTouched()"
+           type="text" maxlength="{{maxlength}}"
+           placeholder="{{ placeholder }}"/>
+  }
 </label>
+
+@if(control.invalid && control.touched){
+ <p style="font-size: 0.9rem;color: red">{{ getErrorMessage(formControl) }}</p>
+}

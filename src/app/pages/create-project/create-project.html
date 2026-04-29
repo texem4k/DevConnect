@@ -1,60 +1,71 @@
 <body>
 <header>
   <button class="backButton">←</button>
-  <h1 class="title">Lorem Ipsum</h1>
+  <h1 class="title">Creación de Proyecto</h1>
 </header>
 <main>
-  <form class="form">
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <label class="getInputTextTemplate"></label>
+    <app-get-input-text [label]="'* Nombre del proyecto'" [control] ="getControl('projectName')" [errorMessages]="{
+    required: 'El nombre no puede estar vacío',
+    minlength: 'Mínimo debe contener 5 carácteres',
+    itExists: 'El nombre ya existe, elige otro'
+    }" [placeholder]=""></app-get-input-text>
+
     <p class="fieldFeedBack"></p>
 
     <label class="field field-large">
-      <p></p>
+      <p>Descripción</p>
       <textarea></textarea>
     </label>
 
     <section class="dual-inputs">
-      <label class="getInputTextTemplate"></label>
-      <label class="getInputTextTemplate"></label>
+      <app-get-input-text
+      [control]="getControl('ownerEmail')"
+      [errorMessages]="{
+        required: 'El email es obligatorio',
+        email: 'El elemento introducido no es un correo, por favor, escribe un correo válido',}" ]
+      [label]="'Correo electrónico'"
+      [placeholder]="'example@exameple.com'">
+      </app-get-input-text>
+
+      <app-get-input-text [control]="getControl('ownerPhone')"
+        [errorMessages]="{pattern:'Escriba el número correctamente'}" ]
+        [label]="'Número de teléfono'"
+        [maxlength]="String(9)">
+
+      </app-get-input-text>
     </section>
 
     <section class="dual-inputs">
       <div class="dateInputContainer">
         <label class="dateInputWrapper">
-          <p class="input-label">Lorem Ipsum</p>
-          <input type="date" class="dateInput" placeholder=" ">
-          <button type="button" class="calendar-btn">📅</button>
+          <p class="input-label" style="padding-bottom: 12px">* Fecha límite de inscripción</p>
+          <input type="date" class="dateInput" #dateInput formControlName="date" placeholder=" ">
+          <button type="button" class="calendar-btn" (click)="openCalendar(dateInput)" style="padding-top:12px">📅</button>
         </label>
-        <p class="fieldFeedBack"></p>
+        @if(getControl('date').touched && getControl('date').invalid && getControl('date').errors?.['fechaNoAnteriorAHoy']){
+          <p style="font-size: 0.9rem;color: red">La fecha no puede anterior a hoy</p>
+        }
+
       </div>
-      <label class="getInputTextTemplate"></label>
+      <app-get-input-text [label]="'Número de participantes (Máx 20)'"
+                          [control]="getControl('numberParticipants')"
+                          [participantsField]="true"
+                          [value]="String(2)"
+      ></app-get-input-text>
     </section>
     <h2></h2> <div class="search-container">
 
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Escribe para filtrar opciones..." autocomplete="off"/>
-      <span class="search-icon">⌕</span>
-    </div>
+    <app-search-topics (selectionChange)="getTopicsIds($event)" (allTopics)="getTopics($event)">
 
-    <div class="dropdownTopics" id="dropdown">
-      <div id="optionsList"></div>
-    </div>
+    </app-search-topics>
 
-    <div class="selected-section" id="selectedSection">
-      <div class="section-header">
-        <span class="section-label">Seleccionados</span>
-        <div style="display:flex;gap:8px;align-items:center;">
-          <span class="count-badge" id="countBadge">0</span>
-          <button class="clear-btn" id="clearBtn" onclick="clearAll()" style="display:none;">limpiar todo</button>
-        </div>
-      </div>
-      <div class="tags-area" id="tagsArea">
-        <span class="empty-hint" id="emptyHint">ninguna opción seleccionada aún</span>
-      </div>
-    </div>
   </div>
-    <p class="fieldFeedBack"></p>
+    @if(pressedSubmit && !validSelectedTopics()){
+      <p style="font-size: 0.9rem; color: red">Debes seleccionar al menos un idioma y un lenguaje</p>
+    }
+
 
     <h2></h2>
     <div class="image-upload-container">
@@ -68,9 +79,12 @@
       </div>
     </div>
 
-    <button class="btn-secondary">Lorem</button>
+    <button class="btn-secondary" (click)="onSubmit()">Crear Proyecto</button>
+    @if(pressedSubmit){
+      <p style="font-size: 0.9rem;color: red">Verifica que los datos introducidos en los campos sean válidos</p>
+    }
 
   </form>
 </main>
-<footer class="footerTemplate"></footer>
+<app-footer></app-footer>
 </body>

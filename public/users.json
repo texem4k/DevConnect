@@ -1,0 +1,157 @@
+{
+  "Users": [
+    {
+      "Id": 1,
+      "Fullname": "Tony Stark",
+      "Nickname": "IronTony",
+      "Gmail": "gmailuserTS@gmail.com",
+      "Password": "Ts-12345678",
+      "Description": "Soy ingeniero de software especializado en sistemas embebidos e inteligencia artificial. Me gusta diseñar soluciones tecnológicas complejas que integren hardware y software para crear sistemas automatizados eficientes.",
+      "Topic": {
+        "Specialty": ["Ingeniero de software", "Sistemas embebidos", "Arquitecto de IA"],
+        "Language": ["C++", "Python", "Rust"]
+      },
+      "Projects": [
+        { "Name": "JARVIS - asistente de inteligencia artificial" },
+        { "Name": "HUD Vision - sistema de detección visual para trajes inteligentes" },
+        { "Name": "NanoBotNet - red de control para microdrones" }
+      ],
+      "Avatar": "https://source.roboflow.com/7INiiKrmrNez57qlHqscsI1B4H92/CNEvHfDaigk2gz93qlOv/original.jpg",
+      "Banner": "https://elordenmundial.com/wp-content/uploads/2023/04/que-es-inteligencia-artificial.jpg",
+      "Social": {
+        "Github": { "Name": "tonystark-github", "Link": "https://github.com" },
+        "Twitter": { "Name": "@tony_stark", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "tonystark_official", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Tony Stark", "Link": "https://www.linkedin.com" }
+      },
+      "CV": "CV_TonyStark.pdf"
+    },
+    {
+      "Id": 2,
+      "Fullname": "Peter Parker",
+      "Nickname": "Pete_web_designer",
+      "Gmail": "peterparker@gmail.com",
+      "Password": "Pp-987654321",
+      "Description": "Soy desarrollador full stack y trabajo principalmente con tecnologías JavaScript. Me interesa crear aplicaciones web escalables y bien estructuradas, cuidando tanto el rendimiento como la experiencia de usuario.",
+      "Topic": {
+        "Specialty": ["Desarrollador Full Stack", "Aplicaciones web escalables"],
+        "Language": ["JavaScript", "TypeScript", "Node.js"]
+      },
+      "Projects": [
+        { "Name": "PhotoCloud - plataforma para subir y gestionar fotografías" },
+        { "Name": "WebSpider - rastreador y analizador web" }
+      ],
+      "Avatar": "https://i.pinimg.com/originals/e8/3d/06/e83d06dcf6903df44368edbc695001c2.jpg",
+      "Banner": "https://acerkate.com/storage/2021/05/diseno-web-scaled.jpg",
+      "Social": {
+        "Github": { "Name": "peterparker-dev", "Link": "https://github.com" },
+        "Twitter": { "Name": "@pete_the_dev", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "spidey.codes", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Peter Parker", "Link": "https://www.linkedin.com" }
+      },
+      "CV": "CV_PeterParker.pdf"
+    },
+    {
+      "Id": 3,
+      "Fullname": "Bruce Wayne",
+      "Nickname": "ciberWayne",
+      "Gmail": "brucewayne@gmail.com",
+      "Password": "Bw-654321",
+      "Description": "Soy ingeniero de software especializado en ciberseguridad y desarrollo de sistemas críticos. Me centro en analizar vulnerabilidades y desarrollar herramientas que ayuden a proteger infraestructuras digitales.",
+      "Topic": {
+        "Specialty": ["Ciberseguridad", "Ingeniería de software"],
+        "Language": ["Python", "Go", "C++"]
+      },
+      "Projects": [
+        { "Name": "DarkTrace - plataforma de análisis de amenazas" },
+        { "Name": "GuardianNet - monitor de seguridad de red" },
+        { "Name": "WayneShield - sistema de detección de intrusos" }
+      ],
+      "Avatar": "https://i.pinimg.com/736x/5f/93/91/5f9391c5aede246e099afb4d67ab5073.jpg",
+      "Banner": "https://img.itmastersmag.com/wp-content/uploads/2025/04/23132522/ciberseguridad.jpg",
+      "Social": {
+        "Github": { "Name": "wayne-sec", "Link": "https://github.com" },
+        "Twitter": { "Name": "@bruce_wayne", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "batcoder", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Bruce Wayne", "Link": "https://www.linkedin.com" }
+      },
+      "CV": "CV_BruceWayne.pdf"
+    },
+    {
+      "Id": 4,
+      "Fullname": "Oliver Queen",
+      "Nickname": "queen_mobile",
+      "Gmail": "oliverqueen@gmail.com",
+      "Password": "Oq-142536789",
+      "Description": "Soy desarrollador de aplicaciones móviles con experiencia en Android e iOS. Me especializo en optimizar el rendimiento de las aplicaciones y en crear interfaces intuitivas que mejoren la experiencia del usuario.",
+      "Topic": {
+        "Specialty": ["Desarrollo de aplicaciones móviles", "Optimización de rendimiento"],
+        "Language": ["Kotlin", "Swift", "Dart"]
+      },
+      "Projects": [
+        { "Name": "ArrowTrack - app de seguimiento deportivo" },
+        { "Name": "GreenMap - aplicación de rutas ecológicas" }
+      ],
+      "Avatar": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Stephen_Amell_%287960712676%29.jpg",
+      "Banner": "https://capgo.app/cross-platform-app-dev-2024.webp",
+      "Social": {
+        "Github": { "Name": "oliverqueen-dev", "Link": "https://github.com" },
+        "Twitter": { "Name": "@oq_mobile", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "queenapps", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Oliver Queen", "Link": "https://www.linkedin.com" }
+      },
+      "CV": "CV_OliverQueen.pdf"
+    },
+    {
+      "Id": 5,
+      "Fullname": "Natasha Romanoff",
+      "Nickname": "blackcode_nat",
+      "Gmail": "natasha.romanoff@gmail.com",
+      "Password": "Nr-11223344",
+      "Description": "Soy analista de datos y desarrolladora backend. Me especializo en la visualización de datos y en la construcción de API eficientes y seguras para sistemas complejos.",
+      "Topic": {
+        "Specialty": ["Backend Developer", "Analista de datos"],
+        "Language": ["Python", "SQL", "R"]
+      },
+      "Projects": [
+        { "Name": "DataHive - sistema de análisis de datos distribuidos" },
+        { "Name": "RedNet - API REST para monitoreo de tráfico" },
+        { "Name": "CipherView - visualización de datos de seguridad" }
+      ],
+      "Avatar": "https://imagenes.elpais.com/resizer/v2/GIO3F6W7WTL4SMKGZO4IE4O6FA.jpg?auth=fc81cde81637661fd182b568c5a9e8d47c0f00c6f82eeead60ae57bc306bb3f9&width=414",
+      "Banner": "https://www.computing.es/wp-content/uploads/2022/11/13628_20.jpg",
+      "Social": {
+        "Github": { "Name": "natasha-data", "Link": "https://github.com" },
+        "Twitter": { "Name": "@blackcoder", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "nromanoff.codes", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Natasha Romanoff", "Link": "https://www.linkedin.com" }
+      },
+      "CV": "CV_NatashaRomanoff.pdf"
+    },
+    {
+      "Id": 6,
+      "Fullname": "Stephen Strange",
+      "Nickname": "strange_dev_master",
+      "Gmail": "dr.strange@gmail.com",
+      "Password": "Ss-55667788",
+      "Description": "Soy ingeniero de software con experiencia en simulaciones gráficas y realidad aumentada. Me gusta combinar la ciencia y la programación para crear experiencias visuales impactantes.",
+      "Topic": {
+        "Specialty": ["Desarrollo de simulaciones", "Realidad aumentada"],
+        "Language": ["C#", "Unity", "Python"]
+      },
+      "Projects": [
+        { "Name": "MirrorWorld - entorno de visualización 3D" },
+        { "Name": "ARSpell - motor de realidad aumentada" }
+      ],
+      "Avatar": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Benedict_Cumberbatch_on_the_set_of_Doctor_Strange_2_%28cropped%29.jpg",
+      "Banner": "https://www.onirix.com/wp-content/uploads/2023/03/cabecera-scaled.jpg",
+      "Social": {
+        "Github": { "Name": "strange-labs", "Link": "https://github.com" },
+        "Twitter": { "Name": "@dr_strange_dev", "Link": "https://twitter.com" },
+        "Instagram": { "Name": "strange.codes", "Link": "https://www.instagram.com" },
+        "Linkedin": { "Name": "Stephen Strange", "Link": "https://www.linkedin.com" }
+      },
+      "CV": "CV_StephenStrange.pdf"
+    }
+  ]
+}
