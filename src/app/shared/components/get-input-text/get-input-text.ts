@@ -1,9 +1,16 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {FormControl, ReactiveFormsModule , FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-get-input-text',
-  imports: [],
+  imports: [ReactiveFormsModule , FormsModule],
   templateUrl: './get-input-text.html',
   styleUrl: './get-input-text.css',
 })
-export class GetInputText {}
+export class GetInputText {
+  @Input() titulo = '';
+  @Input() id = '';
+  @Input() type = 'text'
+  @Input() placeholder = '';
+  @Input() control!: FormControl;
+}

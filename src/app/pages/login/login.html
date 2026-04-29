@@ -1,25 +1,80 @@
 <body>
 <main>
-  <div class="sectionLayout">
-    <button class="backButton">←</button>
-    <h1 class="title">Lorem Ipsum</h1>
+  <div class="login-page">
+    <div class="sectionLayout">
+      <div class="header">
+        <button class="backButton" type="button" (click)="goBack()">←</button>
+        <h1 class="title">Iniciar Sesión</h1>
+      </div>
 
-    <form action="#" method="POST">
-      <label class="getInputTextTemplate"></label>
-      <p id="emailError"></p>
-      <label class="getInputTextTemplate"></label>
-      <p id="passwordError"></p>
-    </form>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
 
+        <div class="form-group">
+          <app-get-input-text
+            titulo="Correo electrónico"
+            id="email"
+            type="email"
+            [control]="loginForm.controls['email']"
+            placeholder="Correo electrónico"
+          />
 
-    <button><a href=""></a></button>
-    <br>
-    <button><a href=""></a></button>
+          @if (email?.touched && email?.hasError('required')) {
+            <small class="emailError">El correo es obligatorio.</small>
+          }
+          @if (email?.touched && email?.hasError('email')) {
+            <small class="emailError">El formato del correo no es válido.</small>
+          }
+        </div>
 
-    <p class="helpText">
-      Lorem ipsum dolor sit amet, consectetur adipiscing
-    </p>
-    <button><a href=""></a></button>
+        <div class="form-group">
+          <app-get-input-text
+            titulo="Contraseña"
+            id="password"
+            type="password"
+            [control]="loginForm.controls['password']"
+            placeholder="Contraseña"
+          />
+
+          @if (password?.touched && password?.hasError('required')) {
+            <small class="passwordError">La contraseña es obligatoria.</small>
+          }
+          @if (password?.touched && password?.hasError('minlength')) {
+            <small class="passwordError">La contraseña debe tener al menos 8 caracteres.</small>
+          }
+          @if (password?.touched && password?.hasError('pattern')) {
+            <small class="passwordError">
+              Debe contener al menos una mayúscula, minúscula , un número y un carácter especial (!&#64;#$%...).
+            </small>
+          }
+          @if (password?.touched && password?.hasError('maxlength')) {
+            <small class="passwordError">
+              Contraseña demasiado larga, tamaño maximo 64.
+            </small>
+          }
+        </div>
+
+        @if (generalError) {
+          <p class="passwordError">{{ generalError }}</p>
+        }
+
+        <button class="primary-btn" type="submit" [disabled]="loading">
+          {{ loading ? 'Entrando...' : 'Iniciar sesión' }}
+        </button>
+        <br>
+        <button class="secondary-btn" type="button" routerLink="/UserRegistration">
+          Crear cuenta
+        </button>
+
+        <p class="helpText">
+          Si surgió algún problema, ¡No dudes en avisarnos!
+        </p>
+
+        <button class="secondary-btn" type="button" routerLink="/Incidents">
+          Incidencias
+        </button>
+
+      </form>
+    </div>
   </div>
 </main>
 </body>

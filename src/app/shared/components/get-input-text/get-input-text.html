@@ -1,4 +1,10 @@
-<label id="input">
-  <p>Lorem Ipsum </p>
-  <input type="text" placeholder="Lorem Ipsum"/>
+<label [for]="id" id="input">
+  <p>{{ titulo }} </p>
+  <input
+    [id]="id"
+    [type]="type"
+    class="text-field"
+    [placeholder]="placeholder"
+    [formControl]="control"
+  />
 </label>
