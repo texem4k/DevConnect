@@ -1,23 +1,26 @@
-<body>
-<app-header>
 <main>
+  <h1 class="title">¿Algún problema?</h1>
+  <form [formGroup]="incidentsForm" (ngSubmit)="submitIncident()" class="form">
 
-  <h1 class="title">Lorem Ipsum</h1>
-  <form class="form">
     <label class="field">
-      <span class="field-label">Lorem Ipsum</span>
-      <input type="text">
-      <p class="asuntoError"></p>
+      <span class="field-label">Asunto del problema</span>
+      <input type="text" formControlName="topic" placeholder="Asunto del problema">
+      <p class="error">{{ topicError }}</p>
     </label>
 
     <label class="field field-large">
-      <span class="field-label">Lorem Ipsum</span>
-      <textarea></textarea>
-      <p class="contextoError"></p>
+      <span class="field-label">Describe detalladamente el problema que tienes...</span>
+      <textarea formControlName="text"></textarea>
+      <p class="error">{{ textError }}</p>
     </label>
 
-    <button type="button" class="submit-btn">Lorem Ipsum</button>
+    <p *ngIf="notLoggedMessage" class="error">{{ notLoggedMessage }}</p>
+    <p *ngIf="successMessage"   class="success-message">{{ successMessage }}</p>
+
+    <button type="submit" class="submit-btn" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
+    </button>
+
   </form>
 </main>
 <app-footer></app-footer>
-</body>

@@ -101,6 +101,13 @@ main {
   background: #221e52;
 }
 
+.error {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
 @media (max-width: 1024px) {
   .form {
     width: 85%;

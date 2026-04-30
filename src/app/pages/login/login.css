@@ -123,6 +123,15 @@ button:hover {
   background: none !important;
 }
 
+.emailError,
+.passwordError,
+.error.general {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
 @media (max-width: 768px) {
   .sectionLayout {
     width: 95vw;
