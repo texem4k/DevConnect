@@ -118,6 +118,8 @@ export class CreateProject implements AfterViewInit, OnInit {
   protected openCalendar(dateInput: HTMLInputElement) {
     dateInput.showPicker();
   }
+
+  protected readonly history = history;
 }
 
 

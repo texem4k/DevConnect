@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import {forkJoin} from 'rxjs';
+import {finalize, forkJoin, map, Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Project} from './Project';
 import {User} from './User';
@@ -21,16 +21,33 @@ export class DataLoader {
 
   constructor(private http: HttpClient) {}
 
+  private fetchData(options: FetchOptions): Observable<AppData> {
+    const requests: { [K in keyof AppData]?: Observable<any> } = {};
 
+    if (options.loadUsers) {
+      requests.userData = this.http
+        .get<{ Users: User[] }>('users.json')
+        .pipe(map(res => res.Users));
+    }
 
-  fetchData() {
-    return forkJoin({
-      userData: this.http.get<{ Users: User[] }>('users.json'),
-      projectData: this.http.get<{ projects: Project[] }>('projects.json'),
-      topicsData: this.http.get<{ Topics: Topic[] }>('topics.json'),
-    });
+    if (options.loadProjects) {
+      requests.projectData = this.http
+        .get<{ projects: Project[] }>('projects.json')
+        .pipe(map(res => res.projects));
+    }
+
+    if (options.loadTopics) {
+      requests.topicsData = this.http
+        .get<{ Topics: Topic[] }>('topics.json')
+        .pipe(map(res => res.Topics));
+    }
+
+    if (Object.keys(requests).length === 0) {
+      return of({});
+    }
+
+    return forkJoin(requests) as Observable<AppData>;
   }
-
 
   loadData(
     options: FetchOptions,
@@ -39,22 +56,16 @@ export class DataLoader {
     onError?: (err: any) => void,
   ): void {
 
-    this.fetchData().subscribe({
-      next: ({ userData, projectData, topicsData }) => {
-
-        const result: AppData = {};
-
-        if (options.loadUsers)    result.userData    = userData.Users;
-        if (options.loadProjects) result.projectData = projectData.projects;
-        if (options.loadTopics) result.topicsData = topicsData.Topics;
-
-        onSuccess(result);
-      },
-      error: (err) => {
-        console.error('Error cargando datos:', err);
-        onError?.(err);
-      },
-      complete: () => onFinally?.()
-    });
+    this.fetchData(options)
+      .pipe(
+        finalize(() => onFinally?.())
+      )
+      .subscribe({
+        next: (data) => onSuccess(data),
+        error: (err) => {
+          console.error('Error cargando datos:', err);
+          onError?.(err);
+        }
+      });
   }
 }

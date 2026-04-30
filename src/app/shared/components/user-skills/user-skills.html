@@ -1,7 +1,8 @@
 <div class="profileSkillContainer">
-  <p class="profileInformationTag">{{ titulo }}</p>
+  <p class="profileInformationTag">{{ label }}</p>
   <div class="profileSkillContainerFields">
-    <app-topic-box-btn />
-    <app-topic-box-btn />
+    @for(topic of topics.slice(0,3); track $index){
+      <app-topic-box-btn [topic]="topic"></app-topic-box-btn>
+    }
   </div>
 </div>

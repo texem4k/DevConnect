@@ -34,28 +34,6 @@ export class Index implements OnInit {
     private loader: DataLoader
   ) {}
 
-
-  /*
-  ngOnInit(): void {
-
-    this.loader.fetchData().subscribe({
-      next: ({ userData, projectData }) => {
-        this.userData = userData.Users;
-        this.projectData = projectData.projects;
-        this.isLoading = false;
-        this.cd.detectChanges();
-        },
-      error: (err) => {
-        console.error('Error cargando datos:', err)
-        this.isLoading = false;
-      }
-
-    });
-  }
-
-   */
-
-
   ngOnInit(): void {
 
     this.loader.loadData(

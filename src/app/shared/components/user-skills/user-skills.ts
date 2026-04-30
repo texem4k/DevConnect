@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
 
 @Component({
@@ -8,5 +8,6 @@ import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
   styleUrl: './user-skills.css',
 })
 export class UserSkills {
-  titulo: string = 'Titulo de prueba'
+  @Input() label: string = 'Titulo de prueba'
+  @Input() topics: string[]=[]
 }
