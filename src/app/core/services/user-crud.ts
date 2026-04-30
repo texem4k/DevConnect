@@ -9,7 +9,15 @@ import {
   deleteDoc
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  updateEmail,
+  updatePassword,
+  updateProfile,
+  reauthenticateWithCredential,
+  EmailAuthProvider
+
+} from 'firebase/auth';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -50,9 +58,26 @@ export class UserService {
     });
   }
 
-  updateUser(id: string, data: Partial<User>) {
-    const userDocRef = doc(this.firestore, `users/${id}`);
-    return updateDoc(userDocRef, { ...data });
+  async updateUser(id: string, data: Partial<User>, currentPassword: string) {
+    const updates: Promise<void>[] = [];
+
+    updates.push(updateDoc(doc(this.firestore, `users/${id}`), { ...data }));
+
+    const currentUser = this.auth.currentUser;
+    if (currentUser) {
+      if ((data.gmail || data.password) && currentPassword) {
+        const credential = EmailAuthProvider.credential(currentUser.email, currentPassword);
+        await reauthenticateWithCredential(currentUser, credential);
+        if (data.gmail != currentUser.email) {
+          updates.push(updateEmail(currentUser, data.gmail));
+        }
+        if (data.password) {
+          updates.push(updatePassword(currentUser, data.password));
+        }
+      }
+    }
+
+    return Promise.all(updates);
   }
 
   deleteUser(id: string) {
