@@ -1,6 +1,5 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {MediaComponent} from '../media-component/media-component';
-import {getProject} from '@angular/cli/src/commands/mcp/workspace-utils';
 import {Project} from '../../services/Project';
 import {User} from '../../services/User';
 

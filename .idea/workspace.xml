@@ -4,34 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados.">
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Ajustes hecho en information-card template, página de perfil de usuario implementado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/models/project-requirements.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/project-requirements.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/models/project.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/project.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/about-us/about-us.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/about-us/about-us.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-data-field/user-data-field.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/services/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/services/Project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/services/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/services/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/services/get-data-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/services/get-data-service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/users.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/JS/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/JS/header.js" afterDir="false" />
     </list>
@@ -153,7 +149,7 @@
       <workItem from="1777287842870" duration="10328000" />
       <workItem from="1777370243234" duration="2696000" />
       <workItem from="1777471110412" duration="10207000" />
-      <workItem from="1777548660348" duration="1535000" />
+      <workItem from="1777548660348" duration="9277000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -195,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777232268822</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ajustes hecho en information-card template, página de perfil de usuario implementado">
+      <option name="closed" value="true" />
+      <created>1777550490814</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1777550490814</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +239,7 @@
     <MESSAGE value="Adaptación de las paginas a árbol de directorios de angular" />
     <MESSAGE value="Página Index funcional" />
     <MESSAGE value="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados." />
-    <option name="LAST_COMMIT_MESSAGE" value="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados." />
+    <MESSAGE value="Ajustes hecho en information-card template, página de perfil de usuario implementado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustes hecho en information-card template, página de perfil de usuario implementado" />
   </component>
 </project>

@@ -19,8 +19,8 @@ export const routes: Routes = [
   {path: "Login", component: Login},
   {path: "ManageProfile", component: ManageProfile},
   {path: "ManageProject", component: ManageProject},
-  {path: "ProjectProfile", component: ProjectProfile},
+  {path: "ProjectProfile/:title", component: ProjectProfile},
   {path: "SearchResult", component: SearchResult},
-  {path: "UserProfile", component: UserProfile},
+  {path: "UserProfile/:id", component: UserProfile},
   {path: "UserRegistration", component: UserRegistration},
 ];

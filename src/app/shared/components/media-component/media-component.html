@@ -1,7 +1,21 @@
-<button class="media-button" (click)="navegarAProyecto()">
-  <img [src]="imagen" [alt]="titulo">
-  <div class="media-text">
-    <h3>{{ titulo }}</h3>
-    <p>{{ descripcion }}</p>
-  </div>
-</button>
+
+@if(project != undefined){
+  <button class="media-button" (click)="navegarAProyecto()">
+    <img [src]="project.image" [alt]="project.title">
+    <div class="media-text">
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.description }}</p>
+    </div>
+  </button>
+}
+
+@else{
+  <button class="media-button" (click)="navegarAUsuario()">
+    <img [src]="user?.Avatar" [alt]="user?.Nickname">
+    <div class="media-text">
+      <h3>{{ user?.Nickname }}</h3>
+      <p>{{ user?.Description }}</p>
+    </div>
+  </button>
+}
+

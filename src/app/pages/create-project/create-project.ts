@@ -22,8 +22,7 @@ import {Topic} from '../../shared/services/Topic';
     Footer,
     GetInputText,
     ReactiveFormsModule,
-    SearchTopicsComponent,
-    JsonPipe
+    SearchTopicsComponent
   ],
   templateUrl: './create-project.html',
   styleUrl: './create-project.css',

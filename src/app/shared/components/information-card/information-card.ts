@@ -20,8 +20,6 @@ export class InformationCard {
   constructor(private router: Router) {}
 
   navegarAPerfil() {
-    this.router.navigate(['/UserProfile'],{
-      state: {id: this.id}
-    });
+    this.router.navigate(['/UserProfile', this.id]);
   }
 }
