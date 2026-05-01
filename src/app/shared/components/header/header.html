@@ -1,58 +1,69 @@
 <header>
   <div class="header-left">
     <nav class="header-home">
-      <button id="home-btn">
+      <button id="home-btn" class="home-btn">
         <a routerLink="/"><img src="https://cdn-icons-png.flaticon.com/256/6583/6583566.png" alt="Inicio"></a>
       </button>
     </nav>
 
-    <!-- Dropdowns generados desde Firestore -->
-    @for (entry of topicEntries(); track entry[0]) {
-      <nav class="dropdown">
-        <button class="dropdown-btn">{{ entry[0] }}</button>
-        <div class="dropdown-content">
-          @for (opcion of entry[1]; track opcion) {
-            <button (click)="navigateToTopic(opcion)">{{ opcion }}</button>
-          }
+    <nav class="header-nav">
+      @for (topico of topicos$ | async; track topico.id; let i = $index) {
+        <div class="dropdown">
+          <button
+            class="dropdown-btn"
+            mat-button
+            [matMenuTriggerFor]="topicoMenu"
+            (mouseenter)="onMenuEnter(i)"
+            (mouseleave)="onMenuLeave()">
+            {{ topico.nombre }}
+          </button>
+
+          <mat-menu
+            #topicoMenu="matMenu"
+            class="topico-menu"
+            [hasBackdrop]="false"
+            (mouseenter)="onPanelEnter(i)"
+            (mouseleave)="onPanelLeave()">
+            @for (item of topico.items; track item) {
+              <button
+                mat-menu-item
+                [routerLink]="['/SearchResult']"
+                [queryParams]="buildQueryParams(topico.id, item)">
+                {{ item }}
+              </button>
+            }
+          </mat-menu>
         </div>
-      </nav>
-    }
+      }
+    </nav>
   </div>
 
   <label id="ham-btn" class="hamburger" (click)="openSidebar()">☰</label>
-  <div class="search-form" role="search">
+
+  <form class="search-form" role="search" (ngSubmit)="onSearch()">
     <div class="search-wrapper">
-      <input
-        type="search"
-        id="q"
-        placeholder="Buscar…"
-        [(ngModel)]="searchQuery"
-        (ngModelChange)="searchQuery.set($event)"
-        (keydown.enter)="submitSearch()"
-      >
-      <button type="button" aria-label="Buscar" (click)="submitSearch()">🔍</button>
+      <input class="search-input" type="search" id="q" placeholder="Buscar…" [(ngModel)]="searchQuery" name="q">
+      <button class="search-btn" type="submit" aria-label="Buscar">🔍</button>
     </div>
-  </div>
+  </form>
 
   <nav class="header-right">
-    @if (!loggedUserId()) {
-      <button id="create-btn"><a routerLink="/create">Crear Proyecto</a></button>
-      <button id="upload-btn"><a routerLink="/manage">Gestionar Proyecto</a></button>
-      <button id="login-btn" class="login-text" routerLink="/login">Iniciar Sesión</button>
+    @if (!isLoggedIn) {
+      <button class="header-action-btn login-btn" routerLink="/Login">
+        Iniciar sesión
+      </button>
     } @else {
-      <div class="profile-wrapper" style="position:relative">
-        <button id="login-btn" (click)="toggleProfileDd($event)">
-          @if (userProfile()?.avatar) {
-            <img [src]="userProfile()!.avatar" [alt]="userProfile()!.fullname">
-          }
+      <div class="profile-dropdown-wrapper">
+        <button class="profile-avatar-btn" (click)="toggleProfileMenu()">
+          <img [src]="userPhoto" alt="Foto de perfil" class="profile-avatar">
         </button>
 
-        @if (profileDdOpen()) {
-          <div id="profile-dropdown" class="profile-dropdown" style="display:flex;">
-            <button id="dd-profile" [routerLink]="['/profile', loggedUserId()]">Mi Perfil</button>
-            <button id="dd-create"  routerLink="/create">Crear Proyecto</button>
-            <button id="dd-upload"  routerLink="/manage">Gestionar Proyecto</button>
-            <button id="dd-logout"  (click)="logout()">Cerrar Sesión</button>
+        @if (isProfileMenuOpen) {
+          <div class="profile-dropdown">
+            <button class="dd-btn" [routerLink]="['/UserProfile', currentUserId]">Mi Perfil</button>
+            <button class="dd-btn" routerLink="/CreateProject">Crear Proyecto</button>
+            <button class="dd-btn" routerLink="/ManageProfile">Gestionar Proyecto</button>
+            <button class="dd-btn logout-btn" (click)="onLogout()">Cerrar sesión</button>
           </div>
         }
       </div>
@@ -60,33 +71,25 @@
   </nav>
 </header>
 
-<div
-  class="sidebar-overlay"
-  [class.open]="sidebarOpen()"
-  (click)="closeSidebar()"
-></div>
+<div class="sidebar-overlay" id="overlay" (click)="closeSidebar()"></div>
 
-<aside class="sidebar" [class.open]="sidebarOpen()" aria-label="Menú de navegación">
+<aside class="sidebar" id="sidebar" aria-label="Menú de navegación">
 
-  <button class="sidebar-close" (click)="closeSidebar()" aria-label="Cerrar menú">✕</button>
-
-  <div class="sidebar-search">
-    <input
-      type="search"
-      placeholder="Buscar…"
-      [(ngModel)]="searchQuery"
-      (ngModelChange)="searchQuery.set($event)"
-      (keydown.enter)="submitSearch()"
-    >
-  </div>
+  <button class="sidebar-close" id="close-btn" aria-label="Cerrar menú" (click)="closeSidebar()">✕</button>
 
   <nav class="sidebar-nav">
-    @for (entry of topicEntries(); track entry[0]) {
+    @for (topico of topicos$ | async; track topico.id) {
       <details class="sidebar-accordion">
-        <summary>{{ entry[0] }}</summary>
+        <summary class="sidebar-accordion-summary">{{ topico.nombre }}</summary>
         <div class="sidebar-accordion-content">
-          @for (opcion of entry[1]; track opcion) {
-            <button (click)="navigateToTopic(opcion)">{{ opcion }}</button>
+          @for (item of topico.items; track item) {
+            <button
+              class="sidebar-accordion-item"
+              [routerLink]="['/SearchResult']"
+              [queryParams]="buildQueryParams(topico.id, item)"
+            >
+              {{ item }}
+            </button>
           }
         </div>
       </details>
@@ -94,15 +97,15 @@
   </nav>
 
   <div class="sidebar-actions">
-    <button id="sb-home"   routerLink="/"        (click)="closeSidebar()">Home</button>
+    <button id="sb-home" class="sidebar-action-btn" routerLink="">Home</button>
 
-    @if (loggedUserId()) {
-      <button id="sb-create"  routerLink="/create"  (click)="closeSidebar()">Crear Proyecto</button>
-      <button id="sb-upload"  routerLink="/manage"  (click)="closeSidebar()">Gestionar Proyecto</button>
-      <button id="sb-login"   [routerLink]="['/profile', loggedUserId()]" (click)="closeSidebar()">Mi Perfil</button>
-      <button id="sb-logout"  (click)="logout()">Cerrar Sesión</button>
+    @if (!isLoggedIn) {
+      <button id="sb-login" class="sidebar-action-btn" routerLink="/Login">Iniciar Sesión</button>
     } @else {
-      <button id="sb-login" routerLink="/login" (click)="closeSidebar()">Iniciar Sesión</button>
+      <button id="sb-profile" class="sidebar-action-btn" [routerLink]="['/UserProfile', currentUserId]">Mi Perfil</button>
+      <button id="sb-create" class="sidebar-action-btn" routerLink="/CreateProject">Crear Proyecto</button>
+      <button id="sb-upload" class="sidebar-action-btn" routerLink="/ManageProfile">Gestionar Proyecto</button>
+      <button id="sb-logout" class="sidebar-action-btn logout-btn" (click)="onLogout()">Cerrar Sesión</button>
     }
   </div>
 

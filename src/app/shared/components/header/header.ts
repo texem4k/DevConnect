@@ -1,88 +1,140 @@
-import {
-  Component,
-  OnInit,
-  inject,
-  signal,
-  computed,
-  HostListener,
-  ElementRef,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, HostListener, QueryList, ViewChildren, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { Router, RouterModule } from '@angular/router';
-import { toSignal } from '@angular/core/rxjs-interop';
-
-import { HeaderTopicsService } from '../../../core/services/header-topics.service';
-import { UserService } from '../../../core/services/user.service';
-import { UserProfile } from '../models/header.model';
+import { HeaderElementsService } from '../../../core/services/headerElements-service';
+import { AuthService } from '../../../core/services/auth-service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
+  imports: [
+    AsyncPipe,
+    MatButtonModule,
+    MatMenuModule,
+    RouterModule,
+    FormsModule
+  ],
   templateUrl: './header.html',
   styleUrl: './header.css',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule]
 })
-export class Header implements OnInit {
-  private topicsSvc = inject(HeaderTopicsService);
-  private userSvc   = inject(UserService);
-  private router    = inject(Router);
-  private elRef     = inject(ElementRef);
+export class Header {
+  private headerService = inject(HeaderElementsService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-  // ── Data desde Firestore ──────────────────────────────────────────────
-  topicsMap = toSignal(this.topicsSvc.getAsMap(), { initialValue: {} });
-  topicEntries = computed(() => Object.entries(this.topicsMap()));
+  isLoggedIn = false;
+  userPhoto = '';
+  currentUserId = '';
+  isProfileMenuOpen = false;
+  searchQuery = '';
+  topicos$ = this.headerService.getTopics();
 
-  // ── Sesión ────────────────────────────────────────────────────────────
-  loggedUserId = this.userSvc.loggedUserId;
-  userProfile  = signal<UserProfile | null>(null);
+  @ViewChildren(MatMenuTrigger) triggers!: QueryList<MatMenuTrigger>;
 
-  // ── UI state ─────────────────────────────────────────────────────────
-  sidebarOpen      = signal(false);
-  profileDdOpen    = signal(false);
-  searchQuery      = signal('');
+  private activeMenuIndex: number | null = null;
+  private closeTimer: ReturnType<typeof setTimeout> | null = null;
+  private isPointerOnTrigger = false;
+  private isPointerOnPanel = false;
 
-  ngOnInit(): void {
-    const uid = this.loggedUserId();
-    if (uid) {
-      this.userSvc.getById(uid).subscribe(u => this.userProfile.set(u));
+  buildQueryParams(key: string, value: string): Record<string, string> {
+    return { [key]: value };
+  }
+
+  ngOnInit() {
+    this.authService.isLoggedIn$.subscribe(logged => {
+      this.isLoggedIn = logged;
+    });
+
+    this.authService.currentUser$.subscribe(user => {
+      this.userPhoto = this.authService.getPhotoURL();
+      this.currentUserId = user?.uid ?? '';
+    });
+  }
+
+  onMenuEnter(index: number) {
+    this.isPointerOnTrigger = true;
+    this.clearCloseTimer();
+
+    if (this.activeMenuIndex !== null && this.activeMenuIndex !== index) {
+      this.triggers.get(this.activeMenuIndex)?.closeMenu();
+    }
+
+    this.activeMenuIndex = index;
+    this.triggers.get(index)?.openMenu();
+  }
+
+  onMenuLeave() {
+    this.isPointerOnTrigger = false;
+    this.scheduleClose();
+  }
+
+  onPanelEnter(index: number) {
+    this.activeMenuIndex = index;
+    this.isPointerOnPanel = true;
+    this.clearCloseTimer();
+  }
+
+  onPanelLeave() {
+    this.isPointerOnPanel = false;
+    this.scheduleClose();
+  }
+
+  private scheduleClose() {
+    this.clearCloseTimer();
+
+    this.closeTimer = setTimeout(() => {
+      if (!this.isPointerOnTrigger && !this.isPointerOnPanel && this.activeMenuIndex !== null) {
+        this.triggers.get(this.activeMenuIndex)?.closeMenu();
+        this.activeMenuIndex = null;
+      }
+    }, 2000);
+  }
+
+  private clearCloseTimer() {
+    if (this.closeTimer) {
+      clearTimeout(this.closeTimer);
+      this.closeTimer = null;
     }
   }
 
-  // ── Sidebar ───────────────────────────────────────────────────────────
-  openSidebar()  { this.sidebarOpen.set(true);  document.body.style.overflow = 'hidden'; }
-  closeSidebar() { this.sidebarOpen.set(false); document.body.style.overflow = ''; }
+  onSearch() {
+    if (this.searchQuery.trim()) {
+      this.router.navigate(['/SearchResult'], {
+        queryParams: { q: this.searchQuery }
+      });
+    }
+  }
 
-  @HostListener('window:resize')
-  onResize() { if (window.innerWidth > 768) this.closeSidebar(); }
+  openSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    sidebar?.classList.add('open');
+    overlay?.classList.add('active');
+  }
 
-  @HostListener('window:keydown.escape')
-  onEscape() { this.closeSidebar(); this.profileDdOpen.set(false); }
+  closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    sidebar?.classList.remove('open');
+    overlay?.classList.remove('active');
+  }
 
-  // ── Profile dropdown ──────────────────────────────────────────────────
-  toggleProfileDd(e: Event) {
-    e.stopPropagation();
-    this.profileDdOpen.update(v => !v);
+  toggleProfileMenu() {
+    this.isProfileMenuOpen = !this.isProfileMenuOpen;
+  }
+
+  async onLogout() {
+    await this.authService.logout();
+    this.isProfileMenuOpen = false;
   }
 
   @HostListener('document:click', ['$event'])
-  onDocClick(e: Event) {
-    if (!this.elRef.nativeElement.contains(e.target)) {
-      this.profileDdOpen.set(false);
+  onDocumentClick(event: MouseEvent) {
+    const wrapper = document.querySelector('.profile-dropdown-wrapper');
+    if (wrapper && !wrapper.contains(event.target as Node)) {
+      this.isProfileMenuOpen = false;
     }
   }
-
-  // ── Búsqueda ──────────────────────────────────────────────────────────
-  submitSearch() {
-    const q = this.searchQuery().trim();
-    if (q) this.router.navigate(['/search'], { queryParams: { topic: q } });
-  }
-
-  navigateToTopic(topic: string) {
-    this.router.navigate(['/search'], { queryParams: { topic } });
-    this.closeSidebar();
-  }
-
-  // ── Auth ─────────────────────────────────────────────────────────────
-  logout() { this.userSvc.logout(); }
 }

@@ -4,32 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Ajustes hecho en information-card template, página de perfil de usuario implementado">
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados.">
+      <change afterPath="$PROJECT_DIR$/src/app/core/models/headerElements.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/services/auth-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/services/headerElements-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/models/project-requirements.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/project-requirements.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/models/project.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/project.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/about-us/about-us.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/about-us/about-us.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/services/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/services/Project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/JS/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/JS/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,28 +84,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;disable.download.node.interpreter.editor.notification&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint3&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/UNI/3º Curso/2º Cuatri/PWM/Sprint 3/public&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\UNI\\3º Curso\\2º Cuatri\\PWM\\Sprint 3\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "disable.download.node.interpreter.editor.notification": "true",
+    "git-widget-placeholder": "sprint3",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "C:/UNI/3º Curso/2º Cuatri/PWM/Sprint 3/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.language",
+    "ts.external.directory.path": "C:\\Users\\Usuario\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\UNI\3º Curso\2º Cuatri\PWM\Sprint 3\public" />
@@ -144,12 +144,7 @@
       <workItem from="1776547294045" duration="25114000" />
       <workItem from="1777047217472" duration="6134000" />
       <workItem from="1777117882503" duration="18509000" />
-      <workItem from="1777231172598" duration="2640000" />
-      <workItem from="1777285153636" duration="2259000" />
-      <workItem from="1777287842870" duration="10328000" />
-      <workItem from="1777370243234" duration="2696000" />
-      <workItem from="1777471110412" duration="10207000" />
-      <workItem from="1777548660348" duration="9277000" />
+      <workItem from="1777231172598" duration="777000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -183,41 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777231889372</updated>
     </task>
-    <task id="LOCAL-00005" summary="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados.">
-      <option name="closed" value="true" />
-      <created>1777232268822</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1777232268822</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Ajustes hecho en information-card template, página de perfil de usuario implementado">
-      <option name="closed" value="true" />
-      <created>1777550490814</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1777550490814</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="29a76b91-b475-4ed0-83ab-b1bce45e679e" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
-        <entry key="29a76b91-b475-4ed0-83ab-b1bce45e679e">
-          <value>
-            <State />
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -239,7 +208,16 @@
     <MESSAGE value="Adaptación de las paginas a árbol de directorios de angular" />
     <MESSAGE value="Página Index funcional" />
     <MESSAGE value="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados." />
-    <MESSAGE value="Ajustes hecho en information-card template, página de perfil de usuario implementado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes hecho en information-card template, página de perfil de usuario implementado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.ts</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

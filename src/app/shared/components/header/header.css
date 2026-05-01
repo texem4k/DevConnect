@@ -11,15 +11,22 @@ header {
   justify-self: center;
 }
 
-#home-btn a img{
+#home-btn a img {
   height: 2rem;
   transform: translateY(-40%);
 }
 
 .header-left {
   display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: start;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -37,50 +44,30 @@ header {
   margin: 0 0 0 10px;
 }
 
-.dropdown:hover {
-  background-color: #221e52;
-}
-
 .dropdown-btn {
-  padding: 0 1rem;
+  padding: 0 1rem !important;
   height: 2rem;
   font-size: 1rem;
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-  color: white;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: white !important;
+  min-width: auto !important;
 }
 
-.dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 100%;
-  border-radius: 5%;
+.dropdown-btn:hover {
+  background-color: #221e52 !important;
+}
+
+.dropdown-btn::after {
+  display: none !important;
+}
+
+.mat-mdc-button .mat-mdc-button-persistent-ripple::after {
   display: none;
-  background: #1a1740;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 5%;
-  z-index: 1000;
 }
 
-.dropdown-content button {
-  width: 100%;
-  border-radius: 5px;
-  border-width: 0;
-  background-color: transparent;
-  color: #e8e8f0;
-}
-
-.dropdown-content button:hover {
-  background-color: #221e52;
-  color: #ffffff;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
+/* Buscador */
 .search-wrapper {
   position: relative;
   width: 100%;
@@ -113,6 +100,11 @@ header {
   cursor: pointer;
 }
 
+.search-wrapper button:hover {
+  background: none;
+}
+
+/* Home */
 .header-home {
   height: 3rem;
   padding: 0 50px 0 0;
@@ -136,6 +128,7 @@ header {
   font-size: 1.5rem;
 }
 
+/* Botones varios */
 #upload-btn {
   width: auto;
   height: 1.8rem;
@@ -143,6 +136,7 @@ header {
   white-space: nowrap;
 }
 
+/* Avatar / login */
 #login-btn {
   background: transparent;
   border: none;
@@ -166,6 +160,31 @@ header {
   height: auto;
 }
 
+#login-btn img,
+.profile-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.profile-avatar-btn {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.profile-avatar-btn:hover {
+  background: transparent !important;
+}
+
+/* Dropdown perfil */
 .profile-dropdown {
   position: absolute;
   top: calc(100% + 8px);
@@ -174,10 +193,10 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  display: none;
+  display: flex;
   flex-direction: column;
   min-width: 190px;
-  z-index: 1000;
+  z-index: 1001;
   overflow: hidden;
 }
 
@@ -198,15 +217,19 @@ header {
   color: #ffffff;
 }
 
-#dd-logout {
+.profile-dropdown .dd-btn:last-child,
+.dd-btn.logout-btn {
+  color: #e74c3c !important;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  color: #e74c3c;
 }
 
-#dd-logout:hover {
-  background: rgba(192, 57, 43, 0.15);
+.profile-dropdown .dd-btn:last-child:hover,
+.dd-btn.logout-btn:hover {
+  background: rgba(192, 57, 43, 0.15) !important;
+  color: #e74c3c !important;
 }
 
+/* Sidebar */
 .hamburger {
   display: none;
   font-size: 2rem;
@@ -242,15 +265,119 @@ header {
   cursor: pointer;
 }
 
-.sidebar-overlay.open {
+.sidebar-overlay.active {
   display: block;
 }
 
-.search-wrapper button:hover {
-  background: none;
+.sidebar-action-btn {
+  width: 100%;
+  background: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 8px !important;
+  color: white !important;
+  padding: 0.6rem 1rem !important;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: left;
 }
-@media (max-width: 1024px) {
 
+.sidebar-action-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+#sb-logout,
+.sidebar-action-btn.logout-btn {
+  border-color: rgba(192, 57, 43, 0.6) !important;
+  color: #e74c3c !important;
+}
+
+.sidebar-action-btn:last-child,
+#sb-logout {
+  border-color: rgba(192, 57, 43, 0.5) !important;
+  color: #e74c3c !important;
+}
+
+.sidebar-action-btn:last-child:hover,
+#sb-logout:hover {
+  background: rgba(192, 57, 43, 0.15) !important;
+}
+
+/* =========================
+   MAT-MENU
+   ========================= */
+
+.topico-menu.mat-mdc-menu-panel,
+.mat-mdc-menu-panel.topico-menu {
+  background-color: #1a1740 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  min-width: 180px !important;
+  margin-top: 4px;
+}
+
+.topico-menu .mat-mdc-menu-content,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-content {
+  background-color: #1a1740 !important;
+  padding: 4px 0 !important;
+}
+
+.topico-menu .mat-mdc-menu-item,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item {
+  background-color: transparent !important;
+  color: #e8e8f0 !important;
+  min-height: 40px !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Hover del ratón */
+.topico-menu .mat-mdc-menu-item:hover,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item:hover {
+  background-color: #221e52 !important;
+  color: #ffffff !important;
+}
+
+/* Quitar apariencia de item marcado al abrir */
+.topico-menu .mat-mdc-menu-item.cdk-focused,
+.topico-menu .mat-mdc-menu-item.cdk-program-focused,
+.topico-menu .mat-mdc-menu-item.cdk-keyboard-focused,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item.cdk-focused,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item.cdk-program-focused,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item.cdk-keyboard-focused {
+  background-color: transparent !important;
+  color: #e8e8f0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Si está enfocado pero además pasas el ratón, manda hover */
+.topico-menu .mat-mdc-menu-item.cdk-focused:hover,
+.topico-menu .mat-mdc-menu-item.cdk-program-focused:hover,
+.topico-menu .mat-mdc-menu-item.cdk-keyboard-focused:hover,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item.cdk-focused:hover,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item.cdk-program-focused:hover,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item.cdk-keyboard-focused:hover {
+  background-color: #221e52 !important;
+  color: #ffffff !important;
+}
+
+/* Capas internas de foco de Material */
+.topico-menu .mat-mdc-menu-item .mat-focus-indicator,
+.topico-menu .mat-mdc-menu-item .mat-mdc-focus-indicator,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item .mat-focus-indicator,
+.mat-mdc-menu-panel.topico-menu .mat-mdc-menu-item .mat-mdc-focus-indicator {
+  opacity: 0 !important;
+}
+
+/* Ripple y overlays internos */
+.topico-menu .mat-ripple-element,
+.mat-mdc-menu-panel.topico-menu .mat-ripple-element {
+  opacity: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
   header {
     padding: 0.5rem 1rem;
     gap: 0.5rem;
@@ -261,7 +388,7 @@ header {
   }
 
   .dropdown-btn {
-    padding: 0 0.5rem;
+    padding: 0 0.5rem !important;
     font-size: 0.85rem;
   }
 
@@ -277,8 +404,8 @@ header {
     padding: 0 20px 0 0;
   }
 }
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
   header {
     display: flex;
     justify-content: space-between;
