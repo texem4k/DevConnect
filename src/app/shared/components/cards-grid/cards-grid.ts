@@ -10,6 +10,7 @@ import {InformationCard} from '../information-card/information-card';
 export class CardsGrid {
   @Input() title: string = ''
   @Input() items: any[] = []
+  @Input() isProject: boolean = false;
 
   get itemsLimitados() {
     return this.items.slice(0, 4)

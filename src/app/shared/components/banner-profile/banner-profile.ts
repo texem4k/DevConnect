@@ -4,7 +4,7 @@ import {NgOptimizedImage} from '@angular/common';
 @Component({
   selector: 'app-banner-profile',
   imports: [
-    NgOptimizedImage
+
   ],
   templateUrl: './banner-profile.html',
   styleUrl: './banner-profile.css',

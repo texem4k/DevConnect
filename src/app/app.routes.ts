@@ -12,15 +12,15 @@ import {UserProfile} from './pages/user-profile/user-profile';
 import {UserRegistration} from './pages/user-registration/user-registration';
 
 export const routes: Routes = [
-  {path: "", component: Index},
-  {path: "AboutUs", component: AboutUs},
-  {path: "CreateProject", component: CreateProject},
-  {path: "Incidents", component: Incidents},
-  {path: "Login", component: Login},
-  {path: "ManageProfile", component: ManageProfile},
-  {path: "ManageProject", component: ManageProject},
-  {path: "ProjectProfile", component: ProjectProfile},
-  {path: "SearchResult", component: SearchResult},
-  {path: "UserProfile", component: UserProfile},
-  {path: "UserRegistration", component: UserRegistration},
+  {path: "", pathMatch: "full" , component: Index},
+  {path: "AboutUs", pathMatch: "full", component: AboutUs},
+  {path: "CreateProject", pathMatch: "full", component: CreateProject},
+  {path: "Incidents", pathMatch: "full", component: Incidents},
+  {path: "Login", pathMatch: "full", component: Login},
+  {path: "ManageProfile", pathMatch: "full", component: ManageProfile},
+  {path: "ManageProject", pathMatch: "full", component: ManageProject},
+  {path: "ProjectProfile/:title", pathMatch: "full", component: ProjectProfile},
+  {path: "SearchResult", pathMatch: "full", component: SearchResult},
+  {path: "UserProfile/:id", pathMatch: "full", component: UserProfile},
+  {path: "UserRegistration", pathMatch: "full", component: UserRegistration},
 ];

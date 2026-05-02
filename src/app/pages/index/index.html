@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 <main>
   <app-banner></app-banner>
   <h2 class="introduction">Usuarios trending</h2>
@@ -6,9 +6,11 @@
   <section class="trendingUsers">
     @if (!isLoading) {
       @for (user of userData.slice(0,3); track user.Id) {
-        <app-information-card  [imagen]="user.Avatar" [titulo]="user.Nickname" [descripcion]="user.Description"></app-information-card>
+        <app-information-card  [imagen]="user.Avatar" [titulo]="user.Nickname" [descripcion]="user.Description" [id]="user.Id"></app-information-card>
       }
     }
+
+
 
   </section>
   <div class="discoverButton">

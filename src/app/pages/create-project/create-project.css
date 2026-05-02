@@ -1,4 +1,5 @@
 @import "../../shared/components/search-topics/search-topics.css";
+@import "../../../styles.css";
 
 * {
   box-sizing: border-box;

@@ -2,9 +2,7 @@
     @if(type=="projects"){
       @for(item of getProjects; track item){
         <app-media-component
-          [imagen]="item.image"
-          [titulo]="item.title"
-          [descripcion]="item.description"
+          [project]="item"
         />
       }
     }
@@ -12,9 +10,7 @@
     @else{
       @for(item of getUsers; track item){
         <app-media-component
-          [imagen]="item.Avatar"
-          [titulo]="item.Nickname"
-          [descripcion]="item.Description"
+          [user]="item"
         />
       }
     }

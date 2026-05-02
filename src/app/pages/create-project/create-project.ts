@@ -22,8 +22,7 @@ import {Topic} from '../../shared/services/Topic';
     Footer,
     GetInputText,
     ReactiveFormsModule,
-    SearchTopicsComponent,
-    JsonPipe
+    SearchTopicsComponent
   ],
   templateUrl: './create-project.html',
   styleUrl: './create-project.css',
@@ -118,6 +117,8 @@ export class CreateProject implements AfterViewInit, OnInit {
   protected openCalendar(dateInput: HTMLInputElement) {
     dateInput.showPicker();
   }
+
+  protected readonly history = history;
 }
 
 
