@@ -10,7 +10,6 @@
       (focus)="openDropdown()"
       (click)="openDropdown()"
       (input)="openDropdown()"
-      (blur)="sendSelectedOptions() ;sendTopics()"
     />
     <span class="search-icon">⌕</span>
   </div>
@@ -23,9 +22,9 @@
         <div
           *ngFor="let option of filteredOptions"
           class="dropdown-item"
-          [class.selected]="isSelected(Number(option.id))"
+          [class.selected]="isSelected(option.id)"
           [ngClass]="'cat-' + option.category"
-          (click)="toggleOption($event, Number(option.id))"
+          (mousedown)="toggleOption($event, option.id)"
         >
           <!-- Checkbox visual -->
           <div class="checkbox">
@@ -89,7 +88,7 @@
       >
         <span class="tag-dot"></span>
         {{ item.name }}
-        <button class="tag-remove" (click)="removeTag(Number(item.id))" title="Quitar">✕</button>
+        <button class="tag-remove" (click)="removeTag(item.id)" title="Quitar">✕</button>
       </div>
     </div>
   </div>

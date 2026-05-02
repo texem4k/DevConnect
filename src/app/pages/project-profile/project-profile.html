@@ -2,11 +2,11 @@
 
 <!-- header -->
 
-<img id="project-image" src="https://picsum.photos/1200/320?random=1" alt="Imagen Lorem Ipsum">
+<img id="project-image" src="{{ project?.image }}" alt="Imagen Lorem Ipsum">
 
 <div class="overlay-text">
   <h1>{{project?.title}}</h1>
-  <a [routerLink]="['/UserProfile', id]" ]>{{project?.creator}}</a>
+  <a [routerLink]="['/UserProfile', id]">{{project?.creator}}</a>
 </div>
 
 <div class="page-layout">
@@ -16,16 +16,15 @@
     <app-cards-grid
       [title]="'Colaboradores'"
       [isProject]="false"
-      [items]="mantainers"></app-cards-grid>
+      [items]="maintainers"></app-cards-grid>
   </main>
 
   <aside>
-    <app-topics-grid [title]="'Tecnologías a usar'" [items]="project!.requirements.technologies"></app-topics-grid>
-    <app-topics-grid [title]="'Requisitos adicionales'" [items]="project!.requirements.knowledgeAreas"></app-topics-grid>
+    <app-topics-grid [title]="'Requisitos'" [items]="project!.requireTopic"></app-topics-grid>
 
     <h3>Inscripción</h3>
     <button id="inscription-button">Inscribirse</button>
   </aside>
-
 </div>
+<app-footer></app-footer>
 </body>

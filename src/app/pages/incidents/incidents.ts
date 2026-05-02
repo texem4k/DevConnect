@@ -1,26 +1,31 @@
-import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Auth, onAuthStateChanged, User } from '@angular/fire/auth';
 import { Firestore, collection, addDoc, Timestamp } from '@angular/fire/firestore';
+import { Subscription } from 'rxjs';
 import { Footer } from '../../shared/components/footer/footer';
+import { Header } from '../../shared/components/header/header';
+import { User } from '@angular/fire/auth';
+import {AuthService} from '../../core/services/auth-service';
 
 @Component({
   selector: 'app-incidents',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, Footer],
+  imports: [ReactiveFormsModule, CommonModule, Footer, Header],
   templateUrl: './incidents.html',
   styleUrl: './incidents.css',
 })
-export class Incidents implements OnInit {
-  private auth      = inject(Auth);
-  private firestore = inject(Firestore);
-  private cdr       = inject(ChangeDetectorRef);
+export class Incidents implements OnInit, OnDestroy {
+  private authService = inject(AuthService);
+  private firestore   = inject(Firestore);
+  private cdr         = inject(ChangeDetectorRef);
 
   currentUser: User | null = null;
   isSubmitting             = false;
   notLoggedMessage         = '';
   successMessage           = '';
+
+  private userSub!: Subscription;
 
   incidentsForm = new FormGroup({
     topic: new FormControl<string>('', { nonNullable: true,
@@ -38,7 +43,6 @@ export class Incidents implements OnInit {
       ]
     }),
   });
-
 
   get topic() { return this.incidentsForm.get('topic') as FormControl; }
   get text()  { return this.incidentsForm.get('text')  as FormControl; }
@@ -64,11 +68,15 @@ export class Incidents implements OnInit {
   }
 
   ngOnInit(): void {
-    onAuthStateChanged(this.auth, (user) => {
+    this.userSub = this.authService.currentUser$.subscribe(user => {
       this.currentUser = user;
       if (user) this.notLoggedMessage = '';
       this.cdr.detectChanges();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
   }
 
   async submitIncident(): Promise<void> {
@@ -91,7 +99,7 @@ export class Incidents implements OnInit {
       await addDoc(collection(this.firestore, 'incidents'), {
         userId:    this.currentUser.uid,
         userEmail: this.currentUser.email,
-        asunto:     this.topic.value,
+        asunto:    this.topic.value,
         text:      this.text.value,
         createdAt: Timestamp.now(),
         status:    'pending',
@@ -100,7 +108,6 @@ export class Incidents implements OnInit {
       this.successMessage = '¡Reporte enviado correctamente!';
       setTimeout(() => this.successMessage = '', 3000);
       this.incidentsForm.reset();
-
     } catch (error: any) {
       this.notLoggedMessage = 'Ocurrió un error al enviar el reporte. Inténtalo de nuevo.';
       console.error('Error al guardar la incidencia:', error);

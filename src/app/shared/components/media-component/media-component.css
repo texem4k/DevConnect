@@ -1,0 +1,20 @@
+.actionButtonDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.actionButton {
+  height: 2rem;
+  background-color: #383288;
+  border: none;
+}
+
+.actionButton:hover {
+  background-color: #15152e;
+}
+
+.media-text{
+  width: 100%;
+}

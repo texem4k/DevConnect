@@ -6,6 +6,8 @@ import { Router, RouterModule } from '@angular/router';
 import { HeaderElementsService } from '../../../core/services/headerElements-service';
 import { AuthService } from '../../../core/services/auth-service';
 import { FormsModule } from '@angular/forms';
+import {UserService} from '../../../core/services/user-crud';
+import {firstValueFrom} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -23,6 +25,7 @@ export class Header {
   private headerService = inject(HeaderElementsService);
   private authService = inject(AuthService);
   private router = inject(Router);
+  private userService = inject(UserService);
 
   isLoggedIn = false;
   userPhoto = '';
@@ -42,16 +45,27 @@ export class Header {
     return { [key]: value };
   }
 
-  ngOnInit() {
+   ngOnInit() {
     this.authService.isLoggedIn$.subscribe(logged => {
       this.isLoggedIn = logged;
     });
 
-    this.authService.currentUser$.subscribe(user => {
-      this.userPhoto = this.authService.getPhotoURL();
+    this.authService.currentUser$.subscribe(async user => {
+      this.userPhoto = await this.getPhotoUser();
+
       this.currentUserId = user?.uid ?? '';
     });
   }
+
+  async getPhotoUser(): Promise<string> {
+    const uid = this.authService.currentUserSubject.value?.uid;
+    if (!uid) {
+      return 'https://cdn-icons-png.flaticon.com/256/149/149071.png';
+    }
+    const user = await firstValueFrom(this.userService.getUserById(uid));
+    return user?.Avatar ?? 'https://cdn-icons-png.flaticon.com/256/149/149071.png';
+  }
+
 
   onMenuEnter(index: number) {
     this.isPointerOnTrigger = true;

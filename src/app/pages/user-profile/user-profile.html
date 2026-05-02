@@ -1,119 +1,49 @@
+<app-header></app-header>
 <body>
 
-<!--Header-->
-<app-banner-profile [titulo]="userInformation!.Fullname"
-                    [banner]="userInformation!.Banner"
-                    [avatar]="userInformation!.Avatar">
-</app-banner-profile>
-<section class="profileInformationButtons">
-  <button class="profileInformationButtonManageProfile" type="button">Editar Perfil</button>
-  <button class="profileButton" type="button">Tus Proyectos</button>
-</section>
+  @if (userInformation) {
+    <app-banner-profile
+      [titulo]="userInformation.Nickname"
+      [banner]="userInformation.Banner"
+      [avatar]="userInformation.Avatar">
+    </app-banner-profile>
 
-<section class="profileDescription">
-  <p>{{userInformation?.Description}}</p>
-</section>
+    <section class="profileInformationButtons">
+      <button class="profileInformationButtonManageProfile" [routerLink]="['/ManageProfile', this.userInformation.uid]" type="button">Editar Perfil</button>
+      <button class="profileButton" type="button" [routerLink]="['/ManageProject', this.userInformation.uid]">Tus Proyectos</button>
+    </section>
 
+    <section class="profileDescription">
+      <p>{{ userInformation.Description }}</p>
+    </section>
 
-<main>
+    <main>
+      <section class="profileInformation">
+        <app-user-skills [label]="'Especialidad'" [topics]="getTopics()"></app-user-skills>
+        <app-user-skills [label]="'Lenguajes'" [topics]="getTopicsLanguage()"></app-user-skills>
+        <br><br>
+        <app-user-data-field [title]="'Github'" [link]="userInformation.Social.Github.Link" [socialNetwork]="userInformation.Social.Github.Name"></app-user-data-field>
+        <br>
+        <app-user-data-field [title]="'LinkedIn'" [link]="userInformation.Social.Linkedin.Link" [socialNetwork]="userInformation.Social.Linkedin.Name"></app-user-data-field>
+        <br>
+        <app-user-data-field [title]="'Instagram'" [link]="userInformation.Social.Instagram.Link" [socialNetwork]="userInformation.Social.Instagram.Name"></app-user-data-field>
+        <br>
+        <app-user-data-field [title]="'Twitter'" [link]="userInformation.Social.Twitter.Link" [socialNetwork]="userInformation.Social.Twitter.Name"></app-user-data-field>
+        <br>
+        <div class="profileInformationDivDownload">
+          <a href="" download style="font-size: 18px;">Descargar CV ⬇️</a>
+        </div>
+      </section>
 
+      <section class="profileProjects">
+        <app-cards-grid
+          [isProject]="true"
+          [title]="'Proyectos más relevantes'"
+          [items]="userProjects"
+        ></app-cards-grid>
+      </section>
+    </main>
+  }
 
-  <section class="profileInformation">
-    <app-user-skills
-      [label]="'Especialidad'"
-      [topics]="userInformation!.Topic.Speciality"
-    ></app-user-skills>
-    <app-user-skills
-      [label]="'Lenguajes'"
-      [topics]="userInformation!.Topic.Language"
-    ></app-user-skills>
-
-    <br><br>
-    <app-user-data-field
-      [title]="'Github'"
-      [link]="userInformation!.Social.Github.Link"
-      [socialNetwork]="userInformation!.Social.Github.Name"
-    ></app-user-data-field>
-    <br>
-    <app-user-data-field
-      [title]="'LinkedlIn'"
-      [link]="userInformation!.Social.Linkedin.Link"
-      [socialNetwork]="userInformation!.Social.Linkedin.Name"
-    ></app-user-data-field>
-    <br>
-    <app-user-data-field
-      [title]="'Instagram'"
-      [link]="userInformation!.Social.Instagram.Link"
-      [socialNetwork]="userInformation!.Social.Instagram.Name"
-    ></app-user-data-field>
-    <br>
-    <app-user-data-field
-      [title]="'Twitter'"
-      [link]="userInformation!.Social.Twitter.Link"
-      [socialNetwork]="userInformation!.Social.Twitter.Name"
-    ></app-user-data-field>
-    <br>
-    <div class="profileInformationDivDownload">
-      <a href="" download style="font-size: 18px;">
-        Descargar CV⬇️
-      </a>
-    </div>
-  </section>
-
-  <section class="profileProjects">
-    <app-cards-grid [isProject]="true" [title]="'Proyectos más relevantes'" [items]="this.userProjects!" ]></app-cards-grid>
-  </section>
-
-</main>
-<footer class="footerTemplate"></footer>
+<app-footer></app-footer>
 </body>
-
-
-<!--
-
-
-
-<main>
-  <section class="profileInformation">
-    <app-user-skills
-      [label]="'Especialidad'"
-      [topics]="userInformation!.Topic.Speciality.slice(0,2)"
-    ></app-user-skills>
-    <app-user-skills
-      [label]="'Lenguajes'"
-      [topics]="userInformation!.Topic.Language.slice(0,2)"
-    ></app-user-skills>
-
-    <br><br>
-    <app-user-data-field
-      [title]="'Github'"
-      [link]="userInformation!.Social.Github.Link"
-      [socialNetwork]="userInformation!.Social.Github.Name"
-    ></app-user-data-field>
-    <br>
-    <app-user-data-field
-      [title]="'LinkedlIn'"
-      [link]="userInformation!.Social.Linkedin.Link"
-      [socialNetwork]="userInformation!.Social.Linkedin.Name"
-    ></app-user-data-field>
-    <br>
-    <app-user-data-field
-      [title]="'Instagram'"
-      [link]="userInformation!.Social.Instagram.Link"
-      [socialNetwork]="userInformation!.Social.Instagram.Name"
-    ></app-user-data-field>
-    <br>
-    <app-user-data-field
-      [title]="'Twitter'"
-      [link]="userInformation!.Social.Twitter.Link"
-      [socialNetwork]="userInformation!.Social.Twitter.Name"
-    ></app-user-data-field>
-    <br>
-    <div class="profileInformationDivDownload">
-      <a href="" download style="font-size: 18px;">
-        Descargar CV⬇️
-      </a>
-    </div>
-  </section>
-
--->

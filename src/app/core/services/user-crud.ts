@@ -1,11 +1,10 @@
 import { Injectable, inject } from '@angular/core';
 import {
   Firestore, collection, collectionData,
-  setDoc, doc, updateDoc, deleteDoc, docData
+  setDoc, doc, updateDoc, deleteDoc, docData, arrayUnion, arrayRemove
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import {
-  Auth,
   updateEmail, updatePassword,
   reauthenticateWithCredential,
   EmailAuthProvider,
@@ -13,6 +12,7 @@ import {
 } from '@angular/fire/auth';
 import { User } from '../models/user.model';
 import { AuthService } from './auth-service';
+import {Topic} from '../models/topic.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -21,63 +21,39 @@ export class UserService {
   private userRef = collection(this.firestore, 'users');
 
   getUser(): Observable<User[]> {
-    return collectionData(this.userRef, { idField: 'id' }) as Observable<User[]>;
+    return collectionData(this.userRef, { idField: 'uid' }) as Observable<User[]>;
   }
 
   getUserById(id: string): Observable<User> {
     const ref = doc(this.firestore, `users/${id}`);
-    return docData(ref, { idField: 'id' }) as Observable<User>;
+    return docData(ref, { idField: 'uid' }) as Observable<User>;
   }
 
   async addUser(user: User) {
-    const cred = await this.authService.register(user.gmail, user.password);
+    const cred = await this.authService.register(user.Gmail, user.Password);
     await sendEmailVerification(cred.user);
-    return setDoc(doc(this.firestore, 'users', cred.user.uid), {
-      Fullname:    user.fullname,
-      Nickname:    user.nickname,
-      Gmail:       user.gmail,
-      Description: user.description,
-      Topic:       user.topic,
-      Projects:    user.projects,
-      Avatar:      user.avatar,
-      Banner:      user.banner,
-      Social:      user.social,
-      CV:          user.cv
-    });
+    return setDoc(doc(this.firestore, 'users', cred.user.uid), user );
   }
 
   async updateUser(id: string, data: Partial<User>, currentPassword: string) {
     const currentUser = this.authService.currentUser;
     const docRef = doc(this.firestore, `users/${id}`);
 
-    const fieldMap: Partial<Record<keyof User, string>> = {
-      fullname:    'Fullname',
-      nickname:    'Nickname',
-      description: 'Description',
-      topic:       'Topic',
-      banner:      'Banner',
-      cv:          'CV',
-      avatar:      'Avatar',
-      projects:    'Projects',
-      social:      'Social',
-    };
-
     const firestoreData = Object.fromEntries(
-      Object.entries(fieldMap)
-        .filter(([key]) => data[key as keyof User] !== undefined)
-        .map(([key, fsKey]) => [fsKey, data[key as keyof User]])
+      Object.entries(data)
+        .filter(([_ , value]) => value !== undefined)
     );
 
-    if (currentUser && (data.gmail || data.password) && currentPassword) {
+    if (currentUser && (data.Gmail || data.Password) && currentPassword) {
       const credential = EmailAuthProvider.credential(currentUser.email!, currentPassword);
       await reauthenticateWithCredential(currentUser, credential);
 
       await Promise.all([
-        data.gmail && data.gmail !== currentUser.email
-          ? updateEmail(currentUser, data.gmail)
+        data.Gmail && data.Gmail !== currentUser.email
+          ? updateEmail(currentUser, data.Gmail)
           : null,
-        data.password
-          ? updatePassword(currentUser, data.password)
+        data.Password
+          ? updatePassword(currentUser, data.Password)
           : null,
       ].filter(Boolean) as Promise<void>[]);
 
@@ -87,6 +63,20 @@ export class UserService {
     if (Object.keys(firestoreData).length > 0) {
       await updateDoc(docRef, firestoreData);
     }
+  }
+
+  addUserTopic(id: string, topic: Topic) {
+    const userRef = doc(this.firestore, `users/${id}`);
+    return updateDoc(userRef, {
+      Topic: arrayUnion(topic)
+    });
+  }
+
+  removeUserTopic(id: string, topic: Topic) {
+    const userRef = doc(this.firestore, `users/${id}`);
+    return updateDoc(userRef, {
+      Topic: arrayRemove(topic)
+    });
   }
 
   async deleteUser(id: string): Promise<void> {

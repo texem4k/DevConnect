@@ -5,6 +5,7 @@ async function loadHeader() {
     await setHeaderLinks();
 }
 
+
 function burger(data) {
     const ham      = document.getElementById('ham-btn');
     const sidebar  = document.getElementById('sidebar');

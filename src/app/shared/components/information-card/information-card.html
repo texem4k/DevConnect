@@ -6,17 +6,19 @@
     <div class="cardContent">
       <div>
         <h2>{{ titulo }}</h2>
-        <div class="topicsRow">
-          @for (topic of topics; track topic) {
-            <app-topic-box-btn
-              [topic]="topic"
-            />
-          }
-        </div>
+        @if(topics.length>0){
+          <div class="topicsRow">
+            @for (topic of (topics); track topic.id) {
+              <app-topic-box-btn
+                [topic]="topic.name"
+                [id]="topic.id!"
+                (click)="$event.stopPropagation()"
+              />
+            }
+          </div>
+        }
       </div>
-      <p>
-        {{ descripcion }}
-      </p>
+      <p>{{ descripcion }}</p>
     </div>
   </button>
 </div>

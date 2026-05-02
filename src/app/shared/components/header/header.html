@@ -62,7 +62,7 @@
           <div class="profile-dropdown">
             <button class="dd-btn" [routerLink]="['/UserProfile', currentUserId]">Mi Perfil</button>
             <button class="dd-btn" routerLink="/CreateProject">Crear Proyecto</button>
-            <button class="dd-btn" routerLink="/ManageProfile">Gestionar Proyecto</button>
+            <button class="dd-btn" [routerLink]="['/ManageProject', currentUserId]">Gestionar Proyecto</button>
             <button class="dd-btn logout-btn" (click)="onLogout()">Cerrar sesión</button>
           </div>
         }
@@ -104,7 +104,7 @@
     } @else {
       <button id="sb-profile" class="sidebar-action-btn" [routerLink]="['/UserProfile', currentUserId]">Mi Perfil</button>
       <button id="sb-create" class="sidebar-action-btn" routerLink="/CreateProject">Crear Proyecto</button>
-      <button id="sb-upload" class="sidebar-action-btn" routerLink="/ManageProfile">Gestionar Proyecto</button>
+      <button id="sb-upload" class="sidebar-action-btn" [routerLink]="['/ManageProject', currentUserId]">Gestionar Proyecto</button>
       <button id="sb-logout" class="sidebar-action-btn logout-btn" (click)="onLogout()">Cerrar Sesión</button>
     }
   </div>

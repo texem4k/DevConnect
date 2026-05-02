@@ -1,3 +1,4 @@
+
 import { Injectable, inject } from '@angular/core';
 import {
   Firestore,
@@ -9,12 +10,13 @@ import {
   updateDoc,
   deleteDoc,
   query,
-  where
+  where, arrayUnion, arrayRemove
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project.model';
 import {User} from '../models/user.model';
 import { switchMap } from 'rxjs/operators';
+import {Topic} from '../models/topic.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,15 +35,7 @@ export class ProjectService {
   }
 
   addProject(project: Project) {
-    return addDoc(this.projectRef, {
-      title: project.title,
-      creator: project.creator,
-      isCompanyProject: project.isCompanyProject,
-      image: project.image,
-      description: project.description,
-      requirements: project.requirements,
-      maintainers: project.maintainers
-    });
+    return addDoc(this.projectRef, project);
   }
 
   updateProject(id: string, data: Partial<Project>) {
@@ -58,6 +52,20 @@ export class ProjectService {
   deleteProject(id: string) {
     const projectDocRef = doc(this.firestore, `projects/${id}`);
     return deleteDoc(projectDocRef);
+  }
+
+  addProjectTopic(id: string, topic: Topic) {
+    const projectRef = doc(this.firestore, `projects/${id}`);
+    return updateDoc(projectRef, {
+      requireTopic: arrayUnion(topic)
+    });
+  }
+
+  removeProjectTopic(id: string, topic: Topic) {
+    const projectRef = doc(this.firestore, `projects/${id}`);
+    return updateDoc(projectRef, {
+      requireTopic: arrayRemove(topic)
+    });
   }
 
   getMaintainers(projectId: string): Observable<User[]> {

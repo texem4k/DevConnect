@@ -1,25 +1,26 @@
 <div class="cardGrid">
   <h1>{{ title }}</h1>
   <section class="cardsSection">
-    @if(isProject){
-      @for (item of itemsLimitados; track item.Id) {
+
+    @if (isProject) {
+      @for (item of itemsLimitados; track $index) {
         <app-information-card
+          [id]="item.id"
+          tipo="proyecto"
           [imagen]="item.image"
           [titulo]="item.title"
           [descripcion]="item.description"
         />
       }
-
-
-    }
-    @else{
-      @for (item of itemsLimitados; track item.Id) {
+    } @else {
+      @for (item of itemsLimitados; track $index) {
         <app-information-card
-          [id]="item.Id"
+          tipo="usuario"
+          [id]="item.uid"
           [imagen]="item.Avatar"
           [titulo]="item.Fullname"
           [descripcion]="item.Description"
-          [topics]="item.Topic.Specialty"
+          [topics]="item.Topic"
         />
       }
     }

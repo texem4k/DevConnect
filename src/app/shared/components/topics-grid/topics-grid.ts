@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
+import {Topic} from '../../../core/models/topic.model';
 
 @Component({
   selector: 'app-topics-grid',
@@ -9,7 +10,7 @@ import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
 })
 export class TopicsGrid {
   @Input() title: string = ''
-  @Input() items: any[] = []
+  @Input() items: Topic[] = []
 
   get topics() {
     return this.items

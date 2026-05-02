@@ -1,31 +1,31 @@
 <body>
 <header>
-  <button class="backButton">←</button>
-  <h1 class="title">Lorem Ipsum</h1>
+  <button class="backButton" (click)="history.back()">←</button>
+  <h1 class="title">{{title}}</h1>
 </header>
 <main>
   <form class="form">
-    <h2>Lorem Ipsum</h2>
-    <label class="getInputTextTemplate"></label>
-    <p class="fieldFeedBack"></p>
+    <h2>{{header1}}</h2>
+    <app-get-input-text></app-get-input-text>
+    <app-get-input-text></app-get-input-text>
 
-    <label class="getInputTextTemplate"></label>
+    <!--Enviar errores de contraseña este componente-->
+    <app-get-input-text></app-get-input-text>
 
-    <label class="getInputTextTemplate"></label>
-    <p class="fieldFeedBack"></p>
 
-    <h2>Lorem Ipsum</h2>
+
+    <h2>{{header2}}</h2>
     <section>
-      <label class="getInputTextTemplate"></label>
-      <label class="getInputTextTemplate"></label>
-      <label class="getInputTextTemplate"></label>
-      <label class="getInputTextTemplate"></label>
+      <app-get-input-text></app-get-input-text>
+      <app-get-input-text></app-get-input-text>
+      <app-get-input-text></app-get-input-text>
+      <app-get-input-text></app-get-input-text>
       <p class="fieldFeedBack"></p>
       <p class="fieldFeedBack"></p>
 
     </section>
 
-    <h2>Lorem Ipsum</h2>
+    <h2>{{header3}}</h2>
     <div class="particularOption">
       <label>
         <input type="radio" name="opción" value="1">
@@ -46,7 +46,7 @@
     <br>
     <p class="fieldFeedBack"></p>
     <div class="search-container">
-      <h2></h2>
+      <h2>{{header4}}</h2>
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="Escribe para filtrar opciones..." autocomplete="off"/>
         <span class="search-icon">⌕</span>

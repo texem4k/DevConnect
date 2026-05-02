@@ -3,6 +3,7 @@
       @for(item of getProjects; track item){
         <app-media-component
           [project]="item"
+          [showActions]="showActions"
         />
       }
     }

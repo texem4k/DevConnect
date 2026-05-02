@@ -1,15 +1,28 @@
-<nav class="pagination" aria-label="Paginación de resultados">
+@if(totalPages > 1) {
+  <div class="pagination">
 
-  <a href="?page=1" class="page-btn first">«</a>
-  <a href="?page=4" class="page-btn prev">‹</a>
+    <button
+      (click)="pageChange.emit(currentPage - 1)"
+      [disabled]="currentPage === 1"
+    >
+      ‹
+    </button>
 
-  <a href="?page=1" class="page-btn">1</a>
-  <a href="?page=2" class="page-btn">2</a>
-  <span class="dots">...</span>
-  <a href="?page=3" class="page-btn">6</a>
-  <a href="?page=4" class="page-btn active">7</a>
-  <a href="?page=5" class="page-btn">8</a>
+    @for(page of pageNumbers; track page) {
+      <button
+        (click)="pageChange.emit(page)"
+        [class.active]="page === currentPage"
+      >
+        {{ page }}
+      </button>
+    }
 
-  <a href="?page=6" class="page-btn next">›</a>
-  <a href="?page=20" class="page-btn last">»</a>
-</nav>
+    <button
+      (click)="pageChange.emit(currentPage + 1)"
+      [disabled]="currentPage === totalPages"
+    >
+      ›
+    </button>
+
+  </div>
+}

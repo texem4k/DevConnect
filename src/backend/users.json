@@ -8,7 +8,7 @@
       "Password": "Ts-12345678",
       "Description": "Soy ingeniero de software especializado en sistemas embebidos e inteligencia artificial. Me gusta diseñar soluciones tecnológicas complejas que integren hardware y software para crear sistemas automatizados eficientes.",
       "Topic": {
-        "Specialty": ["Ingeniero de software", "Sistemas embebidos", "Arquitecto de IA"],
+        "Speciality": ["Ingeniero de software", "Sistemas embebidos", "Arquitecto de IA"],
         "Language": ["C++", "Python", "Rust"]
       },
       "Projects": [
@@ -34,7 +34,7 @@
       "Password": "Pp-987654321",
       "Description": "Soy desarrollador full stack y trabajo principalmente con tecnologías JavaScript. Me interesa crear aplicaciones web escalables y bien estructuradas, cuidando tanto el rendimiento como la experiencia de usuario.",
       "Topic": {
-        "Specialty": ["Desarrollador Full Stack", "Aplicaciones web escalables"],
+        "Speciality": ["Desarrollador Full Stack", "Aplicaciones web escalables"],
         "Language": ["JavaScript", "TypeScript", "Node.js"]
       },
       "Projects": [
@@ -59,7 +59,7 @@
       "Password": "Bw-654321",
       "Description": "Soy ingeniero de software especializado en ciberseguridad y desarrollo de sistemas críticos. Me centro en analizar vulnerabilidades y desarrollar herramientas que ayuden a proteger infraestructuras digitales.",
       "Topic": {
-        "Specialty": ["Ciberseguridad", "Ingeniería de software"],
+        "Speciality": ["Ciberseguridad", "Ingeniería de software"],
         "Language": ["Python", "Go", "C++"]
       },
       "Projects": [
@@ -85,7 +85,7 @@
       "Password": "Oq-142536789",
       "Description": "Soy desarrollador de aplicaciones móviles con experiencia en Android e iOS. Me especializo en optimizar el rendimiento de las aplicaciones y en crear interfaces intuitivas que mejoren la experiencia del usuario.",
       "Topic": {
-        "Specialty": ["Desarrollo de aplicaciones móviles", "Optimización de rendimiento"],
+        "Speciality": ["Desarrollo de aplicaciones móviles", "Optimización de rendimiento"],
         "Language": ["Kotlin", "Swift", "Dart"]
       },
       "Projects": [
@@ -110,7 +110,7 @@
       "Password": "Nr-11223344",
       "Description": "Soy analista de datos y desarrolladora backend. Me especializo en la visualización de datos y en la construcción de API eficientes y seguras para sistemas complejos.",
       "Topic": {
-        "Specialty": ["Backend Developer", "Analista de datos"],
+        "Speciality": ["Backend Developer", "Analista de datos"],
         "Language": ["Python", "SQL", "R"]
       },
       "Projects": [
@@ -136,7 +136,7 @@
       "Password": "Ss-55667788",
       "Description": "Soy ingeniero de software con experiencia en simulaciones gráficas y realidad aumentada. Me gusta combinar la ciencia y la programación para crear experiencias visuales impactantes.",
       "Topic": {
-        "Specialty": ["Desarrollo de simulaciones", "Realidad aumentada"],
+        "Speciality": ["Desarrollo de simulaciones", "Realidad aumentada"],
         "Language": ["C#", "Unity", "Python"]
       },
       "Projects": [

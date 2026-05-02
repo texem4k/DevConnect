@@ -7,11 +7,12 @@ import {AbstractControl, FormControl, ReactiveFormsModule} from '@angular/forms'
   imports: [ReactiveFormsModule],
   templateUrl: './get-input-text.html',
   styleUrl: './get-input-text.css',
-  changeDetection: ChangeDetectionStrategy.OnPush  // opcional pero recomendado
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GetInputText {
 
   @Input() value: string | undefined;
+  @Input() type: string='text';
   @Input() label: string = '';
   @Input() placeholder: string | undefined;
   @Input() control!: AbstractControl;

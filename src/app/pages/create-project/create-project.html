@@ -16,7 +16,7 @@
 
     <label class="field field-large">
       <p>Descripción</p>
-      <textarea></textarea>
+      <textarea [value]="project!.description"></textarea>
     </label>
 
     <section class="dual-inputs">
@@ -57,12 +57,14 @@
     </section>
     <h2></h2> <div class="search-container">
 
-    <app-search-topics (selectionChange)="getTopicsIds($event)" (allTopics)="getTopics($event)">
-
-    </app-search-topics>
+    <app-search-topics
+      (selectionChange)="getTopicsIds($event)"
+      (allTopics)="getTopics($event)"
+      [preselectedIds]="topicsIds"
+    ></app-search-topics>
 
   </div>
-    @if(pressedSubmit && !validSelectedTopics()){
+    @if(pressedSubmit && !validTopicsSelection()){
       <p style="font-size: 0.9rem; color: red">Debes seleccionar al menos un idioma y un lenguaje</p>
     }
 

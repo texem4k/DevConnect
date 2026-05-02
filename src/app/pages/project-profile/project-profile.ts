@@ -1,57 +1,54 @@
-import {ChangeDetectorRef, Component, inject, Input, OnInit} from '@angular/core';
-import {Project} from '../../shared/services/Project';
+import {ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
 import {CardsGrid} from '../../shared/components/cards-grid/cards-grid';
-import {ActivatedRoute, Router, RouterLink} from '@angular/router';
-import {DataLoader} from '../../shared/services/get-data-service';
+import {ActivatedRoute, RouterLink} from '@angular/router';
 import {TopicsGrid} from '../../shared/components/topics-grid/topics-grid';
-import {User} from '../../shared/services/User';
+import {Footer} from '../../shared/components/footer/footer';
+import {UserService} from '../../core/services/user-crud';
+import {ProjectService} from '../../core/services/project-crud';
+import {Project} from '../../core/models/project.model';
+import {User} from '../../core/models/user.model';
+import { tap } from 'rxjs';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-project-profile',
   imports: [
     CardsGrid,
     RouterLink,
-    TopicsGrid
+    TopicsGrid,
+    Footer
   ],
   templateUrl: './project-profile.html',
   styleUrl: './project-profile.css',
 })
 export class ProjectProfile implements OnInit {
 
-  private route= inject(ActivatedRoute);
-  private router= inject(Router);
-  private loader = inject(DataLoader);
+
+  private userService = inject(UserService);
+  private projectService = inject(ProjectService);
+  private route = inject(ActivatedRoute)
   private cd = inject(ChangeDetectorRef)
 
-  id?: number;
-  @Input() project?: Project;
-  mantainers: User[] = []
-
-
+  id?: string;
+  project?: Project | undefined;
+  maintainers: User[] = []
 
   ngOnInit() {
-    this.loader.loadData(
-      {loadUsers: true, loadProjects: true},
-      (data)=>{
-        this.project = data.projectData!.find(p => p.title===this.route.snapshot.params['title']);
-        this.id=data.userData!.find(u => u.Projects.find(p => p.Name===this.project?.title))?.Id;
-        this.cd.detectChanges()
-        this.mantainers=this.getMaintainers(data.userData!)
-      });
+    const projectId = this.route.snapshot.params['id'];
+    this.projectService.getProjectById(projectId).pipe(
+      tap(project => this.project = project),
+      switchMap(project =>
+        this.userService.getUser().pipe(
+          tap(users => {
+            const owner = users.find(u => u.Nickname === project.creator);
+            this.id = owner?.uid;
+          }),
+          switchMap(() => this.projectService.getMaintainers(project.id))
+        )
+      )
+    ).subscribe(maintainers => {
+      this.maintainers = maintainers;
+      this.cd.detectChanges();
+    });
   }
-
-  getMaintainers(data: User[]): User[] {
-    let result: User[] = []
-    this.project?.maintainers.forEach(maintainer => {
-      result.push(<User>data.find(u => u.Nickname === maintainer))
-    })
-    return result
-  }
-
-
-
-  goToUserProfile() {
-    this.router.navigate(['/UserProfile', this.id]);
-  }
-
 }

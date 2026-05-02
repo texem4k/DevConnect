@@ -1,4 +1,6 @@
 export interface Topic {
-  specialty: string[];
-  language: string[];
+  id: string;
+  cat: string;
+  category: string;
+  name: string;
 }

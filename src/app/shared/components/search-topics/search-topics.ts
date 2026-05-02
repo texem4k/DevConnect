@@ -6,12 +6,12 @@ import {
   EventEmitter,
   HostListener,
   ElementRef,
+  ChangeDetectorRef
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {DataLoader} from '../../services/get-data-service';
-import {Topic} from '../../services/Topic';
-
+import { TopicService } from '../../../core/services/topic-crud';
+import { Topic } from '../../../core/models/topic.model';
 
 @Component({
   selector: 'app-search-topics',
@@ -22,33 +22,34 @@ import {Topic} from '../../services/Topic';
 })
 export class SearchTopicsComponent implements OnInit {
   @Input() topicsUrl = '../../../../../public/topics.json';
+  @Input() preselectedIds: string[] = [];
 
-  @Input() preselectedIds: number[] = [];
-
-  @Output() selectionChange = new EventEmitter<number[]>();
+  @Output() selectionChange = new EventEmitter<string[]>();
   @Output() allTopics = new EventEmitter<Topic[]>();
 
   options: Topic[] = [];
-  selected = new Set<number>();
+  selected = new Set<string>();
   query = '';
   isOpen = false;
 
   constructor(
     private elRef: ElementRef,
-    private loader: DataLoader,
+    private loadTopic: TopicService,
+    private cdr: ChangeDetectorRef
   ) {}
 
-
   ngOnInit(): void {
-    this.loader.loadData(
-      { loadTopics: true},
+    this.loadTopic.getTopics().subscribe(topics => {
+      this.options = topics ?? [];
+      this.allTopics.emit([...this.options]);
 
-      (data) => {
-        this.options    = data.topicsData    ?? [];
+      if (this.preselectedIds.length) {
+        this.selected = new Set(this.preselectedIds);
+        this.sendSelectedOptions();
       }
-    );
+      this.cdr.detectChanges();
+    });
   }
-
 
   get filteredOptions(): Topic[] {
     const q = this.query.toLowerCase();
@@ -60,7 +61,7 @@ export class SearchTopicsComponent implements OnInit {
   }
 
   get selectedItems(): Topic[] {
-    return this.options.filter((o) => this.selected.has(Number(o.id)));
+    return this.options.filter((o) => this.selected.has(o.id));
   }
 
   get selectedCount(): number {
@@ -84,41 +85,43 @@ export class SearchTopicsComponent implements OnInit {
     }, 0);
   }
 
-
-  toggleOption(event: MouseEvent, id: number): void {
+  toggleOption(event: MouseEvent, id: string): void {
     event.stopPropagation();
-    if (this.selected.has(id)) {
-      this.selected.delete(id);
+    const next = new Set(this.selected);
+    if (next.has(id)) {
+      next.delete(id);
     } else {
-      this.selected.add(id);
+      next.add(id);
     }
+    this.selected = next;
     this.sendSelectedOptions();
   }
 
-  removeTag(id: number): void {
-    this.selected.delete(id);
+  removeTag(id: string): void {
+    const next = new Set(this.selected);
+    next.delete(id);
+    this.selected = next;
     this.sendSelectedOptions();
   }
 
   clearAll(event: MouseEvent): void {
     event.preventDefault();
     event.stopPropagation();
-    this.selected.clear();
+    this.selected = new Set();
     this.sendSelectedOptions();
   }
 
-  isSelected(id: number): boolean {
+  isSelected(id: string): boolean {
     return this.selected.has(id);
   }
 
-   sendSelectedOptions(): void {
+  sendSelectedOptions(): void {
     this.selectionChange.emit([...this.selected]);
   }
 
   sendTopics(): void {
     this.allTopics.emit([...this.options]);
   }
-
 
   highlight(text: string): string {
     const q = this.query;
@@ -129,6 +132,4 @@ export class SearchTopicsComponent implements OnInit {
       '<mark style="background:var(--accent-dim);color:var(--accent);border-radius:2px;">$1</mark>'
     );
   }
-
-  protected readonly Number = Number;
 }

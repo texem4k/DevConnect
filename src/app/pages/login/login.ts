@@ -1,9 +1,9 @@
 import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {Router, RouterLink} from '@angular/router';
-import {Auth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence} from '@angular/fire/auth';
-import {GetInputText} from '../../shared/components/get-input-text/get-input-text';
+import { Router, RouterLink } from '@angular/router';
+import { GetInputText } from '../../shared/components/get-input-text/get-input-text';
+import {AuthService} from '../../core/services/auth-service';
 
 @Component({
   selector: 'app-login',
@@ -13,26 +13,27 @@ import {GetInputText} from '../../shared/components/get-input-text/get-input-tex
   styleUrl: './login.css',
 })
 export class Login {
-  private auth = inject(Auth);
+  private authService = inject(AuthService);
   private router = inject(Router);
-  private cdr = inject(ChangeDetectorRef)
+  private cdr = inject(ChangeDetectorRef);
 
   loading = false;
   generalError = '';
 
   loginForm = new FormGroup({
-    email: new FormControl('', {nonNullable: true,
-      validators: [
-        Validators.required,
-        Validators.email
-    ]}),
-    password: new FormControl('', {nonNullable: true,
+    email: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.email]
+    }),
+    password: new FormControl('', {
+      nonNullable: true,
       validators: [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(64),
         Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\[\]{}|\\:;"'<>,.?\/]).+$/)
-      ]})
+      ]
+    })
   });
 
   get email() { return this.loginForm.get('email'); }
@@ -53,15 +54,10 @@ export class Login {
     this.loading = true;
 
     try {
-
-      await setPersistence(this.auth, browserLocalPersistence);
-
-      await signInWithEmailAndPassword(
-        this.auth,
-        this.email?.value!,
-        this.password?.value!
+      await this.authService.login(
+        this.email!.value,
+        this.password!.value
       );
-
       await this.router.navigate(['/']);
     } catch (error: any) {
       this.handleError(error.code);
@@ -71,6 +67,11 @@ export class Login {
     }
   }
 
+  showPassword = false;
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
   private handleError(code: string) {
     const messages: Record<string, string> = {

@@ -2,7 +2,7 @@
   <p class="profileInformationTag">{{ label }}</p>
   <div class="profileSkillContainerFields">
     @for(topic of topics.slice(0,3); track $index){
-      <app-topic-box-btn [topic]="topic"></app-topic-box-btn>
+      <app-topic-box-btn [topic]="topic.name"></app-topic-box-btn>
     }
   </div>
 </div>

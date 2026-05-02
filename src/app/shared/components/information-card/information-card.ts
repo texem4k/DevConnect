@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
-import { Router } from '@angular/router'
+import {Component, inject, Input} from '@angular/core';
+import { TopicBoxBtn } from '../topic-box-btn/topic-box-btn';
+import { Router } from '@angular/router';
+import {Topic} from '../../../core/models/topic.model';
 
 @Component({
   selector: 'app-information-card',
@@ -9,17 +10,20 @@ import { Router } from '@angular/router'
   styleUrl: './information-card.css',
 })
 export class InformationCard {
-  @Input() id: number = 0
+  @Input() id: string = '';
+  @Input() tipo: 'usuario' | 'proyecto' = 'usuario';
+  @Input() imagen: string = '';
+  @Input() titulo: string = '';
+  @Input() descripcion: string = '';
+  @Input() topics: Topic[] = [];
 
-  @Input() imagen: string | undefined;
-  @Input() titulo: string | undefined;
-  @Input() descripcion: string | undefined;
-
-  @Input() topics: string[] = []
-
-  constructor(private router: Router) {}
+  private router = inject(Router)
 
   navegarAPerfil() {
-    this.router.navigate(['/UserProfile', this.id]);
+    if (this.tipo === 'proyecto') {
+      this.router.navigate(['/ProjectProfile', this.id]);
+    } else {
+      this.router.navigate(['/UserProfile', this.id]);
+    }
   }
 }

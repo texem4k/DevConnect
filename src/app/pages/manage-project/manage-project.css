@@ -11,6 +11,7 @@ main {
 .project-container {
   display: block;
   flex: 2;
+  width: 400%;
 }
 
 .button-container {

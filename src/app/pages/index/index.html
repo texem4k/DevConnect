@@ -4,14 +4,9 @@
   <h2 class="introduction">Usuarios trending</h2>
 
   <section class="trendingUsers">
-    @if (!isLoading) {
-      @for (user of userData.slice(0,3); track user.Id) {
-        <app-information-card  [imagen]="user.Avatar" [titulo]="user.Nickname" [descripcion]="user.Description" [id]="user.Id"></app-information-card>
-      }
+    @for (user of users?.slice(0,3); track user.uid) {
+      <app-information-card tipo="usuario" [imagen]="user.Avatar" [titulo]="user.Fullname" [descripcion]="user.Description" [id]="user.uid" [topics]="user.Topic"/>
     }
-
-
-
   </section>
   <div class="discoverButton">
     <button type="button" (click)="discoverUsers()">Más información</button>
@@ -20,10 +15,7 @@
   <br><br>
 
   <h2 class="introduction">Proyectos trending</h2>
-  <section class="trendingProjects"><app-media-list [type]="'projects'" [projects]="this.projectData"></app-media-list></section>
-
-
-
+  <section class="trendingProjects"><app-media-list [type]="'projects'" [projects]="projects?.slice(0,4)!"></app-media-list></section>
 
   <div class="discoverButton">
     <button type="button" (click)="discoverProjects()">Más información</button>

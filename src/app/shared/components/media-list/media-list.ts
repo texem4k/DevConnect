@@ -1,7 +1,7 @@
-import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MediaComponent} from '../media-component/media-component';
-import {Project} from '../../services/Project';
-import {User} from '../../services/User';
+import {Project} from '../../../core/models/project.model';
+import {User} from '../../../core/models/user.model';
 
 
 @Component({
@@ -17,25 +17,36 @@ export class MediaList implements OnInit {
 
   constructor(private cd: ChangeDetectorRef) {}
 
-  ngOnInit() {
-      if(this.type == ''){
-        if(this.projects.length > 0){
-          this.type="projects"
-        }
+  @Input() showActions: boolean = false;
+  @Output() edit = new EventEmitter<Project>();
+  @Output() delete = new EventEmitter<Project>();
 
-        else if(this.users.length > 0){
-          this.type = "users"
-        }
-        this.cd.detectChanges();
-      }
+  ngOnInit() {
+    if(this.projects?.length > 0){
+      this.type="projects"
+    }
+
+    else if(this.users?.length > 0){
+      this.type = "users"
+    }
+    this.cd.detectChanges();
 
   }
 
   get getUsers() {
-      return this.users.slice(0,4)
+      return this.users ?? []
   }
 
   get getProjects(){
-    return this.projects.slice(0,4)
+    return this.projects ?? []
+  }
+
+  // Re‑emitir los eventos desde el hijo
+  handleEdit(project: Project) {
+    this.edit.emit(project);
+  }
+
+  handleDelete(project: Project) {
+    this.delete.emit(project);
   }
 }

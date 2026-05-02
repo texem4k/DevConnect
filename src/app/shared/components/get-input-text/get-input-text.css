@@ -1,21 +1,42 @@
-#input label {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 0;
-}
-#input input {
-  padding: 10px 12px 12px;
-  margin-top: 0.25rem;
+#input {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
   margin-bottom: 0.5rem;
-  border: 1px solid #b0b0b0;
+}
+
+#input p {
+  color: #9b99b8;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+#input input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  background: white;
+  background: #2a2750;
+  color: #e8e8f0;
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+}
+
+#input input::placeholder {
+  color: #5e5c7a;
+}
+
+#input input:focus {
+  background: #332f66;
+  border-color: rgba(79, 110, 247, 0.5);
+  box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
 }
 
 @media (max-width: 768px) {
   #input input {
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }

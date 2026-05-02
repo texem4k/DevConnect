@@ -1,76 +1,129 @@
-<body>
-<header class="headerTemplate"></header>
-<div class="bannerProfileTemplate"></div>
+<app-header></app-header>
 
-<main>
-  <section class="profileInformation">
-    <div class="profileInformationDiv getInputTextTemplate"></div>
-    <div class="profileInformationDiv getInputTextTemplate"></div>
-    <div class="profileInformationDiv getInputTextTemplate"></div>
-    <div class="profileInformationDiv getInputTextTemplate"></div>
-    <p></p>
-    <div class="search-container">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Escribe para filtrar opciones..." autocomplete="off"/>
-        <span class="search-icon">⌕</span>
-      </div>
+@if(isLoading) {
+  <p>Cargando...</p>
+} @else if(userInformation) {
 
-      <div class="dropdownTopics" id="dropdown">
-        <div id="optionsList"></div>
-      </div>
+  <app-banner-profile
+    [avatar]="userInformation.Avatar"
+    [banner]="userInformation.Banner"
+    [titulo]="userInformation.Nickname">
+  </app-banner-profile>
 
-      <div class="selected-section" id="selectedSection">
-        <div class="section-header">
-          <span class="section-label">Seleccionados</span>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <span class="count-badge" id="countBadge">0</span>
-            <button class="clear-btn" id="clearBtn" onclick="clearAll()" style="display:none;">limpiar todo</button>
-          </div>
-        </div>
-        <div class="tags-area" id="tagsArea">
-          <span class="empty-hint" id="emptyHint">ninguna opción seleccionada aún</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main>
 
-  <section class="userDescription">
-    <h3>Lorem ipsum</h3>
-    <textarea placeholder="Lorem Ipsum" wrap="soft" rows="5" cols="120"></textarea>
+    <section class="profileInformation">
 
-    <section class="uploadContent">
-      <div class="profileInformationUpload">
-        <label for="file-upload" class="upload-box">
-          <div class="upload-content">
-            <div class="icon">⬆️</div>
-            <p><strong>Lorem ipsum dolor sit amet</strong></p>
-            <span>Lorem</span>
-          </div>
-          <input class="file-upload" type="file" accept="image/png, image/jpeg, image/jpg"/>
-        </label>
-      </div>
+      <app-get-input-text
+        [label]="'Nombre de usuario'"
+        [control]="getControl('nickname')"
+        [placeholder]="'Nombre de usuario'"
+        [errorMessages]="{
+        required: 'El nombre de usuario no puede estar vacío',
+        nicknameExists: 'El nombre de usuario ya existe, elige otro'}"
+      ></app-get-input-text>
 
-      <div class="profileInformationUpload">
-        <label for="file-upload" class="upload-box">
-          <div class="upload-content">
-            <div class="icon">⬆️</div>
-            <p><strong>Lorem ipsum dolor sit amet</strong></p>
-            <span>Lorem</span>
-          </div>
-          <input class="file-upload" id="file-upload" type="file" accept="image/png, image/jpeg, image/jpg" />
-        </label>
-      </div>
+      <app-get-input-text
+        [label]="'Contraseña nueva'"
+        [placeholder]="'Contraseña nueva'"
+        [control]="getControl('password')"
+        [errorMessages]="{pattern: 'La contraseña debe tener mínimo 8 carácteres, incluyendo un dígito, una mayúscula y un carácter especial'}"
+        [type]="'password'"
+      ></app-get-input-text>
+
+      <app-get-input-text
+        [label]="'Número de teléfono'"
+        [control]="getControl('userPhone')"
+        [errorMessages]="{pattern: 'El número de teléfono no es válido'}">
+      </app-get-input-text>
+
+      <app-get-input-text
+        [label]="'Correo electrónico'"
+        [control]="getControl('email')"
+        [errorMessages]="{required: 'El email no puede estar vacío',
+                          email: 'El email no tiene un formato válido'}">
+      </app-get-input-text>
+
+      <app-search-topics
+        [preselectedIds]="this.selectedTopics!"
+        (selectionChange)="getTopicsIds($event)"
+        (allTopics)="getTopics($event)"
+      ></app-search-topics>
+
+      @if(pressedSubmit && !validTopicsSelection()) {
+        <p style="font-size: 0.9rem; color: red">Debes seleccionar al menos un idioma y un lenguaje</p>
+      }
+
     </section>
 
+    <section class="userDescription">
+      <h3>Descripción</h3>
+      <textarea placeholder="Hola, soy ...." wrap="soft" rows="5" cols="120">{{userInformation.Description}}</textarea>
+
+      <section class="uploadContent">
+
+        <div class="profileInformationUpload">
+          <label class="upload-box">
+            <div class="upload-content">
+              <div class="icon">⬆️</div>
+              <p><strong>Pulsa para cambiar tu foto de perfil</strong></p>
+              <span>Tamaño MxN máximo X, formato JPG o PNG</span>
+            </div>
+            <input class="file-upload" type="file" accept="image/png, image/jpeg, image/jpg"/>
+          </label>
+        </div>
+
+        <div class="profileInformationUpload">
+          <label for="banner-upload" class="upload-box">
+            <div class="upload-content">
+              <div class="icon">⬆️</div>
+              <p><strong>Pulsa para cambiar el banner</strong></p>
+              <span>Tamaño máximo MxN, formato JPG o PNG</span>
+            </div>
+            <input class="file-upload" id="banner-upload" type="file" accept="image/png, image/jpeg, image/jpg"/>
+          </label>
+        </div>
+
+      </section>
+    </section>
+
+  </main>
+
+  <section class="profileInformationButtons">
+    <button class="profileInformationButtonManageProfile" (click)="openPasswordModal()" type="button">Actualizar</button>
+    <button class="profileButton" (click)="history.back()" type="button">Cancelar</button>
   </section>
+  <br>
 
+  @if(showPasswordModal) {
+    <div class="modal-overlay" (click)="closePasswordModal()">
+      <div class="modal-container" (click)="$event.stopPropagation()">
 
-</main>
-<section class="profileInformationButtons">
-  <button class="profileInformationButtonManageProfile" type="button">Lorem Ipsum</button>
-  <button class="profileButton" type="button">Lorem Ipsum</button>
-</section>
+        <div class="modal-header">
+          <span class="modal-icon">🔒</span>
+          <h2>Confirmar identidad</h2>
+          <p>Introduce tu contraseña actual para guardar los cambios</p>
+        </div>
 
-<footer class="footerTemplate"></footer>
+        <div class="modal-body">
+          <app-get-input-text
+            [label]="'Contraseña actual'"
+            [placeholder]="'Introduce tu contraseña'"
+            [control]="getControl('currentPassword')"
+            [errorMessages]="{required: 'La contraseña no puede estar vacía'}"
+            [type]="'password'"
+          ></app-get-input-text>
+        </div>
 
-</body>
+        <div class="modal-actions">
+          <button class="modal-btn-cancel" (click)="closePasswordModal()" type="button">Cancelar</button>
+          <button class="modal-btn-confirm" (click)="confirmAndSubmit()" type="button">Confirmar</button>
+        </div>
+
+      </div>
+    </div>
+  }
+
+}
+
+<app-footer></app-footer>

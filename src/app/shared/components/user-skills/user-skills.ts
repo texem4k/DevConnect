@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
+import {Topic} from '../../../core/models/topic.model';
 
 @Component({
   selector: 'app-user-skills',
@@ -9,5 +10,5 @@ import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
 })
 export class UserSkills {
   @Input() label: string = 'Titulo de prueba'
-  @Input() topics: string[]=[]
+  @Input() topics: Topic[]=[]
 }
