@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
+import {
+  Auth, onAuthStateChanged, signOut, User,
+  setPersistence, signInWithEmailAndPassword,
+  browserLocalPersistence, createUserWithEmailAndPassword, deleteUser
+} from '@angular/fire/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  private currentUserSubject = new BehaviorSubject<User | null>(null);
-
+  currentUserSubject = new BehaviorSubject<User | null>(null);
   currentUser$: Observable<User | null> = this.currentUserSubject.asObservable();
 
-  isLoggedIn$: Observable<boolean> = new Observable(observer => {
-    this.currentUser$.subscribe(user => observer.next(!!user));
-  });
+  isLoggedIn$: Observable<boolean> = this.currentUser$.pipe(
+    map(user => !!user)
+  );
 
   constructor(private auth: Auth) {
     onAuthStateChanged(this.auth, (user: User | null) => {
@@ -20,17 +22,14 @@ export class AuthService {
     });
   }
 
-  getPhotoURL(): string {
-    return this.currentUserSubject.value?.photoURL
-      ?? 'https://cdn-icons-png.flaticon.com/256/149/149071.png';
+  async register(email: string, password: string) {
+    await setPersistence(this.auth, browserLocalPersistence);
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
-  getDisplayName(): string {
-    return this.currentUserSubject.value?.displayName ?? 'Usuario';
-  }
-
-  getEmail(): string {
-    return this.currentUserSubject.value?.email ?? '';
+  async login(email: string, password: string): Promise<void> {
+    await setPersistence(this.auth, browserLocalPersistence);
+    await signInWithEmailAndPassword(this.auth, email, password);
   }
 
   async logout(): Promise<void> {
@@ -40,5 +39,16 @@ export class AuthService {
       console.error('Error al cerrar sesión:', error);
       throw error;
     }
+  }
+
+  get currentUser(): User | null {
+    return this.currentUserSubject.getValue();
+  }
+
+  async deleteAccount(): Promise<void> {
+    const user = this.currentUser;
+    if (!user) throw new Error('No hay usuario autenticado');
+    await deleteUser(user);
+    this.currentUserSubject.next(null);
   }
 }

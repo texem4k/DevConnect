@@ -5,11 +5,16 @@ import {
   collectionData,
   addDoc,
   doc,
+  docData,
   updateDoc,
-  deleteDoc
+  deleteDoc,
+  query,
+  where
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project.model';
+import {User} from '../models/user.model';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +29,7 @@ export class ProjectService {
 
   getProjectById(id: string): Observable<Project> {
     const ref = doc(this.firestore, `projects/${id}`);
-    return collectionData(ref, { idField: 'id' }) as Observable<Project>;
+    return docData(ref, { idField: 'id' }) as Observable<Project>;
   }
 
   addProject(project: Project) {
@@ -41,7 +46,13 @@ export class ProjectService {
 
   updateProject(id: string, data: Partial<Project>) {
     const projectDocRef = doc(this.firestore, `projects/${id}`);
-    return updateDoc(projectDocRef, { ...data });
+
+    const firestoreData = Object.fromEntries(
+      Object.entries(data)
+        .filter(([_, value]) => value !== undefined)
+    );
+
+    return updateDoc(projectDocRef, firestoreData);
   }
 
   deleteProject(id: string) {
@@ -51,15 +62,16 @@ export class ProjectService {
 
   getMaintainers(projectId: string): Observable<User[]> {
     return docData(doc(this.firestore, `projects/${projectId}`)).pipe(
-      switchMap((project: Project) => {
+      switchMap((project) => {
+        const data = project as Project;
         const usersRef = collection(this.firestore, "users");
 
         const q = query(
           usersRef,
-          where("__name__", "in", project.maintainers)
+          where("__name__", "in", data.maintainers)
         );
 
-        return collectionData(q, { idField: "id" });
+        return collectionData(q, { idField: "id" }) as Observable<User[]>;
       })
     );
   }
