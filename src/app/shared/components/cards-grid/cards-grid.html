@@ -3,7 +3,7 @@
   <section class="cardsSection">
 
     @if (isProject) {
-      @for (item of itemsLimitados; track $index) {
+      @for (item of itemsLimitados; track item.id) {
         <app-information-card
           [id]="item.id"
           tipo="proyecto"
@@ -13,7 +13,7 @@
         />
       }
     } @else {
-      @for (item of itemsLimitados; track $index) {
+      @for (item of itemsLimitados; track item.id) {
         <app-information-card
           tipo="usuario"
           [id]="item.uid"

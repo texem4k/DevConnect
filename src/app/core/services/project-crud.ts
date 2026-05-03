@@ -93,14 +93,14 @@ export class ProjectService {
   }
 
   getMaintainers(projectId: string): Observable<User[]> {
-    return docData(doc(this.firestore, 'projects/${projectId}')).pipe(
+    return docData(doc(this.firestore, `projects/${projectId}`)).pipe(
     switchMap((project) => {
       const data = project as Project;
       if (!data.maintainers || data.maintainers.length === 0) {
         return of([] as User[]);
       }
       const usersRef = collection(this.firestore, 'users');
-      const q = query(usersRef, where('name', 'in', data.maintainers));
+      const q = query(usersRef, where('uid', 'in', data.maintainers));
       return collectionData(q, { idField: 'id' }) as Observable<User[]>;
     })
   );
