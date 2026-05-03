@@ -9,7 +9,7 @@ import {Component, Input} from '@angular/core';
   styleUrl: './banner-profile.css',
 })
 export class BannerProfile {
-  @Input() avatar: string = ''
-  @Input() banner: string = ''
+  @Input() avatar: string = 'https://cdn-icons-png.flaticon.com/256/149/149071.png'
+  @Input() banner: string = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?fm=jpg&w=1600&h=400&fit=crop'
   @Input() titulo: string = ''
 }
