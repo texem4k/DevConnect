@@ -138,9 +138,8 @@ export class CreateProject implements OnInit {
       if (rawValue.numberParticipants) formValue.numberParticipants = Number(rawValue.numberParticipants);
       if (rawValue.ownerPhone)         formValue.ownerPhone         = rawValue.ownerPhone;
       if (rawValue.date)               formValue.limitDate          = rawValue.date;
-      if (this.description)            formValue.description        = this.description;
+      if (rawValue.description)        formValue.description        = rawValue.description;
       if (this.topicsIds?.length)      formValue.requireTopic       = this.topicsIds;
-      if(rawValue.description)         formValue.description        = rawValue.description;
       formValue.creator = this.projectOwnerName;
 
       if(!this.project?.image){
