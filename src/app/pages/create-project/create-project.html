@@ -6,17 +6,28 @@
 <main>
   <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <app-get-input-text [label]="'* Nombre del proyecto'" [control] ="getControl('projectName')" [errorMessages]="{
-    required: 'El nombre no puede estar vacío',
-    minlength: 'Mínimo debe contener 5 carácteres',
-    itExists: 'El nombre ya existe, elige otro'
-    }" [placeholder]=""></app-get-input-text>
+    <app-get-input-text
+      [label]="'* Nombre del proyecto'"
+      [control] ="getControl('projectName')"
+      [errorMessages]="{
+        required: 'El nombre no puede estar vacío',
+        minlength: 'Mínimo debe contener 5 carácteres',
+        itExists: 'El nombre ya existe, elige otro'
+      }"
+      [placeholder]="">
+
+    </app-get-input-text>
 
     <p class="fieldFeedBack"></p>
 
     <label class="field field-large">
       <p>Descripción</p>
-      <textarea [value]="project!.description"></textarea>
+      @if(project){
+        <textarea [value]="project!.description"></textarea>
+      }
+      @else{
+        <textarea></textarea>
+      }
     </label>
 
     <section class="dual-inputs">
@@ -24,15 +35,14 @@
       [control]="getControl('ownerEmail')"
       [errorMessages]="{
         required: 'El email es obligatorio',
-        email: 'El elemento introducido no es un correo, por favor, escribe un correo válido',}" ]
-      [label]="'Correo electrónico'"
+        email: 'El elemento introducido no es un correo, por favor, escribe un correo válido'}"
+      [label]="'* Correo electrónico'"
       [placeholder]="'example@exameple.com'">
       </app-get-input-text>
-
       <app-get-input-text [control]="getControl('ownerPhone')"
-        [errorMessages]="{pattern:'Escriba el número correctamente'}" ]
+        [errorMessages]="{pattern:'Escriba el número correctamente'}"
         [label]="'Número de teléfono'"
-        [maxlength]="String(9)">
+        [maxlength]="'9'">
 
       </app-get-input-text>
     </section>
@@ -44,16 +54,19 @@
           <input type="date" class="dateInput" #dateInput formControlName="date" placeholder=" ">
           <button type="button" class="calendar-btn" (click)="openCalendar(dateInput)" style="padding-top:12px">📅</button>
         </label>
-        @if(getControl('date').touched && getControl('date').invalid && getControl('date').errors?.['fechaNoAnteriorAHoy']){
+        @if(getControl('date').touched && getControl('date').invalid && getControl('date').errors?.['fechaNoAnteriorAHoy'] && pressedSubmit){
           <p style="font-size: 0.9rem;color: red">La fecha no puede anterior a hoy</p>
         }
 
       </div>
-      <app-get-input-text [label]="'Número de participantes (Máx 20)'"
+      <app-get-input-text [label]="'* Número de participantes (Máx 20)'"
                           [control]="getControl('numberParticipants')"
                           [participantsField]="true"
-                          [value]="String(2)"
+                          [value]="'2'"
       ></app-get-input-text>
+      @if(pressedSubmit && !getControl('numberParticipants').value){
+        <p style="font-size: 0.9rem; color: red">Debes añadir un número de participantes (2-20)</p>
+      }
     </section>
     <h2></h2> <div class="search-container">
 
