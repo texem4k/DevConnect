@@ -9,6 +9,7 @@ import {Project} from '../../core/models/project.model';
 import {User} from '../../core/models/user.model';
 import { tap } from 'rxjs';
 import {switchMap} from 'rxjs/operators';
+import {Header} from '../../shared/components/header/header';
 
 @Component({
   selector: 'app-project-profile',
@@ -16,7 +17,8 @@ import {switchMap} from 'rxjs/operators';
     CardsGrid,
     RouterLink,
     TopicsGrid,
-    Footer
+    Footer,
+    Header
   ],
   templateUrl: './project-profile.html',
   styleUrl: './project-profile.css',

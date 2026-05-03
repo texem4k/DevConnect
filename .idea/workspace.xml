@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Registro de usuario realizado y cambios en el CRUD y base de datos">
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Arreglos en crear/editar proyecto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.ts" afterDir="false" />
     </list>
     <list id="95082ca9-69a7-4391-b255-55818b014db9" name="Changes by arael" comment="Changes by arael" />
     <list id="2f7ff114-ded4-4c37-bfee-fbd13cbca518" name="Changes by vidal" comment="" />
@@ -126,7 +133,7 @@
       <workItem from="1777117882503" duration="18509000" />
       <workItem from="1777231172598" duration="777000" />
       <workItem from="1777804505658" duration="7113000" />
-      <workItem from="1777812915298" duration="1364000" />
+      <workItem from="1777812915298" duration="6244000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -176,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777811604963</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Arreglos en crear/editar proyecto">
+      <option name="closed" value="true" />
+      <created>1777814311224</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1777814311225</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +223,7 @@
     <MESSAGE value="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados." />
     <MESSAGE value="Implementación completa del CRUD de tópicos, usuarios y proyectos. Gestionar proyectos/usuarios, perfil de usuario, página de resultados y página de proyecto finalizados" />
     <MESSAGE value="Registro de usuario realizado y cambios en el CRUD y base de datos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registro de usuario realizado y cambios en el CRUD y base de datos" />
+    <MESSAGE value="Arreglos en crear/editar proyecto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglos en crear/editar proyecto" />
   </component>
 </project>
