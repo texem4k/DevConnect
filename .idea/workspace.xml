@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="">
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Se arreglaron ciertos errores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" afterDir="false" />
     </list>
     <list id="95082ca9-69a7-4391-b255-55818b014db9" name="Changes by arael" comment="Changes by arael" />
     <list id="2f7ff114-ded4-4c37-bfee-fbd13cbca518" name="Changes by vidal" comment="" />
@@ -128,7 +127,8 @@
       <workItem from="1777804505658" duration="7113000" />
       <workItem from="1777812915298" duration="6244000" />
       <workItem from="1777825547353" duration="165000" />
-      <workItem from="1777826287582" duration="449000" />
+      <workItem from="1777826287582" duration="491000" />
+      <workItem from="1777826926258" duration="312000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -186,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777814311225</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Se arreglaron ciertos errores">
+      <option name="closed" value="true" />
+      <created>1777826761237</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777826761237</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +227,7 @@
     <MESSAGE value="Implementación completa del CRUD de tópicos, usuarios y proyectos. Gestionar proyectos/usuarios, perfil de usuario, página de resultados y página de proyecto finalizados" />
     <MESSAGE value="Registro de usuario realizado y cambios en el CRUD y base de datos" />
     <MESSAGE value="Arreglos en crear/editar proyecto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglos en crear/editar proyecto" />
+    <MESSAGE value="Se arreglaron ciertos errores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se arreglaron ciertos errores" />
   </component>
 </project>
