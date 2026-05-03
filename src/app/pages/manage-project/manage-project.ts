@@ -8,6 +8,7 @@ import {Project} from '../../core/models/project.model';
 import {ProjectService} from '../../core/services/project-crud';
 import {UserService} from '../../core/services/user-crud';
 import {Header} from '../../shared/components/header/header';
+import {AuthService} from '../../core/services/auth-service';
 
 @Component({
   selector: 'app-manage-project',
@@ -23,10 +24,10 @@ import {Header} from '../../shared/components/header/header';
 export class ManageProject implements OnInit {
   private router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
-  private projectService= inject(ProjectService);
-  private userService= inject(UserService);
+  private projectService = inject(ProjectService);
+  private userService = inject(UserService);
+  private auth = inject(AuthService);
   private cd: ChangeDetectorRef = inject(ChangeDetectorRef);
-
 
   projects!: Project[] | undefined;
   userInformation!: User | undefined;
@@ -35,13 +36,12 @@ export class ManageProject implements OnInit {
   ngOnInit() {
     this.userService.getUser().subscribe(users => {
       this.userInformation = users.find(u => u.uid === this.route.snapshot.params['id']) ?? undefined;
-    })
-    this.projectService.getProject().subscribe(projects => {
-      this.projects = projects.filter(p => p.creator===this.userInformation?.Nickname) ?? undefined;
-    })
-    this.loading = false;
-    console.log(this.projects);
-    this.cd.detectChanges();
+      this.projectService.getProject().subscribe(projects => {
+        this.projects = projects.filter(p => p.creator === this.userInformation?.Nickname) ?? undefined;
+        this.loading = false;
+        this.cd.detectChanges();
+      });
+    });
   }
 
   onEdit(project: Project) {
@@ -49,6 +49,6 @@ export class ManageProject implements OnInit {
   }
 
   onDelete(project: Project) {
-    this.projectService.deleteProject(project.id);
+    this.projectService.deleteProject(project.id, this.auth.currentUser?.uid ?? '');
   }
 }

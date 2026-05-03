@@ -9,7 +9,7 @@
     @if(showActions){
       <div class="actionButtonDiv">
         <button class="actionButton" (click)="onEdit()">✏️</button>
-        <button class="actionButton" (click)="onDelete()">🗑️</button>
+        <button class="actionButton" (click)="onDelete($event)">🗑️</button>
       </div>
     }
   </div>

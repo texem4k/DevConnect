@@ -1,32 +1,32 @@
-import { Injectable, inject } from '@angular/core';
+import {Injectable, inject} from '@angular/core';
 import {
   Firestore, collection, collectionData,
   setDoc, doc, updateDoc, deleteDoc, docData, arrayUnion, arrayRemove
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 import {
   updateEmail, updatePassword,
   reauthenticateWithCredential,
   EmailAuthProvider,
   sendEmailVerification
 } from '@angular/fire/auth';
-import { User } from '../models/user.model';
-import { AuthService } from './auth-service';
+import {User} from '../models/user.model';
+import {AuthService} from './auth-service';
 import {Topic} from '../models/topic.model';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class UserService {
   private firestore = inject(Firestore);
   private authService = inject(AuthService);
   private userRef = collection(this.firestore, 'users');
 
   getUser(): Observable<User[]> {
-    return collectionData(this.userRef, { idField: 'uid' }) as Observable<User[]>;
+    return collectionData(this.userRef, {idField: 'uid'}) as Observable<User[]>;
   }
 
   getUserById(id: string): Observable<User> {
     const ref = doc(this.firestore, `users/${id}`);
-    return docData(ref, { idField: 'uid' }) as Observable<User>;
+    return docData(ref, {idField: 'uid'}) as Observable<User>;
   }
 
   async addUser(user: Partial<User>) {
@@ -34,8 +34,8 @@ export class UserService {
     const cred = await this.authService.register(user.Gmail, user.Password);
 
     await sendEmailVerification(cred.user);
-    const { Password, ...userWithoutPassword } = user;
-    return setDoc(doc(this.firestore, 'users', cred.user.uid), userWithoutPassword );
+    const {Password, ...userWithoutPassword} = user;
+    return setDoc(doc(this.firestore, 'users', cred.user.uid), userWithoutPassword);
   }
 
   async updateUser(id: string, data: Partial<User>, currentPassword: string) {
@@ -44,7 +44,7 @@ export class UserService {
 
     const firestoreData = Object.fromEntries(
       Object.entries(data)
-        .filter(([_ , value]) => value !== undefined)
+        .filter(([_, value]) => value !== undefined)
     );
 
     if (currentUser && (data.Gmail || data.Password) && currentPassword) {

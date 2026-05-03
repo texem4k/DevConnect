@@ -11,7 +11,7 @@ import { User } from '../../core/models/user.model';
 import { Topic } from '../../core/models/topic.model';
 import { ProjectService } from '../../core/services/project-crud';
 import { Header } from '../../shared/components/header/header';
-import { first, switchMap } from 'rxjs/operators';
+import {first, map, switchMap} from 'rxjs/operators';
 import { combineLatest, forkJoin, of } from 'rxjs';
 import { TopicService } from '../../core/services/topic-crud';
 import { AuthService } from '../../core/services/auth-service';
@@ -66,10 +66,12 @@ export class UserProfile implements OnInit {
 
   private resolvedTopics() {
     const ids = this.userInformation?.Topic;
-    if (!ids || !Array.isArray(ids) || ids.length === 0) return of([]);
+    if (!ids || !Array.isArray(ids) || ids.length === 0) return of([] as Topic[]);
 
     return forkJoin(
       ids.map(id => this.topicsService.getTopicById(id).pipe(first()))
+    ).pipe(
+      map(topics => topics.filter((t): t is Topic => t !== null))
     );
   }
 }

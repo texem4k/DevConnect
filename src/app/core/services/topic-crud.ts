@@ -10,8 +10,9 @@ import {
   updateDoc,
   deleteDoc,
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import {catchError, Observable, of} from 'rxjs';
 import { Topic } from '../models/topic.model';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +25,12 @@ export class TopicService {
     return collectionData(this.topicRef, { idField: 'id' }) as Observable<Topic[]>;
   }
 
-  getTopicById(id: string): Observable<Topic> {
+  getTopicById(id: string): Observable<Topic | null> {
     const ref = doc(this.firestore, `topics/${id}`);
-    return docData(ref, { idField: 'id' }) as Observable<Topic>;
+    return (docData(ref, { idField: 'id' }) as Observable<Topic | undefined>).pipe(
+      map((data: Topic | undefined) => (data && data.name ? data : null)),
+      catchError(() => of(null))
+    );
   }
 
   addTopic(topic: Topic) {

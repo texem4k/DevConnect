@@ -8,7 +8,7 @@
         <h2>{{ titulo }}</h2>
         @if(topics.length>0){
           <div class="topicsRow">
-            @for (topic of topics$ |async ; track topic.id) {
+            @for (topic of topics$ | async; track topic.id) {
               <app-topic-box-btn
                 [topic]="topic.name"
                 [id]="topic.id!"

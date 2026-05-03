@@ -35,9 +35,11 @@ export class InformationCard {
   }
 
   private resolvedTopics() {
-    if (!this.topics || !Array.isArray(this.topics) || this.topics.length === 0) return of([]);
-
-    return forkJoin(this.topics.map(id => this.topicsService.getTopicById(id)));
+    const ids = this.topics;
+    if (!ids || !Array.isArray(ids)  || ids.length === 0) return of([]);
+    return forkJoin(ids.map(id => this.topicsService.getTopicById(id))).pipe(
+      map(topics => topics.filter((t): t is Topic => t !== null))
+    );
   }
 
   getTopics(){
