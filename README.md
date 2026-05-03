@@ -1,4 +1,4 @@
-# Sprint 2 | DevConnect
+# Sprint 3 | DevConnect
 
 
 
@@ -17,28 +17,62 @@ Antes de empezar a leer, se debe establecer las dimensiones que se consideran m�
 - Tablets -> 769-1028px
 - Desktop -> 1029-...
 
-En cada página se realizan carga de templates/datos mediante el script de la página respectiva, además del script  
-**loadTemplate.js**.
+En este sprint el proyecto ha sido **migrado de HTML/CSS/JS vanilla a Angular 20** con componentes standalone. Ya no se usa carga de templates mediante `loadTemplate.js` ni fetchs a JSON estáticos. Toda la lógica se gestiona mediante **componentes TypeScript**, **servicios con inyección de dependencias** y **Firebase (Firestore + Auth)** como backend.
 
-## 2. Mockups
+**Stack tecnológico:**
+- Angular 20.3.6 (componentes standalone, sin NgModules)
+- Angular Material 20.2.6 (menús, botones)
+- Firebase 11.10.0 (Auth + Firestore)
+- RxJS 7.8.2 (gestión reactiva de datos)
+- Reactive Forms + Template-Driven Forms
+- TypeScript 5.9.2
 
-Se ha decidido diseñar y desarrollar un sitio web dedicado al freelance, estilo Fiverr, Freelancer, etc.  
-En estos sitios se busca conectar trabajadores autónomos llamados Freelancer con empresas o  
-incluso otros autónomos para ciertos proyectos o trabajos puntuales de una gran variedad de ámbitos.  
-De cierta manera es un intermediario.
+## 2. Arquitectura del proyecto
 
-Este proyecto se centra en el ámbito de la tecnología y la programación, además de incluir  
-ciertas funcionalidades nuevas cómo que el propio trabajador autónomo puede crear proyectos y  
-buscar a gente de su mismo sector tecnológico. Teniendo como objetivo potenciar la empleabilidad  
-del sector de manera telemática, dado que en ciertas regiones no abundan las oportunidades,  
-facilitando la búsqueda de profesionales y puestos de trabajo disponibles.
+El proyecto sigue la arquitectura oficial de Angular con tres capas principales:
 
-Cada usuario (sea empresa o trabajador) tiene cierto rating en su perfil con el grado de satisfacción  
-puntuado por los empleadores, así como un historial de proyectos en los que ha participado.
+### 2.1 Modelos (`src/app/core/models/`)
+Definiciones TypeScript de todas las entidades del sistema:
+- **User** (`user.model.ts`) → uid, Fullname, Nickname, Telephone, Gmail, Password, Description, isCompany, Topic[], Projects[], Avatar, Banner, Social, CV
+- **Project** (`project.model.ts`) → id, title, creator, isCompanyProject, image, ownerEmail, ownerPhone, description, requireTopic[], maintainers[], numberParticipants, limitDate
+- **Topic** (`topic.model.ts`) → id, cat (categoría), category, name
+- **Social** (`social.model.ts`) → Github, Twitter, Instagram, Linkedin (cada uno un SocialLink)
+- **SocialLink** (`social-link.model.ts`) → Name, Link
+- **HeaderElements** (`headerElements.model.ts`) → id, nombre, items[]
+
+### 2.2 Servicios (`src/app/core/services/`)
+Servicios con `providedIn: 'root'` que gestionan la comunicación con Firebase:
+- **AuthService** → Registro, login, logout, deleteAccount, estado de autenticación reactivo con `BehaviorSubject`
+- **UserService** → CRUD de usuarios en Firestore (crear con auth + verificación email, actualizar con re-autenticación, eliminar)
+- **ProjectService** → CRUD de proyectos (crear, obtener, actualizar, eliminar, obtener maintainers)
+- **TopicService** → CRUD de topics/skills en Firestore
+- **HeaderElementsService** → Obtiene elementos de navegación del header desde Firestore
+
+### 2.3 Componentes compartidos (`src/app/shared/components/`)
+16 componentes reutilizables con `@Input()` y `@Output()`:
+
+| Componente | Función |
+|---|---|
+| **Header** | Barra de navegación con búsqueda, menús (Angular Material), estado auth, foto usuario, sidebar toggle |
+| **Footer** | Footer estático con router links |
+| **Banner** | Hero banner de la home con animación typewriter para "DevConnect" |
+| **BannerProfile** | Banner de perfil con avatar, imagen de fondo y título del usuario |
+| **InformationCard** | Tarjeta clicable con imagen, título, descripción y badges de topics |
+| **CardsGrid** | Grid contenedor de hasta 4 InformationCard |
+| **MediaList** | Lista de MediaComponent con soporte para modo edición (edit/delete) |
+| **MediaComponent** | Tarjeta individual de proyecto/usuario con navegación a perfiles |
+| **GetInputText** | Input reutilizable con label, validación y mensajes de error |
+| **SearchTopics** | Selector múltiple de topics con búsqueda/filtrado |
+| **PaginationComponent** | Paginación numérica con currentPage, totalPages y pageChange |
+| **TopicsGrid** | Grid de badges de topics resolviendo IDs desde Firestore |
+| **UserSkills** | Sección de skills con label y lista de topic badges |
+| **UserDataField** | Muestra un enlace de red social (nombre + URL) |
+| **SkillField** | Muestra un único skill |
+| **TopicBoxBtn** | Badge clicable que navega a SearchResult con query param |
 
 ## 3. Listado de páginas
 
-### 3.1 Página de Home [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Home.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Home.png)
+### 3.1 Página de Home
 
 Es la página de inicio del sitio web, cualquier usuario tiene acceso a esta página.  
 Muestra los usuarios y proyectos trending.
@@ -53,17 +87,17 @@ observar los contenidos bien definidos.
 En caso de tablets, el contenido se mostrará bastante similar a la versión desktop,  
 pero quizás con alguna adaptación. En las tablets, no habrá hamburguesa ya que se verá bien el propio header.
 
-Enfatizando en la carga de datos y templates, el header/footer tienen su propio JSON con contenido que, con sus  
-respectivos scripts JS, inyectan información a estos templates. Además, la propia página tiene su script  
-donde se le inyecta el contenido de texto y se modifican los templates implicados.
+**Implementación Angular:** El componente `Index` obtiene todos los usuarios y proyectos mediante observables (`UserService.getUser()`, `ProjectService.getProject()`). Muestra los 3 primeros usuarios como trending users con `InformationCard` y los 4 primeros proyectos con `MediaList`. Los botones "Discover" navegan a `/SearchResult/users` o `/SearchResult/projects`.
 
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/index.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/index.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/index.js)
+**Componentes compartidos usados:** `Header`, `Banner`, `InformationCard`, `MediaList`, `Footer`
+
+- [Código TS](src/app/pages/index/index.ts)
+- [Código HTML](src/app/pages/index/index.html)
+- [Código CSS](src/app/pages/index/index.css)
 
 
 
-### 3.2 Página de registro de usuario [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Registrar%20Usuario.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Registrar%20Usuario.png)
+### 3.2 Página de registro de usuario
 
 Es una de las páginas que por supuesto no puede fallar, y que además es un formulario.
 
@@ -71,47 +105,32 @@ En cuanto a los aspectos responsive, para dispositivos móviles se ajusta en con
 de campos que en versiones de Tablets y Desktop, teniendo éstas dos últimas la misma distribución con apenas variaciones en  
 el contenido.
 
-Para la carga de datos, la página contiene su propio script que cambia el contenido de cada campo, diversos fetchs a JSON  
-y entre otros. Uno de estos fetch busca en los usuarios registrados, verificando si el nombre de usuario escrito es válido  
-o no.
+**Implementación Angular:** Formulario reactivo con 8 campos: nickname, password, retry-password, name, surname, email, phone y tipo de cuenta (radio: individual/empresa). Validadores personalizados: `nicknameExists` (verifica unicidad en Firestore), `validPasswords` (comparación cruzada de contraseñas), patrón de contraseña (mayúscula, minúscula, dígito, carácter especial, 8-64 chars). Selección de topics con `SearchTopics`. Preview de avatar al subir imagen. Al enviar, llama a `UserService.addUser()` que crea la cuenta en Firebase Auth + documento en Firestore con envío de email de verificación.
 
-Por otro lado para la carga de templates, se usan dos template, el footer y el campo de escritura.
+**Componentes compartidos usados:** `Footer`, `GetInputText`, `SearchTopicsComponent`
 
-Para validaciones, como la página es un formulario, se han realizado validaciones tanto HTML y de feedback en JS. Por la parte  
-de HTML, se han usado los atributos típicos de input, tales como _required_, _type_, _minlength_ y entre otros. El feedback  
-son validaciones en JS que en función del tipo de input que haya escrito el usuario, mostrará un mensaje u otro.
-
-En caso de querer hacer pruebas, se puede visualizar el JSON de usuarios, donde cada uno tiene su nombre de usuario asignado.  
-Por ejemplo, Tony Stark tiene el nombre de usuario **IronTony**.
-
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/userRegistration.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/userRegistration.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/userRegistration.js)
+- [Código TS](src/app/pages/user-registration/user-registration.ts)
+- [Código HTML](src/app/pages/user-registration/user-registration.html)
+- [Código CSS](src/app/pages/user-registration/user-registration.css)
 
 
-### 3.3 Página de Inicio de Sesión [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Inicio%20Sesión.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Inicio%20Sesión.png)
+### 3.3 Página de Inicio de Sesión
 
 Página dedicada al inicio de sesión. El cliente tendrá la posibilidad de crear una cuenta o de iniciar sesión.
 
 Esta página apenas tiene elementos responsive, al ser un contenido centrado y pequeño, pues no requiere demasiado cambios  
 mediante media-query.
 
-La carga de datos en esta página es algo más simple, siendo un fetch a un JSON con los usuarios registrados y el cambio de  
-contenido mediante el script de JavaScript de la página. Los templates cargados han sido los campos a rellenar y los botones.
+**Implementación Angular:** Formulario reactivo con email y password. Password tiene validación de patrón complejo (mayúscula, minúscula, dígito, carácter especial, 8-64 chars). Usa `AuthService.login()` con Firebase Auth. Manejo de códigos de error de Firebase con mensajes en español. Toggle de visibilidad de contraseña.
 
-En el caso de validaciones, es más simple que el registro de usuario. Verificando que el correo/contraseña exista, que el  
-formato del correo sea el correcto y lo mismo con la contraseña.
+**Componentes compartidos usados:** `GetInputText`
 
-Al igual que en la página anterior, para verificar que funciona se puede introducir el par correo/contraseña asignado a  
-Tony Stark, **gmailuserTS@gmail.com/Ts-12345678**, para verificar que deja hacer login. En caso de querer probar con otros  
-usuarios el login, el JSON de usuarios dispone de varios usuarios con correo/contraseña disponibles para comprobar.
-
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/login.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/login.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/login.js)
+- [Código TS](src/app/pages/login/login.ts)
+- [Código HTML](src/app/pages/login/login.html)
+- [Código CSS](src/app/pages/login/login.css)
 
 
-### 3.4 Página del gestión de perfil [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Gestionar%20perfil.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Gestionar%20perfil.png)
+### 3.4 Página de gestión de perfil
 
 Página dedicada al perfil del usuario cómo a la gestión del mismo. Solo accesible al tener sesión iniciada.
 
@@ -119,156 +138,194 @@ En esta página, al haber mucho contenido que debe ser visualizado, se han usado
 y los tópicos del usuario, centrando el contenido en la medida de lo posible para móvils y tablets. En caso de desktop, todo  
 el contenido se encuentra separado y dividido en varias columnas para mayor comodidad.
 
-En la carga de datos, se hace un fetch al JSON de usuarios buscando la información del usuario, mostrando la información  
-, como el nickname, correo o los tópicos asociados, aunque todos los campos son modificables. La carga de templates en ésta  
-página es extensa, cuenta con header/footer, campos para escribir, botones, selección de tópicos y el banner.
+**Implementación Angular:** Carga datos del usuario por route param `:id`. Formulario reactivo con nickname, password, phone, email, current password. Validador personalizado `nicknameExists`. Selección de topics con `SearchTopics`. Modal de confirmación de contraseña antes de guardar. Usa `UserService.updateUser()` que requiere re-autenticación con la contraseña actual antes de permitir cambios sensibles (email/password). Layout de dos columnas: campos de formulario + descripción/upload. Upload de avatar y banner con preview.
 
-La gestión del perfil podría considerarse un formulario, debido a la modificación de datos del usuario. En este sentido,  
-se verifica que el nombre de usuario y correo no esté en uso, así como no poder guardar los cambios si no hay al menos un lenguaje y  
-un idioma.
+**Componentes compartidos usados:** `Header`, `BannerProfile`, `Footer`, `GetInputText`, `SearchTopicsComponent`
 
-
-
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/manageProfile.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/manageProfile.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/manageProfile.js)
+- [Código TS](src/app/pages/manage-profile/manage-profile.ts)
+- [Código HTML](src/app/pages/manage-profile/manage-profile.html)
+- [Código CSS](src/app/pages/manage-profile/manage-profile.css)
 
 
-### 3.5 Página del perfil de usuario [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Perfil%20de%20usuario.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Perfil%20de%20usuario.png)
+### 3.5 Página del perfil de usuario
 
 Página dedicada a la visualización del perfil del usuario.
 
 En esta página, al igual que en la página anterior, se han usado media-query para ajustar el contenido según el dispositivo.
 
-En la carga de datos, se hace un fetch al JSON de usuarios y al de proyectos, para mostrar toda su información.  
-La carga de templates es la misma que en el resto de páginas, cargando la gran mayoría de la página anterior.
+**Implementación Angular:** Carga usuario por route param `:id`. Verifica si el usuario actual es el dueño del perfil (`isOwnedProfile`). Resuelve topic IDs a objetos Topic vía `forkJoin`. Filtra proyectos del usuario por creator nickname. Separa topics en "lenguajes" y "especialidades". Muestra enlaces de redes sociales (GitHub, LinkedIn, Instagram, Twitter), descarga de CV y proyectos del usuario.
 
-A diferencia de la gestión del perfil de usuario, no hay cambios de información por lo que, no es un formulario.
+**Componentes compartidos usados:** `Header`, `Footer`, `BannerProfile`, `UserSkills`, `UserDataField`, `CardsGrid`
 
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/userProfile.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/userProfile.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/userProfile.js)
-
+- [Código TS](src/app/pages/user-profile/user-profile.ts)
+- [Código HTML](src/app/pages/user-profile/user-profile.html)
+- [Código CSS](src/app/pages/user-profile/user-profile.css)
 
 
 
-### 3.6 Página de creación de proyectos [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Creación%20de%20Proyecto.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Creación%20de%20Proyecto.png)
+
+### 3.6 Página de creación de proyectos
 
 Página dedicada a la creación de un proyecto, accesible desde un botón en el header.
 
 La media-query usada para dispositivos móvil hace que todo el contenido se vea en formato columna, mientras que en tablet y  
 desktop se distribuye un poco más los campos pero que de igual manera, siguen centrados.
 
-Para evitar proyectos con el mismo nombre, se carga el JSON de proyectos mediante fetch para verificar si realmente el nombre  
-está siendo utilizado o no. Además, se carga el JSON asoaciado a los tópicos, para que el usuario añada los tópicos que crea  
-conveniente a su proyecto.
+**Implementación Angular:** Componente de doble propósito: crea proyectos nuevos Y edita existentes (detectado por route param `:id`). Formulario reactivo con validadores personalizados: `fechaNoAnteriorAHoy` (fecha no anterior a hoy), `itExists(projects)` (unicidad del nombre del proyecto), `validSelectedTopics(topicsIds, topics)` (debe seleccionar al menos un idioma y un lenguaje de programación). Al crear, llama a `ProjectService.addProject()` que añade el proyecto y actualiza el array Projects del usuario. Auto-rellena el formulario cuando se edita.
 
-Los templates cargados han sido los campos input y el footer.
+**Componentes compartidos usados:** `Footer`, `GetInputText`, `SearchTopicsComponent`
 
-Al ser un formulario, se hace la validación del nombre como se dijo previamente, el nº de miembros siendo el mínimo 1 y  
-la selección de tópicos, debiendo seleccionar al menos un idioma y un lenguaje. Para verificar que funciona, se puede usar  
-cómo nombre de proyecto _ArrowTrack - app de seguimiento deportivo_, que es un proyecto ya creado por lo que no deberá  
-dejar crearlo. Para verificar tópicos, simplemente vale con jugar un poco, deberá poder crear proyecto siempre y cuando  
-se elijan un idioma y un lenguaje, como mínimo.
+- [Código TS](src/app/pages/create-project/create-project.ts)
+- [Código HTML](src/app/pages/create-project/create-project.html)
+- [Código CSS](src/app/pages/create-project/create-project.css)
 
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/createProject.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/createProject.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/createProject.js)
-
-### 3.7 Página de gestión de proyectos [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Gestión%20Proyectos.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Gestión%20Proyectos.png)
+### 3.7 Página de gestión de proyectos
 
 Página dedicada a la gestión de los proyectos del usuario, accesible desde el perfil de usuario.
 
 La página se adapta a las dimensiones de móvil y tablet por las media-query, dejando el contenido en columna a medida que  
 se reduce el tamaño.
 
-Para la carga de datos y como es lógico, se realiza un fetch a los proyectos del usuario, mostrando estos. Para los templates,  
-se usan varios tales cómo header/footer y paginationComponent (navegador numérico para avanzar por páginas).
+**Implementación Angular:** Carga usuario por route param `:id`, filtra proyectos por creator nickname. Muestra los proyectos del usuario con `MediaList` en modo `showActions=true` con botones de editar/eliminar. Paginación con `PaginationComponent`.
 
+**Componentes compartidos usados:** `Header`, `Footer`, `MediaList`, `PaginationComponent`
 
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/manageProject.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/manageProject.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/manageProject.js)
+- [Código TS](src/app/pages/manage-project/manage-project.ts)
+- [Código HTML](src/app/pages/manage-project/manage-project.html)
+- [Código CSS](src/app/pages/manage-project/manage-project.css)
 
-### 3.8 Página del perfil de proyecto [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Perfil%20de%20Proyecto.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Perfil%20de%20Proyecto.png)
+### 3.8 Página del perfil de proyecto
 
 Página dedicada al proyecto seleccionado, mostrando toda la información necesaria.
 
 Gracias a las media-query, el contenido disperso de desktop y tablet se ve reducido y en formato columna para mejor visión  
 en móviles.
 
-La carga de datos es obvia, cargando información desde el JSON de proyectos para el proyecto respectivo, obteniendo todo tipo de  
-información. Para los templates, se cargan varios, header/footer, cardGrid(Grupo de tarjetas) y topicGrid(Grupo de tópicos de la barra derecha).
+**Implementación Angular:** Carga proyecto por route param `:id`. Resuelve el creator a UID del usuario. Obtiene maintainers del proyecto. Usa cadena RxJS `pipe(tap, switchMap)`. Muestra imagen hero del proyecto con overlay (título + enlace al creador), descripción, grid de colaboradores (`CardsGrid`), requisitos sidebar (`TopicsGrid`) y botón de inscripción.
 
-Justo debajo, están los encargados del proyecto.
+**Componentes compartidos usados:** `Header`, `Footer`, `CardsGrid`, `TopicsGrid`
 
-A la derecha están todos los requisitos para participar en el proyecto,  
-así cómo un botón abajo para poder participar.
-
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/projectProfile.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/projectProfile.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/projectProfile.js)
+- [Código TS](src/app/pages/project-profile/project-profile.ts)
+- [Código HTML](src/app/pages/project-profile/project-profile.html)
+- [Código CSS](src/app/pages/project-profile/project-profile.css)
 
 
-### 3.9 Página de resultado de búsqueda [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Resultado%20de%20Busqueda.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Resultado%20de%20Busqueda.png)
+### 3.9 Página de resultado de búsqueda
 
 Página dedicada al resultado de búsqueda, sea usando la barra de búsqueda o los filtros predeterminados.
 
 Los aspectos responsive mediante media-query ayudan a restructurar el contenido, haciendo el contenido más pequeño pero  
 sin perder la organización en tablets y usando la estructura en columna de siempre en móviles,
 
-Se cargan datos del JSON de proyectos, mostrando el nombre y la descripción en pantalla, además de la típica carga de contenido  
-con el script de la página respectivo. Por otro lado, la carga de templates son los típicos, header/footer.
+**Implementación Angular:** Página más compleja del proyecto. Escucha `paramMap` y `queryParamMap` vía `combineLatest`. Soporta 3 modos: solo usuarios, solo proyectos, mixto. Filtrado client-side por query de búsqueda. Paginación con pageSize de 4. El modo mixto intercala usuarios y proyectos. Usa `takeUntil` para limpieza de suscripciones. Sidebar con filtros (checkboxes, radios, sort).
 
+**Componentes compartidos usados:** `Header`, `Footer`, `MediaList`, `PaginationComponent`
 
+- [Código TS](src/app/pages/search-result/search-result.ts)
+- [Código HTML](src/app/pages/search-result/search-result.html)
+- [Código CSS](src/app/pages/search-result/search-result.css)
 
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/searchResult.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/searchResult.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/searchResult.js)
-
-### 3.10 Página de gestión de incidencias [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Gestion%20de%20incidencias.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Gestion%20de%20incidencias.png)
+### 3.10 Página de gestión de incidencias
 
 Representan la creación de tickets por si surge algún problema.
 
 Como en el resto de páginas, con la media-query a móvil reestructura el footer y el header para el dispositivo. Desktop y tablet  
 son bastante similares, pero no totalmente igual.
 
-En esta página especificamente no hay carga de JSON excepto header/footer, que se cargan siempre y cuando la págian use estos templates.  
-A diferencia de esto, sólo se cambia el contenido con su JavaScript asociado. Los templates, como ya se mencionó, son header/footer.
+**Implementación Angular:** Formulario reactivo con campos topic y texto (validadores min/max length). Requiere autenticación para enviar. Escribe directamente en la colección `incidents` de Firestore usando `addDoc`. Muestra mensajes de éxito/error.
 
-Del sitio web, es el formulario más simple, que simplemente verifica que los campos no estén vacíos y que cumplan ciertas  
-restricciones de longitud de mensaje.
+**Componentes compartidos usados:** `Header`, `Footer`
 
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/incidents.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/incidents.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/incidents.js)
+- [Código TS](src/app/pages/incidents/incidents.ts)
+- [Código HTML](src/app/pages/incidents/incidents.html)
+- [Código CSS](src/app/pages/incidents/incidents.css)
 
 
-### 3.11 Página de presentación del sitio web [Desktop/Tablet](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Desktop-Tablet/Presentacion%20del%20web%20service.png) y [Mobile](https://github.com/texem4k/DevConnect/blob/sprint2/mockups/Mobile/Presentacion%20del%20web%20service.png)
+### 3.11 Página de presentación del sitio web
 
-Representan la creación de tickets por si surge algún problema y la presentación de la página web.
+Página de presentación de la plataforma.
 
 En esta página, al haber sólo texto, el media-query es sencillo y no parece cambiar demasiado, sólo, como en el resto de páginas,  
 el cómo se ve el header y footer para móviles.
 
-De carga de datos, es la única página con JSON propio, posee la carga de JSON del header/footer y de su JSON, además de su   
-propio JS para cambiar contenido.
-- [Código HTML](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/HTML/aboutUs.html)
-- [Código CSS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/CSS/aboutUS.css)
-- [Código JS](https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/aboutUS.js)
+**Implementación Angular:** Componente mínimo sin lógica. Contenido estático en español explicando la misión de la plataforma (conectar desarrolladores, mostrar talento, proyectos colaborativos, ayudar a empresas a encontrar desarrolladores).
+
+**Componentes compartidos usados:** `Header`, `Banner`, `Footer`
+
+- [Código TS](src/app/pages/about-us/about-us.ts)
+- [Código HTML](src/app/pages/about-us/about-us.html)
+- [Código CSS](src/app/pages/about-us/about-us.css)
 
 
-## 4. Localización de JSON y JS
+## 4. Estructura de directorios
 
-Los JSON están alojados en el directorio https://github.com/texem4k/DevConnect/blob/sprint2/src/backend/, este contiene:
-- Proyectos -> Descripción, Nombre, Tecnologías, el creador y entre otros
-- aboutUS -> Contenido importante de la página _Sobre Nosotros_
-- headerTopics -> Filtros del header, que podrán cambiar en función del nº de proyectos de los lenguajes disponibles.
-- topics -> Contiene todos los tópicos para usuario y proyecto, lenguajes de programación, tecnologías e idiomas
-- users -> Lista de todos los usuarios de prueba, cada uno con su información.
-- footer -> Contenido del footer, que es posible que cambie
+```
+src/
+├── app/
+│   ├── core/
+│   │   ├── models/          # Interfaces TypeScript (User, Project, Topic, Social...)
+│   │   └── services/        # Servicios CRUD (AuthService, UserService, ProjectService, TopicService, HeaderElementsService)
+│   ├── pages/               # 11 componentes de página (uno por ruta)
+│   │   ├── about-us/
+│   │   ├── create-project/
+│   │   ├── incidents/
+│   │   ├── index/
+│   │   ├── login/
+│   │   ├── manage-profile/
+│   │   ├── manage-project/
+│   │   ├── project-profile/
+│   │   ├── search-result/
+│   │   ├── user-profile/
+│   │   └── user-registration/
+│   ├── shared/
+│   │   └── components/      # 16 componentes reutilizables
+│   ├── app.config.ts        # Configuración de la app (router, Firebase, HttpClient)
+│   ├── app.routes.ts        # Definición de rutas
+│   └── app.ts               # Componente root con RouterOutlet
+├── environments/            # Variables de entorno (Firebase config)
+└── styles.css               # Estilos globales
+```
 
-Todas las páginas tienen su JS asociado, e incluso algunos templates en específico. Los directorios son:
-- Páginas -> https://github.com/texem4k/DevConnect/blob/sprint2/src/Paginas/JS/
-- Templates -> https://github.com/texem4k/DevConnect/blob/sprint2/src/templates/JS/
-- utils -> https://github.com/texem4k/DevConnect/blob/sprint2/src/utils/
+## 5. Patrones arquitectónicos clave
+
+### Componentes Standalone
+Todos los componentes son standalone (sin NgModules). Cada componente declara su propio array de `imports`.
+
+### Inyección de dependencias
+Usa la función moderna `inject()` en lugar de inyección por constructor:
+```typescript
+private userService = inject(UserService);
+```
+
+### Flujo de datos reactivo
+- Los servicios retornan `Observable<T[]>` desde Firestore `collectionData()`.
+- Las páginas se suscriben en `ngOnInit()` o usan operadores RxJS (`switchMap`, `combineLatest`, `forkJoin`, `tap`, `takeUntil`).
+- `BehaviorSubject` en AuthService para estado de autenticación en tiempo real.
+
+### Validadores personalizados
+Validadores definidos como funciones exportadas en los componentes que los necesitan:
+- `fechaNoAnteriorAHoy` → fecha no anterior a hoy
+- `itExists(projects)` → unicidad del nombre del proyecto
+- `validSelectedTopics(topicsIds, topics)` → al menos un idioma y un lenguaje
+- `nicknameExists` → unicidad del nickname
+- `validPasswords` → comparación de contraseñas
+
+### Patrón de re-autenticación
+`UserService.updateUser()` requiere la contraseña actual del usuario antes de permitir cambios sensibles (actualización de email/password), usando `reauthenticateWithCredential` de Firebase.
+
+## 6. Diferencias clave respecto al Sprint 2
+
+| Aspecto | Sprint 2 (Vanilla JS) | Sprint 3 (Angular) |
+|---|---|---|
+| **Estructura** | Archivos HTML con `<script>` inline o .js separados | Clases TypeScript con `@Component`, archivos .ts/.html/.css separados |
+| **Manipulación DOM** | `document.querySelector`, `innerHTML`, `addEventListener` | Data binding (`{{ }}`, `[property]`, `(event)`), sin manipulación directa del DOM |
+| **Rutas** | Navegación manual entre páginas HTML | `@angular/router` con configuración declarativa, `RouterLink`, `ActivatedRoute` |
+| **Formularios** | Extracción manual de valores, validación custom | `ReactiveFormsModule` con `FormGroup`, `FormControl`, validadores built-in y custom |
+| **Estado** | Variables globales, localStorage | RxJS `Observable`/`BehaviorSubject`, estado a nivel de servicio |
+| **Reutilización** | Copiar HTML, jQuery plugins | Componentes compartidos con `@Input()` y `@Output()` |
+| **Datos** | `fetch()` a JSON estáticos | Firebase Firestore con streams `Observable` |
+| **Autenticación** | Tokens de sesión manuales | Firebase Auth con `onAuthStateChanged` reactivo |
+| **Templates** | HTML plano con interpolación en JS | Sintaxis Angular: `@for`, `@if`, `@else`, pipes |
+| **CSS** | CSS global, convención BEM | CSS scoped por componente (view encapsulation) |
+| **Tipado** | Dinámico (sin tipos) | TypeScript completo con interfaces para todos los modelos |
+| **Build** | Archivos servidos directamente | Angular CLI con bundling, tree-shaking, compilación AOT |
