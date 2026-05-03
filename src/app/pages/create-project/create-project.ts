@@ -52,6 +52,7 @@ export class CreateProject implements OnInit {
     numberParticipants: new FormControl('', [Validators.required]),
     ownerPhone: new FormControl('', [Validators.pattern(/^\+?[\d\s\-]{9,15}$/)]),
     date: new FormControl('', [Validators.required, fechaNoAnteriorAHoy]),
+    description: new FormControl(''),
   });
 
   pressedSubmit: boolean = false;
@@ -88,7 +89,8 @@ export class CreateProject implements OnInit {
           ownerEmail: this.project.ownerEmail,
           numberParticipants: this.project.numberParticipants?.toString() ?? '',
           ownerPhone: this.project.ownerPhone,
-          date: this.project.limitDate ? this.formatDate(this.project.limitDate) : ''
+          date: this.project.limitDate ? this.formatDate(this.project.limitDate) : '',
+          description: this.project.description,
         });
 
         this.project.requireTopic.forEach(x => {
@@ -132,8 +134,12 @@ export class CreateProject implements OnInit {
       if (rawValue.ownerPhone)         formValue.ownerPhone         = rawValue.ownerPhone;
       if (rawValue.date)               formValue.limitDate          = rawValue.date;
       if (this.topicsIds?.length)      formValue.requireTopic       = this.topicsIds;
+      if(rawValue.description)         formValue.description        = rawValue.description;
       formValue.creator = this.projectOwnerName;
 
+      if(!this.project?.image){
+        formValue.image= 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?fm=jpg&w=1600&h=400&fit=crop'
+      }
       if (this.projectId) {
         this.projectService.updateProject(this.projectId, formValue)
           .then(() => history.back())
