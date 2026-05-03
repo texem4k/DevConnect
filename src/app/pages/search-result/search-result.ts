@@ -43,8 +43,6 @@ export class SearchResult implements OnInit, OnDestroy {
 
   users: User[] = [];
   projects: Project[] = [];
-  private allUsers: User[] = [];
-  private allProjects: Project[] = [];
 
   loadingUsers = false;
   loadingProjects = false;
@@ -59,8 +57,6 @@ export class SearchResult implements OnInit, OnDestroy {
         this.searchQuery = queryParams.get('q') || '';
         this.users = [];
         this.projects = [];
-        this.allUsers = [];
-        this.allProjects = [];
         this.currentPageUsers = 1;
         this.currentPageProjects = 1;
         this.currentPageMixed = 1;
@@ -102,7 +98,6 @@ export class SearchResult implements OnInit, OnDestroy {
       takeUntil(this.destroy$)
     ).subscribe({
       next: (filtered) => {
-        this.allUsers = filtered;
         this.users = filtered;
         this.currentPageUsers = 1;
         this.loadingUsers = false;
@@ -128,7 +123,6 @@ export class SearchResult implements OnInit, OnDestroy {
       takeUntil(this.destroy$)
     ).subscribe({
       next: (filtered) => {
-        this.allProjects = filtered;
         this.projects = filtered;
         this.currentPageProjects = 1;
         this.loadingProjects = false;
@@ -140,7 +134,6 @@ export class SearchResult implements OnInit, OnDestroy {
     });
   }
 
-  // ── Paginación proyectos ──────────────────────────────
   get pagedProjects(): Project[] {
     const start = (this.currentPageProjects - 1) * this.PAGE_SIZE;
     return this.projects.slice(start, start + this.PAGE_SIZE);
@@ -156,7 +149,6 @@ export class SearchResult implements OnInit, OnDestroy {
     }
   }
 
-  // ── Paginación usuarios ───────────────────────────────
   get pagedUsers(): User[] {
     const start = (this.currentPageUsers - 1) * this.PAGE_SIZE;
     return this.users.slice(start, start + this.PAGE_SIZE);
@@ -172,7 +164,6 @@ export class SearchResult implements OnInit, OnDestroy {
     }
   }
 
-  // ── Paginación mezclada (sin type en URL) ─────────────
   get mixedItems(): (Project | User)[] {
     const result: (Project | User)[] = [];
     const maxLen = Math.max(this.projects.length, this.users.length);

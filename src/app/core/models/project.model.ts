@@ -1,6 +1,3 @@
-import {Topic} from './topic.model';
-
-
 export interface Project {
   id: string;
   title: string;

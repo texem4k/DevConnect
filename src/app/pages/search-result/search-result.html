@@ -38,7 +38,6 @@
       <p>Cargando...</p>
     }
 
-    <!-- CON searchQuery: muestra proyectos y usuarios -->
     @if(searchQuery && !loadingProjects && !loadingUsers) {
       <h2>Resultados para "{{ searchQuery }}"</h2>
 
@@ -67,7 +66,6 @@
       }
     }
 
-    <!-- SOLO proyectos -->
     @if(type === 'projects' && !searchQuery && !loadingProjects) {
       <app-media-list [projects]="pagedProjects" />
       <app-pagination-component
@@ -77,7 +75,6 @@
       />
     }
 
-    <!-- SOLO usuarios -->
     @if(type === 'users' && !searchQuery && !loadingUsers) {
       <app-media-list [users]="pagedUsers" />
       <app-pagination-component
@@ -87,7 +84,6 @@
       />
     }
 
-    <!-- SIN type ni searchQuery: mezclados -->
     @if(!type && !searchQuery && !loadingProjects && !loadingUsers) {
       <h2>Explorar</h2>
       <app-media-list

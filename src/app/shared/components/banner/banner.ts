@@ -6,7 +6,7 @@ import {ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
   styleUrl: './banner.css',
 })
 export class Banner implements OnInit {
-  tituloCompleto: string = 'DevConnect';   // ← valor por defecto directo
+  tituloCompleto: string = 'DevConnect';
   tituloMostrado: string = '';
   isLoading: Boolean = true;
 

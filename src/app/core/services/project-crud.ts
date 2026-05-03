@@ -40,13 +40,13 @@ export class ProjectService {
     const projectDocRef = await addDoc(this.projectRef, project);
 
     const usersRef = collection(this.firestore, 'users');
-    const q = query(usersRef, where('uid', '==', creatorUid)); // ✅ busca por uid
+    const q = query(usersRef, where('uid', '==', creatorUid));
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
-      const userDoc = querySnapshot.docs[0]; // ✅ sintaxis correcta
+      const userDoc = querySnapshot.docs[0];
       await updateDoc(userDoc.ref, {
-        Projects: arrayUnion({ id: projectDocRef.id }) // ✅ sintaxis correcta
+        Projects: arrayUnion({ id: projectDocRef.id })
       });
     }
 
@@ -65,31 +65,17 @@ export class ProjectService {
 
   async deleteProject(projectId: string, creatorUid: string) {
     const usersRef = collection(this.firestore, 'users');
-    const q = query(usersRef, where('uid', '==', creatorUid)); // ✅ busca por uid
+    const q = query(usersRef, where('uid', '==', creatorUid));
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
-      const userDoc = querySnapshot.docs[0]; // ✅ sintaxis correcta
+      const userDoc = querySnapshot.docs[0];
       await updateDoc(userDoc.ref, {
-        Projects: arrayRemove({ id: projectId }) // ✅ mismo formato que al añadir
+        Projects: arrayRemove({ id: projectId })
       });
     }
 
     return deleteDoc(doc(this.firestore, `projects/${projectId}`));
-  }
-
-  addProjectTopic(id: string, topic: Topic) {
-    const projectRef = doc(this.firestore, `projects/${id}`);
-    return updateDoc(projectRef, {
-      requireTopic: arrayUnion(topic)
-    });
-  }
-
-  removeProjectTopic(id: string, topic: Topic) {
-    const projectRef = doc(this.firestore, `projects/${id}`);
-    return updateDoc(projectRef, {
-      requireTopic: arrayRemove(topic)
-    });
   }
 
   getMaintainers(projectId: string): Observable<User[]> {
