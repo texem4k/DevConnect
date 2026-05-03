@@ -9,8 +9,10 @@
     </app-banner-profile>
 
     <section class="profileInformationButtons">
-      <button class="profileInformationButtonManageProfile" [routerLink]="['/ManageProfile', this.userInformation.uid]" type="button">Editar Perfil</button>
-      <button class="profileButton" type="button" [routerLink]="['/ManageProject', this.userInformation.uid]">Tus Proyectos</button>
+      @if (isOwnedProfile) {
+        <button class="profileInformationButtonManageProfile" [routerLink]="['/ManageProfile', this.userInformation.uid]" type="button">Editar Perfil</button>
+        <button class="profileButton" type="button" [routerLink]="['/ManageProject', this.userInformation.uid]">Tus Proyectos</button>
+      }
     </section>
 
     <section class="profileDescription">
