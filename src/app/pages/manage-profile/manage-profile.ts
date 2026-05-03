@@ -34,7 +34,7 @@ export class ManageProfile implements OnInit {
   id!: string;
   userInformation!: User | undefined;
   topics!: Topic[] | undefined;
-  selectedTopics!: string[] | undefined;
+  selectedTopics: string[] = [];
   pressedSubmit: Boolean = false;
   users: User[] | undefined;
 
@@ -68,12 +68,11 @@ export class ManageProfile implements OnInit {
         email: this.userInformation?.Gmail,
         userPhone: this.userInformation?.Telephone
       });
+      this.selectedTopics = [...(this.userInformation?.Topic ?? [])];
+      console.log(this.selectedTopics);
       this.isLoading = false;
     });
 
-    this.userInformation?.Topic.forEach(x =>{
-      this.selectedTopics?.push(x)
-    })
   }
 
   getControl(name: string): AbstractControl {
@@ -89,7 +88,7 @@ export class ManageProfile implements OnInit {
   }
 
   validTopicsSelection() {
-    return validSelectedTopics(this.selectedTopics!, this.topics!);
+    return validSelectedTopics(this.selectedTopics, this.topics!);
   }
 
   nicknameExists() {
@@ -127,16 +126,18 @@ export class ManageProfile implements OnInit {
 
   onSubmit(): void {
     if (this.validTopicsSelection() && this.form.valid) {
+      console.log("Cambios confirmados");
       const currentPassword = this.form.get('currentPassword')?.value;
-
       const data: Partial<User> = {
         Nickname: this.form.get('nickname')?.value ?? undefined,
         Gmail: this.form.get('email')?.value ?? undefined,
         Telephone: this.form.get('userPhone')?.value ?? undefined,
         Password: this.form.get('password')?.value || undefined,
+        Topic: this.selectedTopics?.length ? this.selectedTopics : undefined,
       };
 
       this.userService.updateUser(this.userInformation!.uid, data, currentPassword!);
+      history.back()
     }
   }
 

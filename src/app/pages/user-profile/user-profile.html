@@ -21,8 +21,8 @@
 
     <main>
       <section class="profileInformation">
-        <app-user-skills [label]="'Especialidad'" [topics]="getTopics()"></app-user-skills>
-        <app-user-skills [label]="'Lenguajes'" [topics]="getTopicsLanguage()"></app-user-skills>
+        <app-user-skills [label]="'Especialidad'" [topics]="userTopics"></app-user-skills>
+        <app-user-skills [label]="'Lenguajes'" [topics]="userLanguages"></app-user-skills>
         <br><br>
         <app-user-data-field [title]="'Github'" [link]="userInformation?.Social?.Github?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Github?.Name ?? ''"></app-user-data-field>
         <br>

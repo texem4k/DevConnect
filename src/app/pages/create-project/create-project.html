@@ -1,49 +1,49 @@
 <body>
 <header>
   <button class="backButton" (click)="history.back()">←</button>
-  <h1 class="title">Creación de Proyecto</h1>
+  <h1 class="title">{{ projectId ? 'Edición de Proyecto' : 'Creación de Proyecto' }}</h1>
 </header>
 <main>
   <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <app-get-input-text
       [label]="'* Nombre del proyecto'"
-      [control] ="getControl('projectName')"
+      [control]="getControl('projectName')"
       [errorMessages]="{
         required: 'El nombre no puede estar vacío',
         minlength: 'Mínimo debe contener 5 carácteres',
         itExists: 'El nombre ya existe, elige otro'
       }"
-      [placeholder]="">
-
+      [placeholder]="''">
     </app-get-input-text>
 
     <p class="fieldFeedBack"></p>
 
     <label class="field field-large">
       <p>Descripción</p>
-      @if(project){
+      @if(project) {
         <textarea [value]="project!.description"></textarea>
-      }
-      @else{
+      } @else {
         <textarea></textarea>
       }
     </label>
 
     <section class="dual-inputs">
       <app-get-input-text
-      [control]="getControl('ownerEmail')"
-      [errorMessages]="{
-        required: 'El email es obligatorio',
-        email: 'El elemento introducido no es un correo, por favor, escribe un correo válido'}"
-      [label]="'* Correo electrónico'"
-      [placeholder]="'example@exameple.com'">
+        [control]="getControl('ownerEmail')"
+        [errorMessages]="{
+          required: 'El email es obligatorio',
+          email: 'El elemento introducido no es un correo, por favor, escribe un correo válido'
+        }"
+        [label]="'* Correo electrónico'"
+        [placeholder]="'example@example.com'">
       </app-get-input-text>
-      <app-get-input-text [control]="getControl('ownerPhone')"
-        [errorMessages]="{pattern:'Escriba el número correctamente'}"
+
+      <app-get-input-text
+        [control]="getControl('ownerPhone')"
+        [errorMessages]="{pattern: 'Escriba el número correctamente'}"
         [label]="'Número de teléfono'"
         [maxlength]="'9'">
-
       </app-get-input-text>
     </section>
 
@@ -54,49 +54,52 @@
           <input type="date" class="dateInput" #dateInput formControlName="date" placeholder=" ">
           <button type="button" class="calendar-btn" (click)="openCalendar(dateInput)" style="padding-top:12px">📅</button>
         </label>
-        @if(getControl('date').touched && getControl('date').invalid && getControl('date').errors?.['fechaNoAnteriorAHoy'] && pressedSubmit){
-          <p style="font-size: 0.9rem;color: red">La fecha no puede anterior a hoy</p>
+        @if(getControl('date').touched && getControl('date').invalid && getControl('date').errors?.['fechaNoAnteriorAHoy'] && pressedSubmit) {
+          <p style="font-size: 0.9rem; color: red">La fecha no puede ser anterior a hoy</p>
         }
-
       </div>
-      <app-get-input-text [label]="'* Número de participantes (Máx 20)'"
-                          [control]="getControl('numberParticipants')"
-                          [participantsField]="true"
-                          [value]="'2'"
-      ></app-get-input-text>
-      @if(pressedSubmit && !getControl('numberParticipants').value){
+
+      <app-get-input-text
+        [label]="'* Número de participantes (Máx 20)'"
+        [control]="getControl('numberParticipants')"
+        [participantsField]="true"
+        [value]="'2'">
+      </app-get-input-text>
+
+      @if(pressedSubmit && !getControl('numberParticipants').value) {
         <p style="font-size: 0.9rem; color: red">Debes añadir un número de participantes (2-20)</p>
       }
     </section>
-    <h2></h2> <div class="search-container">
 
-    <app-search-topics
-      (selectionChange)="getTopicsIds($event)"
-      (allTopics)="getTopics($event)"
-      [preselectedIds]="topicsIds"
-    ></app-search-topics>
+    <h2></h2>
+    <div class="search-container">
+      <app-search-topics
+        (selectionChange)="getTopicsIds($event)"
+        (allTopics)="getTopics($event)"
+        [preselectedIds]="topicsIds">
+      </app-search-topics>
+    </div>
 
-  </div>
-    @if(pressedSubmit && !validTopicsSelection()){
+    @if(pressedSubmit && !validTopicsSelection()) {
       <p style="font-size: 0.9rem; color: red">Debes seleccionar al menos un idioma y un lenguaje</p>
     }
-
 
     <h2></h2>
     <div class="image-upload-container">
       <label for="fileInput" class="small-upload-btn">
         <input type="file" accept="image/*" id="fileInput">⬆️
       </label>
-
-
       <div class="preview">
         <img id="imagenPreview">
       </div>
     </div>
 
-    <button class="btn-secondary" (click)="onSubmit()">Crear Proyecto</button>
-    @if(pressedSubmit){
-      <p style="font-size: 0.9rem;color: red">Verifica que los datos introducidos en los campos sean válidos</p>
+    <button class="btn-secondary" type="button" (click)="onSubmit()" [disabled]="isSubmitting">
+      {{ submitButtonLabel }}
+    </button>
+
+    @if(pressedSubmit) {
+      <p style="font-size: 0.9rem; color: red">Verifica que los datos introducidos en los campos sean válidos</p>
     }
 
   </form>

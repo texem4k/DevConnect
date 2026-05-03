@@ -45,9 +45,9 @@ export class MediaComponent implements OnInit {
     }
   }
 
-  onDelete() {
+  onDelete(event: MouseEvent) {
+    event.stopPropagation();
     if (this.project) {
-      event!.stopPropagation();
       this.delete.emit(this.project);
     }
   }
