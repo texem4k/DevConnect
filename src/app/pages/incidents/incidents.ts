@@ -2,11 +2,8 @@ import { Component, inject, OnInit, OnDestroy, ChangeDetectorRef } from '@angula
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Firestore, collection, addDoc, Timestamp } from '@angular/fire/firestore';
-import { Subscription } from 'rxjs';
 import { Footer } from '../../shared/components/footer/footer';
 import { Header } from '../../shared/components/header/header';
-import { User } from '@angular/fire/auth';
-import {AuthService} from '../../core/services/auth-service';
 
 @Component({
   selector: 'app-incidents',
@@ -15,17 +12,13 @@ import {AuthService} from '../../core/services/auth-service';
   templateUrl: './incidents.html',
   styleUrl: './incidents.css',
 })
-export class Incidents implements OnInit, OnDestroy {
-  private authService = inject(AuthService);
-  private firestore   = inject(Firestore);
-  private cdr         = inject(ChangeDetectorRef);
+export class Incidents {
+  private firestore = inject(Firestore);
+  private cdr       = inject(ChangeDetectorRef);
 
-  currentUser: User | null = null;
-  isSubmitting             = false;
-  notLoggedMessage         = '';
-  successMessage           = '';
-
-  private userSub!: Subscription;
+  isSubmitting   = false;
+  errorMessage   = '';
+  successMessage = '';
 
   incidentsForm = new FormGroup({
     topic: new FormControl<string>('', { nonNullable: true,
@@ -35,16 +28,23 @@ export class Incidents implements OnInit, OnDestroy {
         Validators.maxLength(50),
       ]
     }),
+    email: new FormControl<string>('', { nonNullable: true,
+      validators: [
+        Validators.required,
+        Validators.email,
+      ]
+    }),
     text: new FormControl<string>('', { nonNullable: true,
       validators: [
         Validators.required,
-        Validators.minLength(100),
+        Validators.minLength(50),
         Validators.maxLength(1000),
       ]
     }),
   });
 
   get topic() { return this.incidentsForm.get('topic') as FormControl; }
+  get email() { return this.incidentsForm.get('email') as FormControl; }
   get text()  { return this.incidentsForm.get('text')  as FormControl; }
 
   get topicError(): string {
@@ -52,7 +52,16 @@ export class Incidents implements OnInit, OnDestroy {
     if (control?.touched && control?.invalid) {
       if (control.errors?.['required'])  return 'El asunto es obligatorio.';
       if (control.errors?.['minlength']) return 'El asunto debe tener al menos 5 caracteres.';
-      if (control.errors?.['maxlength']) return 'El asunto no puede superar los 100 caracteres.';
+      if (control.errors?.['maxlength']) return 'El asunto no puede superar los 50 caracteres.';
+    }
+    return '';
+  }
+
+  get emailError(): string {
+    const control = this.incidentsForm.get('email');
+    if (control?.touched && control?.invalid) {
+      if (control.errors?.['required']) return 'El correo es obligatorio.';
+      if (control.errors?.['email'])    return 'Introduce un correo válido.';
     }
     return '';
   }
@@ -67,26 +76,9 @@ export class Incidents implements OnInit, OnDestroy {
     return '';
   }
 
-  ngOnInit(): void {
-    this.userSub = this.authService.currentUser$.subscribe(user => {
-      this.currentUser = user;
-      if (user) this.notLoggedMessage = '';
-      this.cdr.detectChanges();
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.userSub.unsubscribe();
-  }
-
   async submitIncident(): Promise<void> {
-    this.notLoggedMessage = '';
-    this.successMessage   = '';
-
-    if (!this.currentUser) {
-      this.notLoggedMessage = 'Debes iniciar sesión para enviar un reporte.';
-      return;
-    }
+    this.errorMessage  = '';
+    this.successMessage = '';
 
     if (this.incidentsForm.invalid) {
       this.incidentsForm.markAllAsTouched();
@@ -97,8 +89,7 @@ export class Incidents implements OnInit, OnDestroy {
 
     try {
       await addDoc(collection(this.firestore, 'incidents'), {
-        userId:    this.currentUser.uid,
-        userEmail: this.currentUser.email,
+        userEmail: this.email.value,
         asunto:    this.topic.value,
         text:      this.text.value,
         createdAt: Timestamp.now(),
@@ -109,7 +100,7 @@ export class Incidents implements OnInit, OnDestroy {
       setTimeout(() => this.successMessage = '', 3000);
       this.incidentsForm.reset();
     } catch (error: any) {
-      this.notLoggedMessage = 'Ocurrió un error al enviar el reporte. Inténtalo de nuevo.';
+      this.errorMessage = 'Ocurrió un error al enviar el reporte. Inténtalo de nuevo.';
       console.error('Error al guardar la incidencia:', error);
     } finally {
       this.isSubmitting = false;

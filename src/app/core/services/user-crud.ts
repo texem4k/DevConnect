@@ -1,7 +1,7 @@
 import {Injectable, inject} from '@angular/core';
 import {
   Firestore, collection, collectionData,
-  setDoc, doc, updateDoc, deleteDoc, docData, arrayUnion, arrayRemove
+  setDoc, doc, updateDoc, deleteDoc, docData, arrayUnion, arrayRemove, query, where, getDocs
 } from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {
@@ -38,13 +38,12 @@ export class UserService {
     return setDoc(doc(this.firestore, 'users', cred.user.uid), userWithoutPassword);
   }
 
-  async updateUser(id: string, data: Partial<User>, currentPassword: string) {
+  async updateUser(id: string, data: Partial<User>, currentPassword: string, oldNickname?: string) {
     const currentUser = this.authService.currentUser;
     const docRef = doc(this.firestore, `users/${id}`);
 
     const firestoreData = Object.fromEntries(
-      Object.entries(data)
-        .filter(([_, value]) => value !== undefined)
+      Object.entries(data).filter(([_, value]) => value !== undefined)
     );
 
     if (currentUser && (data.Gmail || data.Password) && currentPassword) {
@@ -65,6 +64,18 @@ export class UserService {
 
     if (Object.keys(firestoreData).length > 0) {
       await updateDoc(docRef, firestoreData);
+    }
+
+    if (data.Nickname && oldNickname && data.Nickname !== oldNickname) {
+      const projectsRef = collection(this.firestore, 'projects');
+      const q = query(projectsRef, where('creator', '==', oldNickname));
+      const snapshot = await getDocs(q);
+
+      await Promise.all(
+        snapshot.docs.map(projectDoc =>
+          updateDoc(projectDoc.ref, { creator: data.Nickname })
+        )
+      );
     }
   }
 

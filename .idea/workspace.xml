@@ -4,37 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Se arreglaron problemas de search-result">
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Se han eliminado documentos innecesarios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/aboutUs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/createProject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/incidents.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/manageProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/manageProject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/projectProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/searchResult.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/userProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/userRegistration.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/project.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/project.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/search-result/search-result.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/search-result/search-result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/search-result/search-result.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/search-result/search-result.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/banner/banner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/banner/banner.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/JS/cardGrid.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/JS/footer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/JS/header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/JS/loadTemplate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/JS/searchTopics.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/PageLink.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/previewUserImage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/validators.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" afterDir="false" />
     </list>
     <list id="95082ca9-69a7-4391-b255-55818b014db9" name="Changes by arael" comment="Changes by arael" />
     <list id="2f7ff114-ded4-4c37-bfee-fbd13cbca518" name="Changes by vidal" comment="" />
@@ -156,7 +131,8 @@
       <workItem from="1777812915298" duration="6244000" />
       <workItem from="1777825547353" duration="165000" />
       <workItem from="1777826287582" duration="491000" />
-      <workItem from="1777826926258" duration="1702000" />
+      <workItem from="1777826926258" duration="1878000" />
+      <workItem from="1777830279940" duration="1907000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -230,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777827537364</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Se han eliminado documentos innecesarios">
+      <option name="closed" value="true" />
+      <created>1777828800366</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1777828800366</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +249,7 @@
     <MESSAGE value="Arreglos en crear/editar proyecto" />
     <MESSAGE value="Se arreglaron ciertos errores" />
     <MESSAGE value="Se arreglaron problemas de search-result" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se arreglaron problemas de search-result" />
+    <MESSAGE value="Se han eliminado documentos innecesarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se han eliminado documentos innecesarios" />
   </component>
 </project>
