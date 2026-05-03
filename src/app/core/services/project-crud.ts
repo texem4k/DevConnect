@@ -14,7 +14,7 @@ import {
   arrayRemove,
   getDocs
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import { Project } from '../models/project.model';
 import { User } from '../models/user.model';
 import { switchMap } from 'rxjs/operators';
@@ -93,13 +93,16 @@ export class ProjectService {
   }
 
   getMaintainers(projectId: string): Observable<User[]> {
-    return docData(doc(this.firestore, `projects/${projectId}`)).pipe(
-      switchMap((project) => {
-        const data = project as Project;
-        const usersRef = collection(this.firestore, 'users');
-        const q = query(usersRef, where('__name__', 'in', data.maintainers));
-        return collectionData(q, { idField: 'id' }) as Observable<User[]>;
-      })
-    );
+    return docData(doc(this.firestore, 'projects/${projectId}')).pipe(
+    switchMap((project) => {
+      const data = project as Project;
+      if (!data.maintainers || data.maintainers.length === 0) {
+        return of([] as User[]);
+      }
+      const usersRef = collection(this.firestore, 'users');
+      const q = query(usersRef, where('name', 'in', data.maintainers));
+      return collectionData(q, { idField: 'id' }) as Observable<User[]>;
+    })
+  );
   }
 }

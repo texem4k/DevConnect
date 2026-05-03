@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Arreglos en crear/editar proyecto">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/topic-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/topic-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" afterDir="false" />
     </list>
     <list id="95082ca9-69a7-4391-b255-55818b014db9" name="Changes by arael" comment="Changes by arael" />
     <list id="2f7ff114-ded4-4c37-bfee-fbd13cbca518" name="Changes by vidal" comment="" />
@@ -92,7 +82,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "configurable.group.language",
-    "ts.external.directory.path": "C:\\Users\\Usuario\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\UNI\\3º Curso\\2º Cuatri\\PWM\\Sprint 3\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
