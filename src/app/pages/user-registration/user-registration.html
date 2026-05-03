@@ -1,88 +1,136 @@
 <body>
 <header>
   <button class="backButton" (click)="history.back()">←</button>
-  <h1 class="title">{{title}}</h1>
+  <h1 class="title">Registro en Devconnect</h1>
 </header>
 <main>
-  <form class="form">
-    <h2>{{header1}}</h2>
-    <app-get-input-text></app-get-input-text>
-    <app-get-input-text></app-get-input-text>
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()" )>
+    <h2>¿Cómo quieres que te vea el mundo?</h2>
 
-    <!--Enviar errores de contraseña este componente-->
-    <app-get-input-text></app-get-input-text>
+    <app-get-input-text
+      [label]="'* Nombre de usuario'"
+      [control]="getControl('nickname')"
+      [errorMessages]="{
+        required: 'El nombre de usuario no puede estar vacío',
+        nicknameExists: 'El nombre de usuario ya existe, elige otro'}"
+      ></app-get-input-text>
+
+    <app-get-input-text
+      [label]="'* Contraseña para tu cuenta DevConnect'"
+      [placeholder]="'Contraseña'"
+      [type]="'password'"
+      [control]="getControl('password')"
+      [errorMessages]="{
+        required: 'La contraseña no puede estar vacía',
+        pattern: 'La contraseña debe tener longitud mínima de 8 carácteres, con al menos un digito, una mayúscula y un carácter especial'}"
+      [maxlength]="'64'"></app-get-input-text>
+
+    <app-get-input-text
+      [label]="'* Repetir contraseña'"
+      [placeholder]="'Contraseña'"
+      [control]="getControl('retryPassword')"
+      [type]="'password'"
+      [errorMessages]="{
+        required: 'La contraseña no puede estar vacía',
+        pattern: 'La contraseña debe tener longitud mínima de 8 carácteres, con al menos un digito, una mayúscula y un carácter especial',
+        validPasswords: 'Ambas contraseñas no son iguales, por favor, cambie estos campos.'}"
+      [maxlength]="'64'"
+    ></app-get-input-text>
 
 
 
-    <h2>{{header2}}</h2>
+    <h2>Información personal (El nombre y apellido no podrán cambiarse más tarde, tenga cuidado)</h2>
     <section>
-      <app-get-input-text></app-get-input-text>
-      <app-get-input-text></app-get-input-text>
-      <app-get-input-text></app-get-input-text>
-      <app-get-input-text></app-get-input-text>
-      <p class="fieldFeedBack"></p>
-      <p class="fieldFeedBack"></p>
+
+      <app-get-input-text
+        [label]="'* Nombre'"
+        [placeholder]="'John'"
+        [control]="getControl('name')"
+        [errorMessages]="{
+          required: 'El nombre es obligatorio',
+          pattern: 'El valor introducido no es un nombre válido (contiene números o carácteres no válidos)'
+          }"
+      ></app-get-input-text>
+
+      <app-get-input-text
+        [label]="'* Apellido/s'"
+        [placeholder]="'Doe'"
+        [control]="getControl('surname')"
+        [errorMessages]="{
+          required: 'El apellido es obligatorio',
+          pattern: 'El valor introducido no es un apellido válido (contiene números o carácteres no válidos)'
+          }"
+      ></app-get-input-text>
+
+      <app-get-input-text
+        [label]="'* Correo electrónico'"
+        [placeholder]="'example@example.com'"
+        [control]="getControl('email')"
+        [errorMessages]="{
+          required: 'El correo electrónico no puede estar vacío',
+          email: 'El valor introducido no es un correo válido'
+          }"
+      ></app-get-input-text>
+
+      <app-get-input-text
+        [label]="'* Teléfono móvil'"
+        [control]="getControl('userPhone')"
+        [errorMessages]="{
+          required: 'El número de teléfono no puede estar vacío',
+          pattern: 'El número de teléfono introducido no es válido (9-15 digitos)'
+          }"
+      ></app-get-input-text>
 
     </section>
 
-    <h2>{{header3}}</h2>
+    <h2>¿Eres un particular o una empresa?</h2>
     <div class="particularOption">
       <label>
-        <input type="radio" name="opción" value="1">
+        <input type="radio" formControlName="option" value="false">
         <span class="radio-circle"></span>
-        <span class="typeUser">Lorem ipsum dolor sit amet consectetur</span>
+        <span class="typeUser">Crear cuenta cómo particular</span>
       </label>
-      <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium atque, dignissimos quisquam reiciendis vitae voluptatum! A accusamus aliquam delectus dolorem enim et eum eveniet ex exercitationem mollitia nam natus non obcaecati quasi rem repellat repellendus sit temporibus unde, vitae voluptatibus.</p>
+      <p class="description">Como particular tienes todas las opciones que dispone Devconnect para conectar, crear y unirse a diversos proyectos, ya sean creados por empresas o por particulares.</p>
     </div>
 
     <div class="companyOption">
       <label class="radio-option">
-        <input type="radio" name="opción" value="2">
+        <input type="radio" formControlName="option" value="true">
         <span class="radio-circle"></span>
-        <span class="typeUser">Lorem ipsum dolor sit amet consectetur</span>
+        <span class="typeUser">Crear cuenta cómo empresa</span>
       </label>
-      <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores delectus ducimus id illum impedit incidunt ipsam libero, praesentium quae quia quis tempore unde vel! Adipisci autem cum dolore dolores eaque eligendi, et expedita in nemo officiis quisquam repellat reprehenderit ullam.</p>
+      <p class="description">Como empresa tienes todas las opcions que dispone un usuario particular, pero con otras opciones más enfocadas al entorno laboral, como poder contactar con los usuarios que cumplan ciertos requisitos para vuestra plantilla, hacer rondas de contratación y entre otros. </p>
     </div>
     <br>
-    <p class="fieldFeedBack"></p>
-    <div class="search-container">
-      <h2>{{header4}}</h2>
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Escribe para filtrar opciones..." autocomplete="off"/>
-        <span class="search-icon">⌕</span>
-      </div>
+    @if(getControl('option').touched && getControl('option').invalid){
+      <p style="color: red">Debes seleccionar alguna opción</p>
+    }
 
-      <div class="dropdownTopics" id="dropdown">
-        <div id="optionsList"></div>
-      </div>
+    <app-search-topics
+      [preselectedIds]="this.selectedTopics!"
+      (selectionChange)="getTopicsIds($event)"
+      (allTopics)="getTopics($event)">
+    </app-search-topics>
 
-      <div class="selected-section" id="selectedSection">
-        <div class="section-header">
-          <span class="section-label">Seleccionados</span>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <span class="count-badge" id="countBadge">0</span>
-            <button class="clear-btn" id="clearBtn" onclick="clearAll()" style="display:none;">limpiar todo</button>
-          </div>
-        </div>
-        <div class="tags-area" id="tagsArea">
-          <span class="empty-hint" id="emptyHint">ninguna opción seleccionada aún</span>
-        </div>
-      </div>
-      <p class="fieldFeedBack"></p>
-      <label for="fileInput" class="drop-area">
-        <p>Añade alguna imagen para tu foto de perfil.</p>
-        <input type="file" id="fileInput" accept="image/*" placeholder="Lorem Ipsum">
-      </label>
-    </div>
+    @if(pressedSubmit && !validTopicsSelection()) {
+      <p style="font-size: 0.9rem; color: red">Debes seleccionar al menos un idioma y un lenguaje</p>
+    }
+    <label class="drop-area">
+      <p>Añade alguna imagen para tu foto de perfil.</p>
+      <input type="file" accept="image/*" (change)="onFileSelected($event)"/>
+    </label>
 
-    <p class="photoUser">Tu imagen se ve así:</p>
-    <div class="preview">
-      <img id="imagenPreview" src="" alt="">
-    </div>
+    @if(preview) {
+      <p class="photoUser">Tu imagen se ve así:</p>
+      <div class="preview">
+        <img [src]="preview" alt="Preview foto de perfil"/>
+      </div>
+    }
+
+    <button type="submit" class="endButton">Registrarse</button>
   </form>
 
-  <button class="endButton">Registrarse</button>
 </main>
-<footer class="footerTemplate"></footer>
+<app-footer></app-footer>
 
 </body>

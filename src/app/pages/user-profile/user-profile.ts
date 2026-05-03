@@ -10,7 +10,9 @@ import { Project } from '../../core/models/project.model';
 import { User } from '../../core/models/user.model';
 import { ProjectService } from '../../core/services/project-crud';
 import { Header } from '../../shared/components/header/header';
-import {switchMap} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
+import {forkJoin, of} from 'rxjs';
+import {TopicService} from '../../core/services/topic-crud';
 
 @Component({
   selector: 'app-user-profile',
@@ -22,6 +24,7 @@ export class UserProfile implements OnInit {
   private cd = inject(ChangeDetectorRef);
   private userService = inject(UserService);
   private projectService = inject(ProjectService);
+  private topicsService = inject(TopicService);
   private route = inject(ActivatedRoute);
 
   userInformation: User | undefined;
@@ -44,17 +47,22 @@ export class UserProfile implements OnInit {
   }
 
 
-  getTopicsLanguage() {
-    if (!this.userInformation?.Topic || !Array.isArray(this.userInformation.Topic)) {
-      return [];
-    }
-    return this.userInformation.Topic.filter(t => t.cat === 'Lenguaje');
+  private resolvedTopics() {
+    const ids = this.userInformation?.Topic;
+    if (!ids || !Array.isArray(ids) || ids.length === 0) return of([]);
+
+    return forkJoin(ids.map(id => this.topicsService.getTopicById(id)));
   }
 
-  getTopics() {
-    if (!this.userInformation?.Topic || !Array.isArray(this.userInformation.Topic)) {
-      return [];
-    }
-    return this.userInformation.Topic.filter(t => t.cat !== 'Lenguaje');
+  getTopics(){
+    return this.resolvedTopics().pipe(
+      map(topics => topics.filter(t => t?.cat !== 'Lenguaje'))
+    );
+  }
+
+  getTopicsLanguage(){
+    return this.resolvedTopics().pipe(
+      map(topics => topics.filter(t => t?.cat === 'Lenguaje'))
+    );
   }
 }

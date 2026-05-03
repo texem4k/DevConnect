@@ -29,10 +29,13 @@ export class UserService {
     return docData(ref, { idField: 'uid' }) as Observable<User>;
   }
 
-  async addUser(user: User) {
+  async addUser(user: Partial<User>) {
+    if (!user.Gmail || !user.Password) throw new Error('Faltan campos obligatorios')
     const cred = await this.authService.register(user.Gmail, user.Password);
+
     await sendEmailVerification(cred.user);
-    return setDoc(doc(this.firestore, 'users', cred.user.uid), user );
+    const { Password, ...userWithoutPassword } = user;
+    return setDoc(doc(this.firestore, 'users', cred.user.uid), userWithoutPassword );
   }
 
   async updateUser(id: string, data: Partial<User>, currentPassword: string) {

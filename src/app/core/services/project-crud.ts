@@ -10,12 +10,12 @@ import {
   updateDoc,
   deleteDoc,
   query,
-  where, arrayUnion, arrayRemove
+  where, arrayUnion, arrayRemove, getDocs
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project.model';
 import {User} from '../models/user.model';
-import { switchMap } from 'rxjs/operators';
+import {switchMap} from 'rxjs/operators';
 import {Topic} from '../models/topic.model';
 
 @Injectable({
@@ -34,8 +34,20 @@ export class ProjectService {
     return docData(ref, { idField: 'id' }) as Observable<Project>;
   }
 
-  addProject(project: Project) {
-    return addDoc(this.projectRef, project);
+  async addProject(project: Project) {
+    const projectDocRef = await addDoc(this.projectRef, project);
+    const usersRef = collection(this.firestore, 'users');
+    const q = query(usersRef, where('Nickname', '==', project.creator));
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      const userDoc = querySnapshot.docs[0];
+      await updateDoc(userDoc.ref, {
+        Projects: arrayUnion({ id: projectDocRef.id })
+      });
+    }
+
+    return projectDocRef;
   }
 
   updateProject(id: string, data: Partial<Project>) {
@@ -49,9 +61,17 @@ export class ProjectService {
     return updateDoc(projectDocRef, firestoreData);
   }
 
-  deleteProject(id: string) {
-    const projectDocRef = doc(this.firestore, `projects/${id}`);
-    return deleteDoc(projectDocRef);
+  async deleteProject(id: string) {
+    const q = query(collection(this.firestore, 'users'), where('Projects', '==', id));
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      const userDoc = querySnapshot.docs[0];
+      await updateDoc(userDoc.ref, {
+        projects: arrayRemove(id)
+      });
+    }
+    return deleteDoc(doc(this.firestore, `projects/${id}`));
   }
 
   addProjectTopic(id: string, topic: Topic) {

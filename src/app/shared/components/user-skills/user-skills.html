@@ -1,8 +1,10 @@
 <div class="profileSkillContainer">
   <p class="profileInformationTag">{{ label }}</p>
   <div class="profileSkillContainerFields">
-    @for(topic of topics.slice(0,3); track $index){
-      <app-topic-box-btn [topic]="topic.name"></app-topic-box-btn>
+    @if (topics | async; as resolvedTopics) {
+      @for (topic of resolvedTopics.slice(0, 3); track $index) {
+        <app-topic-box-btn [topic]="topic.name" />
+      }
     }
   </div>
 </div>

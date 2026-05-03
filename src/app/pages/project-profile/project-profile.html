@@ -2,11 +2,11 @@
 
 <!-- header -->
 
-<img id="project-image" src="{{ project?.image }}" alt="Imagen Lorem Ipsum">
+<img id="project-image" src="{{ project.image }}" alt="Imagen Lorem Ipsum">
 
 <div class="overlay-text">
-  <h1>{{project?.title}}</h1>
-  <a [routerLink]="['/UserProfile', id]">{{project?.creator}}</a>
+  <h1>{{project.title}}</h1>
+  <a [routerLink]="['/UserProfile', id]">{{project.creator}}</a>
 </div>
 
 <div class="page-layout">
@@ -20,7 +20,7 @@
   </main>
 
   <aside>
-    <app-topics-grid [title]="'Requisitos'" [items]="project!.requireTopic"></app-topics-grid>
+    <app-topics-grid [title]="'Requisitos'" [items]="project.requireTopic"></app-topics-grid>
 
     <h3>Inscripción</h3>
     <button id="inscription-button">Inscribirse</button>

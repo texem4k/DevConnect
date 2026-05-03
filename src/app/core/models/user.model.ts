@@ -1,4 +1,3 @@
-import {Topic} from './topic.model';
 import {Social} from './social.model';
 
 export interface User {
@@ -9,8 +8,8 @@ export interface User {
   Gmail: string;
   Password: string;
   Description: string;
-  isCompany: string;
-  Topic: Topic[];
+  isCompany: Boolean;
+  Topic: string[];
   Projects: string[];
   Avatar: string;
   Banner: string;

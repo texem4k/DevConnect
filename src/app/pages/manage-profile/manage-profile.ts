@@ -72,7 +72,7 @@ export class ManageProfile implements OnInit {
     });
 
     this.userInformation?.Topic.forEach(x =>{
-      this.selectedTopics?.push(x.id)
+      this.selectedTopics?.push(x)
     })
   }
 

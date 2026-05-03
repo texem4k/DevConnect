@@ -4,99 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados.">
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Implementación completa del CRUD de tópicos, usuarios y proyectos. Gestionar proyectos/usuarios, perfil de usuario, página de resultados y página de proyecto finalizados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/project-ref.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/project-requirements.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/project.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/project.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/about-us/about-us.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/about-us/about-us.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/search-result/search-result.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/search-result/search-result.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/banner-profile/banner-profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" afterDir="false" />
+    </list>
+    <list id="95082ca9-69a7-4391-b255-55818b014db9" name="Changes by arael" comment="Changes by arael">
+      <change beforePath="$PROJECT_DIR$/src/app/core/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/pagination-component/pagination-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/pagination-component/pagination-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/search-topics/search-topics.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/search-topics/search-topics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/search-topics/search-topics.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/search-topics/search-topics.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/services/AppData.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/services/Project.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/services/Topic.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/services/User.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/services/get-data-service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/JS/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/JS/header.js" afterDir="false" />
-    </list>
-    <list id="95082ca9-69a7-4391-b255-55818b014db9" name="Changes by arael" comment="Changes by arael">
-      <change beforePath="$PROJECT_DIR$/src/app/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/social-link.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/social-link.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/login/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/login/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/login/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/login/login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/search-result/search-result.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/search-result/search-result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/cards-grid/cards-grid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topic-box-btn/topic-box-btn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topic-box-btn/topic-box-btn.ts" afterDir="false" />
     </list>
     <list id="2f7ff114-ded4-4c37-bfee-fbd13cbca518" name="Changes by vidal" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/project.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/project.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/social.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/social.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/topic.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/topic.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/user.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/pagination-component/pagination-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/pagination-component/pagination-component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,183 +76,75 @@
   &quot;isMigrated&quot;: true
 }</component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.html">
+    <file path="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html">
       <ranges>
-        <range start1="8" end1="15" start2="8" end2="19" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="16" end1="19" start2="20" end2="21" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="3" end1="4" start2="3" end2="4" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="6" end1="10" start2="6" end2="16" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="11" end1="13" start2="17" end2="26" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="14" end1="14" start2="27" end2="38" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="16" end1="17" start2="40" end2="42" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="18" end1="24" start2="43" end2="82" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="27" end1="28" start2="85" end2="86" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="30" end1="31" start2="88" end2="89" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="32" end1="33" start2="90" end2="91" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="34" end1="35" start2="92" end2="93" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="39" end1="40" start2="97" end2="98" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="41" end1="42" start2="99" end2="100" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="43" end1="44" start2="101" end2="102" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="46" end1="53" start2="104" end2="107" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="54" end1="57" start2="108" end2="113" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="58" end1="76" start2="114" end2="121" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="77" end1="81" start2="122" end2="130" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="83" end1="84" start2="132" end2="132" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
+        <range start1="85" end1="86" start2="133" end2="134" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
       </ranges>
     </file>
-    <file path="$PROJECT_DIR$/src/app/core/services/user-crud.ts">
+    <file path="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts">
       <ranges>
-        <range start1="3" end1="4" start2="3" end2="4" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="7" end1="8" start2="7" end2="7" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="15" end1="15" start2="14" end2="15" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="23" end1="24" start2="23" end2="24" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="28" end1="29" start2="28" end2="29" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="32" end1="33" start2="32" end2="33" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="34" end1="46" start2="34" end2="35" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="51" end1="63" start2="40" end2="40" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="65" end1="68" start2="42" end2="44" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="70" end1="71" start2="46" end2="47" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="75" end1="77" start2="51" end2="53" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="78" end1="80" start2="54" end2="56" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="90" end1="90" start2="66" end2="80" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
+        <range start1="12" end1="13" start2="12" end2="15" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="24" end1="24" start2="26" end2="27" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="46" end1="51" start2="49" end2="60" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="53" end1="58" start2="62" end2="66" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
       </ranges>
     </file>
-    <file path="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html">
+    <file path="$PROJECT_DIR$/src/app/shared/components/user-skills/user-skills.ts">
       <ranges>
-        <range start1="0" end1="0" start2="0" end2="1" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="2" end1="11" start2="3" end2="14" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="12" end1="15" start2="15" end2="18" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="16" end1="61" start2="19" end2="36" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="62" end1="68" start2="37" end2="48" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="70" end1="120" start2="50" end2="50" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="3" end1="3" start2="3" end2="5" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
+        <range start1="6" end1="7" start2="8" end2="9" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="12" end1="13" start2="14" end2="15" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/app/shared/components/topics-grid/topics-grid.ts">
+      <ranges>
+        <range start1="0" end1="1" start2="0" end2="1" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="2" end1="2" start2="2" end2="4" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="3" end1="3" start2="5" end2="6" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="6" end1="7" start2="9" end2="10" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="12" end1="13" start2="15" end2="18" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
+        <range start1="15" end1="16" start2="20" end2="26" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
+        <range start1="17" end1="17" start2="27" end2="28" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/src/app/core/models/user.model.ts">
       <ranges>
-        <range start1="1" end1="2" start2="1" end2="1" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="5" end1="17" start2="4" end2="16" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="18" end1="20" start2="17" end2="19" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="0" end1="1" start2="0" end2="0" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="11" end1="13" start2="10" end2="12" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.ts">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="8" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="7" end1="8" start2="11" end2="12" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="17" end1="18" start2="21" end2="24" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="20" end1="20" start2="26" end2="27" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="28" end1="28" start2="35" end2="47" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html">
       <ranges>
-        <range start1="4" end1="5" start2="4" end2="5" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="8" end1="9" start2="8" end2="9" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="18" end1="19" start2="18" end2="19" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="22" end1="24" start2="22" end2="23" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="28" end1="29" start2="27" end2="27" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="30" end1="30" start2="28" end2="29" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/app.routes.ts">
-      <ranges>
-        <range start1="16" end1="17" start2="16" end2="18" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="19" end1="23" start2="20" end2="25" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.css">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="23" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="7" end1="10" start2="24" end2="26" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="91" end1="92" start2="107" end2="108" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="136" end1="136" start2="152" end2="272" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="137" end1="137" start2="273" end2="278" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="139" end1="141" start2="280" end2="281" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="145" end1="146" start2="285" end2="286" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="153" end1="154" start2="293" end2="293" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="156" end1="156" start2="295" end2="296" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="160" end1="160" start2="300" end2="304" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="162" end1="166" start2="306" end2="306" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.ts">
-      <ranges>
-        <range start1="0" end1="1" start2="0" end2="10" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="4" end1="5" start2="13" end2="19" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="8" end1="9" start2="22" end2="54" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts">
-      <ranges>
-        <range start1="0" end1="1" start2="0" end2="1" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="2" end1="4" start2="2" end2="4" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="19" end1="19" start2="19" end2="23" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="20" end1="24" start2="24" end2="27" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="25" end1="30" start2="28" end2="32" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="34" end1="35" start2="36" end2="37" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="38" end1="39" start2="40" end2="41" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="40" end1="40" start2="42" end2="51" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/pages/create-project/create-project.html">
-      <ranges>
-        <range start1="18" end1="19" start2="18" end2="19" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="59" end1="62" start2="59" end2="64" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="64" end1="65" start2="66" end2="67" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.html">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="2" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="1" end1="6" start2="3" end2="16" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="7" end1="9" start2="17" end2="20" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts">
-      <ranges>
-        <range start1="0" end1="1" start2="0" end2="1" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="11" end1="12" start2="11" end2="11" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="13" end1="17" start2="12" end2="17" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="34" end1="34" start2="34" end2="39" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="35" end1="36" start2="40" end2="41" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="37" end1="37" start2="42" end2="46" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="49" end1="49" start2="58" end2="59" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="50" end1="51" start2="60" end2="74" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="52" end1="60" start2="75" end2="79" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="64" end1="65" start2="83" end2="83" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="66" end1="67" start2="84" end2="85" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="69" end1="70" start2="87" end2="88" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="74" end1="89" start2="92" end2="95" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="99" end1="99" start2="105" end2="110" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="100" end1="102" start2="111" end2="113" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="104" end1="104" start2="115" end2="124" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="105" end1="110" start2="125" end2="135" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="122" end1="126" start2="147" end2="147" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="133" end1="134" start2="154" end2="155" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="148" end1="148" start2="169" end2="184" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/core/services/project-crud.ts">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="1" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="11" end1="12" start2="12" end2="13" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="17" end1="17" start2="18" end2="19" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="35" end1="44" start2="37" end2="38" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="61" end1="61" start2="55" end2="69" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/pages/index/index.ts">
-      <ranges>
-        <range start1="0" end1="1" start2="0" end2="1" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="6" end1="9" start2="6" end2="6" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="10" end1="10" start2="7" end2="11" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="25" end1="28" start2="26" end2="26" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="29" end1="34" start2="27" end2="36" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="36" end1="36" start2="38" end2="41" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="37" end1="45" start2="42" end2="45" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="46" end1="58" start2="46" end2="46" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="59" end1="63" start2="47" end2="49" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="65" end1="69" start2="51" end2="53" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/core/models/project.model.ts">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="3" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="6" end1="6" start2="9" end2="11" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="7" end1="8" start2="12" end2="13" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-        <range start1="9" end1="9" start2="14" end2="16" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts">
-      <ranges>
-        <range start1="0" end1="4" start2="0" end2="4" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="18" end1="18" start2="18" end2="22" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="19" end1="20" start2="23" end2="24" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="23" end1="24" start2="27" end2="28" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="26" end1="26" start2="30" end2="31" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="29" end1="30" start2="34" end2="35" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="35" end1="35" start2="40" end2="53" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/app/pages/about-us/about-us.html">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="1" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
-        <range start1="1" end1="3" start2="2" end2="2" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="4" end1="5" start2="3" end2="4" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="6" end1="8" start2="5" end2="11" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
-        <range start1="12" end1="13" start2="15" end2="16" changelist="f356984e-ead5-4300-86cb-6e9339eb0e94" />
+        <range start1="4" end1="5" start2="4" end2="5" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="7" end1="9" start2="7" end2="9" changelist="95082ca9-69a7-4391-b255-55818b014db9" />
+        <range start1="22" end1="23" start2="22" end2="23" changelist="2f7ff114-ded4-4c37-bfee-fbd13cbca518" />
       </ranges>
     </file>
   </component>
@@ -393,6 +220,7 @@
       <workItem from="1777047217472" duration="6134000" />
       <workItem from="1777117882503" duration="18509000" />
       <workItem from="1777231172598" duration="777000" />
+      <workItem from="1777804505658" duration="6857000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -426,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777231889372</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implementación completa del CRUD de tópicos, usuarios y proyectos. Gestionar proyectos/usuarios, perfil de usuario, página de resultados y página de proyecto finalizados">
+      <option name="closed" value="true" />
+      <created>1777758395114</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1777758395114</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,6 +292,7 @@
     <MESSAGE value="Adaptación de las paginas a árbol de directorios de angular" />
     <MESSAGE value="Página Index funcional" />
     <MESSAGE value="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados." />
-    <option name="LAST_COMMIT_MESSAGE" value="Index implementando, Página de resultados implementado (Excepto filtros), realizada página de creación de proyecto, loader de datos implementados." />
+    <MESSAGE value="Implementación completa del CRUD de tópicos, usuarios y proyectos. Gestionar proyectos/usuarios, perfil de usuario, página de resultados y página de proyecto finalizados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementación completa del CRUD de tópicos, usuarios y proyectos. Gestionar proyectos/usuarios, perfil de usuario, página de resultados y página de proyecto finalizados" />
   </component>
 </project>

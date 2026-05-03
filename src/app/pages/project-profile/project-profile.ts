@@ -30,7 +30,7 @@ export class ProjectProfile implements OnInit {
   private cd = inject(ChangeDetectorRef)
 
   id?: string;
-  project?: Project | undefined;
+  project!: Project;
   maintainers: User[] = []
 
   ngOnInit() {
