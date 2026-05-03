@@ -11,8 +11,9 @@ import { User } from '../../core/models/user.model';
 import { ProjectService } from '../../core/services/project-crud';
 import { Header } from '../../shared/components/header/header';
 import {map, switchMap} from 'rxjs/operators';
-import {forkJoin, of} from 'rxjs';
+import {firstValueFrom, forkJoin, of} from 'rxjs';
 import {TopicService} from '../../core/services/topic-crud';
+import {AuthService} from '../../core/services/auth-service';
 
 @Component({
   selector: 'app-user-profile',
@@ -26,6 +27,8 @@ export class UserProfile implements OnInit {
   private projectService = inject(ProjectService);
   private topicsService = inject(TopicService);
   private route = inject(ActivatedRoute);
+  private auth = inject(AuthService);
+  protected isOwnedProfile: boolean = false;
 
   userInformation: User | undefined;
   userProjects: Project[] = [];
@@ -42,6 +45,9 @@ export class UserProfile implements OnInit {
       this.userProjects = projects.filter(
         p => p.creator === this.userInformation?.Nickname
       );
+      this.auth.currentUser$.subscribe(user => {
+        user?.uid === this.userInformation?.uid ? this.isOwnedProfile = true : this.isOwnedProfile = false;
+      })
       this.cd.detectChanges();
     });
   }

@@ -38,6 +38,8 @@ export class UserRegistration implements OnInit {
   preview: string | null = null;
   file: File | null = null;
 
+  registrationError = '';
+
   form!: FormGroup;
 
   ngOnInit() {
@@ -112,7 +114,7 @@ export class UserRegistration implements OnInit {
     return this.form.get(name)!;
   }
 
-  onSubmit(): void {
+  async onSubmit() {
     this.pressedSubmit = true;
     if (!this.validTopicsSelection() || !this.form.valid) return;
 
@@ -127,14 +129,15 @@ export class UserRegistration implements OnInit {
       Avatar: this.form.get('Avatar')?.value ?? 'https://cdn-icons-png.flaticon.com/256/149/149071.png'
     };
 
+    const registrationError = '';
     try {
-      this.userService.addUser(data);
+      await this.userService.addUser(data);
       history.back()
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
-        console.log('Este email ya está registrado');
+        this.registrationError = 'Este email ya está registrado';
       } else {
-        console.log('Error al registrar el usuario');
+        this.registrationError = 'Error al registrar el usuario';
       }
     }
   }
