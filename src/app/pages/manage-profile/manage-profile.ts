@@ -71,8 +71,8 @@ export class ManageProfile implements OnInit {
         email: this.userInformation?.Gmail,
         userPhone: this.userInformation?.Telephone
       });
-      this.selectedTopics = [...(this.userInformation?.Topic ?? [])];
-      console.log(this.selectedTopics);
+      const rawTopics = this.userInformation?.Topic;
+      this.selectedTopics = Array.isArray(rawTopics) ? [...rawTopics] : Object.values(rawTopics ?? {});
       this.isLoading = false;
 
       this.userInformation = users.find(u => u.uid?.toString() === this.id);
