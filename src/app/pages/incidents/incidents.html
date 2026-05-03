@@ -9,14 +9,20 @@
       <p class="error">{{ topicError }}</p>
     </label>
 
+    <label class="field">
+      <span class="field-label">Correo de contacto</span>
+      <input type="email" formControlName="email" placeholder="Correo">
+      <p class="error">{{ emailError }}</p>
+    </label>
+
     <label class="field field-large">
       <span class="field-label">Describe detalladamente el problema que tienes...</span>
       <textarea formControlName="text"></textarea>
       <p class="error">{{ textError }}</p>
     </label>
 
-    <p *ngIf="notLoggedMessage" class="error">{{ notLoggedMessage }}</p>
-    <p *ngIf="successMessage"   class="success-message">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
 
     <button type="submit" class="submit-btn" [disabled]="isSubmitting">
       {{ isSubmitting ? 'Enviando...' : 'Enviar' }}

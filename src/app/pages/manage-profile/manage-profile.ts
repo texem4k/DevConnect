@@ -133,8 +133,8 @@ export class ManageProfile implements OnInit {
 
   async onSubmit() {
     if (this.validTopicsSelection() && this.form.valid) {
-      console.log("Cambios confirmados");
       const currentPassword = this.form.get('currentPassword')?.value;
+      const oldNickname = this.userInformation?.Nickname;
       const data: Partial<User> = {
         Nickname: this.form.get('nickname')?.value ?? undefined,
         Gmail: this.form.get('email')?.value ?? undefined,
@@ -145,7 +145,12 @@ export class ManageProfile implements OnInit {
       };
 
       try {
-        await this.userService.updateUser(this.userInformation!.uid, data, currentPassword!);
+        await this.userService.updateUser(
+          this.userInformation!.uid,
+          data,
+          currentPassword!,
+          oldNickname
+        );
         history.back();
       } catch (error: any) {
         if (error?.code === 'auth/wrong-password') {
