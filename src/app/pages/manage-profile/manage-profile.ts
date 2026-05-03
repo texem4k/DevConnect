@@ -39,6 +39,7 @@ export class ManageProfile implements OnInit {
   pressedSubmit: Boolean = false;
   users: User[] | undefined;
   description: string = '';
+  errorMessage: string = '';
 
   // ── Modal ──
   showPasswordModal: boolean = false;
@@ -130,7 +131,7 @@ export class ManageProfile implements OnInit {
     this.onSubmit();
   }
 
-  onSubmit(): void {
+  async onSubmit() {
     if (this.validTopicsSelection() && this.form.valid) {
       console.log("Cambios confirmados");
       const currentPassword = this.form.get('currentPassword')?.value;
@@ -143,8 +144,18 @@ export class ManageProfile implements OnInit {
         Description: this.description || undefined
       };
 
-      this.userService.updateUser(this.userInformation!.uid, data, currentPassword!);
-      history.back()
+      try {
+        await this.userService.updateUser(this.userInformation!.uid, data, currentPassword!);
+        history.back();
+      } catch (error: any) {
+        if (error?.code === 'auth/wrong-password') {
+          this.errorMessage = 'La contraseña actual es incorrecta.';
+        } else if (error?.code === 'auth/too-many-requests') {
+          this.errorMessage = 'Demasiados intentos fallidos. Inténtalo más tarde.';
+        } else {
+          this.errorMessage = 'Ha ocurrido un error al guardar los cambios. Inténtalo de nuevo.';
+        }
+      }
     }
   }
 
