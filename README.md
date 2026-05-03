@@ -217,7 +217,6 @@ ng serve
 ng build
 ```
 
-> **Nota:** Es necesario configurar las credenciales de Firebase en `src/environments/environment.ts` para que la aplicación funcione correctamente.
 
 ## 6. Arquitectura del proyecto
 
