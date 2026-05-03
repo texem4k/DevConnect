@@ -68,7 +68,8 @@
         [control]="getControl('email')"
         [errorMessages]="{
           required: 'El correo electrónico no puede estar vacío',
-          email: 'El valor introducido no es un correo válido'
+          email: 'El valor introducido no es un correo válido',
+          emailAlreadyInUse: 'Este email ya está registrado. Usa otro o inicia sesión.'
           }"
       ></app-get-input-text>
 
@@ -125,6 +126,10 @@
       <div class="preview">
         <img [src]="preview" alt="Preview foto de perfil"/>
       </div>
+    }
+
+    @if (registrationError) {
+      <p class="error-message" style="color: red; text-align: center;">{{ registrationError }}</p>
     }
 
     <button type="submit" class="endButton">Registrarse</button>
