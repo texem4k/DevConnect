@@ -4,10 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Arreglos en crear/editar proyecto">
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="Se arreglaron problemas de search-result">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/aboutUs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/createProject.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/incidents.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/manageProfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/manageProject.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/projectProfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/searchResult.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/userProfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paginas/JS/userRegistration.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/models/project.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/project.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/search-result/search-result.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/search-result/search-result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/search-result/search-result.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/search-result/search-result.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/banner/banner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/banner/banner.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/drop-down/drop-down.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/JS/cardGrid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/JS/footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/JS/header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/JS/loadTemplate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/JS/searchTopics.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/PageLink.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/previewUserImage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/validators.js" beforeDir="false" />
     </list>
     <list id="95082ca9-69a7-4391-b255-55818b014db9" name="Changes by arael" comment="Changes by arael" />
     <list id="2f7ff114-ded4-4c37-bfee-fbd13cbca518" name="Changes by vidal" comment="" />
@@ -46,7 +73,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/texem4k/DevConnect.git&quot;,
-    &quot;accountId&quot;: &quot;d1b65c3d-17a5-4f5a-826a-1c9f8988f7a3&quot;
+    &quot;accountId&quot;: &quot;534a05d6-1f02-41cf-aa9e-bb8dd8560c34&quot;
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -64,28 +91,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "disable.download.node.interpreter.editor.notification": "true",
-    "git-widget-placeholder": "sprint3",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "C:/UNI/3º Curso/2º Cuatri/PWM/Sprint 3/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.language",
-    "ts.external.directory.path": "C:\\UNI\\3º Curso\\2º Cuatri\\PWM\\Sprint 3\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;disable.download.node.interpreter.editor.notification&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint3&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/UNI/3º Curso/2º Cuatri/PWM/Sprint 3/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Usuario\\WebstormProjects\\DevConnect\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\UNI\3º Curso\2º Cuatri\PWM\Sprint 3\public" />
@@ -127,6 +154,9 @@
       <workItem from="1777231172598" duration="777000" />
       <workItem from="1777804505658" duration="7113000" />
       <workItem from="1777812915298" duration="6244000" />
+      <workItem from="1777825547353" duration="165000" />
+      <workItem from="1777826287582" duration="491000" />
+      <workItem from="1777826926258" duration="1702000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -184,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1777814311225</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Se arreglaron ciertos errores">
+      <option name="closed" value="true" />
+      <created>1777826761237</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777826761237</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Se arreglaron problemas de search-result">
+      <option name="closed" value="true" />
+      <created>1777827537364</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1777827537364</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +263,8 @@
     <MESSAGE value="Implementación completa del CRUD de tópicos, usuarios y proyectos. Gestionar proyectos/usuarios, perfil de usuario, página de resultados y página de proyecto finalizados" />
     <MESSAGE value="Registro de usuario realizado y cambios en el CRUD y base de datos" />
     <MESSAGE value="Arreglos en crear/editar proyecto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglos en crear/editar proyecto" />
+    <MESSAGE value="Se arreglaron ciertos errores" />
+    <MESSAGE value="Se arreglaron problemas de search-result" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se arreglaron problemas de search-result" />
   </component>
 </project>

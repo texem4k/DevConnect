@@ -45,6 +45,7 @@ export class CreateProject implements OnInit {
   projectsData$ = this.projectService.getProject();
   project?: Project;
   isSubmitting: boolean = false;
+  description: string = '';
 
   form = new FormGroup({
     projectName: new FormControl('', [Validators.required, itExists(this.projects), Validators.minLength(5)]),
@@ -69,6 +70,10 @@ export class CreateProject implements OnInit {
     this.projectsData$.subscribe(projects => {
       this.projects = projects;
     });
+
+    if (this.project) {
+      this.description = this.project.description;
+    }
 
     this.auth.currentUser$.subscribe(user => {
       if (user?.uid) {
@@ -133,8 +138,8 @@ export class CreateProject implements OnInit {
       if (rawValue.numberParticipants) formValue.numberParticipants = Number(rawValue.numberParticipants);
       if (rawValue.ownerPhone)         formValue.ownerPhone         = rawValue.ownerPhone;
       if (rawValue.date)               formValue.limitDate          = rawValue.date;
+      if (rawValue.description)        formValue.description        = rawValue.description;
       if (this.topicsIds?.length)      formValue.requireTopic       = this.topicsIds;
-      if(rawValue.description)         formValue.description        = rawValue.description;
       formValue.creator = this.projectOwnerName;
 
       if(!this.project?.image){

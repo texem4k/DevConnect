@@ -84,6 +84,19 @@
       />
     }
 
+    @if(!type && !searchQuery && !loadingProjects && !loadingUsers) {
+      <h2>Explorar</h2>
+      <app-media-list
+        [projects]="pagedMixedProjects"
+        [users]="pagedMixedUsers"
+      />
+      <app-pagination-component
+        [currentPage]="currentPageMixed"
+        [totalPages]="totalPagesMixed"
+        (pageChange)="goToPageMixed($event)"
+      />
+    }
+
   </div>
 </div>
 

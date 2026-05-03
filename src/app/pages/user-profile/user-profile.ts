@@ -39,12 +39,11 @@ export class UserProfile implements OnInit {
   ngOnInit() {
     const userId = this.route.snapshot.params['id'];
 
-    // Carga usuario y auth en paralelo para comparar UIDs correctamente
     combineLatest([
       this.userService.getUserById(userId),
       this.auth.currentUser$
     ]).pipe(
-      first(), // ← toma solo la primera emisión combinada y completa
+      first(),
       switchMap(([user, authUser]) => {
         this.userInformation = user;
         this.isOwnedProfile = authUser?.uid === user?.uid;

@@ -32,7 +32,7 @@ export class Incidents implements OnInit, OnDestroy {
       validators: [
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(100),
+        Validators.maxLength(50),
       ]
     }),
     text: new FormControl<string>('', { nonNullable: true,

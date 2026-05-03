@@ -1,20 +1,16 @@
 <div class="projectList">
-  @if(type=="projects"){
-    @for(item of getProjects; track item){
-      <app-media-component
-        [project]="item"
-        [showActions]="showActions"
-        (edit)="handleEdit(item)"
-        (delete)="handleDelete(item)"
-      />
-    }
+  @for(item of getProjects; track item) {
+    <app-media-component
+      [project]="item"
+      [showActions]="showActions"
+      (edit)="handleEdit(item)"
+      (delete)="handleDelete(item)"
+    />
   }
 
-  @else{
-    @for(item of getUsers; track item){
-      <app-media-component
-        [user]="item"
-      />
-    }
+  @for(item of getUsers; track item) {
+    <app-media-component
+      [user]="item"
+    />
   }
 </div>

@@ -22,9 +22,9 @@
     <label class="field field-large">
       <p>Descripción</p>
       @if(project) {
-        <textarea [value]="project!.description"></textarea>
+        <textarea formControlName="description" [value]="project!.description"></textarea>
       } @else {
-        <textarea></textarea>
+        <textarea formControlName="description" ></textarea>
       }
     </label>
 

@@ -58,7 +58,7 @@
 
     <section class="userDescription">
       <h3>Descripción</h3>
-      <textarea placeholder="Hola, soy ...." wrap="soft" rows="5" cols="120">{{userInformation.Description}}</textarea>
+      <textarea [(ngModel)]="description" placeholder="Hola, soy ...." wrap="soft" rows="5" cols="120"></textarea>
 
       <section class="uploadContent">
 
@@ -113,6 +113,11 @@
             [errorMessages]="{required: 'La contraseña no puede estar vacía'}"
             [type]="'password'"
           ></app-get-input-text>
+
+          @if(errorMessage) {
+            <p style="font-size: 0.9rem; color: red">⚠️ {{ errorMessage }}</p>
+          }
+
         </div>
 
         <div class="modal-actions">

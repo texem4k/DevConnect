@@ -5,7 +5,7 @@ import {Header} from '../../shared/components/header/header';
 import {BannerProfile} from '../../shared/components/banner-profile/banner-profile';
 import {ActivatedRoute} from '@angular/router';
 import {Footer} from '../../shared/components/footer/footer';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, FormsModule, ValidationErrors, Validators} from '@angular/forms';
 import {validSelectedTopics} from '../create-project/create-project';
 import {User} from '../../core/models/user.model';
 import {Topic} from '../../core/models/topic.model';
@@ -20,7 +20,8 @@ import {TopicService} from '../../core/services/topic-crud';
     Header,
     BannerProfile,
     Footer,
-    SearchTopicsComponent
+    SearchTopicsComponent,
+    FormsModule
   ],
   templateUrl: './manage-profile.html',
   styleUrl: './manage-profile.css',
@@ -37,6 +38,8 @@ export class ManageProfile implements OnInit {
   selectedTopics: string[] = [];
   pressedSubmit: Boolean = false;
   users: User[] | undefined;
+  description: string = '';
+  errorMessage: string = '';
 
   // ── Modal ──
   showPasswordModal: boolean = false;
@@ -68,10 +71,14 @@ export class ManageProfile implements OnInit {
         email: this.userInformation?.Gmail,
         userPhone: this.userInformation?.Telephone
       });
-      this.selectedTopics = [...(this.userInformation?.Topic ?? [])];
-      console.log(this.selectedTopics);
+      const rawTopics = this.userInformation?.Topic;
+      this.selectedTopics = Array.isArray(rawTopics) ? [...rawTopics] : Object.values(rawTopics ?? {});
       this.isLoading = false;
+
+      this.userInformation = users.find(u => u.uid?.toString() === this.id);
+      this.description = this.userInformation?.Description ?? '';  // ← añade esto
     });
+
 
   }
 
@@ -124,7 +131,7 @@ export class ManageProfile implements OnInit {
     this.onSubmit();
   }
 
-  onSubmit(): void {
+  async onSubmit() {
     if (this.validTopicsSelection() && this.form.valid) {
       console.log("Cambios confirmados");
       const currentPassword = this.form.get('currentPassword')?.value;
@@ -134,10 +141,21 @@ export class ManageProfile implements OnInit {
         Telephone: this.form.get('userPhone')?.value ?? undefined,
         Password: this.form.get('password')?.value || undefined,
         Topic: this.selectedTopics?.length ? this.selectedTopics : undefined,
+        Description: this.description || undefined
       };
 
-      this.userService.updateUser(this.userInformation!.uid, data, currentPassword!);
-      history.back()
+      try {
+        await this.userService.updateUser(this.userInformation!.uid, data, currentPassword!);
+        history.back();
+      } catch (error: any) {
+        if (error?.code === 'auth/wrong-password') {
+          this.errorMessage = 'La contraseña actual es incorrecta.';
+        } else if (error?.code === 'auth/too-many-requests') {
+          this.errorMessage = 'Demasiados intentos fallidos. Inténtalo más tarde.';
+        } else {
+          this.errorMessage = 'Ha ocurrido un error al guardar los cambios. Inténtalo de nuevo.';
+        }
+      }
     }
   }
 
