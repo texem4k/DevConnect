@@ -271,4 +271,4 @@ A diferencia del Sprint 2, donde los datos se almacenaban en archivos JSON está
 
 ## 8. Anotaciones
 
-- **Imágenes no persistentes:** No es posible almacenar imágenes (avatar, banner, portadas de proyectos) de forma persistente ya que Firebase Storage requiere un plan de pago. Las imágenes que se puedan seleccionar durante la personalización de usuario o proyectos tienen un comportamiento limitado.
+- **Imágenes no persistentes:** No es posible almacenar imágenes (avatar, banner, portadas de proyectos) de forma persistente ya que Firebase Storage requiere un plan de pago. Las imágenes que se puedan seleccionar durante la personalización no se verán reflejadas en la página debido a la imposibilidad de manejar dicho tipo de dato.
