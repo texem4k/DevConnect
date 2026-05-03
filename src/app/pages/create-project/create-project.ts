@@ -63,19 +63,21 @@ export class CreateProject implements AfterViewInit, OnInit {
       this.projects = projects;
     });
     this.projectId = this.route.snapshot.params["id"];
-    this.project = await firstValueFrom(this.projectService.getProjectById(this.projectId!));
-    if (this.project) {
-      this.form.patchValue({
-        projectName: this.project.title,
-        ownerEmail: this.project.ownerEmail,
-        numberParticipants: this.project.numberParticipants?.toString() ?? "",
-        ownerPhone: this.project.ownerPhone,
-        date: this.project.limitDate ? this.formatDate(this.project.limitDate) : ''
-      });
+    if(this.projectId){
+      this.project = await firstValueFrom(this.projectService.getProjectById(this.projectId!));
+      if (this.project) {
+        this.form.patchValue({
+          projectName: this.project.title,
+          ownerEmail: this.project.ownerEmail,
+          numberParticipants: this.project.numberParticipants?.toString() ?? "",
+          ownerPhone: this.project.ownerPhone,
+          date: this.project.limitDate ? this.formatDate(this.project.limitDate) : ''
+        });
 
-      this.project.requireTopic.forEach(x => {
-        this.topicsIds.push(x);
-      });
+        this.project.requireTopic.forEach(x => {
+          this.topicsIds.push(x);
+        });
+      }
     }
   }
 
