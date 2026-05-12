@@ -1,24 +1,9 @@
-*{
-  margin:0;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 #footer {
-  background-color: gray;
   color: #fff;
   padding: 40px 0;
   width: 100%;
-  margin-top: auto;
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-content {
@@ -27,47 +12,36 @@ body {
   align-items: flex-start;
 }
 
-.column-footer {
-  flex:1;
-  flex-direction: column;
-}
-
-.column-footer a {
-  line-height: 1.5;
-}
-
-#RRSS {
-  font-size: 17px;
-  font-weight: bold;
-  padding:10px;
-}
-
-#Contact {
-  font-size: 17px;
-  padding:10px;
-  font-weight: bold;
-}
-
-#WHOIAM {
-  font-size: 17px;
-  padding:10px;
-  font-weight: bold;
-}
-
-.footer-content a {
-  color:white;
-  text-decoration: none;
-}
-
-a:visited {
-  color: inherit;
-}
-
 #footer-name {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 15px;
+  color: #fff;
 }
+
+.footer-content a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-content ion-list {
+  background: transparent;
+}
+
+.footer-content ion-item {
+  --background: transparent;
+  --color: #e8e8f0;
+  --border-color: transparent;
+}
+
+.footer-content ion-label {
+  color: #b0aed0;
+}
+
+.footer-content ion-item:hover {
+  --background: rgba(255, 255, 255, 0.05);
+}
+
 @media (max-width: 1024px) {
   .footer-content {
     gap: 1rem;
@@ -84,11 +58,6 @@ a:visited {
     align-items: center;
     gap: 1.5rem;
     padding: 0 1rem;
-  }
-
-  .column-footer {
-    width: 100%;
-    text-align: center;
   }
 
   #footer {

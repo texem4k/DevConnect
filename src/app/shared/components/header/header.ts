@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { HeaderElementsService } from '../../../core/services/headerElements-service';
@@ -6,7 +6,7 @@ import { AuthService } from '../../../core/services/auth-service';
 import { FormsModule } from '@angular/forms';
 import {UserService} from '../../../core/services/user-crud';
 import {firstValueFrom} from 'rxjs';
-import { IonHeader, IonToolbar, IonButtons, IonButton, IonImg, IonSearchbar, IonMenu, IonMenuButton, IonTitle, IonContent, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonButtons, IonButton, IonImg, IonSearchbar, IonMenu, IonMenuButton, IonTitle, IonContent, IonList, IonItem, IonLabel, MenuController } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-header',
@@ -36,6 +36,7 @@ export class Header {
   private authService = inject(AuthService);
   private router = inject(Router);
   private userService = inject(UserService);
+  private menuCtrl = inject(MenuController);
 
   isLoggedIn = false;
   userPhoto = '';
@@ -44,10 +45,15 @@ export class Header {
   searchQuery = '';
   topicos$ = this.headerService.getTopics();
 
-  private activeMenuIndex: number | null = null;
+  activeMenuIndex: number | null = null;
+  dropdownPos: { top: number; left: number } | null = null;
+  profileDropdownPos: { top: number; right: number } | null = null;
+
   private closeTimer: ReturnType<typeof setTimeout> | null = null;
   private isPointerOnTrigger = false;
   private isPointerOnPanel = false;
+
+  @ViewChildren('dropdownBtn', { read: ElementRef }) dropdownBtns!: QueryList<ElementRef>;
 
   buildQueryParams(key: string, value: string): Record<string, string> {
     return { [key]: value };
@@ -60,7 +66,6 @@ export class Header {
 
     this.authService.currentUser$.subscribe(async user => {
       this.userPhoto = await this.getPhotoUser();
-
       this.currentUserId = user?.uid ?? '';
     });
   }
@@ -78,6 +83,12 @@ export class Header {
     this.isPointerOnTrigger = true;
     this.clearCloseTimer();
     this.activeMenuIndex = index;
+
+    const btnEl = this.dropdownBtns?.toArray()[index];
+    if (btnEl) {
+      const rect = btnEl.nativeElement.getBoundingClientRect();
+      this.dropdownPos = { top: rect.bottom, left: rect.left };
+    }
   }
 
   onMenuLeave() {
@@ -98,12 +109,12 @@ export class Header {
 
   private scheduleClose() {
     this.clearCloseTimer();
-
     this.closeTimer = setTimeout(() => {
       if (!this.isPointerOnTrigger && !this.isPointerOnPanel && this.activeMenuIndex !== null) {
         this.activeMenuIndex = null;
+        this.dropdownPos = null;
       }
-    }, 2000);
+    }, 300);
   }
 
   private clearCloseTimer() {
@@ -122,24 +133,63 @@ export class Header {
   }
 
   closeSidebar() {
-    const menu = document.querySelector('ion-menu');
-    menu?.close();
+    this.menuCtrl.close('sidebar');
   }
 
-  toggleProfileMenu() {
+  toggleProfileMenu(event: MouseEvent) {
     this.isProfileMenuOpen = !this.isProfileMenuOpen;
+    if (this.isProfileMenuOpen) {
+      const btn = (event.currentTarget as HTMLElement) as HTMLElement;
+      const rect = btn.getBoundingClientRect();
+      this.profileDropdownPos = {
+        top: rect.bottom,
+        right: window.innerWidth - rect.right
+      };
+    } else {
+      this.profileDropdownPos = null;
+    }
   }
 
   async onLogout() {
     await this.authService.logout();
     this.isProfileMenuOpen = false;
+    this.profileDropdownPos = null;
+  }
+
+  @HostListener('mouseleave')
+  onHostMouseLeave() {
+    this.activeMenuIndex = null;
+    this.dropdownPos = null;
+    this.isProfileMenuOpen = false;
+    this.profileDropdownPos = null;
   }
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
-    const wrapper = document.querySelector('.profile-dropdown-wrapper');
-    if (wrapper && !wrapper.contains(event.target as Node)) {
-      this.isProfileMenuOpen = false;
+    if (this.dropdownPos) {
+      const dropdownEl = document.querySelector('.dropdown-content.fixed');
+      const triggers = document.querySelectorAll('.header-left .dropdown');
+      let isInside = false;
+      triggers.forEach(t => { if (t.contains(event.target as Node)) isInside = true; });
+      if (dropdownEl && dropdownEl.contains(event.target as Node)) isInside = true;
+      if (!isInside) {
+        this.activeMenuIndex = null;
+        this.dropdownPos = null;
+        this.isPointerOnTrigger = false;
+        this.isPointerOnPanel = false;
+      }
+    }
+
+    if (this.profileDropdownPos) {
+      const trigger = document.querySelector('.profile-trigger');
+      const panel = document.querySelector('.profile-dropdown.fixed');
+      let isInside = false;
+      if (trigger?.contains(event.target as Node)) isInside = true;
+      if (panel?.contains(event.target as Node)) isInside = true;
+      if (!isInside) {
+        this.isProfileMenuOpen = false;
+        this.profileDropdownPos = null;
+      }
     }
   }
 }

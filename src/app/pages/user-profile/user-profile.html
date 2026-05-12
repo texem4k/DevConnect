@@ -1,5 +1,5 @@
 <app-header></app-header>
-<ion-content>
+<ion-content id="main-content">
   @if (userInformation) {
     <app-banner-profile
       [titulo]="userInformation.Nickname"
@@ -43,5 +43,5 @@
       ></app-cards-grid>
     </section>
   }
+  <app-footer></app-footer>
 </ion-content>
-<app-footer></app-footer>

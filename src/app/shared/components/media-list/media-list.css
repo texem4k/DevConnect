@@ -1,64 +1,65 @@
-:host ::ng-deep app-media-component .media-button {
-  display: flex;
-  gap: 1rem;
-  width: 75%;
-  text-align: start;
-  padding: 0.8rem;
-  margin: 1rem auto;
-  background-color: #1a1740;
+:host ::ng-deep app-media-component ion-item {
+  --background: var(--color-light);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   border-radius: 1rem;
-  min-height: 10rem;
+  margin: 1rem auto;
+  width: 75%;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   transition: background 0.15s, border-color 0.15s, transform 0.15s, box-shadow 0.15s;
-  cursor: pointer;
 }
 
-:host ::ng-deep app-media-component .media-button:hover {
-  background-color: #221e52;
+:host ::ng-deep app-media-component ion-item:hover {
+  --background: rgba(255, 255, 255, 0.05);
   border-color: rgba(79, 110, 247, 0.4);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   transform: translateY(-2px);
 }
 
-:host ::ng-deep app-media-component .media-button img {
-  height: 150px;
-  width: 20%;
-  object-fit: cover;
+:host ::ng-deep app-media-component ion-thumbnail {
+  --border-radius: 8px;
+  width: 100px;
+  height: 100px;
+  margin: 0.8rem;
 }
 
-:host ::ng-deep app-media-component .media-text h2,
-:host ::ng-deep app-media-component .media-text h3,
-:host ::ng-deep app-media-component .media-text strong {
+:host ::ng-deep app-media-component ion-thumbnail ion-img {
+  width: 100%;
+  height: 100%;
+  --object-fit: cover;
+}
+
+:host ::ng-deep app-media-component ion-label h3,
+:host ::ng-deep app-media-component ion-label strong {
   color: #e8e8f0;
 }
 
-:host ::ng-deep app-media-component .media-text p,
-:host ::ng-deep app-media-component .media-text span {
+:host ::ng-deep app-media-component ion-label p,
+:host ::ng-deep app-media-component ion-label span {
   color: #9b99b8;
 }
 
 @media (max-width: 1024px) {
-  :host ::ng-deep app-media-component .media-button {
+  :host ::ng-deep app-media-component ion-item {
     width: 88%;
   }
 }
 
 @media (max-width: 768px) {
-  :host ::ng-deep app-media-component .media-button {
+  :host ::ng-deep app-media-component ion-item {
     flex-direction: column;
     align-items: center;
+    width: 95%;
   }
 
-  :host ::ng-deep app-media-component .media-button img {
+  :host ::ng-deep app-media-component ion-thumbnail {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px 8px 0 0;
+    height: 150px;
+    margin: 0;
+    --border-radius: 8px 8px 0 0;
   }
 
-  :host ::ng-deep app-media-component .media-text {
-    width: 100%;
+  :host ::ng-deep app-media-component ion-label {
     text-align: center;
+    padding: 0.8rem;
   }
 }

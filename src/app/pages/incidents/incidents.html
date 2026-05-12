@@ -1,5 +1,5 @@
 <app-header></app-header>
-<ion-content>
+<ion-content id="main-content">
   <h1 class="title">¿Algún problema?</h1>
   <form [formGroup]="incidentsForm" (ngSubmit)="submitIncident()" class="form">
 
@@ -39,5 +39,5 @@
     </ion-button>
 
   </form>
+  <app-footer></app-footer>
 </ion-content>
-<app-footer></app-footer>

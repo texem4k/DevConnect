@@ -66,6 +66,7 @@
   --shadow-sm: 0 2px 8px rgba(13, 10, 36, 0.15);
   --shadow-md: 0 4px 16px rgba(13, 10, 36, 0.2);
   --shadow-lg: 0 8px 28px rgba(13, 10, 36, 0.28);
+
 }
 
 /* ═══════════════════════════════════════
@@ -78,6 +79,7 @@
 
 html {
   font-size: 16px;
+  height: 100%;
 }
 
 body {
@@ -89,6 +91,7 @@ body {
   background-color: var(--color-light);
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -112,20 +115,59 @@ a:hover {
   color: var(--color-primary);
 }
 
-header {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white);
+/* ── Mismo fondo para toda la pantalla ── */
+ion-content {
+  --background: var(--color-light);
+  --color:      var(--color-text-dark);
 }
 
-footer, #footer {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white);
+ion-header,
+ion-toolbar {
+  --background: var(--color-light);
+  --color:      var(--color-white);
 }
 
-.sidebar {
-  background-color: var(--color-bg-medium) !important;
+ion-footer {
+  --background: var(--color-light);
+  --color:      var(--color-white);
 }
 
+ion-menu {
+  --background: var(--color-light);
+  --color:      var(--color-text-dark);
+}
+
+ion-card {
+  --background: var(--color-light);
+  --color:      var(--color-text-dark);
+}
+
+ion-item {
+  --background: var(--color-light);
+  --color:      var(--color-text-dark);
+}
+
+ion-list {
+  --background: var(--color-light);
+  background: var(--color-light);
+}
+
+ion-input,
+ion-textarea,
+ion-select {
+  --background: var(--color-light);
+  --color:      var(--color-text-dark);
+  --placeholder-color: var(--color-muted);
+}
+
+ion-button {
+  --background:       var(--color-primary);
+  --color:            var(--color-white);
+  --border-radius:    var(--radius-full);
+  --background-hover: var(--color-secondary);
+}
+
+/* Botón genérico (no ion-button) */
 button {
   padding: 0.3rem 1rem;
   border: 1px solid #838383;
@@ -142,6 +184,3 @@ button:hover {
   border-color: #999;
   color: #ffffff;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: var(--font-body); }
