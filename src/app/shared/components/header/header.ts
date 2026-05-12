@@ -1,22 +1,32 @@
-import { Component, HostListener, QueryList, ViewChildren, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { Router, RouterModule } from '@angular/router';
 import { HeaderElementsService } from '../../../core/services/headerElements-service';
 import { AuthService } from '../../../core/services/auth-service';
 import { FormsModule } from '@angular/forms';
 import {UserService} from '../../../core/services/user-crud';
 import {firstValueFrom} from 'rxjs';
+import { IonHeader, IonToolbar, IonButtons, IonButton, IonImg, IonSearchbar, IonMenu, IonMenuButton, IonTitle, IonContent, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-header',
   imports: [
     AsyncPipe,
-    MatButtonModule,
-    MatMenuModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonButton,
+    IonImg,
+    IonSearchbar,
+    IonMenu,
+    IonMenuButton,
+    IonTitle,
+    IonContent,
+    IonList,
+    IonItem,
+    IonLabel
   ],
   templateUrl: './header.html',
   styleUrl: './header.css',
@@ -33,8 +43,6 @@ export class Header {
   isProfileMenuOpen = false;
   searchQuery = '';
   topicos$ = this.headerService.getTopics();
-
-  @ViewChildren(MatMenuTrigger) triggers!: QueryList<MatMenuTrigger>;
 
   private activeMenuIndex: number | null = null;
   private closeTimer: ReturnType<typeof setTimeout> | null = null;
@@ -66,17 +74,10 @@ export class Header {
     return user?.Avatar ?? 'https://cdn-icons-png.flaticon.com/256/149/149071.png';
   }
 
-
   onMenuEnter(index: number) {
     this.isPointerOnTrigger = true;
     this.clearCloseTimer();
-
-    if (this.activeMenuIndex !== null && this.activeMenuIndex !== index) {
-      this.triggers.get(this.activeMenuIndex)?.closeMenu();
-    }
-
     this.activeMenuIndex = index;
-    this.triggers.get(index)?.openMenu();
   }
 
   onMenuLeave() {
@@ -100,7 +101,6 @@ export class Header {
 
     this.closeTimer = setTimeout(() => {
       if (!this.isPointerOnTrigger && !this.isPointerOnPanel && this.activeMenuIndex !== null) {
-        this.triggers.get(this.activeMenuIndex)?.closeMenu();
         this.activeMenuIndex = null;
       }
     }, 2000);
@@ -121,18 +121,9 @@ export class Header {
     }
   }
 
-  openSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    sidebar?.classList.add('open');
-    overlay?.classList.add('active');
-  }
-
   closeSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    sidebar?.classList.remove('open');
-    overlay?.classList.remove('active');
+    const menu = document.querySelector('ion-menu');
+    menu?.close();
   }
 
   toggleProfileMenu() {

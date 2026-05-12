@@ -1,10 +1,9 @@
 import {Component, Input} from '@angular/core';
+import { IonAvatar, IonImg } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-banner-profile',
-  imports: [
-
-  ],
+  imports: [IonAvatar, IonImg],
   templateUrl: './banner-profile.html',
   styleUrl: './banner-profile.css',
 })

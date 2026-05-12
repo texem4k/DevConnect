@@ -1,33 +1,43 @@
 <app-header></app-header>
-<main>
+<ion-content>
   <h1 class="title">¿Algún problema?</h1>
   <form [formGroup]="incidentsForm" (ngSubmit)="submitIncident()" class="form">
 
-    <label class="field">
-      <span class="field-label">Asunto del problema</span>
-      <input type="text" formControlName="topic" placeholder="Asunto del problema">
-      <p class="error">{{ topicError }}</p>
-    </label>
+    <ion-item>
+      <ion-label position="floating">Asunto del problema</ion-label>
+      <ion-input type="text" formControlName="topic" placeholder="Asunto del problema"></ion-input>
+    </ion-item>
+    @if (topicError) {
+      <ion-note color="danger">{{ topicError }}</ion-note>
+    }
 
-    <label class="field">
-      <span class="field-label">Correo de contacto</span>
-      <input type="email" formControlName="email" placeholder="Correo">
-      <p class="error">{{ emailError }}</p>
-    </label>
+    <ion-item>
+      <ion-label position="floating">Correo de contacto</ion-label>
+      <ion-input type="email" formControlName="email" placeholder="Correo"></ion-input>
+    </ion-item>
+    @if (emailError) {
+      <ion-note color="danger">{{ emailError }}</ion-note>
+    }
 
-    <label class="field field-large">
-      <span class="field-label">Describe detalladamente el problema que tienes...</span>
-      <textarea formControlName="text"></textarea>
-      <p class="error">{{ textError }}</p>
-    </label>
+    <ion-item>
+      <ion-label position="floating">Describe detalladamente el problema que tienes...</ion-label>
+      <ion-textarea formControlName="text" rows="5"></ion-textarea>
+    </ion-item>
+    @if (textError) {
+      <ion-note color="danger">{{ textError }}</ion-note>
+    }
 
-    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-    <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+    @if (errorMessage) {
+      <ion-note color="danger">{{ errorMessage }}</ion-note>
+    }
+    @if (successMessage) {
+      <ion-note color="success">{{ successMessage }}</ion-note>
+    }
 
-    <button type="submit" class="submit-btn" [disabled]="isSubmitting">
+    <ion-button type="submit" [disabled]="isSubmitting" expand="block">
       {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
-    </button>
+    </ion-button>
 
   </form>
-</main>
+</ion-content>
 <app-footer></app-footer>

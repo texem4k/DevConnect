@@ -17,6 +17,7 @@ import {ActivatedRoute} from '@angular/router';
 import {firstValueFrom} from 'rxjs';
 import {AuthService} from '../../core/services/auth-service';
 import {UserService} from '../../core/services/user-crud';
+import { IonHeader, IonToolbar, IonButtons, IonButton, IonTitle, IonContent, IonItem, IonLabel, IonTextarea, IonDatetime, IonNote } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-create-project',
@@ -24,7 +25,18 @@ import {UserService} from '../../core/services/user-crud';
     Footer,
     GetInputText,
     ReactiveFormsModule,
-    SearchTopicsComponent
+    SearchTopicsComponent,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonButton,
+    IonTitle,
+    IonContent,
+    IonItem,
+    IonLabel,
+    IonTextarea,
+    IonDatetime,
+    IonNote,
   ],
   templateUrl: './create-project.html',
   styleUrl: './create-project.css',
@@ -163,13 +175,6 @@ export class CreateProject implements OnInit {
     } else {
       this.pressedSubmit = true;
     }
-  }
-
-  protected readonly String = String;
-  protected readonly document = document;
-
-  protected openCalendar(dateInput: HTMLInputElement) {
-    dateInput.showPicker();
   }
 
   protected readonly history = history;

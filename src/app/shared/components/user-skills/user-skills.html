@@ -12,11 +12,11 @@
 </div>-->
 
 
-<div class="profileSkillContainer">
-  <p class="profileInformationTag">{{ label }}</p>
-  <div class="profileSkillContainerFields">
+<ion-item class="profileSkillContainer">
+  <ion-label class="profileInformationTag">{{ label }}</ion-label>
+  <div class="profileSkillContainerFields" slot="end">
     @for (topic of topics.slice(0, 3); track $index) {
       <app-topic-box-btn [topic]="topic.name" />
     }
   </div>
-</div>
+</ion-item>

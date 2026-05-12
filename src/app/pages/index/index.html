@@ -1,5 +1,5 @@
 <app-header></app-header>
-<main>
+<ion-content>
   <app-banner></app-banner>
   <h2 class="introduction">Usuarios trending</h2>
 
@@ -9,7 +9,7 @@
     }
   </section>
   <div class="discoverButton">
-    <button type="button" (click)="discoverUsers()">Más información</button>
+    <ion-button type="button" (click)="discoverUsers()">Más información</ion-button>
   </div>
 
   <br><br>
@@ -18,9 +18,7 @@
   <section class="trendingProjects"><app-media-list [projects]="projects?.slice(0,4)!"></app-media-list></section>
 
   <div class="discoverButton">
-    <button type="button" (click)="discoverProjects()">Más información</button>
+    <ion-button type="button" (click)="discoverProjects()">Más información</ion-button>
   </div>
-
-
-</main>
+</ion-content>
 <app-footer></app-footer>

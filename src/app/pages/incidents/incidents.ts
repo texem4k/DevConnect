@@ -1,14 +1,15 @@
-import { Component, inject, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Firestore, collection, addDoc, Timestamp } from '@angular/fire/firestore';
 import { Footer } from '../../shared/components/footer/footer';
 import { Header } from '../../shared/components/header/header';
+import { IonContent, IonItem, IonLabel, IonInput, IonTextarea, IonButton, IonNote } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-incidents',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, Footer, Header],
+  imports: [ReactiveFormsModule, CommonModule, Footer, Header, IonContent, IonItem, IonLabel, IonInput, IonTextarea, IonButton, IonNote],
   templateUrl: './incidents.html',
   styleUrl: './incidents.css',
 })

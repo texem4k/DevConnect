@@ -2,10 +2,11 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {Project} from '../../../core/models/project.model';
 import {User} from '../../../core/models/user.model';
+import { IonItem, IonThumbnail, IonImg, IonLabel, IonButtons, IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-media-component',
-  imports: [],
+  imports: [IonItem, IonThumbnail, IonImg, IonLabel, IonButtons, IonButton],
   templateUrl: './media-component.html',
   styleUrl: './media-component.css',
 })

@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-pagination-component',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IonButton],
   templateUrl: './pagination-component.html',
   styleUrl: './pagination-component.css',
 })

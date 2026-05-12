@@ -1,13 +1,13 @@
 import { Component, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { TopicBoxBtn } from '../topic-box-btn/topic-box-btn';
 import { collection, collectionData, Firestore, query, where } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { Topic } from '../../../core/models/topic.model';
 import { AsyncPipe } from '@angular/common';
+import { IonChip, IonLabel } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-topics-grid',
-  imports: [TopicBoxBtn, AsyncPipe],
+  imports: [AsyncPipe, IonChip, IonLabel],
   templateUrl: './topics-grid.html',
   styleUrl: './topics-grid.css',
 })

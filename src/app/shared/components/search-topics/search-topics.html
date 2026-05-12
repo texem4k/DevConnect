@@ -1,60 +1,41 @@
 <div class="search-wrapper">
 
   <!-- ── Search box ─────────────────────────────────────────────────── -->
-  <div class="search-box">
-    <input
-      type="text"
-      placeholder="Escribe para filtrar opciones..."
-      autocomplete="off"
-      [(ngModel)]="query"
-      (focus)="openDropdown()"
-      (click)="openDropdown()"
-      (input)="openDropdown()"
-    />
-    <span class="search-icon">⌕</span>
-  </div>
+  <ion-searchbar
+    placeholder="Escribe para filtrar opciones..."
+    [(ngModel)]="query"
+    (ionFocus)="openDropdown()"
+    (ionInput)="openDropdown()"
+    (click)="openDropdown()"
+  ></ion-searchbar>
 
   <!-- ── Dropdown ───────────────────────────────────────────────────── -->
   <div class="dropdownTopics" [class.open]="isOpen">
-    <div class="options-list">
+    <ion-list class="options-list">
 
-      <ng-container *ngIf="filteredOptions.length; else noResults">
-        <div
-          *ngFor="let option of filteredOptions"
-          class="dropdown-item"
-          [class.selected]="isSelected(option.id)"
-          [ngClass]="'cat-' + option.category"
-          (mousedown)="toggleOption($event, option.id)"
-        >
-          <!-- Checkbox visual -->
-          <div class="checkbox">
-            <svg class="checkmark" viewBox="0 0 10 10">
-              <polyline
-                points="1.5,5 4,7.5 8.5,2"
-                stroke="#0e0e10"
-                stroke-width="1.8"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
+      @if (filteredOptions.length) {
+        @for (option of filteredOptions; track option.id) {
+          <ion-item
+            class="dropdown-item"
+            [class.selected]="isSelected(option.id)"
+            (mousedown)="toggleOption($event, option.id)"
+          >
+            <ion-checkbox
+              slot="start"
+              [checked]="isSelected(option.id)"
+            ></ion-checkbox>
+            <ion-label>
+              <div class="item-name" [innerHTML]="highlight(option.name)"></div>
+              <div class="item-category">{{ option.cat }}</div>
+            </ion-label>
+            <ion-badge slot="end">{{ option.category }}</ion-badge>
+          </ion-item>
+        }
+      } @else {
+        <ion-item class="no-results">Sin resultados para "{{ query }}"</ion-item>
+      }
 
-          <!-- Nombre + categoría -->
-          <div class="item-meta">
-            <div class="item-name" [innerHTML]="highlight(option.name)"></div>
-            <div class="item-category">{{ option.cat }}</div>
-          </div>
-
-          <span class="badge">{{ option.category }}</span>
-        </div>
-      </ng-container>
-
-      <ng-template #noResults>
-        <div class="no-results">Sin resultados para "{{ query }}"</div>
-      </ng-template>
-
-    </div>
+    </ion-list>
   </div>
 
   <!-- ── Selected section ───────────────────────────────────────────── -->
@@ -63,33 +44,28 @@
       <span class="section-label">Seleccionados</span>
 
       <div class="header-actions">
-        <span class="count-badge" [class.visible]="selectedCount > 0">
+        <ion-badge [class.visible]="selectedCount > 0">
           {{ selectedCount }}
-        </span>
-        <button
-          *ngIf="selectedCount > 0"
-          class="clear-btn"
-          (click)="clearAll($event)"
-        >
-          limpiar todo
-        </button>
+        </ion-badge>
+        @if (selectedCount > 0) {
+          <ion-button fill="clear" size="small" (click)="clearAll($event)">
+            limpiar todo
+          </ion-button>
+        }
       </div>
     </div>
 
     <div class="tags-area">
-      <span *ngIf="selectedCount === 0" class="empty-hint">
-        ninguna opción seleccionada aún
-      </span>
+      @if (selectedCount === 0) {
+        <span class="empty-hint">ninguna opción seleccionada aún</span>
+      }
 
-      <div
-        *ngFor="let item of selectedItems"
-        class="tag"
-        [ngClass]="'cat-' + item.category"
-      >
-        <span class="tag-dot"></span>
-        {{ item.name }}
-        <button class="tag-remove" (click)="removeTag(item.id)" title="Quitar">✕</button>
-      </div>
+      @for (item of selectedItems; track item.id) {
+        <ion-chip [class]="'cat-' + item.category">
+          <ion-label>{{ item.name }}</ion-label>
+          <ion-icon name="close" (click)="removeTag(item.id)"></ion-icon>
+        </ion-chip>
+      }
     </div>
   </div>
 

@@ -9,6 +9,7 @@ import {ProjectService} from '../../core/services/project-crud';
 import {UserService} from '../../core/services/user-crud';
 import {Header} from '../../shared/components/header/header';
 import {AuthService} from '../../core/services/auth-service';
+import { IonContent } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-manage-project',
@@ -17,6 +18,7 @@ import {AuthService} from '../../core/services/auth-service';
     PaginationComponent,
     MediaList,
     Header,
+    IonContent,
   ],
   templateUrl: './manage-project.html',
   styleUrl: './manage-project.css',

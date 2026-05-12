@@ -1,8 +1,9 @@
 import {Component, Input} from '@angular/core';
+import { IonChip, IonLabel } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-skill-field',
-  imports: [],
+  imports: [IonChip, IonLabel],
   templateUrl: './skill-field.html',
   styleUrl: './skill-field.css',
 })

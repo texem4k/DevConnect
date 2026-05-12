@@ -11,7 +11,7 @@ import {User} from '../../core/models/user.model';
 import {Topic} from '../../core/models/topic.model';
 import {UserService} from '../../core/services/user-crud';
 import {TopicService} from '../../core/services/topic-crud';
-
+import { IonContent, IonTextarea, IonItem, IonLabel, IonButton, IonModal, IonHeader, IonToolbar, IonTitle, IonButtons, IonNote } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-manage-profile',
@@ -21,7 +21,18 @@ import {TopicService} from '../../core/services/topic-crud';
     BannerProfile,
     Footer,
     SearchTopicsComponent,
-    FormsModule
+    FormsModule,
+    IonContent,
+    IonTextarea,
+    IonItem,
+    IonLabel,
+    IonButton,
+    IonModal,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonButtons,
+    IonNote,
   ],
   templateUrl: './manage-profile.html',
   styleUrl: './manage-profile.css',

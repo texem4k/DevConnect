@@ -1,29 +1,33 @@
 <div class="cardGrid">
   <h1>{{ title }}</h1>
-  <section class="cardsSection">
-
-    @if (isProject) {
-      @for (item of itemsLimitados; track item.id) {
-        <app-information-card
-          [id]="item.id"
-          tipo="proyecto"
-          [imagen]="item.image"
-          [titulo]="item.title"
-          [descripcion]="item.description"
-        />
+  <ion-grid>
+    <ion-row class="cardsSection">
+      @if (isProject) {
+        @for (item of itemsLimitados; track item.id) {
+          <ion-col size="12" size-md="6" size-lg="3">
+            <app-information-card
+              [id]="item.id"
+              tipo="proyecto"
+              [imagen]="item.image"
+              [titulo]="item.title"
+              [descripcion]="item.description"
+            />
+          </ion-col>
+        }
+      } @else {
+        @for (item of itemsLimitados; track item.id) {
+          <ion-col size="12" size-md="6" size-lg="3">
+            <app-information-card
+              tipo="usuario"
+              [id]="item.uid"
+              [imagen]="item.Avatar"
+              [titulo]="item.Fullname"
+              [descripcion]="item.Description"
+              [topics]="item.Topic"
+            />
+          </ion-col>
+        }
       }
-    } @else {
-      @for (item of itemsLimitados; track item.id) {
-        <app-information-card
-          tipo="usuario"
-          [id]="item.uid"
-          [imagen]="item.Avatar"
-          [titulo]="item.Fullname"
-          [descripcion]="item.Description"
-          [topics]="item.Topic"
-        />
-      }
-    }
-
-  </section>
+    </ion-row>
+  </ion-grid>
 </div>

@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonChip, IonLabel } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-topic-box-btn',
-  imports: [],
+  imports: [IonChip, IonLabel],
   templateUrl: './topic-box-btn.html',
   styleUrl: './topic-box-btn.css',
 })

@@ -1,9 +1,10 @@
 import {Component, Input} from '@angular/core';
 import {InformationCard} from '../information-card/information-card';
+import { IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-cards-grid',
-  imports: [InformationCard],
+  imports: [InformationCard, IonGrid, IonRow, IonCol],
   templateUrl: './cards-grid.html',
   styleUrl: './cards-grid.css',
 })

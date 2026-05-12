@@ -1,8 +1,6 @@
 <app-header></app-header>
-
-<body>
-@if(projects){
-  <main>
+<ion-content>
+  @if(projects){
     <div class="project-container">
       <app-media-list
         [projects]="projects!"
@@ -11,11 +9,8 @@
         (delete)="onDelete($event)">
       </app-media-list>
     </div>
-    <div class="button-container">
-    </div>
-  </main>
 
-  <app-pagination-component></app-pagination-component>
-  <app-footer></app-footer>
-}
-</body>
+    <app-pagination-component></app-pagination-component>
+  }
+</ion-content>
+<app-footer></app-footer>

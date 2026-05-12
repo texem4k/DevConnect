@@ -1,4 +1,4 @@
-<div class="profileInformationContainer">
-  <h3 class="profileInformationTag">{{title}}</h3>
-  <a readonly href="{{link}}">{{socialNetwork}}</a>
-</div>
+<ion-item class="profileInformationContainer">
+  <ion-label class="profileInformationTag">{{title}}</ion-label>
+  <a [href]="link" slot="end">{{socialNetwork}}</a>
+</ion-item>

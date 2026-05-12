@@ -1,28 +1,29 @@
 @if(totalPages > 1) {
   <div class="pagination">
-
-    <button
+    <ion-button
       (click)="pageChange.emit(currentPage - 1)"
       [disabled]="currentPage === 1"
+      fill="clear"
     >
       ‹
-    </button>
+    </ion-button>
 
     @for(page of pageNumbers; track page) {
-      <button
+      <ion-button
         (click)="pageChange.emit(page)"
         [class.active]="page === currentPage"
+        fill="clear"
       >
         {{ page }}
-      </button>
+      </ion-button>
     }
 
-    <button
+    <ion-button
       (click)="pageChange.emit(currentPage + 1)"
       [disabled]="currentPage === totalPages"
+      fill="clear"
     >
       ›
-    </button>
-
+    </ion-button>
   </div>
 }

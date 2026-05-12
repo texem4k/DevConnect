@@ -1,10 +1,13 @@
-<body>
-<header>
-  <button class="backButton" (click)="history.back()">←</button>
-  <h1 class="title">Registro en Devconnect</h1>
-</header>
-<main>
-  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()" )>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="history.back()">←</ion-button>
+    </ion-buttons>
+    <ion-title>Registro en Devconnect</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h2>¿Cómo quieres que te vea el mundo?</h2>
 
     <app-get-input-text
@@ -36,8 +39,6 @@
         validPasswords: 'Ambas contraseñas no son iguales, por favor, cambie estos campos.'}"
       [maxlength]="'64'"
     ></app-get-input-text>
-
-
 
     <h2>Información personal (El nombre y apellido no podrán cambiarse más tarde, tenga cuidado)</h2>
     <section>
@@ -85,26 +86,26 @@
     </section>
 
     <h2>¿Eres un particular o una empresa?</h2>
-    <div class="particularOption">
-      <label>
-        <input type="radio" formControlName="option" value="false">
-        <span class="radio-circle"></span>
-        <span class="typeUser">Crear cuenta cómo particular</span>
-      </label>
-      <p class="description">Como particular tienes todas las opciones que dispone Devconnect para conectar, crear y unirse a diversos proyectos, ya sean creados por empresas o por particulares.</p>
-    </div>
-
-    <div class="companyOption">
-      <label class="radio-option">
-        <input type="radio" formControlName="option" value="true">
-        <span class="radio-circle"></span>
-        <span class="typeUser">Crear cuenta cómo empresa</span>
-      </label>
-      <p class="description">Como empresa tienes todas las opcions que dispone un usuario particular, pero con otras opciones más enfocadas al entorno laboral, como poder contactar con los usuarios que cumplan ciertos requisitos para vuestra plantilla, hacer rondas de contratación y entre otros. </p>
-    </div>
-    <br>
+    <ion-list>
+      <ion-radio-group formControlName="option">
+        <ion-item>
+          <ion-radio value="false" slot="start"></ion-radio>
+          <ion-label>
+            <strong>Crear cuenta cómo particular</strong>
+            <p>Como particular tienes todas las opciones que dispone Devconnect para conectar, crear y unirse a diversos proyectos, ya sean creados por empresas o por particulares.</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="true" slot="start"></ion-radio>
+          <ion-label>
+            <strong>Crear cuenta cómo empresa</strong>
+            <p>Como empresa tienes todas las opciones que dispone un usuario particular, pero con otras opciones más enfocadas al entorno laboral, como poder contactar con los usuarios que cumplan ciertos requisitos para vuestra plantilla, hacer rondas de contratación y entre otros.</p>
+          </ion-label>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
     @if(getControl('option').touched && getControl('option').invalid){
-      <p style="color: red">Debes seleccionar alguna opción</p>
+      <ion-note color="danger">Debes seleccionar alguna opción</ion-note>
     }
 
     <app-search-topics
@@ -114,28 +115,29 @@
     </app-search-topics>
 
     @if(pressedSubmit && !validTopicsSelection()) {
-      <p style="font-size: 0.9rem; color: red">Debes seleccionar al menos un idioma y un lenguaje</p>
+      <ion-note color="danger">Debes seleccionar al menos un idioma y un lenguaje</ion-note>
     }
-    <label class="drop-area">
-      <p>Añade alguna imagen para tu foto de perfil.</p>
-      <input type="file" accept="image/*" (change)="onFileSelected($event)"/>
-    </label>
+
+    <ion-item>
+      <ion-label>
+        <p>Añade alguna imagen para tu foto de perfil.</p>
+      </ion-label>
+      <input type="file" accept="image/*" (change)="onFileSelected($event)" hidden #fileInput>
+      <ion-button slot="end" (click)="fileInput.click()">Seleccionar archivo</ion-button>
+    </ion-item>
 
     @if(preview) {
       <p class="photoUser">Tu imagen se ve así:</p>
       <div class="preview">
-        <img [src]="preview" alt="Preview foto de perfil"/>
+        <ion-img [src]="preview" alt="Preview foto de perfil"></ion-img>
       </div>
     }
 
     @if (registrationError) {
-      <p class="error-message" style="color: red; text-align: center;">{{ registrationError }}</p>
+      <ion-note color="danger">{{ registrationError }}</ion-note>
     }
 
-    <button type="submit" class="endButton">Registrarse</button>
+    <ion-button type="submit" expand="block">Registrarse</ion-button>
   </form>
-
-</main>
+</ion-content>
 <app-footer></app-footer>
-
-</body>

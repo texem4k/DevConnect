@@ -1,6 +1,8 @@
 <div class="profileContainer">
   <div class="bannerProfile" [style.background-image]="'url(' + banner + ')'">
-    <img class="profilePicture" [src]="avatar" [alt]="titulo">
+    <ion-avatar class="profilePicture">
+      <ion-img [src]="avatar" [alt]="titulo"></ion-img>
+    </ion-avatar>
   </div>
 
   <h1 class="profileName">{{ titulo }}</h1>

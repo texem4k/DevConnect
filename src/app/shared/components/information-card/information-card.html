@@ -1,24 +1,18 @@
-<div class="cardLayout">
-  <button class="informationCard" (click)="navegarAPerfil()">
-    <div class="cardImage">
-      <img [src]="imagen" [alt]="titulo">
-    </div>
-    <div class="cardContent">
-      <div>
-        <h2>{{ titulo }}</h2>
-        @if(topics.length>0){
-          <div class="topicsRow">
-            @for (topic of topics$ | async; track topic.id) {
-              <app-topic-box-btn
-                [topic]="topic.name"
-                [id]="topic.id!"
-                (click)="$event.stopPropagation()"
-              />
-            }
-          </div>
+<ion-card class="cardLayout" (click)="navegarAPerfil()">
+  <ion-img [src]="imagen" [alt]="titulo" class="cardImage"></ion-img>
+  <ion-card-content class="cardContent">
+    <ion-card-title>{{ titulo }}</ion-card-title>
+    @if(topics.length>0){
+      <div class="topicsRow">
+        @for (topic of topics$ | async; track topic.id) {
+          <app-topic-box-btn
+            [topic]="topic.name"
+            [id]="topic.id!"
+            (click)="$event.stopPropagation()"
+          />
         }
       </div>
-      <p>{{ descripcion }}</p>
-    </div>
-  </button>
-</div>
+    }
+    <p>{{ descripcion }}</p>
+  </ion-card-content>
+</ion-card>

@@ -1,16 +1,14 @@
 <app-header></app-header>
+<ion-content>
+  @if(isLoading) {
+    <p>Cargando...</p>
+  } @else if(userInformation) {
 
-@if(isLoading) {
-  <p>Cargando...</p>
-} @else if(userInformation) {
-
-  <app-banner-profile
-    [avatar]="userInformation.Avatar"
-    [banner]="userInformation.Banner"
-    [titulo]="userInformation.Nickname">
-  </app-banner-profile>
-
-  <main>
+    <app-banner-profile
+      [avatar]="userInformation.Avatar"
+      [banner]="userInformation.Banner"
+      [titulo]="userInformation.Nickname">
+    </app-banner-profile>
 
     <section class="profileInformation">
 
@@ -51,84 +49,73 @@
       ></app-search-topics>
 
       @if(pressedSubmit && !validTopicsSelection()) {
-        <p style="font-size: 0.9rem; color: red">Debes seleccionar al menos un idioma y un lenguaje</p>
+        <ion-note color="danger">Debes seleccionar al menos un idioma y un lenguaje</ion-note>
       }
 
     </section>
 
     <section class="userDescription">
       <h3>Descripción</h3>
-      <textarea [(ngModel)]="description" placeholder="Hola, soy ...." wrap="soft" rows="5" cols="120"></textarea>
+      <ion-textarea [(ngModel)]="description" placeholder="Hola, soy ...." rows="5"></ion-textarea>
 
       <section class="uploadContent">
+        <ion-item>
+          <ion-label>
+            <strong>Pulsa para cambiar tu foto de perfil</strong>
+            <p>Tamaño MxN máximo X, formato JPG o PNG</p>
+          </ion-label>
+          <input class="file-upload" type="file" accept="image/png, image/jpeg, image/jpg" hidden #avatarInput>
+          <ion-button slot="end" (click)="avatarInput.click()">⬆️</ion-button>
+        </ion-item>
 
-        <div class="profileInformationUpload">
-          <label class="upload-box">
-            <div class="upload-content">
-              <div class="icon">⬆️</div>
-              <p><strong>Pulsa para cambiar tu foto de perfil</strong></p>
-              <span>Tamaño MxN máximo X, formato JPG o PNG</span>
-            </div>
-            <input class="file-upload" type="file" accept="image/png, image/jpeg, image/jpg"/>
-          </label>
-        </div>
-
-        <div class="profileInformationUpload">
-          <label for="banner-upload" class="upload-box">
-            <div class="upload-content">
-              <div class="icon">⬆️</div>
-              <p><strong>Pulsa para cambiar el banner</strong></p>
-              <span>Tamaño máximo MxN, formato JPG o PNG</span>
-            </div>
-            <input class="file-upload" id="banner-upload" type="file" accept="image/png, image/jpeg, image/jpg"/>
-          </label>
-        </div>
-
+        <ion-item>
+          <ion-label>
+            <strong>Pulsa para cambiar el banner</strong>
+            <p>Tamaño máximo MxN, formato JPG o PNG</p>
+          </ion-label>
+          <input class="file-upload" id="banner-upload" type="file" accept="image/png, image/jpeg, image/jpg" hidden #bannerInput>
+          <ion-button slot="end" (click)="bannerInput.click()">⬆️</ion-button>
+        </ion-item>
       </section>
     </section>
 
-  </main>
+    <section class="profileInformationButtons">
+      <ion-button (click)="openPasswordModal()" type="button">Actualizar</ion-button>
+      <ion-button fill="outline" (click)="history.back()" type="button">Cancelar</ion-button>
+    </section>
+    <br>
 
-  <section class="profileInformationButtons">
-    <button class="profileInformationButtonManageProfile" (click)="openPasswordModal()" type="button">Actualizar</button>
-    <button class="profileButton" (click)="history.back()" type="button">Cancelar</button>
-  </section>
-  <br>
+    @if(showPasswordModal) {
+      <ion-modal (ionDidDismiss)="closePasswordModal()">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>🔒 Confirmar identidad</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content>
+            <p>Introduce tu contraseña actual para guardar los cambios</p>
+            <app-get-input-text
+              [label]="'Contraseña actual'"
+              [placeholder]="'Introduce tu contraseña'"
+              [control]="getControl('currentPassword')"
+              [errorMessages]="{required: 'La contraseña no puede estar vacía'}"
+              [type]="'password'"
+            ></app-get-input-text>
 
-  @if(showPasswordModal) {
-    <div class="modal-overlay" (click)="closePasswordModal()">
-      <div class="modal-container" (click)="$event.stopPropagation()">
+            @if(errorMessage) {
+              <ion-note color="danger">⚠️ {{ errorMessage }}</ion-note>
+            }
 
-        <div class="modal-header">
-          <span class="modal-icon">🔒</span>
-          <h2>Confirmar identidad</h2>
-          <p>Introduce tu contraseña actual para guardar los cambios</p>
-        </div>
+            <ion-buttons>
+              <ion-button (click)="closePasswordModal()" fill="outline">Cancelar</ion-button>
+              <ion-button (click)="confirmAndSubmit()">Confirmar</ion-button>
+            </ion-buttons>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    }
 
-        <div class="modal-body">
-          <app-get-input-text
-            [label]="'Contraseña actual'"
-            [placeholder]="'Introduce tu contraseña'"
-            [control]="getControl('currentPassword')"
-            [errorMessages]="{required: 'La contraseña no puede estar vacía'}"
-            [type]="'password'"
-          ></app-get-input-text>
-
-          @if(errorMessage) {
-            <p style="font-size: 0.9rem; color: red">⚠️ {{ errorMessage }}</p>
-          }
-
-        </div>
-
-        <div class="modal-actions">
-          <button class="modal-btn-cancel" (click)="closePasswordModal()" type="button">Cancelar</button>
-          <button class="modal-btn-confirm" (click)="confirmAndSubmit()" type="button">Confirmar</button>
-        </div>
-
-      </div>
-    </div>
   }
-
-}
-
+</ion-content>
 <app-footer></app-footer>

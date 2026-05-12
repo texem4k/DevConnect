@@ -1,9 +1,8 @@
-<body>
-<main>
+<ion-content>
   <div class="login-page">
     <div class="sectionLayout">
       <div class="header">
-        <button class="backButton" type="button" (click)="goBack()">←</button>
+        <ion-button fill="clear" (click)="goBack()">←</ion-button>
         <h1 class="title">Iniciar Sesión</h1>
       </div>
 
@@ -23,58 +22,55 @@
         </div>
 
         <div class="form-group">
-          <label id="input">
-            <p>Contraseña</p>
-            <div class="password-wrapper">
-              <input
-                [formControl]="loginForm.controls['password']"
-                (blur)="loginForm.controls['password'].markAsTouched()"
-                [type]="showPassword ? 'text' : 'password'"
-                placeholder="Contraseña"
-                maxlength="64"
-              />
-              <button type="button" class="toggle-password" (click)="togglePassword()">
-                {{ showPassword ? '🙈' : '👁️' }}
-              </button>
-            </div>
-          </label>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input
+              [formControl]="loginForm.controls['password']"
+              (ionBlur)="loginForm.controls['password'].markAsTouched()"
+              [type]="showPassword ? 'text' : 'password'"
+              placeholder="Contraseña"
+              maxlength="64"
+            ></ion-input>
+            <ion-button slot="end" fill="clear" (click)="togglePassword()">
+              {{ showPassword ? '🙈' : '👁️' }}
+            </ion-button>
+          </ion-item>
 
           @if (password?.touched && password?.hasError('required')) {
-            <small class="passwordError">La contraseña es obligatoria.</small>
+            <ion-note color="danger">La contraseña es obligatoria.</ion-note>
           }
           @if (password?.touched && password?.hasError('minlength')) {
-            <small class="passwordError">La contraseña debe tener al menos 8 caracteres.</small>
+            <ion-note color="danger">La contraseña debe tener al menos 8 caracteres.</ion-note>
           }
           @if (password?.touched && password?.hasError('pattern')) {
-            <small class="passwordError">Debe contener al menos una mayúscula, minúscula, un número y un carácter especial (!#$%...).</small>
+            <ion-note color="danger">Debe contener al menos una mayúscula, minúscula, un número y un carácter especial (!#$%...).</ion-note>
           }
           @if (password?.touched && password?.hasError('maxlength')) {
-            <small class="passwordError">Contraseña demasiado larga, tamaño máximo 64.</small>
+            <ion-note color="danger">Contraseña demasiado larga, tamaño máximo 64.</ion-note>
           }
         </div>
 
         @if (generalError) {
-          <p class="passwordError">{{ generalError }}</p>
+          <ion-note color="danger">{{ generalError }}</ion-note>
         }
 
-        <button class="primary-btn" type="submit" [disabled]="loading">
+        <ion-button type="submit" [disabled]="loading" expand="block">
           {{ loading ? 'Entrando...' : 'Iniciar sesión' }}
-        </button>
+        </ion-button>
         <br>
-        <button class="secondary-btn" type="button" routerLink="/UserRegistration">
+        <ion-button fill="outline" expand="block" routerLink="/UserRegistration">
           Crear cuenta
-        </button>
+        </ion-button>
 
         <p class="helpText">
           Si surgió algún problema, ¡No dudes en avisarnos!
         </p>
 
-        <button class="secondary-btn" type="button" routerLink="/Incidents">
+        <ion-button fill="clear" expand="block" routerLink="/Incidents">
           Incidencias
-        </button>
+        </ion-button>
 
       </form>
     </div>
   </div>
-</main>
-</body>
+</ion-content>

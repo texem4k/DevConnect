@@ -12,6 +12,7 @@ import {Topic} from '../../core/models/topic.model';
 import {TopicService} from '../../core/services/topic-crud';
 import {SearchTopicsComponent} from '../../shared/components/search-topics/search-topics';
 import {Footer} from '../../shared/components/footer/footer';
+import { IonHeader, IonToolbar, IonButtons, IonButton, IonTitle, IonContent, IonList, IonRadioGroup, IonItem, IonRadio, IonLabel, IonImg, IonNote } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-user-registration',
@@ -20,7 +21,20 @@ import {Footer} from '../../shared/components/footer/footer';
     FormsModule,
     SearchTopicsComponent,
     ReactiveFormsModule,
-    Footer
+    Footer,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonButton,
+    IonTitle,
+    IonContent,
+    IonList,
+    IonRadioGroup,
+    IonItem,
+    IonRadio,
+    IonLabel,
+    IonImg,
+    IonNote,
   ],
   templateUrl: './user-registration.html',
   styleUrl: './user-registration.css',

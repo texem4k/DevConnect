@@ -10,6 +10,7 @@ import {User} from '../../core/models/user.model';
 import { tap } from 'rxjs';
 import {switchMap} from 'rxjs/operators';
 import {Header} from '../../shared/components/header/header';
+import { IonContent, IonImg, IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-project-profile',
@@ -18,7 +19,10 @@ import {Header} from '../../shared/components/header/header';
     RouterLink,
     TopicsGrid,
     Footer,
-    Header
+    Header,
+    IonContent,
+    IonImg,
+    IonButton,
   ],
   templateUrl: './project-profile.html',
   styleUrl: './project-profile.css',

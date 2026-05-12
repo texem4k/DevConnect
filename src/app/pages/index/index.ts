@@ -9,7 +9,7 @@ import {UserService} from '../../core/services/user-crud';
 import {ProjectService} from '../../core/services/project-crud';
 import {User} from '../../core/models/user.model';
 import {Project} from '../../core/models/project.model';
-
+import { IonContent, IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +19,8 @@ import {Project} from '../../core/models/project.model';
     MediaList,
     Footer,
     Header,
+    IonContent,
+    IonButton,
   ],
   templateUrl: './index.html',
   styleUrl: './index.css',

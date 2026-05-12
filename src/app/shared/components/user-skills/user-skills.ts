@@ -3,10 +3,11 @@ import {TopicBoxBtn} from '../topic-box-btn/topic-box-btn';
 import {Topic} from '../../../core/models/topic.model';
 import {EMPTY, Observable} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
+import { IonItem, IonLabel } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-user-skills',
-  imports: [TopicBoxBtn],
+  imports: [TopicBoxBtn, IonItem, IonLabel],
   templateUrl: './user-skills.html',
   styleUrl: './user-skills.css',
 })

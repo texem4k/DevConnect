@@ -1,112 +1,110 @@
-<header>
-  <div class="header-left">
-    <nav class="header-home">
-      <button id="home-btn" class="home-btn">
-        <a routerLink="/"><img src="https://cdn-icons-png.flaticon.com/256/6583/6583566.png" alt="Inicio"></a>
-      </button>
-    </nav>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/">
+        <ion-img src="https://cdn-icons-png.flaticon.com/256/6583/6583566.png" alt="Inicio" class="home-icon"></ion-img>
+      </ion-button>
+    </ion-buttons>
 
-    <nav class="header-nav">
+    <ion-buttons slot="start" class="header-nav header-left">
       @for (topico of topicos$ | async; track topico.id; let i = $index) {
-        <div class="dropdown">
-          <button
-            class="dropdown-btn"
-            mat-button
-            [matMenuTriggerFor]="topicoMenu"
-            (mouseenter)="onMenuEnter(i)"
-            (mouseleave)="onMenuLeave()">
+        <div class="dropdown"
+             (mouseenter)="onMenuEnter(i)"
+             (mouseleave)="onMenuLeave()">
+          <ion-button fill="clear" class="dropdown-btn">
             {{ topico.nombre }}
-          </button>
-
-          <mat-menu
-            #topicoMenu="matMenu"
-            class="topico-menu"
-            [hasBackdrop]="false"
-            (mouseenter)="onPanelEnter(i)"
-            (mouseleave)="onPanelLeave()">
+          </ion-button>
+          <div class="dropdown-content"
+               (mouseenter)="onPanelEnter(i)"
+               (mouseleave)="onPanelLeave()">
             @for (item of topico.items; track item) {
-              <button
-                mat-menu-item
+              <ion-item button
                 [routerLink]="['/SearchResult']"
-                [queryParams]="buildQueryParams(topico.id, item)">
+                [queryParams]="buildQueryParams(topico.id, item)"
+                class="dropdown-item">
                 {{ item }}
-              </button>
+              </ion-item>
             }
-          </mat-menu>
+          </div>
         </div>
       }
-    </nav>
-  </div>
+    </ion-buttons>
 
-  <label id="ham-btn" class="hamburger" (click)="openSidebar()">☰</label>
+    <ion-buttons slot="end" class="header-right">
+      <ion-searchbar
+        placeholder="Buscar…"
+        [(ngModel)]="searchQuery"
+        (ionInput)="onSearch()"
+        class="search-input"
+      ></ion-searchbar>
 
-  <form class="search-form" role="search" (ngSubmit)="onSearch()">
-    <div class="search-wrapper">
-      <input class="search-input" type="search" id="q" placeholder="Buscar…" [(ngModel)]="searchQuery" name="q">
-      <button class="search-btn" type="submit" aria-label="Buscar">🔍</button>
-    </div>
-  </form>
+      @if (!isLoggedIn) {
+        <ion-button routerLink="/Login" fill="outline" class="login-btn">
+          Iniciar sesión
+        </ion-button>
+      } @else {
+        <div class="profile-dropdown-wrapper">
+          <ion-button fill="clear" (click)="toggleProfileMenu()" class="profile-avatar-btn">
+            <ion-img [src]="userPhoto" alt="Foto de perfil" class="profile-avatar"></ion-img>
+          </ion-button>
 
-  <nav class="header-right">
-    @if (!isLoggedIn) {
-      <button class="header-action-btn login-btn" routerLink="/Login">
-        Iniciar sesión
-      </button>
-    } @else {
-      <div class="profile-dropdown-wrapper">
-        <button class="profile-avatar-btn" (click)="toggleProfileMenu()">
-          <img [src]="userPhoto" alt="Foto de perfil" class="profile-avatar">
-        </button>
-
-        @if (isProfileMenuOpen) {
-          <div class="profile-dropdown">
-            <button class="dd-btn" [routerLink]="['/UserProfile', currentUserId]">Mi Perfil</button>
-            <button class="dd-btn" routerLink="/CreateProject">Crear Proyecto</button>
-            <button class="dd-btn" [routerLink]="['/ManageProject', currentUserId]">Gestionar Proyecto</button>
-            <button class="dd-btn logout-btn" (click)="onLogout()">Cerrar sesión</button>
-          </div>
-        }
-      </div>
-    }
-  </nav>
-</header>
-
-<div class="sidebar-overlay" id="overlay" (click)="closeSidebar()"></div>
-
-<aside class="sidebar" id="sidebar" aria-label="Menú de navegación">
-
-  <button class="sidebar-close" id="close-btn" aria-label="Cerrar menú" (click)="closeSidebar()">✕</button>
-
-  <nav class="sidebar-nav">
-    @for (topico of topicos$ | async; track topico.id) {
-      <details class="sidebar-accordion">
-        <summary class="sidebar-accordion-summary">{{ topico.nombre }}</summary>
-        <div class="sidebar-accordion-content">
-          @for (item of topico.items; track item) {
-            <button
-              class="sidebar-accordion-item"
-              [routerLink]="['/SearchResult']"
-              [queryParams]="buildQueryParams(topico.id, item)"
-            >
-              {{ item }}
-            </button>
+          @if (isProfileMenuOpen) {
+            <div class="profile-dropdown">
+              <ion-item button [routerLink]="['/UserProfile', currentUserId]">Mi Perfil</ion-item>
+              <ion-item button routerLink="/CreateProject">Crear Proyecto</ion-item>
+              <ion-item button [routerLink]="['/ManageProject', currentUserId]">Gestionar Proyecto</ion-item>
+              <ion-item button class="logout-btn" (click)="onLogout()">Cerrar sesión</ion-item>
+            </div>
           }
         </div>
-      </details>
-    }
-  </nav>
+      }
+    </ion-buttons>
 
-  <div class="sidebar-actions">
-    <button id="sb-home" class="sidebar-action-btn" routerLink="">Home</button>
+    <ion-buttons slot="primary">
+      <ion-menu-button id="ham-btn" class="hamburger"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-    @if (!isLoggedIn) {
-      <button id="sb-login" class="sidebar-action-btn" routerLink="/Login">Iniciar Sesión</button>
-    } @else {
-      <button id="sb-profile" class="sidebar-action-btn" [routerLink]="['/UserProfile', currentUserId]">Mi Perfil</button>
-      <button id="sb-create" class="sidebar-action-btn" routerLink="/CreateProject">Crear Proyecto</button>
-      <button id="sb-upload" class="sidebar-action-btn" [routerLink]="['/ManageProject', currentUserId]">Gestionar Proyecto</button>
-      <button id="sb-logout" class="sidebar-action-btn logout-btn" (click)="onLogout()">Cerrar Sesión</button>
-    }
-  </div>
+<ion-menu side="start" menuId="sidebar" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      @for (topico of topicos$ | async; track topico.id) {
+        <ion-item>
+          <ion-label>{{ topico.nombre }}</ion-label>
+        </ion-item>
+        @for (item of topico.items; track item) {
+          <ion-item
+            button
+            [routerLink]="['/SearchResult']"
+            [queryParams]="buildQueryParams(topico.id, item)"
+            (click)="closeSidebar()"
+          >
+            {{ item }}
+          </ion-item>
+        }
+      }
+    </ion-list>
 
-</aside>
+    <ion-list>
+      <ion-item button routerLink="" (click)="closeSidebar()">Home</ion-item>
+
+      @if (!isLoggedIn) {
+        <ion-item button routerLink="/Login" (click)="closeSidebar()">Iniciar Sesión</ion-item>
+      } @else {
+        <ion-item button [routerLink]="['/UserProfile', currentUserId]" (click)="closeSidebar()">Mi Perfil</ion-item>
+        <ion-item button routerLink="/CreateProject" (click)="closeSidebar()">Crear Proyecto</ion-item>
+        <ion-item button [routerLink]="['/ManageProject', currentUserId]" (click)="closeSidebar()">Gestionar Proyecto</ion-item>
+        <ion-item button class="logout-btn" (click)="onLogout()">Cerrar Sesión</ion-item>
+      }
+    </ion-list>
+  </ion-content>
+</ion-menu>

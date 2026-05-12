@@ -15,10 +15,11 @@ import {first, map, switchMap} from 'rxjs/operators';
 import { combineLatest, forkJoin, of } from 'rxjs';
 import { TopicService } from '../../core/services/topic-crud';
 import { AuthService } from '../../core/services/auth-service';
+import { IonContent, IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [BannerProfile, UserSkills, UserDataField, CardsGrid, Footer, Header, RouterLink],
+  imports: [BannerProfile, UserSkills, UserDataField, CardsGrid, Footer, Header, RouterLink, IonContent, IonButton],
   templateUrl: './user-profile.html',
   styleUrl: './user-profile.css',
 })

@@ -12,6 +12,7 @@ import { MediaList } from '../../shared/components/media-list/media-list';
 import { Footer } from '../../shared/components/footer/footer';
 import { Header } from '../../shared/components/header/header';
 import { PaginationComponent } from '../../shared/components/pagination-component/pagination-component';
+import { IonContent, IonItem, IonCheckbox, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-search-result',
@@ -24,7 +25,15 @@ import { PaginationComponent } from '../../shared/components/pagination-componen
     MediaList,
     Header,
     Footer,
-    PaginationComponent
+    PaginationComponent,
+    IonContent,
+    IonItem,
+    IonCheckbox,
+    IonRadioGroup,
+    IonRadio,
+    IonSelect,
+    IonSelectOption,
+    IonButton,
   ]
 })
 export class SearchResult implements OnInit, OnDestroy {

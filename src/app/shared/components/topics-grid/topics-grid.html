@@ -2,7 +2,9 @@
   <h1>{{ title }}</h1>
   <section class="topicsSection">
     @for (topic of topics$ | async; track topic) {
-      <app-topic-box-btn [topic]="topic.name"/>
+      <ion-chip>
+        <ion-label>{{ topic.name }}</ion-label>
+      </ion-chip>
     }
   </section>
 </div>

@@ -2,10 +2,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MediaComponent } from '../media-component/media-component';
 import { Project } from '../../../core/models/project.model';
 import { User } from '../../../core/models/user.model';
+import { IonList } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-media-list',
-  imports: [MediaComponent],
+  imports: [MediaComponent, IonList],
   templateUrl: './media-list.html',
   styleUrl: './media-list.css',
 })

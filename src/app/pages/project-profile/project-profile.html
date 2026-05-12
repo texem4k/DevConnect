@@ -1,33 +1,30 @@
-<body>
-
 <app-header></app-header>
+<ion-content>
+  @if(project){
+    <ion-img id="project-image" [src]="project.image" alt="Imagen proyecto"></ion-img>
 
-@if(project){
-  <img id="project-image" src="{{ project.image }}" alt="Imagen Lorem Ipsum">
+    <div class="overlay-text">
+      <h1>{{project.title}}</h1>
+      <a [routerLink]="['/UserProfile', id]">{{project.creator}}</a>
+    </div>
 
-  <div class="overlay-text">
-    <h1>{{project.title}}</h1>
-    <a [routerLink]="['/UserProfile', id]">{{project.creator}}</a>
-  </div>
+    <div class="page-layout">
+      <section class="main-content">
+        <h3>Descripción del proyecto:</h3>
+        <p>{{project!.description}}</p>
+        <app-cards-grid
+          [title]="'Colaboradores'"
+          [isProject]="false"
+          [items]="maintainers"></app-cards-grid>
+      </section>
 
-  <div class="page-layout">
-    <main class="main-content">
-      <h3>Descripción del proyecto:</h3>
-      <p>{{project!.description}}</p>
-      <app-cards-grid
-        [title]="'Colaboradores'"
-        [isProject]="false"
-        [items]="maintainers"></app-cards-grid>
-    </main>
+      <aside>
+        <app-topics-grid [title]="'Requisitos'" [items]="project.requireTopic"></app-topics-grid>
 
-    <aside>
-      <app-topics-grid [title]="'Requisitos'" [items]="project.requireTopic"></app-topics-grid>
-
-      <h3>Inscripción</h3>
-      <button id="inscription-button">Inscribirse</button>
-    </aside>
-  </div>
-  <app-footer></app-footer>
-}
-
-</body>
+        <h3>Inscripción</h3>
+        <ion-button id="inscription-button">Inscribirse</ion-button>
+      </aside>
+    </div>
+  }
+</ion-content>
+<app-footer></app-footer>

@@ -1,6 +1,5 @@
 <app-header></app-header>
-<body>
-
+<ion-content>
   @if (userInformation) {
     <app-banner-profile
       [titulo]="userInformation.Nickname"
@@ -10,8 +9,8 @@
 
     <section class="profileInformationButtons">
       @if (isOwnedProfile) {
-        <button class="profileInformationButtonManageProfile" [routerLink]="['/ManageProfile', this.userInformation.uid]" type="button">Editar Perfil</button>
-        <button class="profileButton" type="button" [routerLink]="['/ManageProject', this.userInformation.uid]">Tus Proyectos</button>
+        <ion-button [routerLink]="['/ManageProfile', this.userInformation.uid]" type="button">Editar Perfil</ion-button>
+        <ion-button [routerLink]="['/ManageProject', this.userInformation.uid]" type="button">Tus Proyectos</ion-button>
       }
     </section>
 
@@ -19,33 +18,30 @@
       <p>{{ userInformation.Description }}</p>
     </section>
 
-    <main>
-      <section class="profileInformation">
-        <app-user-skills [label]="'Especialidad'" [topics]="userTopics"></app-user-skills>
-        <app-user-skills [label]="'Lenguajes'" [topics]="userLanguages"></app-user-skills>
-        <br><br>
-        <app-user-data-field [title]="'Github'" [link]="userInformation.Social?.Github?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Github?.Name ?? ''"></app-user-data-field>
-        <br>
-        <app-user-data-field [title]="'LinkedIn'" [link]="userInformation.Social?.Linkedin?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Linkedin?.Name ?? ''"></app-user-data-field>
-        <br>
-        <app-user-data-field [title]="'Instagram'" [link]="userInformation.Social?.Instagram?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Instagram?.Name ?? ''"></app-user-data-field>
-        <br>
-        <app-user-data-field [title]="'Twitter'" [link]="userInformation.Social?.Twitter?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Twitter?.Name ?? ''"></app-user-data-field>
-        <br>
-        <div class="profileInformationDivDownload">
-          <a href="" download style="font-size: 18px;">Descargar CV ⬇️</a>
-        </div>
-      </section>
+    <section class="profileInformation">
+      <app-user-skills [label]="'Especialidad'" [topics]="userTopics"></app-user-skills>
+      <app-user-skills [label]="'Lenguajes'" [topics]="userLanguages"></app-user-skills>
+      <br><br>
+      <app-user-data-field [title]="'Github'" [link]="userInformation.Social?.Github?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Github?.Name ?? ''"></app-user-data-field>
+      <br>
+      <app-user-data-field [title]="'LinkedIn'" [link]="userInformation.Social?.Linkedin?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Linkedin?.Name ?? ''"></app-user-data-field>
+      <br>
+      <app-user-data-field [title]="'Instagram'" [link]="userInformation.Social?.Instagram?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Instagram?.Name ?? ''"></app-user-data-field>
+      <br>
+      <app-user-data-field [title]="'Twitter'" [link]="userInformation.Social?.Twitter?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Twitter?.Name ?? ''"></app-user-data-field>
+      <br>
+      <div class="profileInformationDivDownload">
+        <a href="" download style="font-size: 18px;">Descargar CV ⬇️</a>
+      </div>
+    </section>
 
-      <section class="profileProjects">
-        <app-cards-grid
-          [isProject]="true"
-          [title]="'Proyectos más relevantes'"
-          [items]="userProjects"
-        ></app-cards-grid>
-      </section>
-    </main>
+    <section class="profileProjects">
+      <app-cards-grid
+        [isProject]="true"
+        [title]="'Proyectos más relevantes'"
+        [items]="userProjects"
+      ></app-cards-grid>
+    </section>
   }
-
+</ion-content>
 <app-footer></app-footer>
-</body>

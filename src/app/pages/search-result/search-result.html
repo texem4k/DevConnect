@@ -1,103 +1,105 @@
 <app-header></app-header>
+<ion-content>
+  <div id="main-layout">
+    <aside>
+      <h3>Filtros</h3>
+      <form class="filters-form">
+        <div class="filter-group">
+          <h4>Categoría</h4>
+          <ion-item><ion-checkbox disabled> Frontend</ion-checkbox></ion-item>
+          <ion-item><ion-checkbox disabled> Backend</ion-checkbox></ion-item>
+          <ion-item><ion-checkbox disabled> DevOps</ion-checkbox></ion-item>
+        </div>
 
-<div id="main-layout">
-  <aside>
-    <h3>Filtros</h3>
-    <form class="filters-form">
-      <div class="filter-group">
-        <h4>Categoría</h4>
-        <label><input type="checkbox" name="category" value="frontend" disabled> Frontend</label>
-        <label><input type="checkbox" name="category" value="backend" disabled> Backend</label>
-        <label><input type="checkbox" name="category" value="devops" disabled> DevOps</label>
-      </div>
+        <div class="filter-group">
+          <h4>Nivel</h4>
+          <ion-radio-group>
+            <ion-item><ion-radio value="junior"> Junior</ion-radio></ion-item>
+            <ion-item><ion-radio value="senior"> Senior</ion-radio></ion-item>
+          </ion-radio-group>
+        </div>
 
-      <div class="filter-group">
-        <h4>Nivel</h4>
-        <label><input type="radio" name="level" value="junior"> Junior</label>
-        <label><input type="radio" name="level" value="senior"> Senior</label>
-      </div>
+        <div class="filter-group">
+          <h4>Ordenar por:</h4>
+          <ion-item>
+            <ion-select disabled>
+              <ion-select-option value="recent">Más reciente</ion-select-option>
+              <ion-select-option value="popular">Más popular</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
 
-      <div class="filter-group">
-        <h4>Ordenar por:</h4>
-        <label>
-          <select name="sort" disabled>
-            <option value="recent">Más reciente</option>
-            <option value="popular">Más popular</option>
-          </select>
-        </label>
-      </div>
+        <ion-button type="submit" expand="block">Aplicar filtros</ion-button>
+        <ion-button type="reset" fill="outline" expand="block">Limpiar filtros</ion-button>
+      </form>
+    </aside>
 
-      <button type="submit" class="apply-btn">Aplicar filtros</button>
-      <button type="reset" class="clean-btn">Limpiar filtros</button>
-    </form>
-  </aside>
+    <div id="results">
 
-  <div id="results">
+      @if(loadingProjects || loadingUsers) {
+        <p>Cargando...</p>
+      }
 
-    @if(loadingProjects || loadingUsers) {
-      <p>Cargando...</p>
-    }
+      @if(searchQuery && !loadingProjects && !loadingUsers) {
+        <h2>Resultados para "{{ searchQuery }}"</h2>
 
-    @if(searchQuery && !loadingProjects && !loadingUsers) {
-      <h2>Resultados para "{{ searchQuery }}"</h2>
+        <h3>Proyectos ({{ projects.length }})</h3>
+        @if(projects.length > 0) {
+          <app-media-list [projects]="pagedProjects" />
+          <app-pagination-component
+            [currentPage]="currentPageProjects"
+            [totalPages]="totalPagesProjects"
+            (pageChange)="goToPageProjects($event)"
+          />
+        } @else {
+          <p>No se encontraron proyectos</p>
+        }
 
-      <h3>Proyectos ({{ projects.length }})</h3>
-      @if(projects.length > 0) {
+        <h3>Usuarios ({{ users.length }})</h3>
+        @if(users.length > 0) {
+          <app-media-list [users]="pagedUsers" />
+          <app-pagination-component
+            [currentPage]="currentPageUsers"
+            [totalPages]="totalPagesUsers"
+            (pageChange)="goToPageUsers($event)"
+          />
+        } @else {
+          <p>No se encontraron usuarios</p>
+        }
+      }
+
+      @if(type === 'projects' && !searchQuery && !loadingProjects) {
         <app-media-list [projects]="pagedProjects" />
         <app-pagination-component
           [currentPage]="currentPageProjects"
           [totalPages]="totalPagesProjects"
           (pageChange)="goToPageProjects($event)"
         />
-      } @else {
-        <p>No se encontraron proyectos</p>
       }
 
-      <h3>Usuarios ({{ users.length }})</h3>
-      @if(users.length > 0) {
+      @if(type === 'users' && !searchQuery && !loadingUsers) {
         <app-media-list [users]="pagedUsers" />
         <app-pagination-component
           [currentPage]="currentPageUsers"
           [totalPages]="totalPagesUsers"
           (pageChange)="goToPageUsers($event)"
         />
-      } @else {
-        <p>No se encontraron usuarios</p>
       }
-    }
 
-    @if(type === 'projects' && !searchQuery && !loadingProjects) {
-      <app-media-list [projects]="pagedProjects" />
-      <app-pagination-component
-        [currentPage]="currentPageProjects"
-        [totalPages]="totalPagesProjects"
-        (pageChange)="goToPageProjects($event)"
-      />
-    }
+      @if(!type && !searchQuery && !loadingProjects && !loadingUsers) {
+        <h2>Explorar</h2>
+        <app-media-list
+          [projects]="pagedMixedProjects"
+          [users]="pagedMixedUsers"
+        />
+        <app-pagination-component
+          [currentPage]="currentPageMixed"
+          [totalPages]="totalPagesMixed"
+          (pageChange)="goToPageMixed($event)"
+        />
+      }
 
-    @if(type === 'users' && !searchQuery && !loadingUsers) {
-      <app-media-list [users]="pagedUsers" />
-      <app-pagination-component
-        [currentPage]="currentPageUsers"
-        [totalPages]="totalPagesUsers"
-        (pageChange)="goToPageUsers($event)"
-      />
-    }
-
-    @if(!type && !searchQuery && !loadingProjects && !loadingUsers) {
-      <h2>Explorar</h2>
-      <app-media-list
-        [projects]="pagedMixedProjects"
-        [users]="pagedMixedUsers"
-      />
-      <app-pagination-component
-        [currentPage]="currentPageMixed"
-        [totalPages]="totalPagesMixed"
-        (pageChange)="goToPageMixed($event)"
-      />
-    }
-
+    </div>
   </div>
-</div>
-
+</ion-content>
 <app-footer></app-footer>

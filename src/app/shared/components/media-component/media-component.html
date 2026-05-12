@@ -1,27 +1,30 @@
-
 @if(project != undefined){
-  <div class="media-button" (click)="navegarAProyecto()">
-    <img [src]="project.image" [alt]="project.title">
-    <div class="media-text">
+  <ion-item button (click)="navegarAProyecto()">
+    <ion-thumbnail slot="start">
+      <ion-img [src]="project.image" [alt]="project.title"></ion-img>
+    </ion-thumbnail>
+    <ion-label>
       <h3>{{ project.title }}</h3>
       <p>{{ project.description }}</p>
-    </div>
+    </ion-label>
     @if(showActions){
-      <div class="actionButtonDiv">
-        <button class="actionButton" (click)="onEdit()">✏️</button>
-        <button class="actionButton" (click)="onDelete($event)">🗑️</button>
-      </div>
+      <ion-buttons slot="end">
+        <ion-button (click)="onEdit()">✏️</ion-button>
+        <ion-button (click)="onDelete($event)">🗑️</ion-button>
+      </ion-buttons>
     }
-  </div>
+  </ion-item>
 }
 
 @else{
-  <button class="media-button" (click)="navegarAUsuario()">
-    <img [src]="user?.Avatar" [alt]="user?.Nickname">
-    <div class="media-text">
+  <ion-item button (click)="navegarAUsuario()">
+    <ion-thumbnail slot="start">
+      <ion-img [src]="user?.Avatar" [alt]="user?.Nickname"></ion-img>
+    </ion-thumbnail>
+    <ion-label>
       <h3>{{ user?.Nickname }}</h3>
       <p>{{ user?.Description }}</p>
-    </div>
-  </button>
+    </ion-label>
+  </ion-item>
 }
 

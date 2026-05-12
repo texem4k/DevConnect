@@ -6,10 +6,11 @@ import {map} from 'rxjs/operators';
 import {forkJoin, of} from 'rxjs';
 import {TopicService} from '../../../core/services/topic-crud';
 import {AsyncPipe} from '@angular/common';
+import { IonCard, IonCardContent, IonCardTitle, IonImg } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-information-card',
-  imports: [TopicBoxBtn, AsyncPipe],
+  imports: [TopicBoxBtn, AsyncPipe, IonCard, IonCardContent, IonCardTitle, IonImg],
   templateUrl: './information-card.html',
   styleUrl: './information-card.css',
 })

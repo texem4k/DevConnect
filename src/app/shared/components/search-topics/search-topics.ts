@@ -12,11 +12,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TopicService } from '../../../core/services/topic-crud';
 import { Topic } from '../../../core/models/topic.model';
+import { IonSearchbar, IonList, IonItem, IonCheckbox, IonLabel, IonBadge, IonButton, IonChip, IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-search-topics',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, IonSearchbar, IonList, IonItem, IonCheckbox, IonLabel, IonBadge, IonButton, IonChip, IonIcon],
   templateUrl: './search-topics.html',
   styleUrls: ['./search-topics.css'],
 })

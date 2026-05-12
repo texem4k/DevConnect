@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import {AbstractControl, FormControl, ReactiveFormsModule} from '@angular/forms';
-
+import { IonItem, IonLabel, IonInput, IonNote } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-get-input-text',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, IonItem, IonLabel, IonInput, IonNote],
   templateUrl: './get-input-text.html',
   styleUrl: './get-input-text.css',
   changeDetection: ChangeDetectionStrategy.OnPush
