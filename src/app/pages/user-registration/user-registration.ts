@@ -48,7 +48,7 @@ export class UserRegistration implements OnInit {
   users!: User[];
   selectedTopics: string[] = [];
   allTopics!: Topic[];
-  pressedSubmit: Boolean = false;
+  pressedSubmit: boolean = false;
   preview: string | null = null;
   file: File | null = null;
 
@@ -74,10 +74,6 @@ export class UserRegistration implements OnInit {
       option: new FormControl(null, [Validators.required])
     });
 
-    this.userService.getUser().subscribe(users => {
-      this.users = users;
-    });
-
     this.topicsService.getTopics().subscribe(topics => {
       this.allTopics = topics;
     });
@@ -98,11 +94,13 @@ export class UserRegistration implements OnInit {
 
   nicknameExists() {
     return (control: AbstractControl): ValidationErrors | null => {
-      if (!this.users) return null;
-      const exists = this.users
-        .filter(u => u.uid !== this.route.snapshot.params['id'])
-        .some(u => u.Nickname === control.value);
-      return exists ? { nicknameExists: true } : null;
+      if (!control.value) return null;
+      this.userService.getUserByNickname(control.value).subscribe(user => {
+        if (user) {
+          control.setErrors({ nicknameExists: true });
+        }
+      });
+      return null;
     };
   }
 
@@ -139,7 +137,7 @@ export class UserRegistration implements OnInit {
       Telephone: this.form.get('userPhone')?.value ?? undefined,
       Password: this.form.get('password')?.value ?? undefined,
       Topic: this.selectedTopics,
-      isCompany: this.form.get('option')?.value ?? undefined,
+      isCompany: this.form.get('option')?.value === 'true',
       Avatar: this.form.get('Avatar')?.value ?? 'https://cdn-icons-png.flaticon.com/256/149/149071.png'
     };
 

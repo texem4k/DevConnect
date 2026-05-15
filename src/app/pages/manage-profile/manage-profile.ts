@@ -11,7 +11,7 @@ import {User} from '../../core/models/user.model';
 import {Topic} from '../../core/models/topic.model';
 import {UserService} from '../../core/services/user-crud';
 import {TopicService} from '../../core/services/topic-crud';
-import { IonContent, IonTextarea, IonItem, IonLabel, IonButton, IonModal, IonHeader, IonToolbar, IonTitle, IonButtons, IonNote } from '@ionic/angular/standalone';
+import { IonContent, IonTextarea, IonItem, IonLabel, IonButton, IonModal, IonHeader, IonToolbar, IonTitle, IonNote } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-manage-profile',
@@ -31,7 +31,6 @@ import { IonContent, IonTextarea, IonItem, IonLabel, IonButton, IonModal, IonHea
     IonHeader,
     IonToolbar,
     IonTitle,
-    IonButtons,
     IonNote,
   ],
   templateUrl: './manage-profile.html',
@@ -47,8 +46,7 @@ export class ManageProfile implements OnInit {
   userInformation!: User | undefined;
   topics!: Topic[] | undefined;
   selectedTopics: string[] = [];
-  pressedSubmit: Boolean = false;
-  users: User[] | undefined;
+  pressedSubmit: boolean = false;
   description: string = '';
   errorMessage: string = '';
 
@@ -74,23 +72,18 @@ export class ManageProfile implements OnInit {
       this.topics = topics;
     });
 
-    this.userService.getUser().subscribe(users => {
-      this.users = users;
-      this.userInformation = users.find(u => u.uid?.toString() === this.id);
+    this.userService.getUserById(this.id).subscribe(user => {
+      this.userInformation = user;
       this.form.patchValue({
-        nickname: this.userInformation?.Nickname,
-        email: this.userInformation?.Gmail,
-        userPhone: this.userInformation?.Telephone
+        nickname: user?.Nickname,
+        email: user?.Gmail,
+        userPhone: user?.Telephone
       });
-      const rawTopics = this.userInformation?.Topic;
+      const rawTopics = user?.Topic;
       this.selectedTopics = Array.isArray(rawTopics) ? [...rawTopics] : Object.values(rawTopics ?? {});
       this.isLoading = false;
-
-      this.userInformation = users.find(u => u.uid?.toString() === this.id);
-      this.description = this.userInformation?.Description ?? '';  // ← añade esto
+      this.description = user?.Description ?? '';
     });
-
-
   }
 
   getControl(name: string): AbstractControl {
@@ -111,12 +104,13 @@ export class ManageProfile implements OnInit {
 
   nicknameExists() {
     return (control: AbstractControl): ValidationErrors | null => {
-      if (!this.users) return null;
-      const name = control.value;
-      const exists = this.users
-        .filter(u => u.uid !== this.route.snapshot.params['id'])
-        .some(u => u.Nickname === name);
-      return exists ? { nicknameExists: true } : null;
+      if (!control.value) return null;
+      this.userService.getUserByNickname(control.value).subscribe(user => {
+        if (user && user.uid !== this.id) {
+          control.setErrors({ nicknameExists: true });
+        }
+      });
+      return null;
     };
   }
 

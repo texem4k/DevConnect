@@ -1,5 +1,5 @@
 <app-header></app-header>
-<ion-content id="main-content">
+<ion-content>
   @if (userInformation) {
     <app-banner-profile
       [titulo]="userInformation.Nickname"
@@ -18,29 +18,50 @@
       <p>{{ userInformation.Description }}</p>
     </section>
 
-    <section class="profileInformation">
-      <app-user-skills [label]="'Especialidad'" [topics]="userTopics"></app-user-skills>
-      <app-user-skills [label]="'Lenguajes'" [topics]="userLanguages"></app-user-skills>
-      <br><br>
-      <app-user-data-field [title]="'Github'" [link]="userInformation.Social?.Github?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Github?.Name ?? ''"></app-user-data-field>
-      <br>
-      <app-user-data-field [title]="'LinkedIn'" [link]="userInformation.Social?.Linkedin?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Linkedin?.Name ?? ''"></app-user-data-field>
-      <br>
-      <app-user-data-field [title]="'Instagram'" [link]="userInformation.Social?.Instagram?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Instagram?.Name ?? ''"></app-user-data-field>
-      <br>
-      <app-user-data-field [title]="'Twitter'" [link]="userInformation.Social?.Twitter?.Link ?? ''" [socialNetwork]="userInformation?.Social?.Twitter?.Name ?? ''"></app-user-data-field>
-      <br>
-      <div class="profileInformationDivDownload">
-        <a href="" download style="font-size: 18px;">Descargar CV ⬇️</a>
-      </div>
-    </section>
+    <section class="profile-layout">
+      <aside class="profileInformation">
+        <app-user-skills [label]="'Especialidad'" [topics]="userTopics"></app-user-skills>
+        <app-user-skills [label]="'Lenguajes'" [topics]="userLanguages"></app-user-skills>
 
-    <section class="profileProjects">
-      <app-cards-grid
-        [isProject]="true"
-        [title]="'Proyectos más relevantes'"
-        [items]="userProjects"
-      ></app-cards-grid>
+        <div class="social-links">
+          @if (userInformation.Social?.Github?.Link) {
+            <div class="social-link">
+              <h4>Github</h4>
+              <a [href]="userInformation.Social.Github.Link" target="_blank">{{ userInformation.Social.Github.Name }}</a>
+            </div>
+          }
+          @if (userInformation.Social?.Linkedin?.Link) {
+            <div class="social-link">
+              <h4>LinkedIn</h4>
+              <a [href]="userInformation.Social.Linkedin.Link" target="_blank">{{ userInformation.Social.Linkedin.Name }}</a>
+            </div>
+          }
+          @if (userInformation.Social?.Instagram?.Link) {
+            <div class="social-link">
+              <h4>Instagram</h4>
+              <a [href]="userInformation.Social.Instagram.Link" target="_blank">{{ userInformation.Social.Instagram.Name }}</a>
+            </div>
+          }
+          @if (userInformation.Social?.Twitter?.Link) {
+            <div class="social-link">
+              <h4>Twitter</h4>
+              <a [href]="userInformation.Social.Twitter.Link" target="_blank">{{ userInformation.Social.Twitter.Name }}</a>
+            </div>
+          }
+        </div>
+
+        <div class="profileInformationDivDownload">
+          <a href="" download>Descargar CV ⬇️</a>
+        </div>
+      </aside>
+
+      <section class="profileProjects">
+        <app-cards-grid
+          [isProject]="true"
+          [title]="'Proyectos más relevantes'"
+          [items]="userProjects"
+        ></app-cards-grid>
+      </section>
     </section>
   }
   <app-footer></app-footer>

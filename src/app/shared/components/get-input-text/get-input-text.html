@@ -1,16 +1,19 @@
-<ion-item>
-  <ion-label position="floating">{{label}}</ion-label>
-  <ion-input
-    [formControl]="formControl"
-    (ionBlur)="control.markAsTouched()"
-    [type]="type"
-    [placeholder]="placeholder"
-    [value]="value"
-    [attr.min]="participantsField ? 2 : null"
-    [attr.max]="participantsField ? 20 : null"
-  ></ion-input>
-</ion-item>
+<div class="form-field">
+  <ion-label class="field-label">{{label}}</ion-label>
+  <ion-item class="field-input">
+    <ion-input
+      [formControl]="formControl"
+      (ionBlur)="control.markAsTouched()"
+      [type]="type"
+      [placeholder]="placeholder"
+      [attr.min]="participantsField ? 2 : null"
+      [attr.max]="participantsField ? 20 : null"
+      [maxlength]="maxlength || null"
+      lines="none"
+    ></ion-input>
+  </ion-item>
+</div>
 
 @if(control.invalid && control.touched){
-  <ion-note color="danger">{{ getErrorMessage(formControl) }}</ion-note>
+  <ion-note color="danger" class="field-error">{{ getErrorMessage(formControl) }}</ion-note>
 }

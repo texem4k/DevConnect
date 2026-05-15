@@ -3,6 +3,7 @@
     <app-media-component
       [project]="item"
       [showActions]="showActions"
+      [flat]="flat"
       (edit)="handleEdit(item)"
       (delete)="handleDelete(item)"
     />
@@ -11,6 +12,7 @@
   @for(item of getUsers; track item) {
     <app-media-component
       [user]="item"
+      [flat]="flat"
     />
   }
 </ion-list>

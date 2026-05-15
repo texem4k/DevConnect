@@ -44,10 +44,9 @@ export class ProjectProfile implements OnInit {
     this.projectService.getProjectById(projectId).pipe(
       tap(project => this.project = project),
       switchMap(project =>
-        this.userService.getUser().pipe(
-          tap(users => {
-            const owner = users.find(u => u.Nickname === project.creator);
-            this.id = owner?.uid;
+        this.userService.getUserByNickname(project.creator).pipe(
+          tap(user => {
+            this.id = user?.uid;
           }),
           switchMap(() => this.projectService.getMaintainers(project.id))
         )

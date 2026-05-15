@@ -36,13 +36,15 @@ export class ManageProject implements OnInit {
   loading = true;
 
   ngOnInit() {
-    this.userService.getUser().subscribe(users => {
-      this.userInformation = users.find(u => u.uid === this.route.snapshot.params['id']) ?? undefined;
-      this.projectService.getProject().subscribe(projects => {
-        this.projects = projects.filter(p => p.creator === this.userInformation?.Nickname) ?? undefined;
-        this.loading = false;
-        this.cd.detectChanges();
-      });
+    this.userService.getUserById(this.route.snapshot.params['id']).subscribe(user => {
+      this.userInformation = user ?? undefined;
+      if (this.userInformation) {
+        this.projectService.getProjectsByCreator(this.userInformation.Nickname).subscribe(projects => {
+          this.projects = projects;
+          this.loading = false;
+          this.cd.detectChanges();
+        });
+      }
     });
   }
 

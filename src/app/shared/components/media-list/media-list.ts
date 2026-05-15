@@ -14,6 +14,7 @@ export class MediaList {
   @Input() projects: Project[] = [];
   @Input() users: User[] = [];
   @Input() showActions: boolean = false;
+  @Input() flat: boolean = false;
   @Output() edit = new EventEmitter<Project>();
   @Output() delete = new EventEmitter<Project>();
 

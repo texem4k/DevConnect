@@ -1,7 +1,6 @@
 :host {
   position: relative;
   z-index: 9999;
-  transform: translateZ(0);
 }
 
 .home-icon {
@@ -66,13 +65,16 @@
   --color: #ffffff;
 }
 
-/* Search */
+/* Search centered - no slot, centered by Ionic toolbar */
 .search-input {
-  max-width: 600px;
+  --background: #ffffff;
+  --color: #1a1740;
+  --placeholder-color: #9b99b8;
+  --border-radius: 8px;
   --padding-top: 0;
   --padding-bottom: 0;
-  margin-top: auto;
-  margin-bottom: auto;
+  max-width: 500px;
+  flex: 1;
 }
 
 /* Profile dropdown */

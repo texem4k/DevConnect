@@ -34,6 +34,7 @@ main{
   height: 3.5rem;
   cursor: pointer;
 }
+
 @media (max-width: 1024px) {
   .introduction {
     margin-top: 3rem;

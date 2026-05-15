@@ -36,6 +36,16 @@ export class ProjectService {
     return docData(ref, { idField: 'id' }) as Observable<Project>;
   }
 
+  getProjectsByCreator(creator: string): Observable<Project[]> {
+    const q = query(this.projectRef, where('creator', '==', creator));
+    return collectionData(q, { idField: 'id' }) as Observable<Project[]>;
+  }
+
+  getProjectByTitle(title: string): Observable<Project[]> {
+    const q = query(this.projectRef, where('title', '==', title));
+    return collectionData(q, { idField: 'id' }) as Observable<Project[]>;
+  }
+
   async addProject(project: Project, creatorUid: string) {
     const projectDocRef = await addDoc(this.projectRef, project);
 

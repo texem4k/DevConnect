@@ -90,11 +90,11 @@
         <ng-template>
           <ion-header>
             <ion-toolbar>
-              <ion-title>🔒 Confirmar identidad</ion-title>
+              <ion-title>Confirmar identidad</ion-title>
             </ion-toolbar>
           </ion-header>
-<ion-content id="main-content">
-            <p>Introduce tu contraseña actual para guardar los cambios</p>
+          <ion-content>
+            <p style="padding: 1rem; color: #9b99b8;">Introduce tu contraseña actual para guardar los cambios</p>
             <app-get-input-text
               [label]="'Contraseña actual'"
               [placeholder]="'Introduce tu contraseña'"
@@ -104,13 +104,13 @@
             ></app-get-input-text>
 
             @if(errorMessage) {
-              <ion-note color="danger">⚠️ {{ errorMessage }}</ion-note>
+              <ion-note color="danger" style="padding: 0 1rem;">⚠️ {{ errorMessage }}</ion-note>
             }
 
-            <ion-buttons>
+            <div class="modal-buttons">
               <ion-button (click)="closePasswordModal()" fill="outline">Cancelar</ion-button>
               <ion-button (click)="confirmAndSubmit()">Confirmar</ion-button>
-            </ion-buttons>
+            </div>
           </ion-content>
         </ng-template>
       </ion-modal>

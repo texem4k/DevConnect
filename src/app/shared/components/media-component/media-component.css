@@ -18,3 +18,10 @@
 .media-text{
   width: 100%;
 }
+
+ion-item.flat {
+  --background: var(--color-light);
+  border: none;
+  box-shadow: none;
+  margin: 0.5rem auto;
+}

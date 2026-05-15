@@ -4,7 +4,6 @@
   padding: 0;
 }
 
-/* ── Layout principal: dos columnas ── */
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -13,263 +12,83 @@ main {
   align-items: start;
 }
 
-/* ── Columna izquierda: inputs + búsqueda ── */
 .profileInformation {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 0;
 }
 
-/* ── Columna derecha: descripción + upload ── */
 .userDescription {
   display: flex;
   flex-direction: column;
 }
 
-.userDescription textarea {
+.userDescription h3 {
+  color: #e8e8f0;
+  margin-bottom: 0.75rem;
+}
+
+.userDescription ion-textarea {
+  --background: #2a2750;
+  --border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --color: #e8e8f0;
+  --placeholder-color: #9b99b8;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   resize: none;
-  margin-top: 1rem;
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #2a2750;
-  color: #e8e8f0;
-  font-size: 0.9rem;
-  outline: none;
-  transition: background 0.2s, box-shadow 0.2s;
-}
-
-.userDescription textarea:focus {
-  background: #332f66;
-  box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
-}
-
-.userDescription textarea::placeholder {
-  color: #9b99b8;
-}
-
-.profileInformationButtons {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-right: 5rem;
-}
-
-.profileInformationDiv button {
-  background: #2a2750;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #e8e8f0;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background 0.2s;
-}
-
-.profileInformationDiv button:hover {
-  background: #402277;
-}
-
-.profileInformationDiv input {
-  height: 2rem;
-  width: 80%;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 15px;
-  background: #2a2750;
-  color: #e8e8f0;
-}
-
-.profileInformation p {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.8rem;
-  color: #e8e8f0;
-}
-
-.profileName,
-h1, h2 {
-  color: #ffffff !important;
-}
-
-.search-box { width: 80%; }
-.selected-section { width: 80%; }
-#dropdown { width: 80%; }
-
-/* ── Upload boxes ── */
-.profileInformationUpload {
-  margin-top: 5rem;
-  max-width: 400px;
-  font-family: sans-serif;
+  margin-top: 0.5rem;
 }
 
 .uploadContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-}
-
-.upload-box {
-  display: block;
-  border: 2px dashed rgba(79, 110, 247, 0.35);
-  border-radius: 12px;
-  padding: 30px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: #1a1740;
-}
-
-.upload-box:hover {
-  border-color: rgba(79, 110, 247, 0.7);
-  background: #221e52;
-}
-
-.upload-box:active {
-  transform: scale(0.98);
-}
-
-.upload-content .icon {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.upload-content p {
-  margin: 0;
-  font-size: 16px;
-  color: #e8e8f0;
-}
-
-.upload-content span {
-  display: block;
-  margin-top: 8px;
-  font-size: 12px;
-  color: #9b99b8;
-}
-
-input[type="file"] {
-  display: none;
-}
-
-.profileInformationButtons {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-right: 5rem;
-  gap: 1rem;
-}
-
-.profileInformationButtons button {
-  background: #2a2750;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #e8e8f0;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background 0.2s;
-  padding: 0.5rem 1.5rem;
-  font-size: 0.95rem;
-}
-
-.profileInformationButtons button:hover {
-  background: #402277;
-}
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: modalFadeIn 0.2s ease;
-}
-
-.modal-container {
-  background: #1e1b45;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-  width: min(420px, 90vw);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-  animation: modalSlideUp 0.25s ease;
-}
-
-.modal-header {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.modal-icon {
-  font-size: 2.5rem;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-.modal-header h2 {
-  color: #ffffff;
-  font-size: 1.3rem;
-  margin-bottom: 0.4rem;
-}
-
-.modal-header p {
-  color: #9b99b8;
-  font-size: 0.875rem;
-}
-
-.modal-body {
-  margin-bottom: 0.5rem;
-}
-
-.modal-actions {
-  display: flex;
-  gap: 0.75rem;
   margin-top: 1.5rem;
 }
 
-.modal-actions button {
-  flex: 1;
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.2s, transform 0.1s;
+.uploadContent ion-item {
+  --background: transparent;
+  --color: #e8e8f0;
+  --border-color: transparent;
 }
 
-.modal-btn-cancel {
-  background: #2a2750;
+.uploadContent ion-label strong {
   color: #e8e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-.modal-btn-cancel:hover {
-  background: #332f66;
+.uploadContent ion-label p {
+  color: #9b99b8;
+  font-size: 0.8rem;
 }
 
-.modal-btn-confirm {
-  background: #4f6ef7;
-  color: #ffffff;
-  font-weight: 600;
+.profileInformationButtons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.5rem 5rem 0;
+  gap: 1rem;
 }
 
-.modal-btn-confirm:hover {
-  background: #3a57d4;
+.profileInformationButtons ion-button {
+  --border-radius: 2rem;
+  --padding-start: 1.5rem;
+  --padding-end: 1.5rem;
 }
 
-.modal-actions button:active {
-  transform: scale(0.97);
+.modal-buttons {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  justify-content: flex-end;
 }
 
-@keyframes modalFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+.modal-buttons ion-button {
+  --border-radius: 2rem;
 }
 
-@keyframes modalSlideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
-}
 @media (max-width: 1024px) {
   main {
     grid-template-columns: 1fr;
@@ -281,49 +100,19 @@ input[type="file"] {
     gap: 1.5rem;
   }
 
-  .userDescription,
   .profileInformationButtons {
-    width: 100%;
-  }
-
-  .userDescription textarea {
-    width: 100%;
-  }
-
-  .profileInformationButtons {
-    margin-top: 1rem;
     justify-content: center;
     padding-right: 0;
+    padding: 1.5rem 0 0;
   }
 }
 
 @media (max-width: 768px) {
   main {
-    padding: 1.5rem;
-  }
-
-  .userDescription,
-  .profileInformationButtons {
-    width: 100%;
-  }
-
-  .profileInformationButtons {
-    margin-top: 1rem;
-  }
-
-  .search-box,
-  .selected-section,
-  #dropdown {
-    width: 100%;
-  }
-
-  .profileInformationUpload {
-    max-width: 100%;
-    margin-top: 2rem;
+    padding: 1.5rem 1rem;
   }
 
   .uploadContent {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 }

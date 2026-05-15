@@ -4,25 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="migracion a ionic">
+    <list default="true" id="f356984e-ead5-4300-86cb-6e9339eb0e94" name="Changes" comment="migracion a ionic 3.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ionic.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ionic.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/about-us/about-us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/project-crud.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user-crud.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/create-project/create-project.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/incidents/incidents.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/index/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/login/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/login/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/login/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/search-result/search-result.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/search-result/search-result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-profile/manage-profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/manage-project/manage-project.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/project-profile/project-profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-profile/user-profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user-registration/user-registration.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/footer/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/footer/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/footer/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/footer/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/footer/footer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/footer/footer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/get-input-text/get-input-text.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/information-card/information-card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-component/media-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/media-list/media-list.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
     </list>
     <list id="95082ca9-69a7-4391-b255-55818b014db9" name="Changes by arael" comment="Changes by arael" />
@@ -149,7 +173,9 @@
       <workItem from="1777830279940" duration="1907000" />
       <workItem from="1778166148611" duration="6000" />
       <workItem from="1778258098022" duration="10128000" />
-      <workItem from="1778602733081" duration="4530000" />
+      <workItem from="1778602733081" duration="4677000" />
+      <workItem from="1778778565328" duration="6000" />
+      <workItem from="1778862235764" duration="9687000" />
     </task>
     <task id="LOCAL-00001" summary="Instalacion de angular en el repositorio">
       <option name="closed" value="true" />
@@ -239,7 +265,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778603025821</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="migracion a ionic 2.0">
+      <option name="closed" value="true" />
+      <created>1778607567514</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1778607567514</updated>
+    </task>
+    <task id="LOCAL-00013" summary="migracion a ionic 3.0">
+      <option name="closed" value="true" />
+      <created>1778864011191</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1778864011191</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +318,8 @@
     <MESSAGE value="Se arreglaron problemas de search-result" />
     <MESSAGE value="Se han eliminado documentos innecesarios" />
     <MESSAGE value="migracion a ionic" />
-    <option name="LAST_COMMIT_MESSAGE" value="migracion a ionic" />
+    <MESSAGE value="migracion a ionic 2.0" />
+    <MESSAGE value="migracion a ionic 3.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="migracion a ionic 3.0" />
   </component>
 </project>

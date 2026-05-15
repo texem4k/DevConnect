@@ -8,7 +8,7 @@ export interface User {
   Gmail: string;
   Password: string;
   Description: string;
-  isCompany: Boolean;
+  isCompany: boolean;
   Topic: string[];
   Projects: string[];
   Avatar: string;

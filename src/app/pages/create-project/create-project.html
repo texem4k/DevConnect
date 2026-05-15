@@ -20,12 +20,10 @@
       [placeholder]="''">
     </app-get-input-text>
 
-    <p class="fieldFeedBack"></p>
-
-    <ion-item>
-      <ion-label position="floating">Descripción</ion-label>
-      <ion-textarea formControlName="description"></ion-textarea>
-    </ion-item>
+    <div class="textarea-group">
+      <ion-label class="field-label">Descripción</ion-label>
+      <ion-textarea formControlName="description" rows="4"></ion-textarea>
+    </div>
 
     <section class="dual-inputs">
       <app-get-input-text
@@ -42,18 +40,20 @@
         [control]="getControl('ownerPhone')"
         [errorMessages]="{pattern: 'Escriba el número correctamente'}"
         [label]="'Número de teléfono'"
-        [maxlength]="'9'">
+        [maxlength]="'15'">
       </app-get-input-text>
     </section>
 
     <section class="dual-inputs">
-      <ion-item>
-        <ion-label position="floating">* Fecha límite de inscripción</ion-label>
-        <ion-datetime formControlName="date" display-format="YYYY-MM-DD"></ion-datetime>
-      </ion-item>
-      @if(getControl('date').touched && getControl('date').invalid && getControl('date').errors?.['fechaNoAnteriorAHoy'] && pressedSubmit) {
-        <ion-note color="danger">La fecha no puede ser anterior a hoy</ion-note>
-      }
+      <div class="date-field">
+        <ion-label class="field-label">* Fecha límite de inscripción</ion-label>
+        <ion-item class="date-input">
+          <ion-datetime formControlName="date" display-format="YYYY-MM-DD" presentation="date"></ion-datetime>
+        </ion-item>
+        @if(getControl('date').touched && getControl('date').invalid && getControl('date').errors?.['fechaNoAnteriorAHoy'] && pressedSubmit) {
+          <ion-note color="danger">La fecha no puede ser anterior a hoy</ion-note>
+        }
+      </div>
 
       <app-get-input-text
         [label]="'* Número de participantes (Máx 20)'"
@@ -61,11 +61,11 @@
         [participantsField]="true"
         [value]="'2'">
       </app-get-input-text>
-
-      @if(pressedSubmit && !getControl('numberParticipants').value) {
-        <ion-note color="danger">Debes añadir un número de participantes (2-20)</ion-note>
-      }
     </section>
+
+    @if(pressedSubmit && !getControl('numberParticipants').value) {
+      <ion-note color="danger">Debes añadir un número de participantes (2-20)</ion-note>
+    }
 
     <h2></h2>
     <div class="search-container">
@@ -87,9 +87,11 @@
       <ion-button slot="end" (click)="projectImageInput.click()">⬆️</ion-button>
     </ion-item>
 
-    <ion-button type="button" (click)="onSubmit()" [disabled]="isSubmitting" expand="block">
-      {{ submitButtonLabel }}
-    </ion-button>
+    <div class="button-row">
+      <ion-button type="submit" [disabled]="isSubmitting">
+        {{ submitButtonLabel }}
+      </ion-button>
+    </div>
 
     @if(pressedSubmit) {
       <ion-note color="danger">Verifica que los datos introducidos en los campos sean válidos</ion-note>

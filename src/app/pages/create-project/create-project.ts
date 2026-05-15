@@ -54,13 +54,12 @@ export class CreateProject implements OnInit {
   projects: Project[] = [];
   topicsIds: string[] = [];
   topics: Topic[] = [];
-  projectsData$ = this.projectService.getProject();
   project?: Project;
   isSubmitting: boolean = false;
   description: string = '';
 
   form = new FormGroup({
-    projectName: new FormControl('', [Validators.required, itExists(this.projects), Validators.minLength(5)]),
+    projectName: new FormControl('', [Validators.required, Validators.minLength(5)]),
     ownerEmail: new FormControl('', [Validators.required, Validators.email]),
     numberParticipants: new FormControl('', [Validators.required]),
     ownerPhone: new FormControl('', [Validators.pattern(/^\+?[\d\s\-]{9,15}$/)]),
@@ -79,14 +78,6 @@ export class CreateProject implements OnInit {
   }
 
   async ngOnInit() {
-    this.projectsData$.subscribe(projects => {
-      this.projects = projects;
-    });
-
-    if (this.project) {
-      this.description = this.project.description;
-    }
-
     this.auth.currentUser$.subscribe(user => {
       if (user?.uid) {
         this.projectOwnerUid = user.uid;
@@ -138,8 +129,18 @@ export class CreateProject implements OnInit {
     this.topicsIds = topics;
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.form.valid && this.validTopicsSelection()) {
+      const title = this.form.get('projectName')?.value;
+      if (title && !this.projectId) {
+        const existing = await firstValueFrom(this.projectService.getProjectByTitle(title));
+        if (existing.length > 0) {
+          this.form.get('projectName')?.setErrors({ itExists: true });
+          this.pressedSubmit = true;
+          return;
+        }
+      }
+
       this.isSubmitting = true;
 
       const rawValue = this.form.value;

@@ -4,83 +4,79 @@
   padding: 0;
 }
 
-body {
-  min-height: 100vh;
+.login-page {
+  min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0f0d1f;
+  padding: 2rem 0;
 }
 
 .sectionLayout {
   width: 28rem;
-  padding: 1.5rem;
+  padding: 2rem;
   background: #1a1740;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 3rem;
+  border-radius: 2rem;
   position: relative;
   text-align: center;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
 }
 
-.backButton {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  border: none;
-  background: transparent;
-  color: #e8e8f0;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 50%;
-  aspect-ratio: 1 / 1;
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .title {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-size: 40px;
+  font-size: 2rem;
   font-weight: 800;
   color: #e8e8f0;
+  margin: 0;
 }
 
 .helpText {
-  font-size: 10px;
-  margin: 20px 0 10px;
+  font-size: 0.75rem;
+  margin: 1rem 0;
   color: #9b99b8;
 }
 
-button {
-  padding: 6px 22px;
-  border-radius: 16px;
-  border: 1px solid rgba(79, 110, 247, 0.35);
-  margin-top: 0.5rem;
-  background: #1e1587;
-  color: #e8e8f0;
-  cursor: pointer;
-  font-size: 12px;
-  transition: background 0.2s;
-}
-
-button:hover {
-  background: #221e52;
-}
-
-.password-wrapper {
-  position: relative;
+.button-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
-.password-wrapper input {
-  width: 100%;
-  padding-right: 2.5rem;
+.button-row ion-button {
+  --border-radius: 2rem;
+  --padding-start: 2rem;
+  --padding-end: 2rem;
+  width: auto;
+  min-width: 12rem;
+}
+
+.button-row ion-button[fill="outline"] {
+  --border-color: rgba(79, 110, 247, 0.35);
+  --color: #e8e8f0;
+}
+
+.button-row ion-button[fill="clear"] {
+  --color: #9b99b8;
+  font-size: 0.85rem;
+}
+
+.password-group {
+  position: relative;
 }
 
 .toggle-password {
   position: absolute;
-  right: 0.5rem;
+  right: 8px;
+  top: 32px;
   background: none !important;
   border: none !important;
   color: #9b99b8;
@@ -88,54 +84,17 @@ button:hover {
   font-size: 1.1rem;
   padding: 0 !important;
   margin: 0 !important;
+  z-index: 1;
 }
 
 .toggle-password:hover {
   background: none !important;
 }
 
-.emailError, .passwordError {
-  color: #ff4d4f;
-  font-size: 12px;
-  margin-top: 4px;
+.general-error {
   display: block;
-}
-
-#input {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  width: 100%;
-  margin-bottom: 0.5rem;
-}
-
-#input p {
-  color: #9b99b8;
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-#input input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  background: #2a2750;
-  color: #e8e8f0;
-  font-size: 0.95rem;
-  outline: none;
-  box-sizing: border-box;
-  margin-bottom: 0.5rem;
-}
-
-#input input::placeholder {
-  color: #5e5c7a;
-}
-
-#input input:focus {
-  background: #332f66;
-  border-color: rgba(79, 110, 247, 0.5);
-  box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -146,6 +105,10 @@ button:hover {
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .button-row ion-button {
+    min-width: 10rem;
   }
 }

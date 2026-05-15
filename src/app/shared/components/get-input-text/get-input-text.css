@@ -1,42 +1,52 @@
-#input {
+:host {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.form-field {
   display: flex;
   flex-direction: column;
-  text-align: left;
-  width: 100%;
-  margin-bottom: 0.5rem;
 }
 
-#input p {
+.field-label {
   color: #9b99b8;
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  padding-left: 4px;
 }
 
-#input input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  background: #2a2750;
-  color: #e8e8f0;
+.field-input {
+  --background: #2a2750;
+  --border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --inner-padding-top: 4px;
+  --inner-padding-bottom: 4px;
+  --min-height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0;
+}
+
+.field-input ion-input {
+  --background: transparent;
+  --color: #e8e8f0;
+  --placeholder-color: #5e5c7a;
   font-size: 0.95rem;
-  outline: none;
-  box-sizing: border-box;
-  margin-bottom: 0.5rem;
 }
 
-#input input::placeholder {
-  color: #5e5c7a;
-}
-
-#input input:focus {
-  background: #332f66;
+.field-input:focus-within {
   border-color: rgba(79, 110, 247, 0.5);
-  box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
+  box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.2);
+}
+
+.field-error {
+  font-size: 0.8rem;
+  margin-top: 4px;
+  padding-left: 4px;
 }
 
 @media (max-width: 768px) {
-  #input input {
+  .field-input ion-input {
     font-size: 0.9rem;
   }
 }

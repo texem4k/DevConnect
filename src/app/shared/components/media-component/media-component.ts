@@ -18,6 +18,7 @@ export class MediaComponent implements OnInit {
   @Input() project: Project | undefined;
   @Input() user: User | undefined;
   @Input() showActions: boolean = false;
+  @Input() flat: boolean = false;
 
   @Output() edit = new EventEmitter<Project>();
   @Output() delete = new EventEmitter<Project>();

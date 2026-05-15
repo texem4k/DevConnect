@@ -3,7 +3,7 @@ import {
   Firestore, collection, collectionData,
   setDoc, doc, updateDoc, deleteDoc, docData, arrayUnion, arrayRemove, query, where, getDocs
 } from '@angular/fire/firestore';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {
   updateEmail, updatePassword,
   reauthenticateWithCredential,
@@ -13,6 +13,7 @@ import {
 import {User} from '../models/user.model';
 import {AuthService} from './auth-service';
 import {Topic} from '../models/topic.model';
+import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
@@ -27,6 +28,13 @@ export class UserService {
   getUserById(id: string): Observable<User> {
     const ref = doc(this.firestore, `users/${id}`);
     return docData(ref, {idField: 'uid'}) as Observable<User>;
+  }
+
+  getUserByNickname(nickname: string): Observable<User | null> {
+    const q = query(this.userRef, where('Nickname', '==', nickname));
+    return collectionData(q, {idField: 'uid'}).pipe(
+      map(users => users[0] ?? null)
+    ) as Observable<User | null>;
   }
 
   async addUser(user: Partial<User>) {

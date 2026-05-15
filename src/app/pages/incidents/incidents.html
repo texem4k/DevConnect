@@ -1,28 +1,39 @@
 <app-header></app-header>
-<ion-content id="main-content">
+<ion-content>
   <h1 class="title">¿Algún problema?</h1>
   <form [formGroup]="incidentsForm" (ngSubmit)="submitIncident()" class="form">
 
-    <ion-item>
-      <ion-label position="floating">Asunto del problema</ion-label>
-      <ion-input type="text" formControlName="topic" placeholder="Asunto del problema"></ion-input>
-    </ion-item>
-    @if (topicError) {
-      <ion-note color="danger">{{ topicError }}</ion-note>
-    }
+    <app-get-input-text
+      label="Asunto del problema"
+      [control]="incidentsForm.controls['topic']"
+      placeholder="Asunto del problema"
+      [errorMessages]="{
+        required: 'El asunto es obligatorio.',
+        minlength: 'El asunto debe tener al menos 5 caracteres.',
+        maxlength: 'El asunto no puede superar los 50 caracteres.'
+      }"
+    ></app-get-input-text>
 
-    <ion-item>
-      <ion-label position="floating">Correo de contacto</ion-label>
-      <ion-input type="email" formControlName="email" placeholder="Correo"></ion-input>
-    </ion-item>
-    @if (emailError) {
-      <ion-note color="danger">{{ emailError }}</ion-note>
-    }
+    <app-get-input-text
+      label="Correo de contacto"
+      type="email"
+      [control]="incidentsForm.controls['email']"
+      placeholder="Correo"
+      [errorMessages]="{
+        required: 'El correo es obligatorio.',
+        email: 'Introduce un correo válido.'
+      }"
+    ></app-get-input-text>
 
-    <ion-item>
-      <ion-label position="floating">Describe detalladamente el problema que tienes...</ion-label>
-      <ion-textarea formControlName="text" rows="5"></ion-textarea>
-    </ion-item>
+    <div class="textarea-group">
+      <ion-label class="field-label">Describe detalladamente el problema que tienes...</ion-label>
+      <ion-textarea
+        formControlName="text"
+        rows="10"
+        placeholder="Describe detalladamente el problema que tienes..."
+        class="incident-textarea"
+      ></ion-textarea>
+    </div>
     @if (textError) {
       <ion-note color="danger">{{ textError }}</ion-note>
     }
@@ -34,9 +45,11 @@
       <ion-note color="success">{{ successMessage }}</ion-note>
     }
 
-    <ion-button type="submit" [disabled]="isSubmitting" expand="block">
-      {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
-    </ion-button>
+    <div class="button-row">
+      <ion-button type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
+      </ion-button>
+    </div>
 
   </form>
   <app-footer></app-footer>

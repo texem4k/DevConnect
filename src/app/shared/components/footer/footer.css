@@ -6,45 +6,59 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.footer-content {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
 #footer-name {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #fff;
 }
 
-.footer-content a {
-  color: white;
-  text-decoration: none;
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .footer-content ion-list {
   background: transparent;
+  flex: 1;
 }
 
 .footer-content ion-item {
   --background: transparent;
-  --color: #e8e8f0;
+  --color: #b0aed0;
   --border-color: transparent;
-}
-
-.footer-content ion-label {
-  color: #b0aed0;
+  --padding-start: 0;
+  font-size: 0.9rem;
 }
 
 .footer-content ion-item:hover {
   --background: rgba(255, 255, 255, 0.05);
 }
 
+.footer-content ion-label {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.footer-content a {
+  color: #b0aed0;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  color: #ffffff;
+}
+
 @media (max-width: 1024px) {
   .footer-content {
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 0 1rem;
   }
 
   #footer-name {

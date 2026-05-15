@@ -21,54 +21,45 @@
           />
         </div>
 
-        <div class="form-group">
-          <ion-item>
-            <ion-label position="floating">Contraseña</ion-label>
-            <ion-input
-              [formControl]="loginForm.controls['password']"
-              (ionBlur)="loginForm.controls['password'].markAsTouched()"
-              [type]="showPassword ? 'text' : 'password'"
-              placeholder="Contraseña"
-              maxlength="64"
-            ></ion-input>
-            <ion-button slot="end" fill="clear" (click)="togglePassword()">
-              {{ showPassword ? '🙈' : '👁️' }}
-            </ion-button>
-          </ion-item>
-
-          @if (password?.touched && password?.hasError('required')) {
-            <ion-note color="danger">La contraseña es obligatoria.</ion-note>
-          }
-          @if (password?.touched && password?.hasError('minlength')) {
-            <ion-note color="danger">La contraseña debe tener al menos 8 caracteres.</ion-note>
-          }
-          @if (password?.touched && password?.hasError('pattern')) {
-            <ion-note color="danger">Debe contener al menos una mayúscula, minúscula, un número y un carácter especial (!#$%...).</ion-note>
-          }
-          @if (password?.touched && password?.hasError('maxlength')) {
-            <ion-note color="danger">Contraseña demasiado larga, tamaño máximo 64.</ion-note>
-          }
+        <div class="form-group password-group">
+          <app-get-input-text
+            label="Contraseña"
+            type="password"
+            [control]="loginForm.controls['password']"
+            placeholder="Contraseña"
+            [errorMessages]="{
+              required: 'La contraseña es obligatoria.',
+              minlength: 'La contraseña debe tener al menos 8 caracteres.',
+              pattern: 'Debe contener al menos una mayúscula, minúscula, un número y un carácter especial.'
+            }"
+          />
+          <button type="button" class="toggle-password" (click)="togglePassword()">
+            {{ showPassword ? '🙈' : '👁️' }}
+          </button>
         </div>
 
         @if (generalError) {
-          <ion-note color="danger">{{ generalError }}</ion-note>
+          <ion-note color="danger" class="general-error">{{ generalError }}</ion-note>
         }
 
-        <ion-button type="submit" [disabled]="loading" expand="block">
-          {{ loading ? 'Entrando...' : 'Iniciar sesión' }}
-        </ion-button>
-        <br>
-        <ion-button fill="outline" expand="block" routerLink="/UserRegistration">
-          Crear cuenta
-        </ion-button>
+        <div class="button-row">
+          <ion-button type="submit" [disabled]="loading">
+            {{ loading ? 'Entrando...' : 'Iniciar sesión' }}
+          </ion-button>
+          <ion-button fill="outline" routerLink="/UserRegistration">
+            Crear cuenta
+          </ion-button>
+        </div>
 
         <p class="helpText">
           Si surgió algún problema, ¡No dudes en avisarnos!
         </p>
 
-        <ion-button fill="clear" expand="block" routerLink="/Incidents">
-          Incidencias
-        </ion-button>
+        <div class="button-row">
+          <ion-button fill="clear" routerLink="/Incidents">
+            Incidencias
+          </ion-button>
+        </div>
 
       </form>
     </div>

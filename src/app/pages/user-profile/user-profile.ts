@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { BannerProfile } from '../../shared/components/banner-profile/banner-profile';
 import { UserSkills } from '../../shared/components/user-skills/user-skills';
-import { UserDataField } from '../../shared/components/user-data-field/user-data-field';
 import { CardsGrid } from '../../shared/components/cards-grid/cards-grid';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Footer } from '../../shared/components/footer/footer';
@@ -19,7 +18,7 @@ import { IonContent, IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [BannerProfile, UserSkills, UserDataField, CardsGrid, Footer, Header, RouterLink, IonContent, IonButton],
+  imports: [BannerProfile, UserSkills, CardsGrid, Footer, Header, RouterLink, IonContent, IonButton],
   templateUrl: './user-profile.html',
   styleUrl: './user-profile.css',
 })
@@ -50,14 +49,12 @@ export class UserProfile implements OnInit {
         this.isOwnedProfile = authUser?.uid === user?.uid;
 
         return forkJoin([
-          this.projectService.getProject().pipe(first()),
+          this.projectService.getProjectsByCreator(user.Nickname).pipe(first()),
           this.resolvedTopics()
         ]);
       })
     ).subscribe(([projects, topics]) => {
-      this.userProjects = projects.filter(
-        p => p.creator === this.userInformation?.Nickname
-      );
+      this.userProjects = projects;
       this.userTopics = topics.filter(t => t?.cat !== 'Lenguaje');
       this.userLanguages = topics.filter(t => t?.cat === 'Lenguaje');
       this.cd.detectChanges();

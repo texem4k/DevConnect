@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { Firestore, collection, addDoc, Timestamp } from '@angular/fire/firestore';
 import { Footer } from '../../shared/components/footer/footer';
 import { Header } from '../../shared/components/header/header';
-import { IonContent, IonItem, IonLabel, IonInput, IonTextarea, IonButton, IonNote } from '@ionic/angular/standalone';
+import { GetInputText } from '../../shared/components/get-input-text/get-input-text';
+import { IonContent, IonTextarea, IonButton, IonNote, IonLabel } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-incidents',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, Footer, Header, IonContent, IonItem, IonLabel, IonInput, IonTextarea, IonButton, IonNote],
+  imports: [ReactiveFormsModule, CommonModule, Footer, Header, GetInputText, IonContent, IonTextarea, IonButton, IonNote, IonLabel],
   templateUrl: './incidents.html',
   styleUrl: './incidents.css',
 })

@@ -7,323 +7,122 @@
   padding: 0;
 }
 
-main {
-  padding-bottom: 4rem;
-}
-
-body {
-  background: #0f0d1f;
-  min-height: 100vh;
-  color: #e8e8f0;
-}
-
-footer {
-  padding: 0;
-}
-
-header {
-  width: 100%;
-  max-width: 50rem;
-  margin: 0 auto 1rem;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.title {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #e8e8f0;
-}
-
-.backButton {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 6px;
-  color: #e8e8f0;
-  transition: background 0.2s;
-}
-
-.backButton:hover {
-  background: #221e52;
-}
-
-.field {
-  display: block;
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.field-large textarea {
-  width: 100%;
-  min-height: 100px;
-  padding: 10px 12px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #2a2750;
-  color: #e8e8f0;
-  font-size: 13px;
-  outline: none;
-  resize: vertical;
-  transition: all 0.2s ease;
-}
-
-.field-large textarea:focus {
-  background: #332f66;
-  box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
-}
-
-.field-label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-size: 13px;
-  font-weight: 500;
-  color: #9b99b8;
-}
-
 .form {
   max-width: 50rem;
-  margin: auto;
-  background: #1a1740;
+  margin: 1.5rem auto;
   padding: 2rem;
+  padding-bottom: 3rem;
+  background: #1a1740;
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.form > label,
-.dual-inputs label ::ng-deep app-get-input-text {
-  display: block;
-  margin-bottom: 0.1rem;
-  position: relative;
-  color: #9b99b8;
-}
-
-.fieldFeedBack {
-  margin-bottom: 1rem;
-}
-
-input[type="text"],
-input[type="date"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-.search-input ::ng-deep app-get-input-text {
-  width: 100%;
-  height: 44px;
-  padding: 10px 12px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #2a2750 !important;
-  color: #e8e8f0 !important;
-  font-size: 13px;
-  outline: none;
-  transition: all 0.2s ease;
-  -webkit-text-fill-color: #e8e8f0;
-}
-
-input::placeholder ::ng-deep app-get-input-text {
-  color: #9b99b8 !important;
-  -webkit-text-fill-color: #9b99b8;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus ::ng-deep app-get-input-text  {
-  -webkit-box-shadow: 0 0 0px 1000px #2a2750 inset !important;
-  -webkit-text-fill-color: #e8e8f0 !important;
-  caret-color: #e8e8f0;
-}
-
-input:focus,
-.search-input:focus ::ng-deep app-get-input-text {
-  background: #332f66 !important;
-  box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
-}
-
-.dual-inputs ::ng-deep app-get-input-text{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.dateInputWrapper {
-  position: relative;
-  padding-top: 0.1rem
-}
-
-.dateInput {
-  appearance: none;
-  padding-right: 40px;
-  cursor: pointer;
-  background: #2a2750 !important;
-  color: #e8e8f0 !important;
-  -webkit-text-fill-color: #e8e8f0;
-  color-scheme: dark;
-}
-
-.dateInput::-webkit-calendar-picker-indicator {
-  display: none;
-}
-
-.calendar-btn {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-20%);
-  border: none;
-  padding: 0;
-  margin: 0;
-  background: none !important;
-  box-shadow: none !important;
-  cursor: pointer;
-  font-size: 1.4rem;
-  width: 2rem;
-  height: 2rem;
-  color: #9b99b8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  transition: color 0.2s;
-  line-height: 1;
-}
-
-.calendar-btn:hover {
-  background: none !important;
-  color: #e8e8f0;
-}
-
-form h2 {
+.form h2 {
   font-size: 1.17rem;
   font-weight: bold;
-  margin-top: 0;
+  margin-top: 1rem;
   margin-bottom: 0.67em;
   color: #e8e8f0;
 }
 
-.tag-input-group input {
-  flex: 1;
-  height: 44px;
-  padding: 10px 12px;
-  border-radius: 6px;
+.dual-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.textarea-group {
+  margin-bottom: 1.25rem;
+}
+
+.textarea-group .field-label {
+  color: #9b99b8;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  display: block;
+  padding-left: 4px;
+}
+
+ion-textarea {
+  --background: #2a2750;
+  --border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --color: #e8e8f0;
+  --placeholder-color: #5e5c7a;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #2a2750;
-  color: #e8e8f0;
-  font-size: 13px;
-  outline: none;
+  min-height: 80px;
+  font-size: 0.95rem;
 }
 
-.tag-input-group input:focus {
-  background: #332f66;
-  box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.5);
-}
-
-.tag-input-group button {
-  width: 44px;
-  border: none;
-  border-radius: 6px;
-  background: #2a2750;
-  color: #e8e8f0;
-  cursor: pointer;
-  font-size: 18px;
-  transition: 0.2s;
-}
-
-.tag-input-group button:hover {
-  background: #332f66;
-}
-
-.tags-container {
+.date-field {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 0.8rem;
+  flex-direction: column;
 }
 
-.tag {
-  background: rgba(79, 110, 247, 0.15);
-  border: 1px solid rgba(79, 110, 247, 0.35);
-  color: #a0b4ff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.date-field .field-label {
+  color: #9b99b8;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  padding-left: 4px;
 }
 
-.tag button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  color: #a0b4ff;
+.date-input {
+  --background: #2a2750;
+  --border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0;
 }
 
-.image-upload-container {
-  display: flex;
-  position: relative;
-  align-items: center;
-  gap: 16px;
-  margin-top: 1rem;
+.date-input ion-datetime {
+  --background: transparent;
+  --color: #e8e8f0;
 }
 
-.small-upload-btn {
-  width: 40px;
-  height: 40px;
-  background: #2a2750;
-  border-radius: 6px;
+.button-row {
   display: flex;
   justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: background 0.2s;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
-.small-upload-btn:hover {
-  background: #332f66;
+.button-row ion-button {
+  --border-radius: 2rem;
+  --padding-start: 2.5rem;
+  --padding-end: 2.5rem;
+  width: auto;
 }
 
-.small-upload-btn input[type="file"] {
-  display: none;
+.search-container {
+  position: relative;
+  width: 100%;
 }
 
 .preview {
-  margin-top: 25px;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
 }
 
 .preview img {
-  width: 30rem;
+  width: 100%;
+  max-width: 30rem;
   height: 10rem;
   border-radius: 14px;
   object-fit: cover;
   background: #2a2750;
 }
 
-.btn-secondary {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  width: 100%;
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #2a2750;
-  color: #e8e8f0;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.2s;
-}
-
-.btn-secondary:hover {
-  background: #332f66;
+ion-item {
+  --background: transparent;
+  --color: #e8e8f0;
+  --border-color: transparent;
 }
 
 @media (max-width: 1024px) {
@@ -333,29 +132,28 @@ form h2 {
   }
 
   .preview img {
-    width: 100%;
     height: 8rem;
   }
 }
 
 @media (max-width: 768px) {
+  .dual-inputs {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
   .form {
     max-width: 100%;
     padding: 1rem;
     border-radius: 0.5rem;
-    margin: 0 1.5rem 0 1.5rem;
+    margin: 0 1rem 1rem;
   }
 
-  .dual-inputs {
-    grid-template-columns: 1fr;
-  }
-
-  .title {
-    font-size: 1.5rem;
+  .button-row ion-button {
+    width: 100%;
   }
 
   .preview img {
-    width: 100%;
     height: 7rem;
   }
 }

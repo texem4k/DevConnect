@@ -6,7 +6,7 @@ import { AuthService } from '../../../core/services/auth-service';
 import { FormsModule } from '@angular/forms';
 import {UserService} from '../../../core/services/user-crud';
 import {firstValueFrom} from 'rxjs';
-import { IonHeader, IonToolbar, IonButtons, IonButton, IonImg, IonSearchbar, IonMenu, IonMenuButton, IonTitle, IonContent, IonList, IonItem, IonLabel, MenuController } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonButtons, IonButton, IonImg, IonSearchbar, IonMenuButton, IonItem, MenuController } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-header',
@@ -20,13 +20,8 @@ import { IonHeader, IonToolbar, IonButtons, IonButton, IonImg, IonSearchbar, Ion
     IonButton,
     IonImg,
     IonSearchbar,
-    IonMenu,
     IonMenuButton,
-    IonTitle,
-    IonContent,
-    IonList,
     IonItem,
-    IonLabel
   ],
   templateUrl: './header.html',
   styleUrl: './header.css',

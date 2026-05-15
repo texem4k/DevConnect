@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { GetInputText } from '../../shared/components/get-input-text/get-input-text';
 import {AuthService} from '../../core/services/auth-service';
-import { IonContent, IonButton, IonItem, IonLabel, IonInput, IonNote } from '@ionic/angular/standalone';
+import { IonContent, IonButton, IonNote } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, GetInputText, RouterLink, IonContent, IonButton, IonItem, IonLabel, IonInput, IonNote],
+  imports: [ReactiveFormsModule, CommonModule, GetInputText, RouterLink, IonContent, IonButton, IonNote],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })

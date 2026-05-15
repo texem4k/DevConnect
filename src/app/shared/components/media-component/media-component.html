@@ -1,5 +1,5 @@
 @if(project != undefined){
-  <ion-item button (click)="navegarAProyecto()">
+  <ion-item button (click)="navegarAProyecto()" [class.flat]="flat">
     <ion-thumbnail slot="start">
       <ion-img [src]="project.image" [alt]="project.title"></ion-img>
     </ion-thumbnail>
@@ -17,7 +17,7 @@
 }
 
 @else{
-  <ion-item button (click)="navegarAUsuario()">
+  <ion-item button (click)="navegarAUsuario()" [class.flat]="flat">
     <ion-thumbnail slot="start">
       <ion-img [src]="user?.Avatar" [alt]="user?.Nickname"></ion-img>
     </ion-thumbnail>

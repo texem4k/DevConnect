@@ -167,20 +167,62 @@ ion-button {
   --background-hover: var(--color-secondary);
 }
 
-/* Botón genérico (no ion-button) */
-button {
-  padding: 0.3rem 1rem;
-  border: 1px solid #838383;
-  border-radius: 99px;
-  background: #838383;
-  color: #1a1a1a;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+/* ── Utilidades compartidas ── */
+
+/* Espaciado entre campos de formulario */
+app-get-input-text {
+  display: block;
+  margin-bottom: 1.25rem;
 }
 
-button:hover {
-  background: #402277;
-  border-color: #999;
-  color: #ffffff;
+/* Grid de dos columnas para formularios */
+.dual-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Fila de botones centrada */
+.button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 0.75rem;
+}
+
+.button-row ion-button {
+  --border-radius: 2rem;
+  --padding-start: 2rem;
+  --padding-end: 2rem;
+  width: auto;
+}
+
+/* Label de campo de formulario */
+.field-label {
+  color: #9b99b8;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  display: block;
+  padding-left: 4px;
+}
+
+/* Textarea estilo formulario */
+.form-textarea {
+  --background: #2a2750;
+  --border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --color: #e8e8f0;
+  --placeholder-color: #5e5c7a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 100px;
+  font-size: 0.95rem;
+}
+
+.form-textarea:focus {
+  border-color: rgba(79, 110, 247, 0.5);
+  box-shadow: 0 0 0 2px rgba(79, 110, 247, 0.2);
 }

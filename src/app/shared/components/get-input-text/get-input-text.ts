@@ -18,7 +18,7 @@ export class GetInputText {
   @Input() control!: AbstractControl;
   @Input() errorMessages: Record<string, string> = {};
   @Input() participantsField: boolean | undefined;
-  @Input() maxlength: String | undefined;
+  @Input() maxlength: string | number | null = null;
 
   get formControl(): FormControl {
     return this.control as FormControl;
