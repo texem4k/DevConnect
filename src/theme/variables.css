@@ -1,0 +1,44 @@
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+:root {
+  --ion-background-color:             var(--color-light);
+  --ion-background-color-rgb:         15, 13, 31;
+  --ion-text-color:                   var(--color-text-dark);
+  --ion-text-color-rgb:               232, 232, 240;
+
+  --ion-color-primary:                var(--color-4);
+  --ion-color-primary-rgb:            30, 21, 135;
+  --ion-color-primary-contrast:       #ffffff;
+  --ion-color-primary-contrast-rgb:   255, 255, 255;
+  --ion-color-primary-shade:          var(--color-3);
+  --ion-color-primary-tint:           #3a30a0;
+
+  --ion-color-secondary:              var(--color-accent);
+  --ion-color-secondary-contrast:     #ffffff;
+
+  --ion-color-danger:                 var(--color-danger);
+  --ion-color-danger-contrast:        #ffffff;
+
+  --ion-color-success:                var(--color-success);
+  --ion-color-success-contrast:       #ffffff;
+
+  --ion-toolbar-background:           var(--color-light);
+  --ion-toolbar-color:                var(--color-white);
+  --ion-toolbar-border-color:         var(--color-gray);
+
+  --ion-item-background:              var(--color-light);
+  --ion-item-color:                   var(--color-text-dark);
+  --ion-item-border-color:            var(--color-gray);
+
+  --ion-card-background:              var(--color-light);
+  --ion-card-color:                   var(--color-text-dark);
+
+  --ion-border-color:                 var(--color-gray);
+
+  --ion-font-family:                  var(--font-body);
+
+  --ion-backdrop-color:               var(--color-5);
+  --ion-backdrop-opacity:             0.6;
+
+  --ion-overlay-background-color:     var(--color-light);
+}
