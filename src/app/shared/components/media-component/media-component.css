@@ -8,7 +8,6 @@
 .actionButton {
   height: 2rem;
   background-color: #383288;
-  border: none;
 }
 
 .actionButton:hover {
@@ -21,7 +20,6 @@
 
 ion-item.flat {
   --background: var(--color-light);
-  border: none;
   box-shadow: none;
   margin: 0.5rem auto;
 }

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Menú</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="sidebar"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div class="menu-scroll">
+  @for (topico of topicos$ | async; track topico.id) {
+    <ion-list>
+      <ion-item class="menu-category" (click)="toggleCategory(topico.id)">
+        <ion-label>{{ isCategoryExpanded(topico.id) ? '▾' : '▸' }} {{ topico.nombre }}</ion-label>
+      </ion-item>
+      @if (isCategoryExpanded(topico.id)) {
+        @for (item of topico.items; track item) {
+          <ion-item
+            class="menu-option"
+            [routerLink]="['/SearchResult']"
+            [queryParams]="buildQueryParams(topico.id, item)"
+            (click)="closeSidebar()"
+          >
+            <ion-label>{{ item }}</ion-label>
+          </ion-item>
+        }
+      }
+    </ion-list>
+  }
+</div>
+
+<ion-list class="usr-btns">
+  <ion-item routerLink="" (click)="closeSidebar()"><ion-label>Home</ion-label></ion-item>
+
+  @if (!isLoggedIn) {
+    <ion-item routerLink="/Login" (click)="closeSidebar()"><ion-label>Iniciar Sesión</ion-label></ion-item>
+  } @else {
+    <ion-item [routerLink]="['/UserProfile', currentUserId]" (click)="closeSidebar()"><ion-label>Mi Perfil</ion-label></ion-item>
+    <ion-item routerLink="/CreateProject" (click)="closeSidebar()"><ion-label>Crear Proyecto</ion-label></ion-item>
+    <ion-item [routerLink]="['/ManageProject', currentUserId]" (click)="closeSidebar()"><ion-label>Gestionar Proyecto</ion-label></ion-item>
+    <ion-item class="logout-btn" (click)="onLogout()"><ion-label>Cerrar Sesión</ion-label></ion-item>
+  }
+</ion-list>

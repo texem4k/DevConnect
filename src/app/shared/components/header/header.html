@@ -1,7 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button routerLink="/">
+      <ion-menu-button menu="sidebar" auto-hide="false" id="ham-btn" class="hamburger"></ion-menu-button>
+      <ion-button routerLink="/" class="home-btn">
         <ion-img src="https://cdn-icons-png.flaticon.com/256/6583/6583566.png" alt="Inicio" class="home-icon"></ion-img>
       </ion-button>
     </ion-buttons>
@@ -24,7 +25,7 @@
           Iniciar sesión
         </ion-button>
       } @else {
-        <div class="profile-trigger">
+        <div class="profile-trigger" #profileTriggerRef>
           <ion-button fill="clear" (click)="toggleProfileMenu($event)" class="profile-avatar-btn">
             <ion-img [src]="userPhoto" alt="Foto de perfil" class="profile-avatar"></ion-img>
           </ion-button>
@@ -39,9 +40,6 @@
       class="search-input"
     ></ion-searchbar>
 
-    <ion-buttons slot="end">
-      <ion-menu-button menu="sidebar" auto-hide="false" id="ham-btn" class="hamburger"></ion-menu-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -53,7 +51,7 @@
          (mouseenter)="onPanelEnter(i)"
          (mouseleave)="onPanelLeave()">
       @for (item of topico.items; track item) {
-        <ion-item button
+        <ion-item
           [routerLink]="['/SearchResult']"
           [queryParams]="buildQueryParams(topico.id, item)"
           class="dropdown-item">
@@ -64,8 +62,12 @@
   }
 }
 
+
+
+<!-- Panel desplegable del perfil -->
 @if (isProfileMenuOpen && profileDropdownPos) {
   <div class="profile-dropdown fixed"
+       #profileDropdownRef
        [style.top.px]="profileDropdownPos.top"
        [style.right.px]="profileDropdownPos.right">
     <ion-item button [routerLink]="['/UserProfile', currentUserId]">Mi Perfil</ion-item>

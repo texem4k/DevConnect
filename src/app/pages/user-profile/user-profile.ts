@@ -37,21 +37,24 @@ export class UserProfile implements OnInit {
   userLanguages: Topic[] = [];
 
   ngOnInit() {
-    const userId = this.route.snapshot.params['id'];
+    this.route.params.pipe(
+      switchMap(params => {
+        const userId = params['id'];
+        return combineLatest([
+          this.userService.getUserById(userId),
+          this.auth.currentUser$
+        ]).pipe(
+          first(),
+          switchMap(([user, authUser]) => {
+            this.userInformation = user;
+            this.isOwnedProfile = authUser?.uid === user?.uid;
 
-    combineLatest([
-      this.userService.getUserById(userId),
-      this.auth.currentUser$
-    ]).pipe(
-      first(),
-      switchMap(([user, authUser]) => {
-        this.userInformation = user;
-        this.isOwnedProfile = authUser?.uid === user?.uid;
-
-        return forkJoin([
-          this.projectService.getProjectsByCreator(user.Nickname).pipe(first()),
-          this.resolvedTopics()
-        ]);
+            return forkJoin([
+              this.projectService.getProjectsByCreator(user.Nickname).pipe(first()),
+              this.resolvedTopics()
+            ]);
+          })
+        );
       })
     ).subscribe(([projects, topics]) => {
       this.userProjects = projects;

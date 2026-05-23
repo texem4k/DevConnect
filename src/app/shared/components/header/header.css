@@ -75,6 +75,8 @@
   --padding-bottom: 0;
   max-width: 500px;
   flex: 1;
+  margin-left: auto;
+  margin-right: 17.5rem;
 }
 
 /* Profile dropdown */
@@ -142,6 +144,10 @@ ion-menu-button {
   .header-left,
   .search-input,
   .header-right {
+    display: none;
+  }
+
+  .home-btn {
     display: none;
   }
 

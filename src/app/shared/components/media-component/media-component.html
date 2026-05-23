@@ -9,7 +9,7 @@
     </ion-label>
     @if(showActions){
       <ion-buttons slot="end">
-        <ion-button (click)="onEdit()">✏️</ion-button>
+        <ion-button (click)="onEdit($event)">✏️</ion-button>
         <ion-button (click)="onDelete($event)">🗑️</ion-button>
       </ion-buttons>
     }
@@ -17,7 +17,7 @@
 }
 
 @else{
-  <ion-item button (click)="navegarAUsuario()" [class.flat]="flat">
+  <ion-item (click)="navegarAUsuario()" [class.flat]="flat">
     <ion-thumbnail slot="start">
       <ion-img [src]="user?.Avatar" [alt]="user?.Nickname"></ion-img>
     </ion-thumbnail>

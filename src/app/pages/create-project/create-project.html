@@ -6,7 +6,7 @@
     <ion-title>{{ projectId ? 'Edición de Proyecto' : 'Creación de Proyecto' }}</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content id="main-content">
   <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <app-get-input-text
@@ -81,11 +81,13 @@
     }
 
     <h2></h2>
-    <ion-item>
-      <ion-label>Imagen del proyecto</ion-label>
+    <label class="upload-item">
       <input type="file" accept="image/*" id="fileInput" hidden #projectImageInput>
-      <ion-button slot="end" (click)="projectImageInput.click()">⬆️</ion-button>
-    </ion-item>
+      <ion-item>
+        <ion-label>Imagen del proyecto</ion-label>
+        <ion-text slot="end">⬆️</ion-text>
+      </ion-item>
+    </label>
 
     <div class="button-row">
       <ion-button type="submit" [disabled]="isSubmitting">
@@ -98,5 +100,5 @@
     }
 
   </form>
-</ion-content>
 <app-footer></app-footer>
+</ion-content>

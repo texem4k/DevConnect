@@ -10,6 +10,7 @@
       [titulo]="userInformation.Nickname">
     </app-banner-profile>
 
+    <main>
     <section class="profileInformation">
 
       <app-get-input-text
@@ -59,23 +60,27 @@
       <ion-textarea [(ngModel)]="description" placeholder="Hola, soy ...." rows="5"></ion-textarea>
 
       <section class="uploadContent">
-        <ion-item>
-          <ion-label>
-            <strong>Pulsa para cambiar tu foto de perfil</strong>
-            <p>Tamaño MxN máximo X, formato JPG o PNG</p>
-          </ion-label>
+        <label class="upload-item">
           <input class="file-upload" type="file" accept="image/png, image/jpeg, image/jpg" hidden #avatarInput>
-          <ion-button slot="end" (click)="avatarInput.click()">⬆️</ion-button>
-        </ion-item>
+          <ion-item>
+            <ion-label>
+              <strong>Pulsa para cambiar tu foto de perfil</strong>
+              <p>Tamaño MxN máximo X, formato JPG o PNG</p>
+            </ion-label>
+            <ion-text slot="end">⬆️</ion-text>
+          </ion-item>
+        </label>
 
-        <ion-item>
-          <ion-label>
-            <strong>Pulsa para cambiar el banner</strong>
-            <p>Tamaño máximo MxN, formato JPG o PNG</p>
-          </ion-label>
+        <label class="upload-item">
           <input class="file-upload" id="banner-upload" type="file" accept="image/png, image/jpeg, image/jpg" hidden #bannerInput>
-          <ion-button slot="end" (click)="bannerInput.click()">⬆️</ion-button>
-        </ion-item>
+          <ion-item>
+            <ion-label>
+              <strong>Pulsa para cambiar el banner</strong>
+              <p>Tamaño máximo MxN, formato JPG o PNG</p>
+            </ion-label>
+            <ion-text slot="end">⬆️</ion-text>
+          </ion-item>
+        </label>
       </section>
     </section>
 
@@ -83,6 +88,7 @@
       <ion-button (click)="openPasswordModal()" type="button">Actualizar</ion-button>
       <ion-button fill="outline" (click)="history.back()" type="button">Cancelar</ion-button>
     </section>
+    </main>
     <br>
 
     @if(showPasswordModal) {
@@ -93,7 +99,7 @@
               <ion-title>Confirmar identidad</ion-title>
             </ion-toolbar>
           </ion-header>
-          <ion-content>
+<ion-content id="main-content">
             <p style="padding: 1rem; color: #9b99b8;">Introduce tu contraseña actual para guardar los cambios</p>
             <app-get-input-text
               [label]="'Contraseña actual'"

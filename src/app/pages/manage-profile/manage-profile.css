@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
 }
 
@@ -16,11 +15,16 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0;
+  margin: 2rem;
 }
 
 .userDescription {
   display: flex;
   flex-direction: column;
+  gap: 0;
+  margin-right: 2rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 2rem;
 }
 
 .userDescription h3 {
@@ -62,6 +66,17 @@ main {
 .uploadContent ion-label p {
   color: #9b99b8;
   font-size: 0.8rem;
+}
+
+.upload-item {
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.upload-item:hover ion-item {
+  background: #221e52;
+  border-color: rgba(79, 110, 247, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
 }
 
 .profileInformationButtons {

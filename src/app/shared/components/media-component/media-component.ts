@@ -41,7 +41,8 @@ export class MediaComponent implements OnInit {
     this.router.navigate(['/UserProfile', this.idUser]);
   }
 
-  onEdit() {
+  onEdit(event: MouseEvent) {
+    event.stopPropagation();
     if (this.project) {
       this.router.navigate(['/CreateProject', this.project.id]);
     }

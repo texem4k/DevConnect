@@ -17,7 +17,20 @@ import {ActivatedRoute} from '@angular/router';
 import {firstValueFrom} from 'rxjs';
 import {AuthService} from '../../core/services/auth-service';
 import {UserService} from '../../core/services/user-crud';
-import { IonHeader, IonToolbar, IonButtons, IonButton, IonTitle, IonContent, IonItem, IonLabel, IonTextarea, IonDatetime, IonNote } from '@ionic/angular/standalone';
+import {
+  IonHeader,
+  IonToolbar,
+  IonButtons,
+  IonButton,
+  IonTitle,
+  IonContent,
+  IonItem,
+  IonLabel,
+  IonTextarea,
+  IonDatetime,
+  IonNote,
+  IonText
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-create-project',
@@ -37,6 +50,7 @@ import { IonHeader, IonToolbar, IonButtons, IonButton, IonTitle, IonContent, Ion
     IonTextarea,
     IonDatetime,
     IonNote,
+    IonText,
   ],
   templateUrl: './create-project.html',
   styleUrl: './create-project.css',
@@ -130,6 +144,7 @@ export class CreateProject implements OnInit {
   }
 
   async onSubmit() {
+    console.log("submit")
     if (this.form.valid && this.validTopicsSelection()) {
       const title = this.form.get('projectName')?.value;
       if (title && !this.projectId) {

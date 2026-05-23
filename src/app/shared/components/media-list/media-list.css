@@ -1,6 +1,6 @@
 :host ::ng-deep app-media-component ion-item {
   --background: var(--color-light);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
   margin: 1rem auto;
   width: 75%;
@@ -8,8 +8,12 @@
   transition: background 0.15s, border-color 0.15s, transform 0.15s, box-shadow 0.15s;
 }
 
+ion-list.projectList {
+  --background: var(--color-light) !important;
+  background: var(--color-light) !important;
+}
+
 :host ::ng-deep app-media-component ion-item:hover {
-  --background: rgba(255, 255, 255, 0.05);
   border-color: rgba(79, 110, 247, 0.4);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   transform: translateY(-2px);

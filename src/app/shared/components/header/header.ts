@@ -1,11 +1,11 @@
-import { Component, HostListener, inject, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, HostListener, inject, ViewChildren, ViewChild, QueryList, ElementRef } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { HeaderElementsService } from '../../../core/services/headerElements-service';
 import { AuthService } from '../../../core/services/auth-service';
 import { FormsModule } from '@angular/forms';
-import {UserService} from '../../../core/services/user-crud';
-import {firstValueFrom} from 'rxjs';
+import { UserService } from '../../../core/services/user-crud';
+import { firstValueFrom } from 'rxjs';
 import { IonHeader, IonToolbar, IonButtons, IonButton, IonImg, IonSearchbar, IonMenuButton, IonItem, MenuController } from '@ionic/angular/standalone';
 
 @Component({
@@ -48,20 +48,25 @@ export class Header {
   private isPointerOnTrigger = false;
   private isPointerOnPanel = false;
 
+  // Flag para ignorar el document:click inmediato tras abrir el menú
+  private justOpenedProfile = false;
+
   @ViewChildren('dropdownBtn', { read: ElementRef }) dropdownBtns!: QueryList<ElementRef>;
+  @ViewChild('profileTriggerRef', { read: ElementRef }) profileTriggerRef!: ElementRef;
+  @ViewChild('profileDropdownRef', { read: ElementRef }) profileDropdownRef!: ElementRef;
 
   buildQueryParams(key: string, value: string): Record<string, string> {
     return { [key]: value };
   }
 
-   ngOnInit() {
+  ngOnInit() {
     this.authService.isLoggedIn$.subscribe(logged => {
       this.isLoggedIn = logged;
     });
 
     this.authService.currentUser$.subscribe(async user => {
-      this.userPhoto = await this.getPhotoUser();
       this.currentUserId = user?.uid ?? '';
+      this.userPhoto = await this.getPhotoUser();
     });
   }
 
@@ -132,9 +137,11 @@ export class Header {
   }
 
   toggleProfileMenu(event: MouseEvent) {
+    event.stopPropagation(); // Evita que el document:click lo cierre de inmediato
     this.isProfileMenuOpen = !this.isProfileMenuOpen;
+
     if (this.isProfileMenuOpen) {
-      const btn = (event.currentTarget as HTMLElement) as HTMLElement;
+      const btn = event.currentTarget as HTMLElement;
       const rect = btn.getBoundingClientRect();
       this.profileDropdownPos = {
         top: rect.bottom,
@@ -151,23 +158,21 @@ export class Header {
     this.profileDropdownPos = null;
   }
 
-  @HostListener('mouseleave')
-  onHostMouseLeave() {
-    this.activeMenuIndex = null;
-    this.dropdownPos = null;
-    this.isProfileMenuOpen = false;
-    this.profileDropdownPos = null;
-  }
+  // Eliminado @HostListener('mouseleave') — causaba cierres inesperados en otras páginas
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
-    if (this.dropdownPos) {
-      const dropdownEl = document.querySelector('.dropdown-content.fixed');
+    // Cerrar dropdown de tópicos
+    if (this.activeMenuIndex !== null) {
+      const target = event.target as Node;
       const triggers = document.querySelectorAll('.header-left .dropdown');
-      let isInside = false;
-      triggers.forEach(t => { if (t.contains(event.target as Node)) isInside = true; });
-      if (dropdownEl && dropdownEl.contains(event.target as Node)) isInside = true;
-      if (!isInside) {
+      const dropdownPanel = document.querySelector('.dropdown-content.fixed');
+
+      let isInsideDropdown = false;
+      triggers.forEach(t => { if (t.contains(target)) isInsideDropdown = true; });
+      if (dropdownPanel?.contains(target)) isInsideDropdown = true;
+
+      if (!isInsideDropdown) {
         this.activeMenuIndex = null;
         this.dropdownPos = null;
         this.isPointerOnTrigger = false;
@@ -175,13 +180,17 @@ export class Header {
       }
     }
 
-    if (this.profileDropdownPos) {
-      const trigger = document.querySelector('.profile-trigger');
-      const panel = document.querySelector('.profile-dropdown.fixed');
-      let isInside = false;
-      if (trigger?.contains(event.target as Node)) isInside = true;
-      if (panel?.contains(event.target as Node)) isInside = true;
-      if (!isInside) {
+    // Cerrar perfil — el stopPropagation en toggleProfileMenu ya protege la apertura
+    if (this.isProfileMenuOpen) {
+      const target = event.target as Node;
+      const triggerEl = this.profileTriggerRef?.nativeElement;
+      const panelEl = this.profileDropdownRef?.nativeElement;
+
+      const isInsideProfile =
+        (triggerEl && triggerEl.contains(target)) ||
+        (panelEl && panelEl.contains(target));
+
+      if (!isInsideProfile) {
         this.isProfileMenuOpen = false;
         this.profileDropdownPos = null;
       }
