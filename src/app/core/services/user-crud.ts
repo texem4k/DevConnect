@@ -46,32 +46,22 @@ export class UserService {
     return setDoc(doc(this.firestore, 'users', cred.user.uid), userWithoutPassword);
   }
 
-  async updateUser(id: string, data: Partial<User>, currentPassword: string, oldNickname?: string) {
+  async updateUser(id: string, data: Partial<User>, oldNickname?: string) {
     const currentUser = this.authService.currentUser;
     const docRef = doc(this.firestore, `users/${id}`);
 
+    const { Password, ...firestoreFields } = data;
+
     const firestoreData = Object.fromEntries(
-      Object.entries(data).filter(([_, value]) => value !== undefined)
+      Object.entries(firestoreFields).filter(([_, value]) => value !== undefined)
     );
-
-    if (currentUser && (data.Gmail || data.Password) && currentPassword) {
-      const credential = EmailAuthProvider.credential(currentUser.email!, currentPassword);
-      await reauthenticateWithCredential(currentUser, credential);
-
-      await Promise.all([
-        data.Gmail && data.Gmail !== currentUser.email
-          ? updateEmail(currentUser, data.Gmail)
-          : null,
-        data.Password
-          ? updatePassword(currentUser, data.Password)
-          : null,
-      ].filter(Boolean) as Promise<void>[]);
-
-      await sendEmailVerification(currentUser);
-    }
 
     if (Object.keys(firestoreData).length > 0) {
       await updateDoc(docRef, firestoreData);
+    }
+
+    if (currentUser && Password) {
+      await updatePassword(currentUser, Password);
     }
 
     if (data.Nickname && oldNickname && data.Nickname !== oldNickname) {

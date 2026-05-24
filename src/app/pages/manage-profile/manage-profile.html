@@ -11,116 +11,85 @@
     </app-banner-profile>
 
     <main>
-    <section class="profileInformation">
+      <section class="profileInformation">
 
-      <app-get-input-text
-        [label]="'Nombre de usuario'"
-        [control]="getControl('nickname')"
-        [placeholder]="'Nombre de usuario'"
-        [errorMessages]="{
-        required: 'El nombre de usuario no puede estar vacío',
-        nicknameExists: 'El nombre de usuario ya existe, elige otro'}"
-      ></app-get-input-text>
+        <app-get-input-text
+          [label]="'Nombre de usuario'"
+          [control]="getControl('nickname')"
+          [placeholder]="'Nombre de usuario'"
+          [errorMessages]="{
+            required: 'El nombre de usuario no puede estar vacío',
+            nicknameExists: 'El nombre de usuario ya existe, elige otro'}"
+        ></app-get-input-text>
 
-      <app-get-input-text
-        [label]="'Contraseña nueva'"
-        [placeholder]="'Contraseña nueva'"
-        [control]="getControl('password')"
-        [errorMessages]="{pattern: 'La contraseña debe tener mínimo 8 carácteres, incluyendo un dígito, una mayúscula y un carácter especial'}"
-        [type]="'password'"
-      ></app-get-input-text>
+        <app-get-input-text
+          [label]="'Contraseña nueva'"
+          [placeholder]="'Contraseña nueva'"
+          [control]="getControl('password')"
+          [errorMessages]="{pattern: 'La contraseña debe tener mínimo 8 carácteres, incluyendo un dígito, una mayúscula y un carácter especial'}"
+          [type]="'password'"
+        ></app-get-input-text>
 
-      <app-get-input-text
-        [label]="'Número de teléfono'"
-        [control]="getControl('userPhone')"
-        [errorMessages]="{pattern: 'El número de teléfono no es válido'}">
-      </app-get-input-text>
+        <app-get-input-text
+          [label]="'Número de teléfono'"
+          [control]="getControl('userPhone')"
+          [errorMessages]="{pattern: 'El número de teléfono no es válido'}">
+        </app-get-input-text>
 
-      <app-get-input-text
-        [label]="'Correo electrónico'"
-        [control]="getControl('email')"
-        [errorMessages]="{required: 'El email no puede estar vacío',
-                          email: 'El email no tiene un formato válido'}">
-      </app-get-input-text>
+        <app-get-input-text
+          [label]="'Correo electrónico'"
+          [control]="getControl('email')"
+          [errorMessages]="{required: 'El email no puede estar vacío',
+                            email: 'El email no tiene un formato válido'}">
+        </app-get-input-text>
 
-      <app-search-topics
-        [preselectedIds]="this.selectedTopics!"
-        (selectionChange)="getTopicsIds($event)"
-        (allTopics)="getTopics($event)"
-      ></app-search-topics>
+        <app-search-topics
+          [preselectedIds]="this.selectedTopics!"
+          (selectionChange)="getTopicsIds($event)"
+          (allTopics)="getTopics($event)"
+        ></app-search-topics>
 
-      @if(pressedSubmit && !validTopicsSelection()) {
-        <ion-note color="danger">Debes seleccionar al menos un idioma y un lenguaje</ion-note>
-      }
+        @if(pressedSubmit && !validTopicsSelection()) {
+          <ion-note color="danger">Debes seleccionar al menos un idioma y un lenguaje</ion-note>
+        }
 
-    </section>
-
-    <section class="userDescription">
-      <h3>Descripción</h3>
-      <ion-textarea [(ngModel)]="description" placeholder="Hola, soy ...." rows="5"></ion-textarea>
-
-      <section class="uploadContent">
-        <label class="upload-item">
-          <input class="file-upload" type="file" accept="image/png, image/jpeg, image/jpg" hidden #avatarInput>
-          <ion-item>
-            <ion-label>
-              <strong>Pulsa para cambiar tu foto de perfil</strong>
-              <p>Tamaño MxN máximo X, formato JPG o PNG</p>
-            </ion-label>
-            <ion-text slot="end">⬆️</ion-text>
-          </ion-item>
-        </label>
-
-        <label class="upload-item">
-          <input class="file-upload" id="banner-upload" type="file" accept="image/png, image/jpeg, image/jpg" hidden #bannerInput>
-          <ion-item>
-            <ion-label>
-              <strong>Pulsa para cambiar el banner</strong>
-              <p>Tamaño máximo MxN, formato JPG o PNG</p>
-            </ion-label>
-            <ion-text slot="end">⬆️</ion-text>
-          </ion-item>
-        </label>
       </section>
-    </section>
 
-    <section class="profileInformationButtons">
-      <ion-button (click)="openPasswordModal()" type="button">Actualizar</ion-button>
-      <ion-button fill="outline" (click)="history.back()" type="button">Cancelar</ion-button>
-    </section>
+      <section class="userDescription">
+        <h3>Descripción</h3>
+        <ion-textarea [(ngModel)]="description" placeholder="Hola, soy ...." rows="5"></ion-textarea>
+
+        <section class="uploadContent">
+          <label class="upload-item">
+            <input class="file-upload" type="file" accept="image/png, image/jpeg, image/jpg" hidden #avatarInput>
+            <ion-item>
+              <ion-label>
+                <strong>Pulsa para cambiar tu foto de perfil</strong>
+                <p>Tamaño MxN máximo X, formato JPG o PNG</p>
+              </ion-label>
+              <ion-text slot="end">⬆️</ion-text>
+            </ion-item>
+          </label>
+
+          <label class="upload-item">
+            <input class="file-upload" id="banner-upload" type="file" accept="image/png, image/jpeg, image/jpg" hidden #bannerInput>
+            <ion-item>
+              <ion-label>
+                <strong>Pulsa para cambiar el banner</strong>
+                <p>Tamaño máximo MxN, formato JPG o PNG</p>
+              </ion-label>
+              <ion-text slot="end">⬆️</ion-text>
+            </ion-item>
+          </label>
+        </section>
+      </section>
+
+      <section class="profileInformationButtons">
+        <ion-button (click)="onSubmit()" type="button">Actualizar</ion-button>
+        <ion-button fill="outline" (click)="history.back()" type="button">Cancelar</ion-button>
+      </section>
     </main>
     <br>
-
-    @if(showPasswordModal) {
-      <ion-modal (ionDidDismiss)="closePasswordModal()">
-        <ng-template>
-          <ion-header>
-            <ion-toolbar>
-              <ion-title>Confirmar identidad</ion-title>
-            </ion-toolbar>
-          </ion-header>
-<ion-content id="main-content">
-            <p style="padding: 1rem; color: #9b99b8;">Introduce tu contraseña actual para guardar los cambios</p>
-            <app-get-input-text
-              [label]="'Contraseña actual'"
-              [placeholder]="'Introduce tu contraseña'"
-              [control]="getControl('currentPassword')"
-              [errorMessages]="{required: 'La contraseña no puede estar vacía'}"
-              [type]="'password'"
-            ></app-get-input-text>
-
-            @if(errorMessage) {
-              <ion-note color="danger" style="padding: 0 1rem;">⚠️ {{ errorMessage }}</ion-note>
-            }
-
-            <div class="modal-buttons">
-              <ion-button (click)="closePasswordModal()" fill="outline">Cancelar</ion-button>
-              <ion-button (click)="confirmAndSubmit()">Confirmar</ion-button>
-            </div>
-          </ion-content>
-        </ng-template>
-      </ion-modal>
-    }
 
   }
   <app-footer></app-footer>

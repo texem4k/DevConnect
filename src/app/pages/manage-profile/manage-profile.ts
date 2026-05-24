@@ -12,8 +12,7 @@ import {Topic} from '../../core/models/topic.model';
 import {UserService} from '../../core/services/user-crud';
 import {TopicService} from '../../core/services/topic-crud';
 import {
-  IonContent, IonTextarea, IonItem, IonLabel, IonButton, IonModal, IonHeader, IonToolbar, IonTitle, IonNote,
-  IonText
+  IonContent, IonTextarea, IonItem, IonLabel, IonButton, IonNote, IonText
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -30,10 +29,6 @@ import {
     IonItem,
     IonLabel,
     IonButton,
-    IonModal,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
     IonNote,
     IonText,
   ],
@@ -52,21 +47,16 @@ export class ManageProfile implements OnInit {
   selectedTopics: string[] = [];
   pressedSubmit: boolean = false;
   description: string = '';
-  errorMessage: string = '';
-
-  // ── Modal ──
-  showPasswordModal: boolean = false;
 
   form = new FormGroup({
-    nickname: new FormControl(this.userInformation?.Nickname, [Validators.required, this.nicknameExists()]),
+    nickname: new FormControl('', [Validators.required, this.nicknameExists()]),
     password: new FormControl('', [
       Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\[\]{}|\\:;"'<>,.?\/]).+$/)
     ]),
     userPhone: new FormControl('', [
       Validators.pattern(/^\+?[\d\s\-]{9,15}$/), Validators.nullValidator
     ]),
-    email: new FormControl(this.userInformation?.Gmail, [Validators.required, Validators.email]),
-    currentPassword: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
 
   ngOnInit(): void {
@@ -118,59 +108,22 @@ export class ManageProfile implements OnInit {
     };
   }
 
-  openPasswordModal(): void {
-    this.pressedSubmit = true;
-    const { currentPassword, ...rest } = this.form.controls;
-    const mainFormValid = Object.values(rest).every(c => c.valid);
-    if (!mainFormValid || !this.validTopicsSelection()) return;
-    this.getControl('currentPassword').reset();
-    this.showPasswordModal = true;
-  }
-
-  closePasswordModal(): void {
-    this.showPasswordModal = false;
-    this.getControl('currentPassword').reset();
-  }
-
-  confirmAndSubmit(): void {
-    const pwControl = this.getControl('currentPassword');
-    pwControl.markAsTouched();
-    if (!pwControl.valid) return;
-    this.showPasswordModal = false;
-    this.onSubmit();
-  }
-
   async onSubmit() {
-    if (this.validTopicsSelection() && this.form.valid) {
-      const currentPassword = this.form.get('currentPassword')?.value;
-      const oldNickname = this.userInformation?.Nickname;
-      const data: Partial<User> = {
-        Nickname: this.form.get('nickname')?.value ?? undefined,
-        Gmail: this.form.get('email')?.value ?? undefined,
-        Telephone: this.form.get('userPhone')?.value ?? undefined,
-        Password: this.form.get('password')?.value || undefined,
-        Topic: this.selectedTopics?.length ? this.selectedTopics : undefined,
-        Description: this.description || undefined
-      };
+    this.pressedSubmit = true;
+    if (!this.form.valid || !this.validTopicsSelection()) return;
 
-      try {
-        await this.userService.updateUser(
-          this.userInformation!.uid,
-          data,
-          currentPassword!,
-          oldNickname
-        );
-        history.back();
-      } catch (error: any) {
-        if (error?.code === 'auth/wrong-password') {
-          this.errorMessage = 'La contraseña actual es incorrecta.';
-        } else if (error?.code === 'auth/too-many-requests') {
-          this.errorMessage = 'Demasiados intentos fallidos. Inténtalo más tarde.';
-        } else {
-          this.errorMessage = 'Ha ocurrido un error al guardar los cambios. Inténtalo de nuevo.';
-        }
-      }
-    }
+    const oldNickname = this.userInformation?.Nickname;
+    const data: Partial<User> = {
+      Nickname: this.form.get('nickname')?.value ?? undefined,
+      Gmail: this.form.get('email')?.value ?? undefined,
+      Telephone: this.form.get('userPhone')?.value ?? undefined,
+      Password: this.form.get('password')?.value || undefined,
+      Topic: this.selectedTopics?.length ? this.selectedTopics : undefined,
+      Description: this.description || undefined
+    };
+
+    await this.userService.updateUser(this.userInformation!.uid, data, oldNickname);
+    history.back();
   }
 
   protected readonly history = history;

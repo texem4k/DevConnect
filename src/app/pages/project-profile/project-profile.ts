@@ -85,20 +85,20 @@ export class ProjectProfile implements OnInit, OnDestroy {
 
   private async updateSubscriptionState() {
     if (this.id != null) {
-      this.isSubscribed$.next(await this.subscriptions.isSubscribed(this.id));
+      this.isSubscribed$.next(await this.subscriptions.isSubscribed(this.project.id));
     }
   }
 
   subscribe() {
     if (this.id != null) {
-      this.subscriptions.subscribe(this.id);
+      this.subscriptions.subscribe(this.project.id);
       this.isSubscribed$.next(true);
     }
   }
 
   unSubscribe() {
     if (this.id != null) {
-      this.subscriptions.unSubscribe(this.id);
+      this.subscriptions.unSubscribe(this.project.id);
       this.isSubscribed$.next(false);
     }
   }
