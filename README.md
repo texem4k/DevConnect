@@ -11,7 +11,8 @@
 
 ## 1. Consideraciones previas
 
-En este sprint el proyecto ha sido **incluido a Angular 20, IONIC**. De esta manera, ampliamos los dispositivos objetivos, consiguiendo una mayor y mejor compatibilidad con dispositivos móviles. Esto último, se suma a la, ya desarrollada desde el primer sprint, compatibilidad con equipos de sobremesa.
+En este sprint el proyecto ha sido **incluido a Angular 20, IONIC**. De esta manera, ampliamos los dispositivos objetivos, consiguiendo una mayor y mejor compatibilidad con dispositivos móviles. Esto último, se suma a la, ya desarrollada desde el primer sprint, compatibilidad con equipos de sobremesa. Por otro lado, se ha incorporado en el backend soporte para SQLite en dispositivos móviles, ofreciendo así a los usuarios un sistema de favoritos, denominado en nuestro caso inscripciones, con el objetivo de fomentar la creación y participación en comunidades.
+
 
 ## 2. Descripción del proyecto
 
