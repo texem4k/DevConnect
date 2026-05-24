@@ -47,8 +47,6 @@ export class Header {
   private closeTimer: ReturnType<typeof setTimeout> | null = null;
   private isPointerOnTrigger = false;
   private isPointerOnPanel = false;
-
-  // Flag para ignorar el document:click inmediato tras abrir el menú
   private justOpenedProfile = false;
 
   @ViewChildren('dropdownBtn', { read: ElementRef }) dropdownBtns!: QueryList<ElementRef>;
@@ -180,7 +178,6 @@ export class Header {
       }
     }
 
-    // Cerrar perfil — el stopPropagation en toggleProfileMenu ya protege la apertura
     if (this.isProfileMenuOpen) {
       const target = event.target as Node;
       const triggerEl = this.profileTriggerRef?.nativeElement;

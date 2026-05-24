@@ -142,13 +142,16 @@ ion-menu-button {
 /* Responsive */
 @media (max-width: 768px) {
   .header-left,
-  .search-input,
   .header-right {
     display: none;
   }
 
   .home-btn {
     display: none;
+  }
+
+  .search-input {
+    margin-right: 1.5rem;
   }
 
   .hamburger {

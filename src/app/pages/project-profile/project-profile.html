@@ -20,9 +20,14 @@
 
       <aside>
         <app-topics-grid [title]="'Requisitos'" [items]="project.requireTopic"></app-topics-grid>
-
-        <h3>Inscripción</h3>
-        <ion-button id="inscription-button">Inscribirse</ion-button>
+        @if(isLoggedIn){
+          <h3>Inscripción</h3>
+          @if (isSubscribed$ | async) {
+            <ion-button id="inscription-button" (click)="unSubscribe()">Cancelar Inscripción</ion-button>
+          } @else {
+            <ion-button id="inscription-button" (click)="subscribe()">Inscribirse</ion-button>
+          }
+        }
       </aside>
     </div>
   }

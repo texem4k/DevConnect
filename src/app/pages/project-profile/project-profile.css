@@ -23,6 +23,10 @@
   margin-top: 0.5rem;
 }
 
+.overlay-text a {
+  color: white;
+}
+
 .main-content {
   flex: 1;
 }

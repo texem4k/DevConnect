@@ -13,6 +13,8 @@ import { Footer } from '../../shared/components/footer/footer';
 import { Header } from '../../shared/components/header/header';
 import { PaginationComponent } from '../../shared/components/pagination-component/pagination-component';
 import { IonContent, IonItem, IonCheckbox, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton } from '@ionic/angular/standalone';
+import { AuthService } from '../../core/services/auth-service';
+import { SubscriptionsService } from '../../core/services/suscripción';
 
 @Component({
   selector: 'app-search-result',
@@ -40,6 +42,8 @@ export class SearchResult implements OnInit, OnDestroy {
   private projectService = inject(ProjectService);
   private userService = inject(UserService);
   private route = inject(ActivatedRoute);
+  private auth = inject(AuthService);
+  private subscriptionsService = inject(SubscriptionsService);
   private destroy$ = new Subject<void>();
   private readonly PAGE_SIZE = 4;
 
@@ -52,9 +56,14 @@ export class SearchResult implements OnInit, OnDestroy {
 
   users: User[] = [];
   projects: Project[] = [];
+  displayedProjects: Project[] = [];
+  followProjects: Project[] = [];
+  showFollows: boolean = false;
 
   loadingUsers = false;
   loadingProjects = false;
+  isLoggedIn = false;
+
 
   ngOnInit(): void {
     combineLatest([
@@ -66,11 +75,21 @@ export class SearchResult implements OnInit, OnDestroy {
         this.searchQuery = queryParams.get('q') || '';
         this.users = [];
         this.projects = [];
+        this.displayedProjects = [];
         this.currentPageUsers = 1;
         this.currentPageProjects = 1;
         this.currentPageMixed = 1;
         this.loadData();
       });
+
+    this.auth.isLoggedIn$.subscribe(logged => {
+      this.isLoggedIn = logged;
+      if (!logged) {
+        this.showFollows = false;
+        this.displayedProjects = this.projects;
+        this.currentPageProjects = 1;
+      }
+    });
   }
 
   ngOnDestroy(): void {
@@ -87,7 +106,6 @@ export class SearchResult implements OnInit, OnDestroy {
     } else if (this.type === 'projects') {
       this.loadProjects();
     } else {
-      // Sin type en URL → cargar ambos mezclados
       this.loadUsers();
       this.loadProjects();
     }
@@ -131,10 +149,18 @@ export class SearchResult implements OnInit, OnDestroy {
       }),
       takeUntil(this.destroy$)
     ).subscribe({
-      next: (filtered) => {
+      next: async (filtered) => {
         this.projects = filtered;
         this.currentPageProjects = 1;
         this.loadingProjects = false;
+
+        // Si el filtro de seguidos estaba activo, reaplicarlo con los nuevos datos
+        if (this.showFollows) {
+          const subscribedIds = await this.subscriptionsService.getSubscribedProjectIds();
+          this.displayedProjects = this.projects.filter(p => subscribedIds.includes(p.id));
+        } else {
+          this.displayedProjects = filtered;
+        }
       },
       error: (err) => {
         console.error('Error cargando proyectos:', err);
@@ -143,13 +169,25 @@ export class SearchResult implements OnInit, OnDestroy {
     });
   }
 
+  async follows(event: any): Promise<void> {
+    if (this.showFollows) {
+      const subscribedIds = await this.subscriptionsService.getSubscribedProjectIds();
+      this.displayedProjects = this.projects.filter(p => subscribedIds.includes(p.id));
+    } else {
+      this.displayedProjects = this.projects;
+    }
+    this.currentPageProjects = 1;
+  }
+
+  // ── Paginación Proyectos (usa displayedProjects) ──────────────────────────
+
   get pagedProjects(): Project[] {
     const start = (this.currentPageProjects - 1) * this.PAGE_SIZE;
-    return this.projects.slice(start, start + this.PAGE_SIZE);
+    return this.displayedProjects.slice(start, start + this.PAGE_SIZE);
   }
 
   get totalPagesProjects(): number {
-    return Math.ceil(this.projects.length / this.PAGE_SIZE);
+    return Math.ceil(this.displayedProjects.length / this.PAGE_SIZE);
   }
 
   goToPageProjects(page: number): void {
@@ -157,6 +195,8 @@ export class SearchResult implements OnInit, OnDestroy {
       this.currentPageProjects = page;
     }
   }
+
+  // ── Paginación Usuarios ───────────────────────────────────────────────────
 
   get pagedUsers(): User[] {
     const start = (this.currentPageUsers - 1) * this.PAGE_SIZE;
@@ -173,11 +213,13 @@ export class SearchResult implements OnInit, OnDestroy {
     }
   }
 
+  // ── Modo mixto (usa displayedProjects) ────────────────────────────────────
+
   get mixedItems(): (Project | User)[] {
     const result: (Project | User)[] = [];
-    const maxLen = Math.max(this.projects.length, this.users.length);
+    const maxLen = Math.max(this.displayedProjects.length, this.users.length);
     for (let i = 0; i < maxLen; i++) {
-      if (this.projects[i]) result.push(this.projects[i]);
+      if (this.displayedProjects[i]) result.push(this.displayedProjects[i]);
       if (this.users[i]) result.push(this.users[i]);
     }
     return result;

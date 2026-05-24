@@ -6,9 +6,19 @@
       <form class="filters-form">
         <div class="filter-group">
           <h4>Categoría</h4>
-          <ion-item><ion-checkbox disabled> Frontend</ion-checkbox></ion-item>
-          <ion-item><ion-checkbox disabled> Backend</ion-checkbox></ion-item>
-          <ion-item><ion-checkbox disabled> DevOps</ion-checkbox></ion-item>
+          <ion-item><ion-checkbox> Frontend</ion-checkbox></ion-item>
+          <ion-item><ion-checkbox> Backend</ion-checkbox></ion-item>
+          <ion-item><ion-checkbox> DevOps</ion-checkbox></ion-item>
+          @if(isLoggedIn){
+            <ion-item>
+              <ion-checkbox
+                id="followFilter"
+                [disabled]="false"
+                [(ngModel)]="showFollows"
+                (ionChange)="follows($event)"
+              > Seguidos</ion-checkbox>
+            </ion-item>
+          }
         </div>
 
         <div class="filter-group">
@@ -22,7 +32,7 @@
         <div class="filter-group">
           <h4>Ordenar por:</h4>
           <ion-item>
-            <ion-select disabled>
+            <ion-select>
               <ion-select-option value="recent">Más reciente</ion-select-option>
               <ion-select-option value="popular">Más popular</ion-select-option>
             </ion-select>
@@ -43,8 +53,8 @@
       @if(searchQuery && !loadingProjects && !loadingUsers) {
         <h2>Resultados para "{{ searchQuery }}"</h2>
 
-        <h3>Proyectos ({{ projects.length }})</h3>
-        @if(projects.length > 0) {
+        <h3>Proyectos ({{ displayedProjects.length }})</h3>
+        @if(displayedProjects.length > 0) {
           <app-media-list [projects]="pagedProjects" />
           <app-pagination-component
             [currentPage]="currentPageProjects"
@@ -69,12 +79,17 @@
       }
 
       @if(type === 'projects' && !searchQuery && !loadingProjects) {
-        <app-media-list [projects]="pagedProjects" />
-        <app-pagination-component
-          [currentPage]="currentPageProjects"
-          [totalPages]="totalPagesProjects"
-          (pageChange)="goToPageProjects($event)"
-        />
+        <h3>Proyectos ({{ displayedProjects.length }})</h3>
+        @if(displayedProjects.length > 0) {
+          <app-media-list [projects]="pagedProjects" />
+          <app-pagination-component
+            [currentPage]="currentPageProjects"
+            [totalPages]="totalPagesProjects"
+            (pageChange)="goToPageProjects($event)"
+          />
+        } @else {
+          <p>No se encontraron proyectos</p>
+        }
       }
 
       @if(type === 'users' && !searchQuery && !loadingUsers) {
@@ -88,15 +103,19 @@
 
       @if(!type && !searchQuery && !loadingProjects && !loadingUsers) {
         <h2>Explorar</h2>
-        <app-media-list
-          [projects]="pagedMixedProjects"
-          [users]="pagedMixedUsers"
-        />
-        <app-pagination-component
-          [currentPage]="currentPageMixed"
-          [totalPages]="totalPagesMixed"
-          (pageChange)="goToPageMixed($event)"
-        />
+        @if(mixedItems.length > 0) {
+          <app-media-list
+            [projects]="pagedMixedProjects"
+            [users]="pagedMixedUsers"
+          />
+          <app-pagination-component
+            [currentPage]="currentPageMixed"
+            [totalPages]="totalPagesMixed"
+            (pageChange)="goToPageMixed($event)"
+          />
+        } @else {
+          <p>No hay contenido para mostrar</p>
+        }
       }
 
     </div>
