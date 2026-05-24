@@ -1,4 +1,4 @@
-# Sprint 3 | DevConnect
+# Sprint 4 | DevConnect
 
 
 
@@ -11,7 +11,7 @@
 
 ## 1. Consideraciones previas
 
-En este sprint el proyecto ha sido **migrado de HTML/CSS/JS vanilla a Angular 20** con componentes standalone. Ya no se usa carga de templates mediante `loadTemplate.js` ni fetchs a JSON estáticos. Toda la lógica se gestiona mediante **componentes TypeScript**, **servicios con inyección de dependencias** y **Firebase (Firestore + Auth)** como backend.
+En este sprint el proyecto ha sido **incluido a Angular 20, IONIC**. De esta manera, ampliamos los dispositivos objetivos, consiguiendo una mayor y mejor compatibilidad con dispositivos móviles. Esto último, se suma a la, ya desarrollada desde el primer sprint, compatibilidad con equipos de sobremesa.
 
 ## 2. Descripción del proyecto
 
