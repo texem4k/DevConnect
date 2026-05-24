@@ -51,24 +51,41 @@ ion-list.projectList {
 @media (max-width: 768px) {
   :host ::ng-deep app-media-component ion-item {
     width: 95%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    --inner-padding-start: 0;
+    --inner-padding-end: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+
+  :host ::ng-deep app-media-component ion-item::part(native) {
+    flex-direction: column;
     align-items: center;
   }
 
   :host ::ng-deep app-media-component ion-thumbnail {
-    width: 50%;
+    width: 100%;
+    height: 180px;
     margin: 0;
     --border-radius: 8px 8px 0 0;
   }
 
-  :host ::ng-deep app-media-component ion-thumbnail img {
-    object-fit: cover;
+  :host ::ng-deep app-media-component ion-thumbnail ion-img {
+    width: 100%;
+    height: 100%;
+    padding: 0.8rem;
+    --object-fit: cover;
   }
 
   :host ::ng-deep app-media-component ion-label {
     width: 100%;
     text-align: center;
     padding: 0.8rem;
+    margin: 0;
+  }
+
+  :host ::ng-deep app-media-component ion-buttons[slot="end"] {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 0.5rem;
   }
 }

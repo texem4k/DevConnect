@@ -142,7 +142,7 @@
 @media (max-width: 768px) {
   .informationCard,
   .cardLayout {
-    width: 100%;
+    width: calc(100% - 1.25rem);
     flex-direction: column;
     align-items: center;
     padding: 0.85rem;

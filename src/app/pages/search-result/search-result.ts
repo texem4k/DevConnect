@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest, Subject } from 'rxjs';
+import {combineLatest, firstValueFrom, Subject} from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -170,11 +170,14 @@ export class SearchResult implements OnInit, OnDestroy {
   }
 
   async follows(event: any): Promise<void> {
-    if (this.showFollows) {
+    const isChecked = event.detail.checked;
+    this.showFollows = isChecked;
+
+    if (isChecked) {
       const subscribedIds = await this.subscriptionsService.getSubscribedProjectIds();
-      this.displayedProjects = this.projects.filter(p => subscribedIds.includes(p.id));
+      this.displayedProjects = this.projects.filter(p => subscribedIds.includes(String(p.id).trim()));
     } else {
-      this.displayedProjects = this.projects;
+      this.displayedProjects = [...this.projects];
     }
     this.currentPageProjects = 1;
   }

@@ -24,6 +24,10 @@
             "polyfills": [
               "zone.js"
             ],
+            "outputPath": {
+              "base": "www",
+              "browser": ""
+            },
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -82,7 +86,7 @@
                   "maximumError": "40kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
             },
             "development": {
               "optimization": false,

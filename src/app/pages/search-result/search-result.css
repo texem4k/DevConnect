@@ -149,8 +149,8 @@ select option {
 
 @media (max-width: 1024px) {
   aside {
-    flex: 0 0 20%;
-    padding: 14px;
+    flex: 0 0 15%;
+    padding: 10px;
   }
 
   aside h3 {
@@ -164,7 +164,7 @@ select option {
 
 @media (max-width: 768px) {
   aside {
-    flex: 0 0 20%;
+    flex: 0 0 10%;
   }
 
   aside h3 {
